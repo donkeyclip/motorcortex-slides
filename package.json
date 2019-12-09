@@ -1,12 +1,12 @@
 {
-  "name": "@kissmybutton/motorcortex-plugin-boilerplate",
+  "name": "@kissmybutton/motorcortex-slides",
   "version": "0.0.1",
-  "description": "<PLUGIN> plugin for MotorCortex",
+  "description": "Slides plugin for MotorCortex",
   "main": "./dist/main.js",
   "author": "KissMyButton PC (kissmybutton.gr) <opensource@kissmybutton.gr>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kissmybutton/motorcortex-<plugin>.git"
+    "url": "https://github.com/kissmybutton/motorcortex-slides.git"
   },
   "license": "MIT",
   "engines": {
@@ -68,11 +68,15 @@
     }
   },
   "dependencies": {
+    "@kissmybutton/motorcortex": "^3.5.3-rc6",
+    "@kissmybutton/motorcortex-anime": "^1.2.8",
+    "@kissmybutton/motorcortex-wheel-player": "^1.0.0",
     "browserslist": "^4.7.0",
     "caniuse-lite": "^1.0.30000997"
   },
   "peerDependencies": {
-    "@kissmybutton/motorcortex": "^3.0.0-rc16"
+    "@kissmybutton/motorcortex": "^3.5.3-rc5",
+    "@kissmybutton/motorcortex-anime": "^1.2.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -80,8 +84,9 @@
     "@babel/preset-env": "^7.1.0",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.0.1",
-    "@kissmybutton/motorcortex": "^3.0.0-rc16",
-    "@kissmybutton/motorcortex-player": "^1.4.2",
+    "@kissmybutton/motorcortex": "^3.5.3-rc6",
+    "@kissmybutton/motorcortex-anime": "^1.2.8",
+    "@kissmybutton/motorcortex-player": "^1.4.5",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/git": "^7.0.7",
     "@semantic-release/github": "^5.2.8",

@@ -1,47 +1,375 @@
-# motorcortex-plugin-boilerplate
+# motorcortex-slides
 
-## "Usage"
+## Installation
 
-```
-In order to create a MotorCortex-Plugin we recommend using this boilerplate.
-```
-
-## Step 1
-
-Clone this repo using the command 
 ```bash
-git clone https://github.com/kissmybutton/motorcortex-plugin-boilerplate.git
+$ npm install --save @kissmybutton/motorcortex-slides
+# OR
+$ yarn add @kissmybutton/motorcortex-slides
 ```
 
-## Step 2
+## Loading
 
-Install all the required npm modules
-```bash
-npm i
+```javascript
+const MotorCortex = require("@kissmybutton/motorcortex/");
+const slides = require("@kissmybutton/motorcortex-slides");
+const Clip = MotorCortex.loadPlugin(slides);
 ```
 
-## Step 3
+# Create incident
 
-Create your plugin in the src folder. There you will find all the files you need on order to create a plugin with one exported incident.
+## introClip
 
-
-### Step 4
-
-In order to test your plugin in the demo folder we have a demo of the plugin. To run in simply type
-```bash
-npm start
+```javascript
+const introClip = new Clip.Intro(
+  {
+    title: "Demo",
+    subtitle: "Promo Plugin",
+    description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam
+    eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
+    deserunt laboriosam, perspiciatis consequatur nostrum.`,
+    month: "December"
+    bgUrl: "./kissmybutonbg.jpg",
+    overlayColor: "#ff00004d",
+    mainColor: "blue"
+  },
+  {
+    selector: ".container1"
+  }
+);
 ```
 
-#### Step 5
+### introClip Attrs
 
-When you are happy with your plugin execute the followig commands
-```bash
-npm run build
-npm run build:demo
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| subtitle   | subtitle text | string |
+| description |  description text   |  string |
+| month |  the month  |  string  |
+| bgUrl |  the path of background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
 
-git add .
-npm run commit
-git push origin master
 
-npm publish
+
+## transition
+
+```javascript
+const transition = new Clip.Transition(
+  {
+    title: "test"
+  },
+  {
+    selector: ".container2"
+  }
+);
 ```
+
+### transition Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+
+
+
+
+## SlideDateOne
+
+```javascript
+const dayOne = new Clip.SlideDateOne(
+  {
+    subtitle: "MOTORCORTEX TEAM",
+    titleone: "the",
+    str: "Present",
+    description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam
+    eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
+    deserunt laboriosam, perspiciatis consequatur nostrum.`,
+    bgUrl: "./kissmybutonbg.jpg",
+    overlayColor: "#ff00004d",
+    mainColor: "blue",
+    bgUrl2: "./bg2.jpg",
+    month: "December",
+    day: `monday`,
+    number: "20",
+    year: "2019"
+  },
+  {
+    selector: ".container3"
+  }
+);
+```
+
+### SlideDateOne Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| subtitle   | subtitle text | string |
+| description |  description text   |  string |
+| month |  the month  |  string  |
+| day |  the day name  |  string  |
+| number |  the number of day  |  string  |
+| year |  the year |  string  |
+| bgUrl |  the path of background image |  string  |
+| bgUrl2 |  the path of second background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+
+## Scrolslide
+
+```javascript
+const scrolPresenter = new Clip.Scrolslide(
+  {
+    title: "Presenter",
+    name: "RIGANOSKILOS",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg3.jpg",
+    overlayColor: "#ff00004d",
+    mainColor: "blue"
+  },
+  {
+    selector: ".container4"
+  }
+);
+```
+
+### Scrolslide Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| name   |  second title | string |
+| position |  subtitle   |  string |
+| bgUrl |  the path of background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+
+## LtRslide
+
+```javascript
+const ltrPresenter = new Clip.LtRslide(
+  {
+    title: "Presenter",
+    name: "RIGANOSKILOS",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg4.jpg",
+    overlayColor: "#ff00004d",
+    mainColor: "blue"
+  },
+  {
+    selector: ".container6"
+  }
+);
+```
+
+### LtRslide Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| name   |  second title | string |
+| position |  subtitle   |  string |
+| bgUrl |  the path of background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+## SlideDateTwo
+
+```javascript
+const dayTwo = new Clip.SlideDateTwo(
+  {
+    title: "Presenter",
+    name: "RIGANOSKILOS",
+    position: "Web developer at kissmybuton",
+    bigTitle: "Event",
+    bgUrl: "./bg5.jpg",
+    overlayColor: "#ff00b34d",
+    dateOverlay: "#ff00b3",
+    mainColor: "#00ff40",
+    bgUrl2: "./bg2.jpg",
+    month: "December",
+    day: `monday`,
+    number: "20",
+    year: "2019"
+  },
+  {
+    selector: ".container7"
+  }
+);
+```
+
+### SlideDateTwo Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| bigTitle     | big title title text  | string |
+| name   |  second title | string |
+| position |  subtitle   |  string |
+| month |  the month  |  string  |
+| day |  the day name  |  string  |
+| number |  the number of day  |  string  |
+| year |  the year |  string  |
+| bgUrl |  the path of background image |  string  |
+| bgUrl2 |  the path of second background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| dateOverlay |  the overlay color of date container |  hex values or RGB or text  |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+## BtTslide
+
+```javascript
+const bttPresenter = new Clip.BtTslide(
+  {
+    title: "Presenter",
+    name: "RIGANOSKILOS",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg4.jpg",
+    overlayColor: "#ff00004d",
+    mainColor: "blue"
+  },
+  {
+    selector: ".container4"
+  }
+);
+```
+
+### BtTslide Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| name   |  second title | string |
+| position |  subtitle   |  string |
+| bgUrl |  the path of background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+
+
+
+## BtTslideDate
+
+```javascript
+const bttDay = new Clip.BtTslideDate(
+  {
+    title: "Presenter",
+    name: "RIGANOSKILOS",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg3.jpg",
+    overlayColor: "#ff00b34d",
+    dateOverlay: "#ff00b3",
+    mainColor: "#00ff40",
+    bgUrl2: "./bg2.jpg",
+    month: "December",
+    day: `monday`,
+    number: "20",
+    year: "2019"
+  },
+  {
+    selector: ".container10"
+  }
+);
+```
+
+### BtTslideDate Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| name   |  second title | string |
+| position |  subtitle   |  string |
+| month |  the month  |  string  |
+| day |  the day name  |  string  |
+| number |  the number of day  |  string  |
+| year |  the year |  string  |
+| bgUrl |  the path of background image |  string  |
+| bgUrl2 |  the path of second background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| dateOverlay |  the overlay color of date container |  hex values or RGB or text  |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+
+## LtRslideTop
+
+```javascript
+const ltrPresenterTop = new Clip.LtRslideTop(
+  {
+    title: "Presenter",
+    name: "RIGANOSKILOS",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg2.jpg",
+    overlayColor: "#ff00004d",
+    mainColor: "blue"
+  },
+  {
+    selector: ".container11"
+  }
+);
+```
+
+### LtRslideTop Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| name   |  second title | string |
+| position |  subtitle   |  string |
+| bgUrl |  the path of background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+
+## RtLslide
+
+```javascript
+const rtlPresenter = new Clip.RtLslide(
+  {
+    title: "Presenter",
+    name: "RIGANOSKILOS",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg4.jpg",
+    overlayColor: "#ff00004d",
+    mainColor: "blue"
+  },
+  {
+    selector: ".container4"
+  }
+);
+```
+
+### RtLslide Attrs
+
+| Name        | Are           | Values  |
+| ------------- |:-------------:| -----:|
+| title     | title text  | string |
+| name   |  second title | string |
+| position |  subtitle   |  string |
+| bgUrl |  the path of background image |  string  |
+| overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
+| mainColor |  the main color of elementes  |  hex values or RGB or text  |
+
+
+
+
+
+# Add incident to your clip
+
+```javascript
+clip.addIncident(nameOfIncident, 0);
+
+```
+
+
+
