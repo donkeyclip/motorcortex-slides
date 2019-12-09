@@ -1,5 +1,8 @@
 # motorcortex-slides
 
+## Demo
+[Check it out here](https://kissmybutton.github.io/motorcortex-slides/demo/index.html)
+
 ## Installation
 
 ```bash
