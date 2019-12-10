@@ -65,7 +65,7 @@ function (_MotorCortex$API$Clip) {
           easing: "linear"
         }
       }, {
-        duration: 2000,
+        duration: 1000 * this.attrs.speed,
         selector: ".transition-text"
       });
       var transitionContainer = new Anime.Anime({
@@ -73,13 +73,13 @@ function (_MotorCortex$API$Clip) {
           left: "100%"
         },
         initialValues: {
-          left: "-120%"
+          left: "-20%"
         },
         attrs: {
           easing: "linear"
         }
       }, {
-        duration: 2000,
+        duration: 1000 * this.attrs.speed,
         selector: ".transition-container"
       });
       this.addIncident(transitionText, 0);
@@ -88,6 +88,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "html",
     get: function get() {
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div class=\"transition-container\">\n    <p class=\"transition-text\">".concat(this.attrs.title, "</p>\n    </div>\n    ");
     }
   }, {

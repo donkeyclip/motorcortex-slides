@@ -70,7 +70,8 @@ const introClip = new Clip.Intro(
     month: "December",
     bgUrl: "./kissmybutonbg.jpg",
     overlayColor: overlay,
-    mainColor: main
+    mainColor: main,
+    speed: 2
   },
   {
     selector: ".container1"
@@ -79,7 +80,8 @@ const introClip = new Clip.Intro(
 
 const transition = new Clip.Transition(
   {
-    title: "dokimastiko"
+    title: "dokimastiko",
+    speed: 2
   },
   {
     selector: ".container2"
@@ -89,7 +91,7 @@ const transition = new Clip.Transition(
 const transition2 = new Clip.Transition(
   {
     title: "title",
-    subtitle: "bliat"
+    speed: 2
   },
   {
     selector: ".container5"
@@ -98,7 +100,7 @@ const transition2 = new Clip.Transition(
 const transition3 = new Clip.Transition(
   {
     title: "title",
-    subtitle: "bliat"
+    speed: 2
   },
   {
     selector: ".container8"
@@ -107,7 +109,8 @@ const transition3 = new Clip.Transition(
 const transition4 = new Clip.Transition(
   {
     title: "title",
-    subtitle: "bliat"
+    subtitle: "bliat",
+    speed: 2
   },
   {
     selector: ".container9"
@@ -116,7 +119,8 @@ const transition4 = new Clip.Transition(
 
 const transition5 = new Clip.Transition(
   {
-    title: "title"
+    title: "title",
+    speed: 2
   },
   {
     selector: ".container12"
@@ -127,7 +131,7 @@ const dayOne = new Clip.SlideDateOne(
   {
     subtitle: "MOTORCORTEX TEAM",
     titleone: "the",
-    str: "Present",
+    str: "Presents",
     description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
@@ -138,7 +142,8 @@ const dayOne = new Clip.SlideDateOne(
     month: "December",
     day: `monday`,
     number: "20",
-    year: "2019"
+    year: "2019",
+    speed: 2
   },
   {
     selector: ".container3"
@@ -152,7 +157,8 @@ const scrolPresenter = new Clip.Scrolslide(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg3.jpg",
     overlayColor: overlay,
-    mainColor: main
+    mainColor: main,
+    speed: 2
   },
   {
     selector: ".container4"
@@ -166,7 +172,8 @@ const ltrPresenter = new Clip.LtRslide(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg4.jpg",
     overlayColor: overlay,
-    mainColor: main
+    mainColor: main,
+    speed: 2
   },
   {
     selector: ".container6"
@@ -187,7 +194,8 @@ const dayTwo = new Clip.SlideDateTwo(
     month: "December",
     day: `monday`,
     number: "20",
-    year: "2019"
+    year: "2019",
+    speed: 2
   },
   {
     selector: ".container7"
@@ -201,7 +209,8 @@ const dayTwo = new Clip.SlideDateTwo(
 //     position: "Web developer at kissmybuton",
 //     bgUrl: "./bg4.jpg",
 //     overlayColor: overlay,
-//     mainColor: main
+//     mainColor: main,
+//     speed: 2
 //   },
 //   {
 //     selector: ".container4"
@@ -221,7 +230,8 @@ const bttDay = new Clip.BtTslideDate(
     month: "December",
     day: `monday`,
     number: "20",
-    year: "2019"
+    year: "2019",
+    speed: 2
   },
   {
     selector: ".container10"
@@ -235,7 +245,8 @@ const ltrPresenterTop = new Clip.LtRslideTop(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg2.jpg",
     overlayColor: overlay,
-    mainColor: main
+    mainColor: main,
+    speed: 2
   },
   {
     selector: ".container11"
@@ -249,7 +260,8 @@ const ltrPresenterTop = new Clip.LtRslideTop(
 //     position: "Web developer at kissmybuton",
 //     bgUrl: "./bg4.jpg",
 //     overlayColor: overlay,
-//     mainColor: main
+//     mainColor: main,
+//     speed: 2
 //   },
 //   {
 //     selector: ".container4"
@@ -257,16 +269,16 @@ const ltrPresenterTop = new Clip.LtRslideTop(
 // );
 
 clip.addIncident(introClip, 0);
-clip.addIncident(transition, 2800);
-clip.addIncident(dayOne, 3800);
-clip.addIncident(scrolPresenter, 9400);
-clip.addIncident(transition2, 11400);
-clip.addIncident(ltrPresenter, 12400);
-clip.addIncident(dayTwo, 15900);
-clip.addIncident(transition3, 14900);
-clip.addIncident(transition4, 19000);
-clip.addIncident(bttDay, 23900);
-clip.addIncident(transition5, 28400);
-clip.addIncident(ltrPresenterTop, 29400);
+clip.addIncident(transition, 7560);
+clip.addIncident(dayOne, 7800); //7800
+clip.addIncident(scrolPresenter, 19800);
+clip.addIncident(transition2, 19500);
+clip.addIncident(ltrPresenter, 25800);
+clip.addIncident(dayTwo, 32800);
+clip.addIncident(transition3, 32400);
+clip.addIncident(transition4, 39800);
+clip.addIncident(bttDay, 48800);
+clip.addIncident(transition5, 59800);
+clip.addIncident(ltrPresenterTop, 59800);
 
 new Player({ clip });

@@ -36,6 +36,10 @@ class SlideDateTwo extends MotorCortex.API.Clip {
       ? (this.attrs.mainColor = "#00ff40")
       : this.attrs.mainColor;
 
+    this.attrs.speed = !this.attrs.speed
+      ? (this.attrs.speed = 2)
+      : this.attrs.speed;
+
     return `
     <div class="bg">
     <div class="bg-deferi-day-slide">
@@ -266,7 +270,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       }
@@ -283,7 +287,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".second-slide",
         easing: "easeOutCubic"
       }
@@ -297,7 +301,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 7400,
+        duration: 7400 * this.attrs.speed,
         selector: ".big-title",
         easing: "easeOutCubic"
       }
@@ -318,7 +322,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg,.bg-small",
         easing: "easeOutCubic"
       }
@@ -351,7 +355,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg-small",
         easing: "easeOutCubic"
       }
@@ -368,7 +372,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".second-date",
         easing: "easeOutCubic"
       }
@@ -383,7 +387,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".bg-small,.bg",
         easing: "easeOutCubic"
       }
@@ -400,7 +404,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       }
@@ -417,7 +421,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       }
@@ -434,7 +438,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg-big",
         easing: "easeOutCubic"
       }
@@ -451,24 +455,24 @@ class SlideDateTwo extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg-big",
         easing: "easeOutCubic"
       }
     );
 
     this.addIncident(bgMove, 0);
-    this.addIncident(secondSlide, 500);
+    this.addIncident(secondSlide, 500 * this.attrs.speed);
     this.addIncident(bigTitle, 0);
-    this.addIncident(bgscaledown, 3700);
-    this.addIncident(bgscaledownMove, 3700);
-    this.addIncident(bgsecondscaledownMove, 3700);
-    this.addIncident(secondBgDate, 3700);
-    this.addIncident(movePresenterSlide, 3700);
-    this.addIncident(movePresenterSlideLeft, 4000);
-    this.addIncident(moveSecond, 4300);
-    this.addIncident(moveBig, 4200);
-    this.addIncident(moveBigOut, 8000);
+    this.addIncident(bgscaledown, 3700 * this.attrs.speed);
+    this.addIncident(bgscaledownMove, 3700 * this.attrs.speed);
+    this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
+    this.addIncident(secondBgDate, 3700 * this.attrs.speed);
+    this.addIncident(movePresenterSlide, 3700 * this.attrs.speed);
+    this.addIncident(movePresenterSlideLeft, 4000 * this.attrs.speed);
+    this.addIncident(moveSecond, 4300 * this.attrs.speed);
+    this.addIncident(moveBig, 4200 * this.attrs.speed);
+    this.addIncident(moveBigOut, 8000 * this.attrs.speed);
   }
 }
 

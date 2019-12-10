@@ -86,7 +86,7 @@ function (_MotorCortex$API$Clip) {
           selector: ".letter" + (_i + 1),
           easing: "easeOutQuad"
         });
-        word.addIncident(textAnimation, 2000 + 100 * (_i + 1));
+        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * this.attrs.speed);
       }
 
       var bgMove = new Anime.Anime({
@@ -98,7 +98,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -111,7 +111,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
@@ -124,7 +124,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
@@ -137,7 +137,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1200,
+        duration: 1200 * this.attrs.speed,
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
@@ -150,7 +150,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1200,
+        duration: 1000 * this.attrs.speed,
         selector: ".short-description",
         easing: "easeOutQuad"
       });
@@ -167,7 +167,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
@@ -180,7 +180,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -193,7 +193,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
@@ -206,31 +206,43 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".second-date",
         easing: "easeOutQuad"
       });
       var moveSecond = new Anime.Anime({
         animatedAttrs: {
-          left: "-175%"
+          left: "-76%"
         },
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1500,
-        selector: ".bg-second,.bg",
+        duration: 800 * this.attrs.speed,
+        selector: ".bg",
+        easing: "easeOutQuad"
+      });
+      var moveSecondS = new Anime.Anime({
+        animatedAttrs: {
+          left: "-76%"
+        },
+        initialValues: {},
+        attrs: {}
+      }, {
+        duration: 1500 * this.attrs.speed,
+        selector: ".bg-second",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlideTitleOne, 300);
-      this.addIncident(secondSlideTitleTwo, 500);
-      this.addIncident(wordBg, 500);
-      this.addIncident(shortDescription, 900);
-      this.addIncident(bgscaledown, 3700);
-      this.addIncident(bgscaledownMove, 3700);
-      this.addIncident(bgsecondscaledownMove, 3700);
-      this.addIncident(secondBgDate, 3700);
-      this.addIncident(moveSecond, 6000);
+      this.addIncident(secondSlideTitleOne, 300 * this.attrs.speed);
+      this.addIncident(secondSlideTitleTwo, 500 * this.attrs.speed);
+      this.addIncident(wordBg, 500 * this.attrs.speed);
+      this.addIncident(shortDescription, 900 * this.attrs.speed);
+      this.addIncident(bgscaledown, 3700 * this.attrs.speed);
+      this.addIncident(bgscaledownMove, 3700 * this.attrs.speed);
+      this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
+      this.addIncident(secondBgDate, 3700 * this.attrs.speed);
+      this.addIncident(moveSecond, 6000 * this.attrs.speed);
+      this.addIncident(moveSecondS, 6000 * this.attrs.speed);
     }
   }, {
     key: "html",
@@ -239,6 +251,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
       this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div class=\"bg \">\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.titleone, "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.subtitle, "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n          </div>\n      </div>\n    </div>\n    \n\n    ");
     }
   }, {

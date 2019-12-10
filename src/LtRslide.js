@@ -27,6 +27,10 @@ class LtRslide extends MotorCortex.API.Clip {
     this.attrs.mainColor = !this.attrs.mainColor
       ? (this.attrs.mainColor = "#00ff40")
       : this.attrs.mainColor;
+
+    this.attrs.speed = !this.attrs.speed
+      ? (this.attrs.speed = 2)
+      : this.attrs.speed;
     return `
     <div class="bg">
     <div class="bg-quarter-slide">
@@ -138,7 +142,7 @@ class LtRslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide",
         easing: "easeInSine"
       }
@@ -155,7 +159,7 @@ class LtRslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-left",
         easing: "easeOutQuad"
       }
@@ -172,7 +176,7 @@ class LtRslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       }
@@ -189,7 +193,7 @@ class LtRslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       }
@@ -198,7 +202,7 @@ class LtRslide extends MotorCortex.API.Clip {
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(bgOut, 3500);
+    this.addIncident(bgOut, 3500 * this.attrs.speed);
   }
 }
 

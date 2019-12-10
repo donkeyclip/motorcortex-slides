@@ -65,7 +65,7 @@ function (_MotorCortex$API$Clip) {
           easing: "linear"
         }
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide"
       });
       var quarterLeft = new Anime.Anime({
@@ -79,7 +79,7 @@ function (_MotorCortex$API$Clip) {
           easing: "linear"
         }
       }, {
-        duration: 2000,
+        duration: 2000 * this.attrs.speed,
         selector: ".quarter-left"
       });
       var bg = new Anime.Anime({
@@ -93,7 +93,7 @@ function (_MotorCortex$API$Clip) {
           easing: "linear"
         }
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg"
       });
       var bgOut = new Anime.Anime({
@@ -107,13 +107,13 @@ function (_MotorCortex$API$Clip) {
           easing: "linear"
         }
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, 2500);
+      this.addIncident(bgOut, 2500 * this.attrs.speed);
     }
   }, {
     key: "html",
@@ -121,6 +121,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
       this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    ");
     }
   }, {

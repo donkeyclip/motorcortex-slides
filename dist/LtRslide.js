@@ -61,7 +61,7 @@ function (_MotorCortex$API$Clip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide",
         easing: "easeInSine"
       });
@@ -74,7 +74,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-left",
         easing: "easeOutQuad"
       });
@@ -87,7 +87,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -100,14 +100,14 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, 3500);
+      this.addIncident(bgOut, 3500 * this.attrs.speed);
     }
   }, {
     key: "html",
@@ -115,6 +115,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg4.jpg" : this.attrs.bgUrl;
       this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    ");
     }
   }, {

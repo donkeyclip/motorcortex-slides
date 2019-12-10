@@ -16,6 +16,10 @@ class Transition extends MotorCortex.API.Clip {
   }
 
   get html() {
+    this.attrs.speed = !this.attrs.speed
+      ? (this.attrs.speed = 2)
+      : this.attrs.speed;
+
     return `
     <div class="transition-container">
     <p class="transition-text">${this.attrs.title}</p>
@@ -64,7 +68,7 @@ class Transition extends MotorCortex.API.Clip {
         }
       },
       {
-        duration: 2000,
+        duration: 1000 * this.attrs.speed,
         selector: ".transition-text"
       }
     );
@@ -75,14 +79,14 @@ class Transition extends MotorCortex.API.Clip {
           left: "100%"
         },
         initialValues: {
-          left: "-120%"
+          left: "-20%"
         },
         attrs: {
           easing: "linear"
         }
       },
       {
-        duration: 2000,
+        duration: 1000 * this.attrs.speed,
         selector: ".transition-container"
       }
     );

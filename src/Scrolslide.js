@@ -27,6 +27,10 @@ class Scrolslide extends MotorCortex.API.Clip {
     this.attrs.mainColor = !this.attrs.mainColor
       ? (this.attrs.mainColor = "#00ff40")
       : this.attrs.mainColor;
+
+    this.attrs.speed = !this.attrs.speed
+      ? (this.attrs.speed = 2)
+      : this.attrs.speed;
     return `
     <div class="third-holder ">
     <div class="bg">
@@ -164,7 +168,7 @@ class Scrolslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".third-holder",
         easing: "easeOutQuad"
       }
@@ -184,7 +188,7 @@ class Scrolslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".third-holder",
         easing: "easeOutQuad"
       }
@@ -203,7 +207,7 @@ class Scrolslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       }
@@ -224,7 +228,7 @@ class Scrolslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 800,
+        duration: 800 * this.attrs.speed,
         selector: ".presenter",
         easing: "easeOutQuad"
       }
@@ -241,7 +245,7 @@ class Scrolslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".third-holder",
         easing: "easeOutQuad"
       }
@@ -250,8 +254,8 @@ class Scrolslide extends MotorCortex.API.Clip {
     this.addIncident(moveThird, 0);
     this.addIncident(thirdScaleUp, 0);
     this.addIncident(moveThirdIner, 0);
-    this.addIncident(movePresenter, 700);
-    this.addIncident(bgOut, 3000);
+    this.addIncident(movePresenter, 700 * this.attrs.speed);
+    this.addIncident(bgOut, 3000 * this.attrs.speed);
   }
 }
 

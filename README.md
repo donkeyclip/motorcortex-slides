@@ -31,7 +31,8 @@ const introClip = new Clip.Intro(
     month: "December"
     bgUrl: "./kissmybutonbg.jpg",
     overlayColor: "#ff00004d",
-    mainColor: "blue"
+    mainColor: "blue",
+    speed: 2
   },
   {
     selector: ".container1"
@@ -50,6 +51,8 @@ const introClip = new Clip.Intro(
 | bgUrl |  the path of background image |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
+
 
 
 
@@ -58,7 +61,8 @@ const introClip = new Clip.Intro(
 ```javascript
 const transition = new Clip.Transition(
   {
-    title: "test"
+    title: "test",
+    speed: 2
   },
   {
     selector: ".container2"
@@ -93,7 +97,8 @@ const dayOne = new Clip.SlideDateOne(
     month: "December",
     day: `monday`,
     number: "20",
-    year: "2019"
+    year: "2019",
+    speed: 2
   },
   {
     selector: ".container3"
@@ -129,7 +134,8 @@ const scrolPresenter = new Clip.Scrolslide(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg3.jpg",
     overlayColor: "#ff00004d",
-    mainColor: "blue"
+    mainColor: "blue",
+    speed: 2
   },
   {
     selector: ".container4"
@@ -160,7 +166,8 @@ const ltrPresenter = new Clip.LtRslide(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg4.jpg",
     overlayColor: "#ff00004d",
-    mainColor: "blue"
+    mainColor: "blue",
+    speed: 2
   },
   {
     selector: ".container6"
@@ -197,7 +204,8 @@ const dayTwo = new Clip.SlideDateTwo(
     month: "December",
     day: `monday`,
     number: "20",
-    year: "2019"
+    year: "2019",
+    speed: 2
   },
   {
     selector: ".container7"
@@ -234,7 +242,8 @@ const bttPresenter = new Clip.BtTslide(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg4.jpg",
     overlayColor: "#ff00004d",
-    mainColor: "blue"
+    mainColor: "blue",
+    speed: 2
   },
   {
     selector: ".container4"
@@ -273,7 +282,8 @@ const bttDay = new Clip.BtTslideDate(
     month: "December",
     day: `monday`,
     number: "20",
-    year: "2019"
+    year: "2019",
+    speed: 2
   },
   {
     selector: ".container10"
@@ -310,7 +320,8 @@ const ltrPresenterTop = new Clip.LtRslideTop(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg2.jpg",
     overlayColor: "#ff00004d",
-    mainColor: "blue"
+    mainColor: "blue",
+    speed: 2
   },
   {
     selector: ".container11"
@@ -341,7 +352,8 @@ const rtlPresenter = new Clip.RtLslide(
     position: "Web developer at kissmybuton",
     bgUrl: "./bg4.jpg",
     overlayColor: "#ff00004d",
-    mainColor: "blue"
+    mainColor: "blue",
+    speed: 2
   },
   {
     selector: ".container4"

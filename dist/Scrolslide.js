@@ -65,7 +65,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
@@ -82,7 +82,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
@@ -97,7 +97,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -114,7 +114,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 800,
+        duration: 800 * this.attrs.speed,
         selector: ".presenter",
         easing: "easeOutQuad"
       });
@@ -127,15 +127,15 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
       this.addIncident(moveThird, 0);
       this.addIncident(thirdScaleUp, 0);
       this.addIncident(moveThirdIner, 0);
-      this.addIncident(movePresenter, 700);
-      this.addIncident(bgOut, 3000);
+      this.addIncident(movePresenter, 700 * this.attrs.speed);
+      this.addIncident(bgOut, 3000 * this.attrs.speed);
     }
   }, {
     key: "html",
@@ -143,6 +143,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
       this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div class=\"third-holder \">\n    <div class=\"bg\">\n      <div class=\"bg-third-slide\">\n        <div class=\"third-first-presenter-slide\">\n          <div class=\"third-presenter-container\">\n            <div class=\"third-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n    <div class=\"bg\">\n      <div class=\"bg-third-slide\">\n        <div class=\"third-first-presenter-slide\">\n          <div class=\"third-presenter-container\">\n            <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n    <div class=\"bg\">\n      <div class=\"bg-third-slide\">\n        <div class=\"third-first-presenter-slide\">\n          <div class=\"third-presenter-container\">\n            <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n    \n\n    ");
     }
   }, {

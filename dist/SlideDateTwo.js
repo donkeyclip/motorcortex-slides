@@ -63,7 +63,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -76,7 +76,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".second-slide",
         easing: "easeOutCubic"
       });
@@ -87,7 +87,7 @@ function (_MotorCortex$API$Clip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 7400,
+        duration: 7400 * this.attrs.speed,
         selector: ".big-title",
         easing: "easeOutCubic"
       });
@@ -104,7 +104,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg,.bg-small",
         easing: "easeOutCubic"
       });
@@ -130,7 +130,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg-small",
         easing: "easeOutCubic"
       });
@@ -143,7 +143,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".second-date",
         easing: "easeOutCubic"
       });
@@ -154,7 +154,7 @@ function (_MotorCortex$API$Clip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".bg-small,.bg",
         easing: "easeOutCubic"
       });
@@ -167,7 +167,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
@@ -180,7 +180,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -193,7 +193,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg-big",
         easing: "easeOutCubic"
       });
@@ -206,22 +206,22 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg-big",
         easing: "easeOutCubic"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlide, 500);
+      this.addIncident(secondSlide, 500 * this.attrs.speed);
       this.addIncident(bigTitle, 0);
-      this.addIncident(bgscaledown, 3700);
-      this.addIncident(bgscaledownMove, 3700);
-      this.addIncident(bgsecondscaledownMove, 3700);
-      this.addIncident(secondBgDate, 3700);
-      this.addIncident(movePresenterSlide, 3700);
-      this.addIncident(movePresenterSlideLeft, 4000);
-      this.addIncident(moveSecond, 4300);
-      this.addIncident(moveBig, 4200);
-      this.addIncident(moveBigOut, 8000);
+      this.addIncident(bgscaledown, 3700 * this.attrs.speed);
+      this.addIncident(bgscaledownMove, 3700 * this.attrs.speed);
+      this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
+      this.addIncident(secondBgDate, 3700 * this.attrs.speed);
+      this.addIncident(movePresenterSlide, 3700 * this.attrs.speed);
+      this.addIncident(movePresenterSlideLeft, 4000 * this.attrs.speed);
+      this.addIncident(moveSecond, 4300 * this.attrs.speed);
+      this.addIncident(moveBig, 4200 * this.attrs.speed);
+      this.addIncident(moveBigOut, 8000 * this.attrs.speed);
     }
   }, {
     key: "html",
@@ -231,6 +231,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
       this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div class=\"bg\">\n    <div class=\"bg-deferi-day-slide\">\n      <div class=\"big-title\">".concat(this.attrs.bigTitle, "</div>\n      <div class=\"test-mask \">\n        <div class=\"defter-date-container\">\n          <div class=\"defter-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    <div class=\"bg-second bg-small\">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    <div class=\"bg-second bg-big \">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    \n\n    ");
     }
   }, {

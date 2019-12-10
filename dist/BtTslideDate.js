@@ -63,7 +63,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
@@ -76,7 +76,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 2000,
+        duration: 2000 * this.attrs.speed,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -89,7 +89,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -106,7 +106,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
@@ -119,7 +119,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -132,7 +132,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
@@ -149,7 +149,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
@@ -162,7 +162,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -175,7 +175,7 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
@@ -188,20 +188,20 @@ function (_MotorCortex$API$Clip) {
         },
         attrs: {}
       }, {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgscaledown, 3000);
-      this.addIncident(bgsecondscaledownMove, 3000);
-      this.addIncident(bgscaledownMove, 3000);
-      this.addIncident(bgscaleup, 4000);
-      this.addIncident(bgscaledownMoveOut, 4000);
-      this.addIncident(bgsecondscaledownMoveOut, 4000);
-      this.addIncident(bgMoveOut, 5500);
+      this.addIncident(bgscaledown, 3000 * this.attrs.speed);
+      this.addIncident(bgsecondscaledownMove, 3000 * this.attrs.speed);
+      this.addIncident(bgscaledownMove, 3000 * this.attrs.speed);
+      this.addIncident(bgscaleup, 4000 * this.attrs.speed);
+      this.addIncident(bgscaledownMoveOut, 4000 * this.attrs.speed);
+      this.addIncident(bgsecondscaledownMoveOut, 4000 * this.attrs.speed);
+      this.addIncident(bgMoveOut, 5500 * this.attrs.speed);
     }
   }, {
     key: "html",
@@ -211,6 +211,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
       this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n   <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <div class=\"bg-next\">\n  <div class=\"bg-quarter-slide\">\n    <div class=\"test-mask\">\n      <div class=\"defter-date-container\">\n        <div class=\"defter-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n    ");
     }
   }, {

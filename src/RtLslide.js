@@ -27,6 +27,10 @@ class RtLslide extends MotorCortex.API.Clip {
     this.attrs.mainColor = !this.attrs.mainColor
       ? (this.attrs.mainColor = "#00ff40")
       : this.attrs.mainColor;
+
+    this.attrs.speed = !this.attrs.speed
+      ? (this.attrs.speed = 2)
+      : this.attrs.speed;
     return `
     <div class="bg">
     <div class="bg-quarter-slide">
@@ -134,7 +138,7 @@ class RtLslide extends MotorCortex.API.Clip {
         }
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".quarter-left"
       }
     );
@@ -152,7 +156,7 @@ class RtLslide extends MotorCortex.API.Clip {
         }
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".quarter-left"
       }
     );
@@ -170,7 +174,7 @@ class RtLslide extends MotorCortex.API.Clip {
         }
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg"
       }
     );
@@ -188,7 +192,7 @@ class RtLslide extends MotorCortex.API.Clip {
         }
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg"
       }
     );
@@ -196,7 +200,7 @@ class RtLslide extends MotorCortex.API.Clip {
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(bgOut, 2500);
+    this.addIncident(bgOut, 2500 * this.attrs.speed);
   }
 }
 

@@ -36,6 +36,10 @@ class BtTslideDate extends MotorCortex.API.Clip {
       ? (this.attrs.mainColor = "#00ff40")
       : this.attrs.mainColor;
 
+    this.attrs.speed = !this.attrs.speed
+      ? (this.attrs.speed = 2)
+      : this.attrs.speed;
+
     return `
    <div class="bg">
     <div class="bg-quarter-slide">
@@ -211,7 +215,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500,
+        duration: 1500 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       }
@@ -228,7 +232,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 2000,
+        duration: 2000 * this.attrs.speed,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       }
@@ -245,7 +249,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       }
@@ -266,7 +270,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       }
@@ -283,7 +287,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       }
@@ -299,7 +303,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg-next",
         easing: "easeOutCubic"
       }
@@ -320,7 +324,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       }
@@ -336,7 +340,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg",
         easing: "easeOutCubic"
       }
@@ -353,7 +357,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 500,
+        duration: 500 * this.attrs.speed,
         selector: ".bg-next",
         easing: "easeOutCubic"
       }
@@ -370,7 +374,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1000,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg-next",
         easing: "easeOutCubic"
       }
@@ -379,13 +383,13 @@ class BtTslideDate extends MotorCortex.API.Clip {
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(bgscaledown, 3000);
-    this.addIncident(bgsecondscaledownMove, 3000);
-    this.addIncident(bgscaledownMove, 3000);
-    this.addIncident(bgscaleup, 4000);
-    this.addIncident(bgscaledownMoveOut, 4000);
-    this.addIncident(bgsecondscaledownMoveOut, 4000);
-    this.addIncident(bgMoveOut, 5500);
+    this.addIncident(bgscaledown, 3000 * this.attrs.speed);
+    this.addIncident(bgsecondscaledownMove, 3000 * this.attrs.speed);
+    this.addIncident(bgscaledownMove, 3000 * this.attrs.speed);
+    this.addIncident(bgscaleup, 4000 * this.attrs.speed);
+    this.addIncident(bgscaledownMoveOut, 4000 * this.attrs.speed);
+    this.addIncident(bgsecondscaledownMoveOut, 4000 * this.attrs.speed);
+    this.addIncident(bgMoveOut, 5500 * this.attrs.speed);
   }
 }
 
