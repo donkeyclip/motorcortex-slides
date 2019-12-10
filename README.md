@@ -1,5 +1,8 @@
 # motorcortex-slides
 
+## Demo
+[Check it out here](https://kissmybutton.github.io/motorcortex-slides/demo/index.html)
+
 ## Installation
 
 ```bash
@@ -75,6 +78,7 @@ const transition = new Clip.Transition(
 | Name        | Are           | Values  |
 | ------------- |:-------------:| -----:|
 | title     | title text  | string |
+| speed |  how much slow animation will play  |  num |
 
 
 
@@ -121,6 +125,7 @@ const dayOne = new Clip.SlideDateOne(
 | bgUrl2 |  the path of second background image |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 
@@ -153,6 +158,7 @@ const scrolPresenter = new Clip.Scrolslide(
 | bgUrl |  the path of background image |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 
@@ -185,6 +191,7 @@ const ltrPresenter = new Clip.LtRslide(
 | bgUrl |  the path of background image |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 ## SlideDateTwo
@@ -230,6 +237,7 @@ const dayTwo = new Clip.SlideDateTwo(
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | dateOverlay |  the overlay color of date container |  hex values or RGB or text  |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 ## BtTslide
@@ -261,6 +269,7 @@ const bttPresenter = new Clip.BtTslide(
 | bgUrl |  the path of background image |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 
@@ -307,6 +316,7 @@ const bttDay = new Clip.BtTslideDate(
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | dateOverlay |  the overlay color of date container |  hex values or RGB or text  |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 
@@ -339,6 +349,7 @@ const ltrPresenterTop = new Clip.LtRslideTop(
 | bgUrl |  the path of background image |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 
@@ -371,6 +382,7 @@ const rtlPresenter = new Clip.RtLslide(
 | bgUrl |  the path of background image |  string  |
 | overlayColor |  the overlay color of background image |  hex values or RGBA or text or list of hex/RGBA values |
 | mainColor |  the main color of elementes  |  hex values or RGB or text  |
+| speed |  how much slow animation will play  |  num |
 
 
 
