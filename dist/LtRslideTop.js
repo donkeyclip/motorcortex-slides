@@ -49,7 +49,7 @@ function (_MotorCortex$API$Clip) {
         fontsize = 100;
       }
 
-      return fontsize;
+      return Math.round(fontsize);
     }
   }, {
     key: "buildTree",

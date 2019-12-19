@@ -12,7 +12,7 @@ class LtRslideTop extends MotorCortex.API.Clip {
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-    return fontsize;
+    return Math.round(fontsize);
   }
 
   get html() {
