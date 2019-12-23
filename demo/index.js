@@ -144,7 +144,8 @@ const dayOne = new Clip.SlideDateOneVid(
     number: "20",
     year: "2019",
     speed: 2,
-    vidDuration: 6000
+    vidDuration: 6000,
+    vidLink: ["./vid.mp4"]
   },
   {
     selector: ".container3"

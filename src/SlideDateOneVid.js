@@ -210,7 +210,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
   buildTree() {
     const VideoClip = new VideoPlugin.Clip(
       {
-        sources: ["./vid.mp4"],
+        sources: this.attrs.vidLink,
         width: 1920,
         height: 1080,
         startFrom: 0

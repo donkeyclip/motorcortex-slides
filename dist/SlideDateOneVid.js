@@ -59,7 +59,7 @@ function (_MotorCortex$API$Clip) {
     key: "buildTree",
     value: function buildTree() {
       var VideoClip = new VideoPlugin.Clip({
-        sources: ["./vid.mp4"],
+        sources: this.attrs.vidLink,
         width: 1920,
         height: 1080,
         startFrom: 0
