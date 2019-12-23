@@ -8,6 +8,7 @@ const BtTslide = require("./BtTslide");
 const BtTslideDate = require("./BtTslideDate");
 const LtRslideTop = require("./LtRslideTop");
 const RtLslide = require("./RtLslide");
+const SlideDateOneVid = require("./SlideDateOneVid");
 module.exports = {
   npm_name: "@kissmybutton/motorcortex-ClipPromo",
   incidents: [
@@ -22,6 +23,10 @@ module.exports = {
     {
       exportable: SlideDateOne,
       name: "SlideDateOne"
+    },
+    {
+      exportable: SlideDateOneVid,
+      name: "SlideDateOneVid"
     },
     {
       exportable: SlideDateTwo,

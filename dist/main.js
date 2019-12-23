@@ -20,6 +20,8 @@ var LtRslideTop = require("./LtRslideTop");
 
 var RtLslide = require("./RtLslide");
 
+var SlideDateOneVid = require("./SlideDateOneVid");
+
 module.exports = {
   npm_name: "@kissmybutton/motorcortex-ClipPromo",
   incidents: [{
@@ -31,6 +33,9 @@ module.exports = {
   }, {
     exportable: SlideDateOne,
     name: "SlideDateOne"
+  }, {
+    exportable: SlideDateOneVid,
+    name: "SlideDateOneVid"
   }, {
     exportable: SlideDateTwo,
     name: "SlideDateTwo"
