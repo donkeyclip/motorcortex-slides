@@ -98,10 +98,10 @@ function (_MotorCortex$API$Clip) {
       });
       var bgOut = new Anime.Anime({
         animatedAttrs: {
-          left: "100%"
+          right: "0%"
         },
         initialValues: {
-          left: "0%"
+          right: "100%"
         },
         attrs: {
           easing: "linear"

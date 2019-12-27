@@ -273,14 +273,14 @@ const ltrPresenterTop = new Clip.LtRslideTop(
 clip.addIncident(introClip, 0);
 clip.addIncident(transition, 7560);
 clip.addIncident(dayOne, 7800); //7800
-clip.addIncident(scrolPresenter, 19800 + 6000);
-clip.addIncident(transition2, 19500 + 6000);
-clip.addIncident(ltrPresenter, 25800 + 6000);
-clip.addIncident(dayTwo, 32800 + 6000);
-clip.addIncident(transition3, 32400 + 6000);
-clip.addIncident(transition4, 39800 + 6000);
-clip.addIncident(bttDay, 48800 + 6000);
-clip.addIncident(transition5, 59800 + 6000);
-clip.addIncident(ltrPresenterTop, 59800 + 6000);
+clip.addIncident(scrolPresenter, 19800 + 1000);
+clip.addIncident(transition2, 19500 + 1000);
+clip.addIncident(ltrPresenter, 25800 + 1000);
+clip.addIncident(dayTwo, 32800 + 1000);
+clip.addIncident(transition3, 32400 + 1000);
+clip.addIncident(transition4, 39800 + 1000);
+clip.addIncident(bttDay, 48800 + 1000);
+clip.addIncident(transition5, 59800 + 1000);
+clip.addIncident(ltrPresenterTop, 59800 + 1000);
 
 new Player({ clip });
