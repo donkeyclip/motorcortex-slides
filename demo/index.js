@@ -240,35 +240,35 @@ const bttDay = new Clip.BtTslideDate(
   }
 );
 
-const ltrPresenterTop = new Clip.LtRslideTop(
-  {
-    title: "Presenter",
-    name: "name surname",
-    position: "Web developer at kissmybuton",
-    bgUrl: "./bg2.jpg",
-    overlayColor: overlay,
-    mainColor: main,
-    speed: 2
-  },
-  {
-    selector: ".container11"
-  }
-);
-
-// const rtlPresenter = new Clip.RtLslide(
+// const ltrPresenterTop = new Clip.LtRslideTop(
 //   {
 //     title: "Presenter",
 //     name: "name surname",
 //     position: "Web developer at kissmybuton",
-//     bgUrl: "./bg4.jpg",
+//     bgUrl: "./bg2.jpg",
 //     overlayColor: overlay,
 //     mainColor: main,
 //     speed: 2
 //   },
 //   {
-//     selector: ".container4"
+//     selector: ".container11"
 //   }
 // );
+
+const rtlPresenter = new Clip.RtLslide(
+  {
+    title: "Presenter",
+    name: "name surname",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg4.jpg",
+    overlayColor: overlay,
+    mainColor: main,
+    speed: 2
+  },
+  {
+    selector: ".container16"
+  }
+);
 
 clip.addIncident(introClip, 0);
 clip.addIncident(transition, 7560);
@@ -281,6 +281,6 @@ clip.addIncident(transition3, 32400 + 1000);
 clip.addIncident(transition4, 39800 + 1000);
 clip.addIncident(bttDay, 48800 + 1000);
 clip.addIncident(transition5, 59800 + 1000);
-clip.addIncident(ltrPresenterTop, 59800 + 1000);
+clip.addIncident(rtlPresenter, 59800 + 1000);
 
 new Player({ clip });
