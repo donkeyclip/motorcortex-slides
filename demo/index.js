@@ -204,20 +204,20 @@ const dayTwo = new Clip.SlideDateTwo(
   }
 );
 
-// const bttPresenter = new Clip.BtTslide(
-//   {
-//     title: "Presenter",
-//     name: "name surname",
-//     position: "Web developer at kissmybuton",
-//     bgUrl: "./bg4.jpg",
-//     overlayColor: overlay,
-//     mainColor: main,
-//     speed: 2
-//   },
-//   {
-//     selector: ".container4"
-//   }
-// );
+const bttPresenter = new Clip.BtTslide(
+  {
+    title: "Presenter",
+    name: "name surname",
+    position: "Web developer at kissmybuton",
+    bgUrl: "./bg4.jpg",
+    overlayColor: overlay,
+    mainColor: main,
+    speed: 2
+  },
+  {
+    selector: ".container16"
+  }
+);
 
 const bttDay = new Clip.BtTslideDate(
   {
@@ -266,21 +266,21 @@ const rtlPresenter = new Clip.RtLslide(
     speed: 2
   },
   {
-    selector: ".container16"
+    selector: ".container11"
   }
 );
 
 clip.addIncident(introClip, 0);
-clip.addIncident(transition, 7560);
-clip.addIncident(dayOne, 7800); //7800
-clip.addIncident(scrolPresenter, 19800 + 1000);
-clip.addIncident(transition2, 19500 + 1000);
-clip.addIncident(ltrPresenter, 25800 + 1000);
-clip.addIncident(dayTwo, 32800 + 1000);
-clip.addIncident(transition3, 32400 + 1000);
-clip.addIncident(transition4, 39800 + 1000);
-clip.addIncident(bttDay, 48800 + 1000);
-clip.addIncident(transition5, 59800 + 1000);
-clip.addIncident(rtlPresenter, 59800 + 1000);
+// clip.addIncident(transition, clip.calculatedDuration);
+clip.addIncident(dayOne, clip.calculatedDuration-2000); //7800
+clip.addIncident(scrolPresenter, clip.calculatedDuration-2000);
+// clip.addIncident(transition2, 19500 + 1000);
+clip.addIncident(ltrPresenter, clip.calculatedDuration-2000);
+clip.addIncident(dayTwo, clip.calculatedDuration-2000);
+// clip.addIncident(transition3, 32400 + 1000);
+// clip.addIncident(transition4, 39800 + 1000);
+clip.addIncident(bttDay,clip.calculatedDuration-2000);
+// clip.addIncident(transition5, 59800 + 1000);
+ clip.addIncident(bttPresenter, clip.calculatedDuration-2000);
 
 new Player({ clip });

@@ -201,7 +201,7 @@ function (_MotorCortex$API$Clip) {
       this.addIncident(bgscaleup, 4000 * this.attrs.speed);
       this.addIncident(bgscaledownMoveOut, 4000 * this.attrs.speed);
       this.addIncident(bgsecondscaledownMoveOut, 4000 * this.attrs.speed);
-      this.addIncident(bgMoveOut, 5500 * this.attrs.speed);
+      this.addIncident(bgMoveOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
   }, {
     key: "html",

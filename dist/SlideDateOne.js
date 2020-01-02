@@ -242,7 +242,7 @@ function (_MotorCortex$API$Clip) {
       this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
       this.addIncident(secondBgDate, 3700 * this.attrs.speed);
       this.addIncident(moveSecond, 6000 * this.attrs.speed);
-      this.addIncident(moveSecondS, 6000 * this.attrs.speed);
+      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * this.attrs.speed);
     }
   }, {
     key: "html",

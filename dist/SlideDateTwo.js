@@ -154,7 +154,7 @@ function (_MotorCortex$API$Clip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1000 * this.attrs.speed,
         selector: ".bg-small,.bg",
         easing: "easeOutCubic"
       });
@@ -219,9 +219,9 @@ function (_MotorCortex$API$Clip) {
       this.addIncident(secondBgDate, 3700 * this.attrs.speed);
       this.addIncident(movePresenterSlide, 3700 * this.attrs.speed);
       this.addIncident(movePresenterSlideLeft, 4000 * this.attrs.speed);
-      this.addIncident(moveSecond, 4300 * this.attrs.speed);
-      this.addIncident(moveBig, 4200 * this.attrs.speed);
-      this.addIncident(moveBigOut, 8000 * this.attrs.speed);
+      this.addIncident(moveSecond, this.calculatedDuration - 3000 * this.attrs.speed);
+      this.addIncident(moveBig, this.calculatedDuration - 3200 * this.attrs.speed);
+      this.addIncident(moveBigOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
   }, {
     key: "html",

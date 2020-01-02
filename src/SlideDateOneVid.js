@@ -44,6 +44,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
       : this.attrs.vidDuration;
 
     return `
+    <div class="parent">
     <div class="bg ">
     <div class ="vid"></div>
     <div class="second-slide">
@@ -67,7 +68,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
           </div>
       </div>
     </div>
-    
+    </div>
 
     `;
   }
@@ -87,6 +88,12 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
       flex-wrap: wrap;
       flex: 1 0 auto;
       left: -100%
+    }
+    .parent{
+      position:relative;
+      width: 1920px;
+      height: 1080px;
+      left:0%;
     }
     .bg:after,.bg-second:after {
       content: "";
@@ -430,38 +437,39 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
       }
     );
 
-    const moveSecond = new Anime.Anime(
-      {
-        animatedAttrs: {
-          left: "-76%"
-        },
-        initialValues: {},
-        attrs: {}
-      },
-      {
-        duration: 800 * this.attrs.speed,
-        selector: ".bg",
-        easing: "easeOutQuad"
-      }
-    );
+    // const moveSecond = new Anime.Anime(
+    //   {
+    //     animatedAttrs: {
+    //       left: "-76%"
+    //     },
+    //     initialValues: {},
+    //     attrs: {}
+    //   },
+    //   {
+    //     duration: 1000 * this.attrs.speed,
+    //     selector: ".bg",
+    //     easing: "easeOutQuad"
+    //   }
+    // );
 
     const moveSecondS = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-76%"
+          left: "-100%"
         },
-        initialValues: {},
+        initialValues: {
+          left: "0%"
+        },
         attrs: {}
       },
       {
-        duration: 1500 * this.attrs.speed,
-        selector: ".bg-second",
+        duration: 1000 * this.attrs.speed,
+        selector: ".parent",
         easing: "easeOutQuad"
       }
     );
 
     this.addIncident(bgMove, 0);
-
     this.addIncident(secondSlideTitleOne, 300 * this.attrs.speed);
     this.addIncident(secondSlideTitleTwo, 500 * this.attrs.speed);
     this.addIncident(wordBg, 500 * this.attrs.speed);
@@ -470,8 +478,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
     this.addIncident(bgscaledownMove, 3700 * this.attrs.speed + delay);
     this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed + delay);
     this.addIncident(secondBgDate, 3700 * this.attrs.speed + delay);
-    this.addIncident(moveSecond, 6000 * this.attrs.speed + delay);
-    this.addIncident(moveSecondS, 6000 * this.attrs.speed + delay);
+    this.addIncident(moveSecondS, this.calculatedDuration+(1000*this.attrs.speed));
   }
 }
 

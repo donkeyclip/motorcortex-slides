@@ -229,27 +229,32 @@ function (_MotorCortex$API$Clip) {
         duration: 1000 * this.attrs.speed,
         selector: ".second-date",
         easing: "easeOutQuad"
-      });
-      var moveSecond = new Anime.Anime({
-        animatedAttrs: {
-          left: "-76%"
-        },
-        initialValues: {},
-        attrs: {}
-      }, {
-        duration: 800 * this.attrs.speed,
-        selector: ".bg",
-        easing: "easeOutQuad"
-      });
+      }); // const moveSecond = new Anime.Anime(
+      //   {
+      //     animatedAttrs: {
+      //       left: "-76%"
+      //     },
+      //     initialValues: {},
+      //     attrs: {}
+      //   },
+      //   {
+      //     duration: 1000 * this.attrs.speed,
+      //     selector: ".bg",
+      //     easing: "easeOutQuad"
+      //   }
+      // );
+
       var moveSecondS = new Anime.Anime({
         animatedAttrs: {
-          left: "-76%"
+          left: "-100%"
         },
-        initialValues: {},
+        initialValues: {
+          left: "0%"
+        },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
-        selector: ".bg-second",
+        duration: 1000 * this.attrs.speed,
+        selector: ".parent",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
@@ -261,8 +266,7 @@ function (_MotorCortex$API$Clip) {
       this.addIncident(bgscaledownMove, 3700 * this.attrs.speed + delay);
       this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed + delay);
       this.addIncident(secondBgDate, 3700 * this.attrs.speed + delay);
-      this.addIncident(moveSecond, 6000 * this.attrs.speed + delay);
-      this.addIncident(moveSecondS, 6000 * this.attrs.speed + delay);
+      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * this.attrs.speed);
     }
   }, {
     key: "html",
@@ -273,12 +277,12 @@ function (_MotorCortex$API$Clip) {
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       this.attrs.vidDuration = !this.attrs.vidDuration ? this.attrs.vidDuration = 6000 : this.attrs.vidDuration;
-      return "\n    <div class=\"bg \">\n    <div class =\"vid\"></div>\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.titleone, "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.subtitle, "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n          </div>\n      </div>\n    </div>\n    \n\n    ");
+      return "\n    <div class=\"parent\">\n    <div class=\"bg \">\n    <div class =\"vid\"></div>\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.titleone, "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.subtitle, "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n          </div>\n      </div>\n    </div>\n    </div>\n\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n    .bg,.bg-second {\n      width: 1920px;\n      height: 1080px;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: absolute;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left: -100%\n    }\n    .bg:after,.bg-second:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-second{\n      left:100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n    }\n    .vid{\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 1920px;\n      height: 1080px;\n    }\n\n    .short-description{\n      font-size: 20px;\n      color: #fff;\n      position: relative;\n      white-space: normal;\n      text-align: left;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n      width: 720px;\n      left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n        \n      }\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n        \n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n  ");
+      return "\n    .bg,.bg-second {\n      width: 1920px;\n      height: 1080px;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: absolute;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left: -100%\n    }\n    .parent{\n      position:relative;\n      width: 1920px;\n      height: 1080px;\n      left:0%;\n    }\n    .bg:after,.bg-second:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-second{\n      left:100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n    }\n    .vid{\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 1920px;\n      height: 1080px;\n    }\n\n    .short-description{\n      font-size: 20px;\n      color: #fff;\n      position: relative;\n      white-space: normal;\n      text-align: left;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n      width: 720px;\n      left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n        \n      }\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n        \n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n  ");
     }
   }]);
 

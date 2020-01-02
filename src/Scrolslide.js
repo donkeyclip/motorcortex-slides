@@ -168,7 +168,7 @@ class Scrolslide extends MotorCortex.API.Clip {
         attrs: {}
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 1000 * this.attrs.speed,
         selector: ".third-holder",
         easing: "easeOutQuad"
       }
@@ -255,7 +255,7 @@ class Scrolslide extends MotorCortex.API.Clip {
     this.addIncident(thirdScaleUp, 0);
     this.addIncident(moveThirdIner, 0);
     this.addIncident(movePresenter, 700 * this.attrs.speed);
-    this.addIncident(bgOut, 3000 * this.attrs.speed);
+    this.addIncident(bgOut, this.calculatedDuration+(1000*this.attrs.speed));
   }
 }
 

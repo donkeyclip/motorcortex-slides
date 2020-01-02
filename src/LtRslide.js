@@ -202,7 +202,7 @@ class LtRslide extends MotorCortex.API.Clip {
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(bgOut, 3500 * this.attrs.speed);
+    this.addIncident(bgOut, this.calculatedDuration+(1000*this.attrs.speed));
   }
 }
 
