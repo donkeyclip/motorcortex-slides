@@ -175,7 +175,8 @@ class RtLslide extends MotorCortex.API.Clip {
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: ".bg"
+        selector: ".bg",
+        easing: "easeOutQuad"
       }
     );
 
@@ -193,7 +194,8 @@ class RtLslide extends MotorCortex.API.Clip {
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: ".bg"
+        selector: ".bg",
+        easing: "easeOutQuad"
       }
     );
 

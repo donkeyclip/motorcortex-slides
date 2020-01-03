@@ -191,7 +191,9 @@ class LtRslideTop extends MotorCortex.API.Clip {
         easing: "easeOutCubic"
       }
     );
+ 
 
+     
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);

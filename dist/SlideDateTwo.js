@@ -208,7 +208,7 @@ function (_MotorCortex$API$Clip) {
       }, {
         duration: 1000 * this.attrs.speed,
         selector: ".bg-big",
-        easing: "easeOutCubic"
+        easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
       this.addIncident(secondSlide, 500 * this.attrs.speed);

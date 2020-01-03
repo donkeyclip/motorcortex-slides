@@ -94,7 +94,8 @@ function (_MotorCortex$API$Clip) {
         }
       }, {
         duration: 1000 * this.attrs.speed,
-        selector: ".bg"
+        selector: ".bg",
+        easing: "easeOutQuad"
       });
       var bgOut = new Anime.Anime({
         animatedAttrs: {
@@ -108,7 +109,8 @@ function (_MotorCortex$API$Clip) {
         }
       }, {
         duration: 1000 * this.attrs.speed,
-        selector: ".bg"
+        selector: ".bg",
+        easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);

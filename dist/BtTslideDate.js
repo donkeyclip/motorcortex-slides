@@ -91,7 +91,7 @@ function (_MotorCortex$API$Clip) {
       }, {
         duration: 1000 * this.attrs.speed,
         selector: ".bg",
-        easing: "easeOutCubic"
+        easing: "easeOutQuad"
       });
       var bgscaledown = new Anime.Anime({
         animatedAttrs: {
@@ -190,7 +190,7 @@ function (_MotorCortex$API$Clip) {
       }, {
         duration: 1000 * this.attrs.speed,
         selector: ".bg-next",
-        easing: "easeOutCubic"
+        easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);

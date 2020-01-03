@@ -251,7 +251,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: ".bg",
-        easing: "easeOutCubic"
+        easing: "easeOutQuad"
       }
     );
 
@@ -376,7 +376,7 @@ class BtTslideDate extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: ".bg-next",
-        easing: "easeOutCubic"
+        easing: "easeOutQuad"
       }
     );
 

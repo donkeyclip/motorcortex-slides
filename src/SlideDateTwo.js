@@ -457,7 +457,7 @@ class SlideDateTwo extends MotorCortex.API.Clip {
       {
         duration: 1000 * this.attrs.speed,
         selector: ".bg-big",
-        easing: "easeOutCubic"
+        easing: "easeOutQuad"
       }
     );
 
