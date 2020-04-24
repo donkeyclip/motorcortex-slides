@@ -1,6 +1,6 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const Player = require("@kissmybutton/motorcortex-player/");
-const PromoPlugin = require("../src/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const Player = require("@kissmybutton/motorcortex-player");
+const PromoPlugin = require("../dist/motorcortex-slides.umd.js");
 const Clip = MotorCortex.loadPlugin(PromoPlugin);
 
 const css = `
@@ -78,54 +78,54 @@ const introClip = new Clip.Intro(
   }
 );
 
-const transition = new Clip.Transition(
-  {
-    title: "dokimastiko",
-    speed: 2
-  },
-  {
-    selector: ".container2"
-  }
-);
+// const transition = new Clip.Transition(
+//   {
+//     title: "dokimastiko",
+//     speed: 2
+//   },
+//   {
+//     selector: ".container2"
+//   }
+// );
 
-const transition2 = new Clip.Transition(
-  {
-    title: "title",
-    speed: 2
-  },
-  {
-    selector: ".container5"
-  }
-);
-const transition3 = new Clip.Transition(
-  {
-    title: "title",
-    speed: 2
-  },
-  {
-    selector: ".container8"
-  }
-);
-const transition4 = new Clip.Transition(
-  {
-    title: "title",
-    subtitle: "bliat",
-    speed: 2
-  },
-  {
-    selector: ".container9"
-  }
-);
+// const transition2 = new Clip.Transition(
+//   {
+//     title: "title",
+//     speed: 2
+//   },
+//   {
+//     selector: ".container5"
+//   }
+// );
+// const transition3 = new Clip.Transition(
+//   {
+//     title: "title",
+//     speed: 2
+//   },
+//   {
+//     selector: ".container8"
+//   }
+// );
+// const transition4 = new Clip.Transition(
+//   {
+//     title: "title",
+//     subtitle: "bliat",
+//     speed: 2
+//   },
+//   {
+//     selector: ".container9"
+//   }
+// );
 
-const transition5 = new Clip.Transition(
-  {
-    title: "title",
-    speed: 2
-  },
-  {
-    selector: ".container12"
-  }
-);
+// const transition5 = new Clip.Transition(
+//   {
+//     title: "title",
+//     speed: 2
+//   },
+//   {
+//     selector: ".container12"
+//   }
+// );
 
 const dayOne = new Clip.SlideDateOneVid(
   {
@@ -255,32 +255,32 @@ const bttDay = new Clip.BtTslideDate(
 //   }
 // );
 
-const rtlPresenter = new Clip.RtLslide(
-  {
-    title: "Presenter",
-    name: "name surname",
-    position: "Web developer at kissmybuton",
-    bgUrl: "./bg4.jpg",
-    overlayColor: overlay,
-    mainColor: main,
-    speed: 2
-  },
-  {
-    selector: ".container11"
-  }
-);
+// const rtlPresenter = new Clip.RtLslide(
+//   {
+//     title: "Presenter",
+//     name: "name surname",
+//     position: "Web developer at kissmybuton",
+//     bgUrl: "./bg4.jpg",
+//     overlayColor: overlay,
+//     mainColor: main,
+//     speed: 2
+//   },
+//   {
+//     selector: ".container11"
+//   }
+// );
 
 clip.addIncident(introClip, 0);
 // clip.addIncident(transition, clip.calculatedDuration);
-clip.addIncident(dayOne, clip.calculatedDuration-2000); //7800
-clip.addIncident(scrolPresenter, clip.calculatedDuration-2000);
+clip.addIncident(dayOne, clip.calculatedDuration - 2000); //7800
+clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
 // clip.addIncident(transition2, 19500 + 1000);
-clip.addIncident(ltrPresenter, clip.calculatedDuration-2000);
-clip.addIncident(dayTwo, clip.calculatedDuration-2000);
+clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
+clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
 // clip.addIncident(transition3, 32400 + 1000);
 // clip.addIncident(transition4, 39800 + 1000);
-clip.addIncident(bttDay,clip.calculatedDuration-2000);
+clip.addIncident(bttDay, clip.calculatedDuration - 2000);
 // clip.addIncident(transition5, 59800 + 1000);
- clip.addIncident(bttPresenter, clip.calculatedDuration-2000);
+clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
 
 new Player({ clip });

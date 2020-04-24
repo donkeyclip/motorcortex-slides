@@ -1,5 +1,5 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
 class Scrolslide extends MotorCortex.API.Clip {
@@ -255,7 +255,7 @@ class Scrolslide extends MotorCortex.API.Clip {
     this.addIncident(thirdScaleUp, 0);
     this.addIncident(moveThirdIner, 0);
     this.addIncident(movePresenter, 700 * this.attrs.speed);
-    this.addIncident(bgOut, this.calculatedDuration+(1000*this.attrs.speed));
+    this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
   }
 }
 

@@ -1,5 +1,5 @@
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime/dist/main");
+const MotorCortex = require("@kissmybutton/motorcortex");
+const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
 class SlideDateTwo extends MotorCortex.API.Clip {
@@ -470,10 +470,19 @@ class SlideDateTwo extends MotorCortex.API.Clip {
     this.addIncident(secondBgDate, 3700 * this.attrs.speed);
     this.addIncident(movePresenterSlide, 3700 * this.attrs.speed);
     this.addIncident(movePresenterSlideLeft, 4000 * this.attrs.speed);
-    this.addIncident(moveSecond, this.calculatedDuration-(3000*this.attrs.speed));
-    this.addIncident(moveBig, this.calculatedDuration-(3200*this.attrs.speed));
-     this.addIncident(moveBigOut,this.calculatedDuration+(1000*this.attrs.speed));
+    this.addIncident(
+      moveSecond,
+      this.calculatedDuration - 3000 * this.attrs.speed
+    );
+    this.addIncident(
+      moveBig,
+      this.calculatedDuration - 3200 * this.attrs.speed
+    );
+    this.addIncident(
+      moveBigOut,
+      this.calculatedDuration + 1000 * this.attrs.speed
+    );
   }
 }
-  
+
 module.exports = SlideDateTwo;
