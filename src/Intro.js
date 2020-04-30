@@ -404,7 +404,7 @@ class Intro extends MotorCortex.API.Clip {
         },
         initialValues: {
           transform: {
-            translateX: "0"
+            translateX: "0%"
           }
         },
         attrs: {}

@@ -177,12 +177,12 @@ class Scrolslide extends MotorCortex.API.Clip {
       {
         animatedAttrs: {
           transform: {
-            scale: "1"
+            scale: 1
           }
         },
         initialValues: {
           transform: {
-            scale: "0.5"
+            scale: 0.5
           }
         },
         attrs: {}
