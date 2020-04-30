@@ -1,4 +1,4 @@
-import motorcortex from '@kissmybutton/motorcortex';
+import MC from '@kissmybutton/motorcortex';
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -69,14 +69,153 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
+function _classCallCheck$1(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
 }
 
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
+function _defineProperties$1(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
 }
 
+function _createClass$1(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$1(Constructor, staticProps);
+  return Constructor;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _inherits$1(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf$1(subClass, superClass);
+}
+
+function _getPrototypeOf$1(o) {
+  _getPrototypeOf$1 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf$1(o);
+}
+
+function _setPrototypeOf$1(o, p) {
+  _setPrototypeOf$1 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf$1(o, p);
+}
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized$1(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn$1(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized$1(self);
+}
+
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf$1(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf$1(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn$1(this, result);
+  };
+}
 /*
  * anime.js v3.1.0
  * (c) 2019 Julian Garnier
@@ -84,6 +223,8 @@ function createCommonjsModule(fn, module) {
  * animejs.com
  */
 // Defaults
+
+
 var defaultInstanceSettings = {};
 var defaultTweenSettings = {
   duration: 1000,
@@ -905,9 +1046,9 @@ anime.get = getOriginalTargetValue;
 anime.set = setTargetsValue;
 anime.convertPx = convertPxToUnit;
 anime.penner = penner;
-
-var compoAttributes = {
-  transform: ["translateX", "translateY", "translateZ", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "skewX", "skewY", "perspective"]
+var transform = ["translateX", "translateY", "translateZ", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "skewX", "skewY", "perspective"];
+var compositeAttributes = {
+  transform: transform
 };
 
 function getMatrix2D(win, element) {
@@ -948,225 +1089,959 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var matrix2d = getMatrix2D;
+var Anime =
+/*#__PURE__*/
+function (_MC$API$MonoIncident) {
+  _inherits$1(Anime, _MC$API$MonoIncident);
 
-var Anime_1 = createCommonjsModule(function (module, exports) {
+  var _super = _createSuper(Anime);
 
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = void 0;
+  function Anime() {
+    _classCallCheck$1(this, Anime);
 
-  var _animeEs = _interopRequireDefault(anime);
-
-  function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
+    return _super.apply(this, arguments);
   }
 
-  function _typeof(obj) {
-    if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function _typeof(obj) {
-        return typeof obj;
-      };
-    } else {
-      _typeof = function _typeof(obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-      };
-    }
+  _createClass$1(Anime, [{
+    key: "onGetContext",
+    value: function onGetContext() {
+      var options = {};
+      var initialize = {};
 
-    return _typeof(obj);
-  }
+      if (Object.prototype.hasOwnProperty.call(compositeAttributes, this.attributeKey)) {
+        var compoAttribute = compositeAttributes[this.attributeKey];
 
-  function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
-
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
-      }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    }
-
-    return target;
-  }
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _possibleConstructorReturn(self, call) {
-    if (call && (_typeof(call) === "object" || typeof call === "function")) {
-      return call;
-    }
-
-    return _assertThisInitialized(self);
-  }
-
-  function _assertThisInitialized(self) {
-    if (self === void 0) {
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
-
-    return self;
-  }
-
-  function _getPrototypeOf(o) {
-    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-      return o.__proto__ || Object.getPrototypeOf(o);
-    };
-    return _getPrototypeOf(o);
-  }
-
-  function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-      throw new TypeError("Super expression must either be null or a function");
-    }
-
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-      constructor: {
-        value: subClass,
-        writable: true,
-        configurable: true
-      }
-    });
-    if (superClass) _setPrototypeOf(subClass, superClass);
-  }
-
-  function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-      o.__proto__ = p;
-      return o;
-    };
-
-    return _setPrototypeOf(o, p);
-  }
-
-  var Anime =
-  /*#__PURE__*/
-  function (_MC$API$MonoIncident) {
-    _inherits(Anime, _MC$API$MonoIncident);
-
-    function Anime() {
-      _classCallCheck(this, Anime);
-
-      return _possibleConstructorReturn(this, _getPrototypeOf(Anime).apply(this, arguments));
-    }
-
-    _createClass(Anime, [{
-      key: "onGetContext",
-      value: function onGetContext() {
-        var options = {};
-        var initialize = {};
-
-        if (compoAttributes.hasOwnProperty(this.attributeKey)) {
-          var compoAttribute = compoAttributes[this.attributeKey];
-
-          for (var i = 0; i < compoAttribute.length; i++) {
-            if (!this.targetValue.hasOwnProperty(compoAttribute[i])) {
-              continue;
-            }
-
-            options[compoAttribute[i]] = [this.getInitialValue()[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
-            initialize[compoAttribute[i]] = [this.getScratchValue(), this.targetValue[compoAttribute[i]]];
-          }
-        } else {
-          options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
-          initialize[this.targetValue] = [this.getScratchValue(), this.targetValue];
-        }
-
-        this.target = (0, _animeEs.default)(_objectSpread({
-          autoplay: false,
-          duration: this.props.duration,
-          easing: "linear",
-          targets: this.element
-        }, (this.attrs || {}).attrs || {}, options)); // handle first render initial values
-      }
-    }, {
-      key: "getScratchValue",
-      value: function getScratchValue() {
-        if (this.attributeKey === "transform") {
-          var obj = {};
-          var transform = compoAttributes[this.attributeKey];
-          var currentTransform = matrix2d(this.context.window, this.element);
-
-          for (var i = 0; i < transform.length; i++) {
-            if (currentTransform.hasOwnProperty(transform[i])) {
-              obj[transform[i]] = currentTransform[transform[i]];
-            } else {
-              obj[transform[i]] = _animeEs.default.get(this.element, transform[i]);
-            }
+        for (var i = 0; i < compoAttribute.length; i++) {
+          if (!Object.prototype.hasOwnProperty.call(this.targetValue, compoAttribute[i])) {
+            continue;
           }
 
-          return obj;
+          options[compoAttribute[i]] = [this.getInitialValue()[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
+          initialize[compoAttribute[i]] = [this.getScratchValue(), this.targetValue[compoAttribute[i]]];
+        }
+      } else {
+        options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
+        initialize[this.targetValue] = [this.getScratchValue(), this.targetValue];
+      }
+
+      this.target = anime(_objectSpread2({
+        autoplay: false,
+        duration: this.props.duration,
+        easing: "linear",
+        targets: this.element
+      }, (this.attrs || {}).attrs || {}, {}, options)); // handle first render initial values
+    }
+  }, {
+    key: "getScratchValue",
+    value: function getScratchValue() {
+      if (this.attributeKey === "transform") {
+        var obj = {};
+        var transform = compositeAttributes[this.attributeKey];
+        var currentTransform = getMatrix2D(this.context.window, this.element);
+
+        for (var i = 0; i < transform.length; i++) {
+          if (Object.prototype.hasOwnProperty.call(currentTransform, transform[i])) {
+            obj[transform[i]] = currentTransform[transform[i]];
+          } else {
+            obj[transform[i]] = anime.get(this.element, transform[i]);
+          }
         }
 
-        return _animeEs.default.get(this.element, this.attributeKey);
+        return obj;
       }
-    }, {
-      key: "onProgress",
-      value: function onProgress(f) {
-        return this.target.seek(this.target.duration * f);
+
+      return anime.get(this.element, this.attributeKey);
+    }
+    /**
+     * @param {number} f
+     */
+
+  }, {
+    key: "onProgress",
+    value: function onProgress(f) {
+      return this.target.seek(this.target.duration * f);
+    }
+  }]);
+
+  return Anime;
+}(MC.API.MonoIncident);
+
+var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
+var ru = ["deg", "rad", "grad", "turn"];
+var _MEASUREMENT = "measurement";
+var _COLOR = "color";
+var animatedAttrs = {
+  type: "object",
+  // strict : true,
+  props: {
+    background: {
+      optional: true,
+      type: _COLOR
+    },
+    backgroundColor: {
+      optional: true,
+      type: _COLOR
+    },
+    backgroundPosition: {
+      optional: true,
+      type: "string"
+    },
+    backgroundSize: {
+      optional: true,
+      type: "string"
+    },
+    border: {
+      optional: true,
+      type: "string"
+    },
+    borderBottom: {
+      optional: true,
+      type: "string"
+    },
+    borderBottomColor: {
+      optional: true,
+      type: _COLOR
+    },
+    borderBottomLeftRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderBottomRightRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderBottomWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderColor: {
+      optional: true,
+      type: _COLOR
+    },
+    borderEndEndRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderEndStartRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderImageOutset: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    borderImageSlice: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    borderImageWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    borderLeft: {
+      optional: true,
+      type: "string"
+    },
+    borderLeftColor: {
+      optional: true,
+      type: _COLOR
+    },
+    borderLeftWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderRight: {
+      optional: true,
+      type: "string"
+    },
+    borderRightColor: {
+      optional: true,
+      type: _COLOR
+    },
+    borderRightWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderStartEndRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderStartStartRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderTop: {
+      optional: true,
+      type: "string"
+    },
+    borderTopColor: {
+      optional: true,
+      type: _COLOR
+    },
+    borderTopLeftRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderTopRightRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderTopWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    borderWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    bottom: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    boxShadow: {
+      optional: true,
+      type: "string"
+    },
+    caretColor: {
+      optional: true,
+      type: _COLOR
+    },
+    color: {
+      optional: true,
+      type: _COLOR
+    },
+    columnCount: {
+      optional: true,
+      type: "number",
+      min: 0,
+      integer: true
+    },
+    columnGap: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    columnRule: {
+      optional: true,
+      type: "string"
+    },
+    columnRuleColor: {
+      optional: true,
+      type: _COLOR
+    },
+    columnRuleWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    columns: {
+      optional: true,
+      type: "number",
+      min: 0,
+      integer: true
+    },
+    columnWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    flex: {
+      optional: true,
+      type: "number",
+      min: 0,
+      integer: true
+    },
+    flexBasis: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    flexGrow: {
+      optional: true,
+      type: "number",
+      min: 0,
+      integer: true
+    },
+    flexShrink: {
+      optional: true,
+      type: "number",
+      min: 0,
+      integer: true
+    },
+    font: {
+      optional: true,
+      type: "string"
+    },
+    fontSize: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    fontSizeAdjust: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    fontStretch: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: ["%"]
+    },
+    fontWeight: {
+      optional: true,
+      type: "string"
+    },
+    gap: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    gridColumnGap: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    gridGap: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    gridRowGap: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    gridTemplateColumns: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    gridTemplateRows: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    height: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    inset: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    insetBlock: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    insetBlockEnd: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    insetBlockStart: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    insetInline: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    insetInlineEnd: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    insetInlineStart: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    left: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    letterSpacing: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    lineClamp: {
+      optional: true,
+      type: "number",
+      min: 0,
+      integer: true
+    },
+    lineHeight: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    margin: {
+      optional: true,
+      type: "string"
+    },
+    marginBottom: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    marginLeft: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    marginRight: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    marginTop: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    maskBorder: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    maskPosition: {
+      optional: true,
+      type: "string"
+    },
+    maskSize: {
+      optional: true,
+      type: "string"
+    },
+    maxHeight: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    maxWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu,
+      min: 0
+    },
+    objectPosition: {
+      optional: true,
+      type: "string"
+    },
+    offset: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    offsetAnchor: {
+      optional: true,
+      type: "string"
+    },
+    offsetDistance: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    offsetPath: {
+      optional: true,
+      type: "string"
+    },
+    offsetPosition: {
+      optional: true,
+      type: "string"
+    },
+    offsetRotate: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: ru
+    },
+    opacity: {
+      optional: true,
+      type: "number",
+      min: 0,
+      max: 1
+    },
+    order: {
+      optional: true,
+      type: "number",
+      integer: true
+    },
+    outline: {
+      optional: true,
+      type: "string"
+    },
+    outlineColor: {
+      optional: true,
+      type: _COLOR
+    },
+    outlineOffset: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    outlineRadius: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    outlineRadiusBottomleft: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    outlineRadiusBottomright: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    outlineRadiusTopleft: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    outlineRadiusTopright: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    outlineWidth: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    padding: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    paddingBottom: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    paddingLeft: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    paddingRight: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    paddingTop: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    perspective: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    perspectiveOrigin: {
+      optional: true,
+      type: "string"
+    },
+    right: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    rotate: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: ru
+    },
+    rowGap: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scale: {
+      optional: true,
+      type: "number",
+      min: 0
+    },
+    scrollbarColor: {
+      optional: true,
+      type: _COLOR
+    },
+    scrollMargin: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginBlock: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginBlockEnd: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginBlockStart: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginBottom: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginInline: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginInlineEnd: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginInlineStart: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginLeft: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginRight: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollMarginTop: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPadding: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingBlock: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingBlockEnd: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingBlockStart: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingBottom: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingInline: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingInlineEnd: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingInlineStart: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingLeft: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingRight: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollPaddingTop: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    scrollSnapCoordinate: {
+      optional: true,
+      type: "string"
+    },
+    scrollSnapDestination: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    shapeImageThreshold: {
+      optional: true,
+      type: "string"
+    },
+    shapeMargin: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    shapeOutside: {
+      optional: true,
+      type: "string"
+    },
+    tabSize: {
+      optional: true,
+      type: "string"
+    },
+    textDecoration: {
+      optional: true,
+      type: "string"
+    },
+    textDecorationColor: {
+      optional: true,
+      type: _COLOR
+    },
+    textDecorationThickness: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    textEmphasis: {
+      optional: true,
+      type: "string"
+    },
+    textEmphasisColor: {
+      optional: true,
+      type: _COLOR
+    },
+    textFillColor: {
+      optional: true,
+      type: _COLOR
+    },
+    textIndent: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    textShadow: {
+      optional: true,
+      type: "string"
+    },
+    textStroke: {
+      optional: true,
+      type: "string"
+    },
+    textStrokeColor: {
+      optional: true,
+      type: _COLOR
+    },
+    textUnderlineOffset: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    top: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    transform: {
+      optional: true,
+      type: "object",
+      props: {
+        translateX: {
+          type: _MEASUREMENT,
+          units: nu,
+          optional: true
+        },
+        translateY: {
+          type: _MEASUREMENT,
+          units: nu,
+          optional: true
+        },
+        translateZ: {
+          type: _MEASUREMENT,
+          units: nu,
+          optional: true
+        },
+        rotate: {
+          type: _MEASUREMENT,
+          units: ru,
+          optional: true
+        },
+        rotateX: {
+          type: _MEASUREMENT,
+          units: ru,
+          optional: true
+        },
+        rotateY: {
+          type: _MEASUREMENT,
+          units: ru,
+          optional: true
+        },
+        rotateZ: {
+          type: _MEASUREMENT,
+          units: ru,
+          optional: true
+        },
+        scale: {
+          type: "number",
+          min: 0,
+          optional: true
+        },
+        scaleX: {
+          type: "number",
+          min: 0,
+          optional: true
+        },
+        scaleY: {
+          type: "number",
+          min: 0,
+          optional: true
+        },
+        scaleZ: {
+          type: "number",
+          min: 0,
+          optional: true
+        },
+        skewX: {
+          type: _MEASUREMENT,
+          units: ru,
+          optional: true
+        },
+        skewY: {
+          type: _MEASUREMENT,
+          units: ru,
+          optional: true
+        },
+        perspective: {
+          type: _MEASUREMENT,
+          units: nu,
+          optional: true
+        }
       }
-    }]);
-
-    return Anime;
-  }(motorcortex.API.MonoIncident);
-
-  exports.default = Anime;
-});
-unwrapExports(Anime_1);
-
-var main = {
+    },
+    transformOrigin: {
+      optional: true,
+      type: "string"
+    },
+    verticalAlign: {
+      optional: true,
+      type: "string"
+    },
+    visibility: {
+      optional: true,
+      type: "string"
+    },
+    width: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    wordSpacing: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: nu
+    },
+    zIndex: {
+      optional: true,
+      type: "number",
+      integer: true
+    },
+    zoom: {
+      optional: true,
+      type: _MEASUREMENT,
+      units: ["%"],
+      min: 0
+    }
+  },
+  transformOrigin: {
+    type: "string"
+  },
+  verticalAlign: {
+    type: "string"
+  },
+  visibility: {
+    type: "string"
+  },
+  width: {
+    type: _MEASUREMENT,
+    units: nu
+  },
+  wordSpacing: {
+    type: _MEASUREMENT,
+    units: nu
+  },
+  zIndex: {
+    type: "number",
+    integer: true
+  },
+  zoom: {
+    type: _MEASUREMENT,
+    units: ["%"],
+    min: 0
+  }
+};
+var index = {
   npm_name: "@kissmybutton/motorcortex-anime",
   incidents: [{
-    exportable: Anime_1,
-    name: "Anime"
+    exportable: Anime,
+    name: "Anime",
+    attributesValidationRules: {
+      animatedAttrs: animatedAttrs
+    }
   }],
-  compositeAttributes: compoAttributes
+  compositeAttributes: compositeAttributes
 };
 
-var Anime = motorcortex.loadPlugin(main);
+var Anime$1 = MC.loadPlugin(index);
 
 var Intro =
 /*#__PURE__*/
@@ -1198,7 +2073,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var titleanime = new Anime.Anime({
+      var titleanime = new Anime$1.Anime({
         animatedAttrs: {
           width: "100%"
         },
@@ -1211,7 +2086,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".title-text",
         easing: "easeOutQuad"
       });
-      var bg = new Anime.Anime({
+      var bg = new Anime$1.Anime({
         animatedAttrs: {
           backgroundSize: "3000px"
         },
@@ -1224,7 +2099,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var subtextRight = new Anime.Anime({
+      var subtextRight = new Anime$1.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -1237,7 +2112,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".subtitle-text",
         easing: "easeOutQuad"
       });
-      var subholderRight = new Anime.Anime({
+      var subholderRight = new Anime$1.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -1250,7 +2125,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".subtitle-holder",
         easing: "easeOutQuad"
       });
-      var subtitleRight = new Anime.Anime({
+      var subtitleRight = new Anime$1.Anime({
         animatedAttrs: {
           left: "".concat(864 * this.attrs.speed - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
         },
@@ -1261,7 +2136,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".sub",
         easing: "easeOutQuad"
       });
-      var datespan = new Anime.Anime({
+      var datespan = new Anime$1.Anime({
         animatedAttrs: {
           transform: {
             translateX: "0%"
@@ -1278,7 +2153,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".date span",
         easing: "easeOutQuad"
       });
-      var dateHolderWidth = new Anime.Anime({
+      var dateHolderWidth = new Anime$1.Anime({
         animatedAttrs: {
           width: "45%"
         },
@@ -1290,7 +2165,7 @@ function (_MotorCortex$API$Clip) {
         duration: 10,
         selector: ".date-holder"
       });
-      var scaleFirstSlide = new Anime.Anime({
+      var scaleFirstSlide = new Anime$1.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -1307,7 +2182,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".first-slide",
         easing: "easeOutQuad"
       });
-      var description = new Anime.Anime({
+      var description = new Anime$1.Anime({
         animatedAttrs: {
           transform: {
             translateY: "0%"
@@ -1324,7 +2199,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".description",
         easing: "easeOutQuad"
       });
-      var descriptiontext = new Anime.Anime({
+      var descriptiontext = new Anime$1.Anime({
         animatedAttrs: {
           transform: {
             translateY: "0%"
@@ -1341,7 +2216,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".description-text",
         easing: "easeOutQuad"
       });
-      var bgQut = new Anime.Anime({
+      var bgQut = new Anime$1.Anime({
         animatedAttrs: {
           transform: {
             translateX: "100%"
@@ -1387,11 +2262,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return Intro;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var Intro_1 = Intro;
 
-var Anime$1 = motorcortex.loadPlugin(main);
+var Anime$2 = MC.loadPlugin(index);
 
 var Transition =
 /*#__PURE__*/
@@ -1423,7 +2298,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var transitionText = new Anime$1.Anime({
+      var transitionText = new Anime$2.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -1437,7 +2312,7 @@ function (_MotorCortex$API$Clip) {
         duration: 1000 * this.attrs.speed,
         selector: ".transition-text"
       });
-      var transitionContainer = new Anime$1.Anime({
+      var transitionContainer = new Anime$2.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -1468,11 +2343,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return Transition;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var Transition_1 = Transition;
 
-var Anime$2 = motorcortex.loadPlugin(main);
+var Anime$3 = MC.loadPlugin(index);
 
 var SlideDateOne =
 /*#__PURE__*/
@@ -1516,7 +2391,7 @@ function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new motorcortex.Clip({
+      var word = new MC.Clip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -1525,7 +2400,7 @@ function (_MotorCortex$API$Clip) {
       this.addIncident(word, 0);
 
       for (var _i = 0; _i < array.length; _i++) {
-        var textAnimation = new Anime$2.Anime({
+        var textAnimation = new Anime$3.Anime({
           animatedAttrs: {
             top: "0px",
             opacity: 1
@@ -1539,7 +2414,7 @@ function (_MotorCortex$API$Clip) {
         word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * this.attrs.speed);
       }
 
-      var bgMove = new Anime$2.Anime({
+      var bgMove = new Anime$3.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -1552,7 +2427,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleOne = new Anime$2.Anime({
+      var secondSlideTitleOne = new Anime$3.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -1565,7 +2440,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleTwo = new Anime$2.Anime({
+      var secondSlideTitleTwo = new Anime$3.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -1578,7 +2453,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
-      var wordBg = new Anime$2.Anime({
+      var wordBg = new Anime$3.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -1591,7 +2466,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
-      var shortDescription = new Anime$2.Anime({
+      var shortDescription = new Anime$3.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -1604,7 +2479,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".short-description",
         easing: "easeOutQuad"
       });
-      var bgscaledown = new Anime$2.Anime({
+      var bgscaledown = new Anime$3.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -1621,7 +2496,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
-      var bgscaledownMove = new Anime$2.Anime({
+      var bgscaledownMove = new Anime$3.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -1634,7 +2509,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgsecondscaledownMove = new Anime$2.Anime({
+      var bgsecondscaledownMove = new Anime$3.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -1647,7 +2522,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
-      var secondBgDate = new Anime$2.Anime({
+      var secondBgDate = new Anime$3.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -1660,7 +2535,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".second-date",
         easing: "easeOutQuad"
       });
-      var moveSecond = new Anime$2.Anime({
+      var moveSecond = new Anime$3.Anime({
         animatedAttrs: {
           left: "-76%"
         },
@@ -1671,7 +2546,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var moveSecondS = new Anime$2.Anime({
+      var moveSecondS = new Anime$3.Anime({
         animatedAttrs: {
           left: "-76%"
         },
@@ -1712,11 +2587,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideDateOne;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var SlideDateOne_1 = SlideDateOne;
 
-var Anime$3 = motorcortex.loadPlugin(main);
+var Anime$4 = MC.loadPlugin(index);
 
 var Scrolslide =
 /*#__PURE__*/
@@ -1748,7 +2623,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var moveThird = new Anime$3.Anime({
+      var moveThird = new Anime$4.Anime({
         animatedAttrs: {
           left: "0%",
           top: "-200%"
@@ -1763,7 +2638,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
-      var thirdScaleUp = new Anime$3.Anime({
+      var thirdScaleUp = new Anime$4.Anime({
         animatedAttrs: {
           transform: {
             scale: "1"
@@ -1780,7 +2655,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
-      var moveThirdIner = new Anime$3.Anime({
+      var moveThirdIner = new Anime$4.Anime({
         animatedAttrs: {
           marginTop: "0%",
           marginBottom: "0%"
@@ -1795,7 +2670,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var movePresenter = new Anime$3.Anime({
+      var movePresenter = new Anime$4.Anime({
         animatedAttrs: {
           transform: {
             translateY: "0%"
@@ -1812,7 +2687,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".presenter",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$3.Anime({
+      var bgOut = new Anime$4.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -1848,11 +2723,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return Scrolslide;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var Scrolslide_1 = Scrolslide;
 
-var Anime$4 = motorcortex.loadPlugin(main);
+var Anime$5 = MC.loadPlugin(index);
 
 var LtRslide =
 /*#__PURE__*/
@@ -1884,7 +2759,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$4.Anime({
+      var personConMove = new Anime$5.Anime({
         animatedAttrs: {
           left: "50%"
         },
@@ -1895,7 +2770,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-first-presenter-slide",
         easing: "easeInSine"
       });
-      var quarterLeft = new Anime$4.Anime({
+      var quarterLeft = new Anime$5.Anime({
         animatedAttrs: {
           left: "-20%"
         },
@@ -1908,7 +2783,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-left",
         easing: "easeOutQuad"
       });
-      var bg = new Anime$4.Anime({
+      var bg = new Anime$5.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -1921,7 +2796,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$4.Anime({
+      var bgOut = new Anime$5.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -1956,11 +2831,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return LtRslide;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var LtRslide_1 = LtRslide;
 
-var Anime$5 = motorcortex.loadPlugin(main);
+var Anime$6 = MC.loadPlugin(index);
 
 var SlideDateTwo =
 /*#__PURE__*/
@@ -1992,7 +2867,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var bgMove = new Anime$5.Anime({
+      var bgMove = new Anime$6.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2005,7 +2880,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var secondSlide = new Anime$5.Anime({
+      var secondSlide = new Anime$6.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2018,7 +2893,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".second-slide",
         easing: "easeOutCubic"
       });
-      var bigTitle = new Anime$5.Anime({
+      var bigTitle = new Anime$6.Anime({
         animatedAttrs: {
           left: "-1500px"
         },
@@ -2029,7 +2904,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".big-title",
         easing: "easeOutCubic"
       });
-      var bgscaledown = new Anime$5.Anime({
+      var bgscaledown = new Anime$6.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -2046,7 +2921,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg,.bg-small",
         easing: "easeOutCubic"
       });
-      var bgscaledownMove = new Anime$5.Anime({
+      var bgscaledownMove = new Anime$6.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -2059,7 +2934,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgsecondscaledownMove = new Anime$5.Anime({
+      var bgsecondscaledownMove = new Anime$6.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -2072,7 +2947,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg-small",
         easing: "easeOutCubic"
       });
-      var secondBgDate = new Anime$5.Anime({
+      var secondBgDate = new Anime$6.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -2085,7 +2960,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".second-date",
         easing: "easeOutCubic"
       });
-      var moveSecond = new Anime$5.Anime({
+      var moveSecond = new Anime$6.Anime({
         animatedAttrs: {
           left: "-175%"
         },
@@ -2096,7 +2971,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg-small,.bg",
         easing: "easeOutCubic"
       });
-      var movePresenterSlide = new Anime$5.Anime({
+      var movePresenterSlide = new Anime$6.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2109,7 +2984,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
-      var movePresenterSlideLeft = new Anime$5.Anime({
+      var movePresenterSlideLeft = new Anime$6.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2122,7 +2997,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var moveBig = new Anime$5.Anime({
+      var moveBig = new Anime$6.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2135,7 +3010,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg-big",
         easing: "easeOutCubic"
       });
-      var moveBigOut = new Anime$5.Anime({
+      var moveBigOut = new Anime$6.Anime({
         animatedAttrs: {
           top: "-100%"
         },
@@ -2180,11 +3055,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideDateTwo;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var SlideDateTwo_1 = SlideDateTwo;
 
-var Anime$6 = motorcortex.loadPlugin(main);
+var Anime$7 = MC.loadPlugin(index);
 
 var BtTslide =
 /*#__PURE__*/
@@ -2216,7 +3091,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$6.Anime({
+      var personConMove = new Anime$7.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2230,7 +3105,7 @@ function (_MotorCortex$API$Clip) {
         duration: 1500 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide"
       });
-      var quarterLeft = new Anime$6.Anime({
+      var quarterLeft = new Anime$7.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2244,7 +3119,7 @@ function (_MotorCortex$API$Clip) {
         duration: 2000 * this.attrs.speed,
         selector: ".quarter-left"
       });
-      var bg = new Anime$6.Anime({
+      var bg = new Anime$7.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2259,7 +3134,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$6.Anime({
+      var bgOut = new Anime$7.Anime({
         animatedAttrs: {
           top: "-100%"
         },
@@ -2296,11 +3171,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return BtTslide;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var BtTslide_1 = BtTslide;
 
-var Anime$7 = motorcortex.loadPlugin(main);
+var Anime$8 = MC.loadPlugin(index);
 
 var BtTslideDate =
 /*#__PURE__*/
@@ -2332,7 +3207,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$7.Anime({
+      var personConMove = new Anime$8.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2345,7 +3220,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
-      var quarterLeft = new Anime$7.Anime({
+      var quarterLeft = new Anime$8.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2358,7 +3233,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var bg = new Anime$7.Anime({
+      var bg = new Anime$8.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -2371,7 +3246,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgscaledown = new Anime$7.Anime({
+      var bgscaledown = new Anime$8.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -2388,7 +3263,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
-      var bgscaledownMove = new Anime$7.Anime({
+      var bgscaledownMove = new Anime$8.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -2401,7 +3276,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgsecondscaledownMove = new Anime$7.Anime({
+      var bgsecondscaledownMove = new Anime$8.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -2414,7 +3289,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
-      var bgscaleup = new Anime$7.Anime({
+      var bgscaleup = new Anime$8.Anime({
         animatedAttrs: {
           transform: {
             scale: 1
@@ -2431,7 +3306,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
-      var bgscaledownMoveOut = new Anime$7.Anime({
+      var bgscaledownMoveOut = new Anime$8.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -2444,7 +3319,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgsecondscaledownMoveOut = new Anime$7.Anime({
+      var bgsecondscaledownMoveOut = new Anime$8.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2457,7 +3332,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
-      var bgMoveOut = new Anime$7.Anime({
+      var bgMoveOut = new Anime$8.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -2500,11 +3375,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return BtTslideDate;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var BtTslideDate_1 = BtTslideDate;
 
-var Anime$8 = motorcortex.loadPlugin(main);
+var Anime$9 = MC.loadPlugin(index);
 
 var LtRslideTop =
 /*#__PURE__*/
@@ -2536,7 +3411,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$8.Anime({
+      var personConMove = new Anime$9.Anime({
         animatedAttrs: {
           paddingTop: "0%"
         },
@@ -2549,7 +3424,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var quarterLeft = new Anime$8.Anime({
+      var quarterLeft = new Anime$9.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -2562,7 +3437,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var bg = new Anime$8.Anime({
+      var bg = new Anime$9.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2575,7 +3450,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgOut = new Anime$8.Anime({
+      var bgOut = new Anime$9.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -2610,11 +3485,11 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return LtRslideTop;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var LtRslideTop_1 = LtRslideTop;
 
-var Anime$9 = motorcortex.loadPlugin(main);
+var Anime$a = MC.loadPlugin(index);
 
 var RtLslide =
 /*#__PURE__*/
@@ -2646,7 +3521,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$9.Anime({
+      var personConMove = new Anime$a.Anime({
         animatedAttrs: {
           paddingBottom: "0%"
         },
@@ -2660,7 +3535,7 @@ function (_MotorCortex$API$Clip) {
         duration: 1000 * this.attrs.speed,
         selector: ".quarter-left"
       });
-      var quarterLeft = new Anime$9.Anime({
+      var quarterLeft = new Anime$a.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -2674,7 +3549,7 @@ function (_MotorCortex$API$Clip) {
         duration: 1000 * this.attrs.speed,
         selector: ".quarter-left"
       });
-      var bg = new Anime$9.Anime({
+      var bg = new Anime$a.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -2689,7 +3564,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$9.Anime({
+      var bgOut = new Anime$a.Anime({
         animatedAttrs: {
           right: "100%"
         },
@@ -2726,7 +3601,7 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return RtLslide;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var RtLslide_1 = RtLslide;
 
@@ -2742,146 +3617,6 @@ function _typeof(obj) {
   }
 
   return _typeof(obj);
-}
-
-function _classCallCheck$1(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties$1(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass$1(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties$1(Constructor, staticProps);
-  return Constructor;
-}
-
-function _possibleConstructorReturn$1(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized$1(self);
-}
-
-function _assertThisInitialized$1(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _getPrototypeOf$1(o) {
-  _getPrototypeOf$1 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf$1(o);
-}
-
-function _inherits$1(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf$1(subClass, superClass);
-}
-
-function _setPrototypeOf$1(o, p) {
-  _setPrototypeOf$1 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf$1(o, p);
-}
-
-var VideoClip =
-/*#__PURE__*/
-function (_MC$API$DOMClip) {
-  _inherits$1(VideoClip, _MC$API$DOMClip);
-
-  function VideoClip() {
-    _classCallCheck$1(this, VideoClip);
-
-    return _possibleConstructorReturn$1(this, _getPrototypeOf$1(VideoClip).apply(this, arguments));
-  }
-
-  _createClass$1(VideoClip, [{
-    key: "onAfterRender",
-    value: function onAfterRender() {
-      var _this = this;
-
-      var video = this.context.getElements("video")[0];
-      video.muted = true;
-      var canvas = this.context.getElements("canvas")[0];
-      var ctx = canvas.getContext('2d');
-      video.addEventListener("loadedmetadata", function (e) {
-        var canvasWidth = _this.attrs.width || 640;
-        var canvasHeight = _this.attrs.height || 360; // console.log(canvasWidth / video.videoWidth, canvasHeight / video.videoHeight)
-
-        canvas.style.transform = "scale(".concat(canvasWidth / video.videoWidth, ", ").concat(canvasHeight / video.videoHeight, ")");
-        canvas.style['transform-origin'] = "top left";
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-      }, false);
-      this.setCustomEntity("video", {
-        video: video,
-        canvas: canvas,
-        ctx: ctx,
-        startFrom: this.attrs.startFrom * 1000 || 0
-      });
-    }
-  }, {
-    key: "html",
-    get: function get() {
-      var _this2 = this;
-
-      return "\n        <div>\n            <video id=\"video\" style=\"width:".concat(this.attrs.width || 640, "px;height:").concat(this.attrs.height || 360, "px;\" preload=\"auto\">\n                ").concat(this.attrs.sources.map(function (item, i) {
-        return "\n                    <source src=\"".concat(item, "#t=").concat(_this2.attrs.startFrom || 0, "\"></source>\n                ");
-      }).join(''), "\n            </video>\n            <canvas id=\"canvas\"></canvas>\n        </div>\n        ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n            #video{\n                display:none;\n            }\n        ";
-    }
-  }]);
-
-  return VideoClip;
-}(motorcortex.API.DOMClip);
-
-var VideoClip_1 = VideoClip;
-
-function _typeof$1(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof$1 = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof$1 = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof$1(obj);
 }
 
 function _classCallCheck$2(instance, Constructor) {
@@ -2907,7 +3642,7 @@ function _createClass$2(Constructor, protoProps, staticProps) {
 }
 
 function _possibleConstructorReturn$2(self, call) {
-  if (call && (_typeof$1(call) === "object" || typeof call === "function")) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
     return call;
   }
 
@@ -2953,18 +3688,158 @@ function _setPrototypeOf$2(o, p) {
   return _setPrototypeOf$2(o, p);
 }
 
+var VideoClip =
+/*#__PURE__*/
+function (_MC$API$DOMClip) {
+  _inherits$2(VideoClip, _MC$API$DOMClip);
+
+  function VideoClip() {
+    _classCallCheck$2(this, VideoClip);
+
+    return _possibleConstructorReturn$2(this, _getPrototypeOf$2(VideoClip).apply(this, arguments));
+  }
+
+  _createClass$2(VideoClip, [{
+    key: "onAfterRender",
+    value: function onAfterRender() {
+      var _this = this;
+
+      var video = this.context.getElements("video")[0];
+      video.muted = true;
+      var canvas = this.context.getElements("canvas")[0];
+      var ctx = canvas.getContext('2d');
+      video.addEventListener("loadedmetadata", function (e) {
+        var canvasWidth = _this.attrs.width || 640;
+        var canvasHeight = _this.attrs.height || 360; // console.log(canvasWidth / video.videoWidth, canvasHeight / video.videoHeight)
+
+        canvas.style.transform = "scale(".concat(canvasWidth / video.videoWidth, ", ").concat(canvasHeight / video.videoHeight, ")");
+        canvas.style['transform-origin'] = "top left";
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+      }, false);
+      this.setCustomEntity("video", {
+        video: video,
+        canvas: canvas,
+        ctx: ctx,
+        startFrom: this.attrs.startFrom * 1000 || 0
+      });
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      var _this2 = this;
+
+      return "\n        <div>\n            <video id=\"video\" style=\"width:".concat(this.attrs.width || 640, "px;height:").concat(this.attrs.height || 360, "px;\" preload=\"auto\">\n                ").concat(this.attrs.sources.map(function (item, i) {
+        return "\n                    <source src=\"".concat(item, "#t=").concat(_this2.attrs.startFrom || 0, "\"></source>\n                ");
+      }).join(''), "\n            </video>\n            <canvas id=\"canvas\"></canvas>\n        </div>\n        ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n            #video{\n                display:none;\n            }\n        ";
+    }
+  }]);
+
+  return VideoClip;
+}(MC.API.DOMClip);
+
+var VideoClip_1 = VideoClip;
+
+function _typeof$1(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof$1 = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof$1 = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof$1(obj);
+}
+
+function _classCallCheck$3(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _defineProperties$3(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass$3(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$3(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$3(Constructor, staticProps);
+  return Constructor;
+}
+
+function _possibleConstructorReturn$3(self, call) {
+  if (call && (_typeof$1(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized$3(self);
+}
+
+function _assertThisInitialized$3(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _getPrototypeOf$3(o) {
+  _getPrototypeOf$3 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf$3(o);
+}
+
+function _inherits$3(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) _setPrototypeOf$3(subClass, superClass);
+}
+
+function _setPrototypeOf$3(o, p) {
+  _setPrototypeOf$3 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf$3(o, p);
+}
+
 var VideoPlay =
 /*#__PURE__*/
 function (_MC$API$MediaPlayback) {
-  _inherits$2(VideoPlay, _MC$API$MediaPlayback);
+  _inherits$3(VideoPlay, _MC$API$MediaPlayback);
 
   function VideoPlay() {
-    _classCallCheck$2(this, VideoPlay);
+    _classCallCheck$3(this, VideoPlay);
 
-    return _possibleConstructorReturn$2(this, _getPrototypeOf$2(VideoPlay).apply(this, arguments));
+    return _possibleConstructorReturn$3(this, _getPrototypeOf$3(VideoPlay).apply(this, arguments));
   }
 
-  _createClass$2(VideoPlay, [{
+  _createClass$3(VideoPlay, [{
     key: "play",
     value: function play(millisecond) {
       var _this = this;
@@ -3022,11 +3897,11 @@ function (_MC$API$MediaPlayback) {
   }]);
 
   return VideoPlay;
-}(motorcortex.API.MediaPlayback);
+}(MC.API.MediaPlayback);
 
 var VideoPlay_1 = VideoPlay;
 
-var compositeAttributes = {
+var compositeAttributes$1 = {
   filter: ["blur", "brightness", "contrast", "drop-shadow", "grayscale", "hue-rotate", "invert", "opacity", "saturate", "sepia"]
 };
 
@@ -3044,13 +3919,13 @@ function _typeof$2(obj) {
   return _typeof$2(obj);
 }
 
-function _classCallCheck$3(instance, Constructor) {
+function _classCallCheck$4(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
 
-function _defineProperties$3(target, props) {
+function _defineProperties$4(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
@@ -3060,21 +3935,21 @@ function _defineProperties$3(target, props) {
   }
 }
 
-function _createClass$3(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties$3(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties$3(Constructor, staticProps);
+function _createClass$4(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$4(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$4(Constructor, staticProps);
   return Constructor;
 }
 
-function _possibleConstructorReturn$3(self, call) {
+function _possibleConstructorReturn$4(self, call) {
   if (call && (_typeof$2(call) === "object" || typeof call === "function")) {
     return call;
   }
 
-  return _assertThisInitialized$3(self);
+  return _assertThisInitialized$4(self);
 }
 
-function _assertThisInitialized$3(self) {
+function _assertThisInitialized$4(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
@@ -3082,14 +3957,14 @@ function _assertThisInitialized$3(self) {
   return self;
 }
 
-function _getPrototypeOf$3(o) {
-  _getPrototypeOf$3 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+function _getPrototypeOf$4(o) {
+  _getPrototypeOf$4 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
     return o.__proto__ || Object.getPrototypeOf(o);
   };
-  return _getPrototypeOf$3(o);
+  return _getPrototypeOf$4(o);
 }
 
-function _inherits$3(subClass, superClass) {
+function _inherits$4(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
   }
@@ -3101,32 +3976,32 @@ function _inherits$3(subClass, superClass) {
       configurable: true
     }
   });
-  if (superClass) _setPrototypeOf$3(subClass, superClass);
+  if (superClass) _setPrototypeOf$4(subClass, superClass);
 }
 
-function _setPrototypeOf$3(o, p) {
-  _setPrototypeOf$3 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+function _setPrototypeOf$4(o, p) {
+  _setPrototypeOf$4 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
 
-  return _setPrototypeOf$3(o, p);
+  return _setPrototypeOf$4(o, p);
 }
 
-var effects = compositeAttributes.filter;
+var effects = compositeAttributes$1.filter;
 
 var VideoEffect =
 /*#__PURE__*/
 function (_MotorCortex$API$Mono) {
-  _inherits$3(VideoEffect, _MotorCortex$API$Mono);
+  _inherits$4(VideoEffect, _MotorCortex$API$Mono);
 
   function VideoEffect() {
-    _classCallCheck$3(this, VideoEffect);
+    _classCallCheck$4(this, VideoEffect);
 
-    return _possibleConstructorReturn$3(this, _getPrototypeOf$3(VideoEffect).apply(this, arguments));
+    return _possibleConstructorReturn$4(this, _getPrototypeOf$4(VideoEffect).apply(this, arguments));
   }
 
-  _createClass$3(VideoEffect, [{
+  _createClass$4(VideoEffect, [{
     key: "getScratchValue",
     value: function getScratchValue() {
       return {
@@ -3185,11 +4060,11 @@ function (_MotorCortex$API$Mono) {
   }]);
 
   return VideoEffect;
-}(motorcortex.API.MonoIncident);
+}(MC.API.MonoIncident);
 
 var Effect = VideoEffect;
 
-var main$1 = {
+var main = {
   npm_name: "@kissmybutton/motorcortex-video",
   incidents: [{
     exportable: VideoPlay_1,
@@ -3259,7 +4134,7 @@ var main$1 = {
       }
     }
   }],
-  compositeAttributes: compositeAttributes,
+  compositeAttributes: compositeAttributes$1,
   Clip: VideoClip_1,
   capabilities: {
     speed: false,
@@ -3267,8 +4142,8 @@ var main$1 = {
   }
 };
 
-var Anime$a = motorcortex.loadPlugin(main);
-var VideoPlugin = motorcortex.loadPlugin(main$1);
+var Anime$b = MC.loadPlugin(index);
+var VideoPlugin = MC.loadPlugin(main);
 
 var SlideDateOneVid =
 /*#__PURE__*/
@@ -3328,7 +4203,7 @@ function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new motorcortex.Clip({
+      var word = new MC.Clip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -3337,7 +4212,7 @@ function (_MotorCortex$API$Clip) {
       this.addIncident(word, 0);
 
       for (var _i = 0; _i < array.length; _i++) {
-        var textAnimation = new Anime$a.Anime({
+        var textAnimation = new Anime$b.Anime({
           animatedAttrs: {
             top: "0px",
             opacity: 1
@@ -3351,7 +4226,7 @@ function (_MotorCortex$API$Clip) {
         word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * this.attrs.speed);
       }
 
-      var bgMove = new Anime$a.Anime({
+      var bgMove = new Anime$b.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3364,7 +4239,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleOne = new Anime$a.Anime({
+      var secondSlideTitleOne = new Anime$b.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3377,7 +4252,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleTwo = new Anime$a.Anime({
+      var secondSlideTitleTwo = new Anime$b.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3390,7 +4265,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
-      var wordBg = new Anime$a.Anime({
+      var wordBg = new Anime$b.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3403,7 +4278,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
-      var shortDescription = new Anime$a.Anime({
+      var shortDescription = new Anime$b.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3416,7 +4291,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".short-description",
         easing: "easeOutQuad"
       });
-      var bgscaledown = new Anime$a.Anime({
+      var bgscaledown = new Anime$b.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -3433,7 +4308,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
-      var bgscaledownMove = new Anime$a.Anime({
+      var bgscaledownMove = new Anime$b.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -3446,7 +4321,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgsecondscaledownMove = new Anime$a.Anime({
+      var bgsecondscaledownMove = new Anime$b.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -3459,7 +4334,7 @@ function (_MotorCortex$API$Clip) {
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
-      var secondBgDate = new Anime$a.Anime({
+      var secondBgDate = new Anime$b.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -3486,7 +4361,7 @@ function (_MotorCortex$API$Clip) {
       //   }
       // );
 
-      var moveSecondS = new Anime$a.Anime({
+      var moveSecondS = new Anime$b.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -3529,7 +4404,7 @@ function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideDateOneVid;
-}(motorcortex.API.Clip);
+}(MC.API.Clip);
 
 var SlideDateOneVid_1 = SlideDateOneVid;
 

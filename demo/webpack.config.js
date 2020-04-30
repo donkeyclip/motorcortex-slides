@@ -17,9 +17,6 @@ module.exports = {
     path: path.resolve(__dirname, "./" /*"./dist"*/)
   },
 
-  devtool: "cheap-module-eval-source-map",
-  mode: "development",
-
   module: {
     rules: [
       {
@@ -61,9 +58,6 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
 
-    new webpack.NamedModulesPlugin(),
-    // prints more readable module names in the browser console on HMR updates
-
     new webpack.NoEmitOnErrorsPlugin()
     // do not emit compiled assets that include errors
   ],
@@ -73,7 +67,8 @@ module.exports = {
     host: "0.0.0.0",
     port: 8080,
     historyApiFallback: false,
-    hot: false,
-    contentBase: "./demo"
+    hot: true,
+    contentBase: "./demo",
+    open: true
   }
 };
