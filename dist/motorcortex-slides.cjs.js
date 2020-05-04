@@ -4416,9 +4416,6 @@ var SlideDateOneVid_1 = SlideDateOneVid;
 
 var _COLOR$1 = "color";
 var attrs = {
-  // type: "object",
-  // strict : true,
-  // props: {
   title: {
     optional: true,
     type: "string"

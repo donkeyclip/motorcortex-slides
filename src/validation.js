@@ -1,28 +1,7 @@
-const nu = [
-  "cm",
-  "mm",
-  "in",
-  "px",
-  "pt",
-  "pc",
-  "em",
-  "ex",
-  "ch",
-  "rem",
-  "vw",
-  "vh",
-  "vmin",
-  "vmax",
-  "%"
-];
-const ru = ["deg", "rad", "grad", "turn"];
-const _MEASUREMENT = "measurement";
+
 const _COLOR = "color";
 
 export const attrs = {
-  // type: "object",
-  // strict : true,
-  // props: {
   title: {
     optional: true,
     type: "string"
