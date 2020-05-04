@@ -9,52 +9,67 @@ const BtTslideDate = require("./BtTslideDate");
 const LtRslideTop = require("./LtRslideTop");
 const RtLslide = require("./RtLslide");
 const SlideDateOneVid = require("./SlideDateOneVid");
+const attrs = require("./validation");
+// import {attrs} from "./validation"
+
+console.log(attrs.attrs, "AATTRS");
 module.exports = {
-  npm_name: "@kissmybutton/motorcortex-ClipPromo",
+  npm_name: "@kissmybutton/motorcortex-slides",
   incidents: [
     {
       exportable: Intro,
-      name: "Intro"
+      name: "Intro",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: Transition,
-      name: "Transition"
+      name: "Transition",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: SlideDateOne,
-      name: "SlideDateOne"
+      name: "SlideDateOne",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: SlideDateOneVid,
-      name: "SlideDateOneVid"
+      name: "SlideDateOneVid",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: SlideDateTwo,
-      name: "SlideDateTwo"
+      name: "SlideDateTwo",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: Scrolslide,
-      name: "Scrolslide"
+      name: "Scrolslide",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: LtRslide,
-      name: "LtRslide"
+      name: "LtRslide",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: BtTslide,
-      name: "BtTslide"
+      name: "BtTslide",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: BtTslideDate,
-      name: "BtTslideDate"
+      name: "BtTslideDate",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: LtRslideTop,
-      name: "LtRslideTop"
+      name: "LtRslideTop",
+      attributesValidationRules: attrs.attrs
     },
     {
       exportable: RtLslide,
-      name: "RtLslide"
+      name: "RtLslide",
+      attributesValidationRules: attrs.attrs
     }
   ]
 };

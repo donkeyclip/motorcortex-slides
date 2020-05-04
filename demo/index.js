@@ -141,8 +141,8 @@ const dayOne = new Clip.SlideDateOneVid(
     bgUrl2: "./bg2.jpg",
     month: "December",
     day: `monday`,
-    number: "20",
-    year: "2019",
+    number: 20,
+    year: 2019,
     speed: 2,
     vidDuration: 6000,
     vidLink: ["./vid.mp4"]
@@ -195,8 +195,8 @@ const dayTwo = new Clip.SlideDateTwo(
     bgUrl2: "./bg2.jpg",
     month: "December",
     day: `monday`,
-    number: "20",
-    year: "2019",
+    number: 20,
+    year: 2019,
     speed: 2
   },
   {
@@ -231,8 +231,8 @@ const bttDay = new Clip.BtTslideDate(
     bgUrl2: "./bg2.jpg",
     month: "December",
     day: `monday`,
-    number: "20",
-    year: "2019",
+    number: 20,
+    year: 2019,
     speed: 2
   },
   {
@@ -284,3 +284,10 @@ clip.addIncident(bttDay, clip.calculatedDuration - 2000);
 clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
 
 new Player({ clip });
+
+const definition = clip.exportLiveDefinition();
+
+definition.props.host = document.getElementById("clip2");
+const clipCopy = MotorCortex.API.clipFromDefinition(definition);
+
+new Player({ clip: clipCopy });
