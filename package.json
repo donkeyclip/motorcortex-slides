@@ -88,7 +88,7 @@
     "@babel/preset-env": "^7.1.0",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.0.1",
-    "@kissmybutton/motorcortex": "3.6.0",
+    "@kissmybutton/motorcortex": "3.6.1",
     "@kissmybutton/motorcortex-anime": "^1.4.9",
     "@kissmybutton/motorcortex-player": "^1.5.4",
     "@kissmybutton/motorcortex-video": "1.0.5",
