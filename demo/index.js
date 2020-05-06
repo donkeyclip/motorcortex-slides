@@ -68,7 +68,8 @@ const introClip = new Clip.Intro(
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
     month: "December",
-    bgUrl: "./kissmybutonbg.jpg",
+    bgUrl:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
@@ -139,7 +140,7 @@ const dayOne = new Clip.SlideDateOneVid(
       "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
     overlayColor: overlay,
     mainColor: main,
-    bgUrl2: "./bg2.jpg",
+    bgUrl2: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
     month: "December",
     day: `monday`,
     number: 20,
