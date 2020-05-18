@@ -39,8 +39,8 @@ class SlideDateOne extends MotorCortex.API.Clip {
     return `
     <div class="bg ">
     <div class="second-slide">
-      <div class="second-slide-titleOne">${this.attrs.titleone}</div>
-      <div class="second-slide-titleTwo">${this.attrs.subtitle}</div>
+      <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
+      <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
       <div class="word-bg">
         <div class="word"></div>
       </div>
@@ -55,7 +55,9 @@ class SlideDateOne extends MotorCortex.API.Clip {
     <div class="bg-second ">
       <div class="bg-second-slide">
           <div class="second-date-container">
-              <div class="second-date"><span> ${this.attrs.day} ${this.attrs.number} </span>${this.attrs.month} ${this.attrs.year}</div>
+          <div class="second-date"><span> ${this.attrs.day || ""} ${this.attrs
+      .dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs.year ||
+      ""}</div>
           </div>
       </div>
     </div>
@@ -192,7 +194,7 @@ class SlideDateOne extends MotorCortex.API.Clip {
   }
 
   buildTree() {
-    const array = this.attrs.str.split("");
+    const array = this.attrs.title[2].split("");
     let html3;
 
     const containerParams = {

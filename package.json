@@ -1,6 +1,6 @@
 {
   "name": "@kissmybutton/motorcortex-slides",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Slides plugin for MotorCortex",
   "main": "dist/motorcortex-slides.cjs.js",
   "module": "dist/motorcortex-slides.esm.js",

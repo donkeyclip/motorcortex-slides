@@ -60,7 +60,9 @@ class BtTslideDate extends MotorCortex.API.Clip {
   <div class="bg-quarter-slide">
     <div class="test-mask">
       <div class="defter-date-container">
-        <div class="defter-date"><span> ${this.attrs.day} ${this.attrs.number} </span>${this.attrs.month} ${this.attrs.year}</div>
+        <div class="defter-date"><span> ${this.attrs.day || ""} ${this.attrs
+      .dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs.year ||
+      ""}</div>
       </div>
     </div>
   </div>

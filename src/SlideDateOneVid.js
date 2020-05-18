@@ -48,8 +48,8 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
     <div class="bg ">
     <div class ="vid"></div>
     <div class="second-slide">
-      <div class="second-slide-titleOne">${this.attrs.titleone}</div>
-      <div class="second-slide-titleTwo">${this.attrs.subtitle}</div>
+      <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
+      <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
       <div class="word-bg">
         <div class="word"></div>
       </div>
@@ -64,7 +64,9 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
     <div class="bg-second ">
       <div class="bg-second-slide">
           <div class="second-date-container">
-              <div class="second-date"><span> ${this.attrs.day} ${this.attrs.number} </span>${this.attrs.month} ${this.attrs.year}</div>
+              <div class="second-date"><span> ${this.attrs.day || ""} ${this
+      .attrs.dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs
+      .year || ""}</div>
           </div>
       </div>
     </div>
@@ -147,7 +149,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
       }
 
       .second-slide-titleTwo,.second-slide-titleOne{
-        font-size: ${this.dinamicFontSize(this.attrs.titleone.length, 360)}px;
+        font-size: ${this.dinamicFontSize(this.attrs.title[0].length, 360)}px;
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
@@ -157,7 +159,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
       }
 
       .second-slide-titleTwo{
-        font-size: ${this.dinamicFontSize(this.attrs.subtitle.length, 720)}px;
+        font-size: ${this.dinamicFontSize(this.attrs.title[1].length, 720)}px;
       }
 
       .second-slide-titleOne{
@@ -175,7 +177,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
         transform: scale(1);
       }
       .letter{
-        font-size: ${this.dinamicFontSize(this.attrs.str.length, 720)}px;
+        font-size: ${this.dinamicFontSize(this.attrs.title[2].length, 720)}px;
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
@@ -237,7 +239,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
 
     const delay = this.attrs.vidDuration - 3000 * this.attrs.speed;
 
-    const array = this.attrs.str.split("");
+    const array = this.attrs.title[2].split("");
     let html3;
 
     const containerParams = {

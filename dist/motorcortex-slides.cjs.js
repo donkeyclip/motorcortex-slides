@@ -2385,7 +2385,7 @@ function (_MotorCortex$API$Clip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var array = this.attrs.str.split("");
+      var array = this.attrs.title[2].split("");
       var html3;
       var containerParams = {
         width: "100%",
@@ -2583,7 +2583,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg \">\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.titleone, "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.subtitle, "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n          </div>\n      </div>\n    </div>\n    \n\n    ");
+      return "\n    <div class=\"bg \">\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n          <div class=\"second-date\"><span> ").concat(this.attrs.day || '', " ").concat(this.attrs.dayNumber || '', " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    \n\n    ");
     }
   }, {
     key: "css",
@@ -3051,7 +3051,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"bg-deferi-day-slide\">\n      <div class=\"big-title\">".concat(this.attrs.bigTitle, "</div>\n      <div class=\"test-mask \">\n        <div class=\"defter-date-container\">\n          <div class=\"defter-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    <div class=\"bg-second bg-small\">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    <div class=\"bg-second bg-big \">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    \n\n    ");
+      return "\n    <div class=\"bg\">\n    <div class=\"bg-deferi-day-slide\">\n      <div class=\"big-title\">".concat(this.attrs.bigTitle, "</div>\n      <div class=\"test-mask \">\n        <div class=\"defter-date-container\">\n          <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber, " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    <div class=\"bg-second bg-small\">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    <div class=\"bg-second bg-big \">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    \n\n    ");
     }
   }, {
     key: "css",
@@ -3371,7 +3371,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n   <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <div class=\"bg-next\">\n  <div class=\"bg-quarter-slide\">\n    <div class=\"test-mask\">\n      <div class=\"defter-date-container\">\n        <div class=\"defter-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n    ");
+      return "\n   <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <div class=\"bg-next\">\n  <div class=\"bg-quarter-slide\">\n    <div class=\"test-mask\">\n      <div class=\"defter-date-container\">\n        <div class=\"defter-date\"><span> ").concat(this.attrs.day || '', " ").concat(this.attrs.dayNumber || '', " </span>").concat(this.attrs.month || '', " ").concat(this.attrs.year || '', "</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n    ");
     }
   }, {
     key: "css",
@@ -4197,7 +4197,7 @@ function (_MotorCortex$API$Clip) {
       this.addIncident(VideoClip, 0);
       VideoClip.addIncident(Playback, 0);
       var delay = this.attrs.vidDuration - 3000 * this.attrs.speed;
-      var array = this.attrs.str.split("");
+      var array = this.attrs.title[2].split("");
       var html3;
       var containerParams = {
         width: "100%",
@@ -4400,12 +4400,12 @@ function (_MotorCortex$API$Clip) {
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       this.attrs.vidDuration = !this.attrs.vidDuration ? this.attrs.vidDuration = 6000 : this.attrs.vidDuration;
-      return "\n    <div class=\"parent\">\n    <div class=\"bg \">\n    <div class =\"vid\"></div>\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.titleone, "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.subtitle, "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day, " ").concat(this.attrs.number, " </span>").concat(this.attrs.month, " ").concat(this.attrs.year, "</div>\n          </div>\n      </div>\n    </div>\n    </div>\n\n    ");
+      return "\n    <div class=\"parent\">\n    <div class=\"bg \">\n    <div class =\"vid\"></div>\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day || '', " ").concat(this.attrs.dayNumber || '', " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    </div>\n\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n    .bg,.bg-second {\n      width: 1920px;\n      height: 1080px;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: absolute;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left: -100%\n    }\n    .parent{\n      position:relative;\n      width: 1920px;\n      height: 1080px;\n      left:0%;\n    }\n    .bg:after,.bg-second:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-second{\n      left:100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n    }\n    .vid{\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 1920px;\n      height: 1080px;\n    }\n\n    .short-description{\n      font-size: 20px;\n      color: #fff;\n      position: relative;\n      white-space: normal;\n      text-align: left;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n      width: 720px;\n      left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n        \n      }\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n        \n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n  ");
+      return "\n    .bg,.bg-second {\n      width: 1920px;\n      height: 1080px;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: absolute;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left: -100%\n    }\n    .parent{\n      position:relative;\n      width: 1920px;\n      height: 1080px;\n      left:0%;\n    }\n    .bg:after,.bg-second:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-second{\n      left:100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n    }\n    .vid{\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 1920px;\n      height: 1080px;\n    }\n\n    .short-description{\n      font-size: 20px;\n      color: #fff;\n      position: relative;\n      white-space: normal;\n      text-align: left;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n      width: 720px;\n      left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[0].length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[1].length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[2].length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n        \n      }\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n        \n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n  ");
     }
   }]);
 
@@ -4415,29 +4415,59 @@ function (_MotorCortex$API$Clip) {
 var SlideDateOneVid_1 = SlideDateOneVid;
 
 var _COLOR$1 = "color";
-var attrs = {
+var intro = {
   title: {
-    optional: true,
-    type: "string"
-  },
-  bigTitle: {
-    optional: true,
-    type: "string"
-  },
-  name: {
-    optional: true,
-    type: "string"
-  },
-  position: {
-    optional: true,
+    optional: false,
     type: "string"
   },
   subtitle: {
+    optional: false,
+    type: "string"
+  },
+  month: {
+    optional: false,
+    type: "string"
+  },
+  bgUrl: {
     optional: true,
     type: "string"
   },
-  description: {
+  mainColor: {
     optional: true,
+    type: _COLOR$1
+  },
+  description: {
+    optional: false,
+    type: "string"
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    min: 2,
+    items: {
+      optional: true,
+      type: _COLOR$1
+    }
+  }
+};
+var SlideDateOneVid$1 = {
+  title: {
+    optional: false,
+    type: "array",
+    min: 3,
+    max: 3,
+    items: {
+      optional: false,
+      type: "string"
+    }
+  },
+  description: {
+    optional: false,
     type: "string"
   },
   month: {
@@ -4448,7 +4478,7 @@ var attrs = {
     optional: true,
     type: "string"
   },
-  number: {
+  dayNumber: {
     optional: true,
     type: "number"
   },
@@ -4490,20 +4520,251 @@ var attrs = {
     optional: true,
     type: _COLOR$1
   },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  }
+};
+var SlideDateOne$1 = {
+  title: {
+    optional: false,
+    type: "array",
+    min: 3,
+    max: 3,
+    items: {
+      optional: false,
+      type: "string"
+    }
+  },
+  description: {
+    optional: false,
+    type: "string"
+  },
+  month: {
+    optional: true,
+    type: "string"
+  },
+  day: {
+    optional: true,
+    type: "string"
+  },
+  dayNumber: {
+    optional: true,
+    type: "number"
+  },
+  year: {
+    optional: true,
+    type: "number"
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  bgUrl2: {
+    optional: true,
+    type: "string"
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    min: 2,
+    items: {
+      optional: true,
+      type: _COLOR$1
+    }
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  }
+};
+var prisenter = {
+  title: {
+    optional: false,
+    type: "string"
+  },
+  name: {
+    optional: false,
+    type: "string"
+  },
+  position: {
+    optional: false,
+    type: "string"
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    min: 2,
+    items: {
+      optional: true,
+      type: _COLOR$1
+    }
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  }
+};
+var SlideDateTwo$1 = {
+  title: {
+    optional: false,
+    type: "string"
+  },
+  bigTitle: {
+    optional: false,
+    type: "string"
+  },
+  name: {
+    optional: false,
+    type: "string"
+  },
+  position: {
+    optional: false,
+    type: "string"
+  },
+  month: {
+    optional: true,
+    type: "string"
+  },
+  day: {
+    optional: true,
+    type: "string"
+  },
+  dayNumber: {
+    optional: true,
+    type: "number"
+  },
+  year: {
+    optional: true,
+    type: "number"
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  bgUrl2: {
+    optional: true,
+    type: "string"
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    min: 2,
+    items: {
+      optional: true,
+      type: _COLOR$1
+    }
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR$1
+  },
   dateOverlay: {
     optional: true,
     type: _COLOR$1
   },
   speed: {
     optional: true,
+    type: "number",
+    min: 0
+  }
+};
+var BtTslideDate$1 = {
+  title: {
+    optional: false,
+    type: "string"
+  },
+  name: {
+    optional: false,
+    type: "string"
+  },
+  position: {
+    optional: false,
+    type: "string"
+  },
+  month: {
+    optional: true,
+    type: "string"
+  },
+  day: {
+    optional: true,
+    type: "string"
+  },
+  dayNumber: {
+    optional: true,
     type: "number"
-  } // }
-
+  },
+  year: {
+    optional: true,
+    type: "number"
+  },
+  bgUrl: {
+    optional: true,
+    type: "string"
+  },
+  bgUrl2: {
+    optional: true,
+    type: "string"
+  },
+  overlayColor: {
+    optional: true,
+    type: "array",
+    min: 2,
+    items: {
+      optional: true,
+      type: _COLOR$1
+    }
+  },
+  mainColor: {
+    optional: true,
+    type: _COLOR$1
+  },
+  dateOverlay: {
+    optional: true,
+    type: _COLOR$1
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  }
+};
+var transition = {
+  title: {
+    optional: true,
+    type: "string"
+  },
+  speed: {
+    optional: true,
+    type: "number",
+    min: 0
+  }
 };
 
 var validation = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  attrs: attrs
+  intro: intro,
+  SlideDateOneVid: SlideDateOneVid$1,
+  SlideDateOne: SlideDateOne$1,
+  prisenter: prisenter,
+  SlideDateTwo: SlideDateTwo$1,
+  BtTslideDate: BtTslideDate$1,
+  transition: transition
 });
 
 console.log(validation.attrs, "AATTRS");
@@ -4512,47 +4773,47 @@ var src = {
   incidents: [{
     exportable: Intro_1,
     name: "Intro",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.intro
   }, {
     exportable: Transition_1,
     name: "Transition",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.transition
   }, {
     exportable: SlideDateOne_1,
     name: "SlideDateOne",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.SlideDateOne
   }, {
     exportable: SlideDateOneVid_1,
     name: "SlideDateOneVid",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.SlideDateOneVid
   }, {
     exportable: SlideDateTwo_1,
     name: "SlideDateTwo",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.SlideDateTwo
   }, {
     exportable: Scrolslide_1,
     name: "Scrolslide",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.prisenter
   }, {
     exportable: LtRslide_1,
     name: "LtRslide",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.prisenter
   }, {
     exportable: BtTslide_1,
     name: "BtTslide",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.prisenter
   }, {
     exportable: BtTslideDate_1,
     name: "BtTslideDate",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.BtTslideDate
   }, {
     exportable: LtRslideTop_1,
     name: "LtRslideTop",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.prisenter
   }, {
     exportable: RtLslide_1,
     name: "RtLslide",
-    attributesValidationRules: validation.attrs
+    attributesValidationRules: validation.prisenter
   }]
 };
 var src_1 = src.npm_name;

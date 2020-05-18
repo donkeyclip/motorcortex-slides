@@ -10,66 +10,64 @@ const LtRslideTop = require("./LtRslideTop");
 const RtLslide = require("./RtLslide");
 const SlideDateOneVid = require("./SlideDateOneVid");
 const attrs = require("./validation");
-// import {attrs} from "./validation"
 
-console.log(attrs.attrs, "AATTRS");
 module.exports = {
   npm_name: "@kissmybutton/motorcortex-slides",
   incidents: [
     {
       exportable: Intro,
       name: "Intro",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.intro
     },
     {
       exportable: Transition,
       name: "Transition",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.transition
     },
     {
       exportable: SlideDateOne,
       name: "SlideDateOne",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.SlideDateOne
     },
     {
       exportable: SlideDateOneVid,
       name: "SlideDateOneVid",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.SlideDateOneVid
     },
     {
       exportable: SlideDateTwo,
       name: "SlideDateTwo",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.SlideDateTwo
     },
     {
       exportable: Scrolslide,
       name: "Scrolslide",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.prisenter
     },
     {
       exportable: LtRslide,
       name: "LtRslide",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.prisenter
     },
     {
       exportable: BtTslide,
       name: "BtTslide",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.prisenter
     },
     {
       exportable: BtTslideDate,
       name: "BtTslideDate",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.BtTslideDate
     },
     {
       exportable: LtRslideTop,
       name: "LtRslideTop",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.prisenter
     },
     {
       exportable: RtLslide,
       name: "RtLslide",
-      attributesValidationRules: attrs.attrs
+      attributesValidationRules: attrs.prisenter
     }
   ]
 };

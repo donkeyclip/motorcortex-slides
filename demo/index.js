@@ -14,7 +14,6 @@ body {
   display: flex;
   position: absolute;
 }
-
   `;
 const html = ` 
   <div class="container container1"></div>
@@ -68,8 +67,7 @@ const introClip = new Clip.Intro(
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
     month: "December",
-    bgUrl:
-      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+    bgUrl: "./kissmybutonbg.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
@@ -79,75 +77,23 @@ const introClip = new Clip.Intro(
   }
 );
 
-// const transition = new Clip.Transition(
-//   {
-//     title: "dokimastiko",
-//     speed: 2
-//   },
-//   {
-//     selector: ".container2"
-//   }
-// );
-
-// const transition2 = new Clip.Transition(
-//   {
-//     title: "title",
-//     speed: 2
-//   },
-//   {
-//     selector: ".container5"
-//   }
-// );
-// const transition3 = new Clip.Transition(
-//   {
-//     title: "title",
-//     speed: 2
-//   },
-//   {
-//     selector: ".container8"
-//   }
-// );
-// const transition4 = new Clip.Transition(
-//   {
-//     title: "title",
-//     subtitle: "bliat",
-//     speed: 2
-//   },
-//   {
-//     selector: ".container9"
-//   }
-// );
-
-// const transition5 = new Clip.Transition(
-//   {
-//     title: "title",
-//     speed: 2
-//   },
-//   {
-//     selector: ".container12"
-//   }
-// );
-
 const dayOne = new Clip.SlideDateOneVid(
   {
-    subtitle: "MOTORCORTEX TEAM",
-    titleone: "the",
-    str: "Presents",
+    title: ["MOTORCORTEX TEAM", "the", "Presents"],
     description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
-    bgUrl:
-      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+    bgUrl: "./kissmybutonbg.jpg",
     overlayColor: overlay,
     mainColor: main,
-    bgUrl2: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
+    bgUrl2: "./bg2.jpg",
     month: "December",
     day: `monday`,
-    number: 20,
+    dayNumber: 20,
     year: 2019,
     speed: 2,
     vidDuration: 6000,
-    vidLink: ["https://kissmybutton.github.io/motorcortex-slides/demo/vid.mp4"]
+    vidLink: ["./vid.mp4"]
   },
   {
     selector: ".container3"
@@ -159,7 +105,7 @@ const scrolPresenter = new Clip.Scrolslide(
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg3.jpg",
+    bgUrl: "./bg3.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
@@ -174,7 +120,7 @@ const ltrPresenter = new Clip.LtRslide(
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg4.jpg",
+    bgUrl: "./bg4.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
@@ -190,14 +136,14 @@ const dayTwo = new Clip.SlideDateTwo(
     name: "name surname",
     position: "Web developer at kissmybuton",
     bigTitle: "Event",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg5.jpg",
+    bgUrl: "./bg5.jpg",
     overlayColor: overlay,
     dateOverlay: "#ff00b3",
     mainColor: "#00ff40",
-    bgUrl2: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
+    bgUrl2: "./bg2.jpg",
     month: "December",
     day: `monday`,
-    number: 20,
+    dayNumber: 22,
     year: 2019,
     speed: 2
   },
@@ -211,7 +157,7 @@ const bttPresenter = new Clip.BtTslide(
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg4.jpg",
+    bgUrl: "./bg4.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
@@ -226,14 +172,14 @@ const bttDay = new Clip.BtTslideDate(
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg3.jpg",
+    bgUrl: "./bg3.jpg",
     overlayColor: overlay,
     dateOverlay: "#ff00b3",
     mainColor: "#00ff40",
-    bgUrl2: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
+    bgUrl2: "./bg2.jpg",
     month: "December",
     day: `monday`,
-    number: 20,
+    dayNumber: 21,
     year: 2019,
     speed: 2
   },
@@ -242,47 +188,12 @@ const bttDay = new Clip.BtTslideDate(
   }
 );
 
-// const ltrPresenterTop = new Clip.LtRslideTop(
-//   {
-//     title: "Presenter",
-//     name: "name surname",
-//     position: "Web developer at kissmybuton",
-//     bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
-//     overlayColor: overlay,
-//     mainColor: main,
-//     speed: 2
-//   },
-//   {
-//     selector: ".container11"
-//   }
-// );
-
-// const rtlPresenter = new Clip.RtLslide(
-//   {
-//     title: "Presenter",
-//     name: "name surname",
-//     position: "Web developer at kissmybuton",
-//     bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg4.jpg",
-//     overlayColor: overlay,
-//     mainColor: main,
-//     speed: 2
-//   },
-//   {
-//     selector: ".container11"
-//   }
-// );
-
 clip.addIncident(introClip, 0);
-// clip.addIncident(transition, clip.calculatedDuration);
-clip.addIncident(dayOne, clip.calculatedDuration - 2000); //7800
+clip.addIncident(dayOne, clip.calculatedDuration - 2000);
 clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
-// clip.addIncident(transition2, 19500 + 1000);
 clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
 clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
-// clip.addIncident(transition3, 32400 + 1000);
-// clip.addIncident(transition4, 39800 + 1000);
 clip.addIncident(bttDay, clip.calculatedDuration - 2000);
-// clip.addIncident(transition5, 59800 + 1000);
 clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
 
 new Player({ clip });
