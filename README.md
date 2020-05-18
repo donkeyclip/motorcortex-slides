@@ -16,7 +16,7 @@ $ yarn add @kissmybutton/motorcortex-slides
 ```javascript
 const MotorCortex = require("@kissmybutton/motorcortex/");
 const slides = require("@kissmybutton/motorcortex-slides");
-const Clip = MotorCortex.loadPlugin(slides);
+const SlidesPlugin = MotorCortex.loadPlugin(slides);
 ```
 
 # Create incident
