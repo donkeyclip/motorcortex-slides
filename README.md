@@ -396,4 +396,10 @@ clip.addIncident(nameOfIncident, 0);
 ```
 
 
+## License
+[MIT License](https://opensource.org/licenses/MIT)
 
+
+  
+  
+[![Kiss My Button](https://presskit.kissmybutton.gr/logos/kissmybutton-logo-small.png)](https://kissmybutton.gr)
