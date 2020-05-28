@@ -2583,7 +2583,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg \">\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n          <div class=\"second-date\"><span> ").concat(this.attrs.day || '', " ").concat(this.attrs.dayNumber || '', " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    \n\n    ");
+      return "\n    <div class=\"bg \">\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n          <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    \n\n    ");
     }
   }, {
     key: "css",
@@ -3371,7 +3371,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n   <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <div class=\"bg-next\">\n  <div class=\"bg-quarter-slide\">\n    <div class=\"test-mask\">\n      <div class=\"defter-date-container\">\n        <div class=\"defter-date\"><span> ").concat(this.attrs.day || '', " ").concat(this.attrs.dayNumber || '', " </span>").concat(this.attrs.month || '', " ").concat(this.attrs.year || '', "</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n    ");
+      return "\n   <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <div class=\"bg-next\">\n  <div class=\"bg-quarter-slide\">\n    <div class=\"test-mask\">\n      <div class=\"defter-date-container\">\n        <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n    ");
     }
   }, {
     key: "css",
@@ -4400,7 +4400,7 @@ function (_MotorCortex$API$Clip) {
       this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
       this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       this.attrs.vidDuration = !this.attrs.vidDuration ? this.attrs.vidDuration = 6000 : this.attrs.vidDuration;
-      return "\n    <div class=\"parent\">\n    <div class=\"bg \">\n    <div class =\"vid\"></div>\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day || '', " ").concat(this.attrs.dayNumber || '', " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    </div>\n\n    ");
+      return "\n    <div class=\"parent\">\n    <div class=\"bg \">\n    <div class =\"vid\"></div>\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    </div>\n\n    ");
     }
   }, {
     key: "css",
@@ -4767,7 +4767,6 @@ var validation = /*#__PURE__*/Object.freeze({
   transition: transition
 });
 
-console.log(validation.attrs, "AATTRS");
 var src = {
   npm_name: "@kissmybutton/motorcortex-slides",
   incidents: [{
