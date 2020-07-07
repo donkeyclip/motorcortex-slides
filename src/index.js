@@ -17,57 +17,101 @@ module.exports = {
     {
       exportable: Intro,
       name: "Intro",
-      attributesValidationRules: attrs.intro
+      attributesValidationRules: attrs.intro,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: Transition,
       name: "Transition",
-      attributesValidationRules: attrs.transition
+      attributesValidationRules: attrs.transition,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: SlideDateOne,
       name: "SlideDateOne",
-      attributesValidationRules: attrs.SlideDateOne
+      attributesValidationRules: attrs.SlideDateOne,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: SlideDateOneVid,
       name: "SlideDateOneVid",
-      attributesValidationRules: attrs.SlideDateOneVid
+      attributesValidationRules: attrs.SlideDateOneVid,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: SlideDateTwo,
       name: "SlideDateTwo",
-      attributesValidationRules: attrs.SlideDateTwo
+      attributesValidationRules: attrs.SlideDateTwo,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: Scrolslide,
       name: "Scrolslide",
-      attributesValidationRules: attrs.prisenter
+      attributesValidationRules: attrs.prisenter,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: LtRslide,
       name: "LtRslide",
-      attributesValidationRules: attrs.prisenter
+      attributesValidationRules: attrs.prisenter,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: BtTslide,
       name: "BtTslide",
-      attributesValidationRules: attrs.prisenter
+      attributesValidationRules: attrs.prisenter,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: BtTslideDate,
       name: "BtTslideDate",
-      attributesValidationRules: attrs.BtTslideDate
+      attributesValidationRules: attrs.BtTslideDate,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: LtRslideTop,
       name: "LtRslideTop",
-      attributesValidationRules: attrs.prisenter
+      attributesValidationRules: attrs.prisenter,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     },
     {
       exportable: RtLslide,
       name: "RtLslide",
-      attributesValidationRules: attrs.prisenter
+      attributesValidationRules: attrs.prisenter,
+      originalDims: {
+        width: "1920px",
+        height: "1080px"
+      }
     }
   ]
 };

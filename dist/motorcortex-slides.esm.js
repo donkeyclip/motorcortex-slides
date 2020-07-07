@@ -53,6 +53,19 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -67,6 +80,25 @@ function _possibleConstructorReturn(self, call) {
   }
 
   return _assertThisInitialized(self);
+}
+
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
 }
 
 function _classCallCheck$1(instance, Constructor) {
@@ -171,7 +203,7 @@ function _setPrototypeOf$1(o, p) {
   return _setPrototypeOf$1(o, p);
 }
 
-function _isNativeReflectConstruct() {
+function _isNativeReflectConstruct$1() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
@@ -200,12 +232,12 @@ function _possibleConstructorReturn$1(self, call) {
   return _assertThisInitialized$1(self);
 }
 
-function _createSuper(Derived) {
+function _createSuper$1(Derived) {
   return function () {
     var Super = _getPrototypeOf$1(Derived),
         result;
 
-    if (_isNativeReflectConstruct()) {
+    if (_isNativeReflectConstruct$1()) {
       var NewTarget = _getPrototypeOf$1(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -1089,12 +1121,10 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var Anime =
-/*#__PURE__*/
-function (_MC$API$MonoIncident) {
+var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
   _inherits$1(Anime, _MC$API$MonoIncident);
 
-  var _super = _createSuper(Anime);
+  var _super = _createSuper$1(Anime);
 
   function Anime() {
     _classCallCheck$1(this, Anime);
@@ -2043,15 +2073,15 @@ var index = {
 
 var Anime$1 = MC.loadPlugin(index);
 
-var Intro =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var Intro = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(Intro, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(Intro);
 
   function Intro() {
     _classCallCheck(this, Intro);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Intro).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(Intro, [{
@@ -2268,15 +2298,15 @@ var Intro_1 = Intro;
 
 var Anime$2 = MC.loadPlugin(index);
 
-var Transition =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var Transition = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(Transition, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(Transition);
 
   function Transition() {
     _classCallCheck(this, Transition);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Transition).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(Transition, [{
@@ -2349,15 +2379,15 @@ var Transition_1 = Transition;
 
 var Anime$3 = MC.loadPlugin(index);
 
-var SlideDateOne =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideDateOne = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideDateOne, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideDateOne);
 
   function SlideDateOne() {
     _classCallCheck(this, SlideDateOne);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideDateOne).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideDateOne, [{
@@ -2593,15 +2623,15 @@ var SlideDateOne_1 = SlideDateOne;
 
 var Anime$4 = MC.loadPlugin(index);
 
-var Scrolslide =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var Scrolslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(Scrolslide, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(Scrolslide);
 
   function Scrolslide() {
     _classCallCheck(this, Scrolslide);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Scrolslide).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(Scrolslide, [{
@@ -2729,15 +2759,15 @@ var Scrolslide_1 = Scrolslide;
 
 var Anime$5 = MC.loadPlugin(index);
 
-var LtRslide =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var LtRslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(LtRslide, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(LtRslide);
 
   function LtRslide() {
     _classCallCheck(this, LtRslide);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(LtRslide).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(LtRslide, [{
@@ -2837,15 +2867,15 @@ var LtRslide_1 = LtRslide;
 
 var Anime$6 = MC.loadPlugin(index);
 
-var SlideDateTwo =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideDateTwo, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideDateTwo);
 
   function SlideDateTwo() {
     _classCallCheck(this, SlideDateTwo);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideDateTwo).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideDateTwo, [{
@@ -3061,15 +3091,15 @@ var SlideDateTwo_1 = SlideDateTwo;
 
 var Anime$7 = MC.loadPlugin(index);
 
-var BtTslide =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var BtTslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(BtTslide, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(BtTslide);
 
   function BtTslide() {
     _classCallCheck(this, BtTslide);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BtTslide).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(BtTslide, [{
@@ -3177,15 +3207,15 @@ var BtTslide_1 = BtTslide;
 
 var Anime$8 = MC.loadPlugin(index);
 
-var BtTslideDate =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var BtTslideDate = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(BtTslideDate, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(BtTslideDate);
 
   function BtTslideDate() {
     _classCallCheck(this, BtTslideDate);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(BtTslideDate).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(BtTslideDate, [{
@@ -3381,15 +3411,15 @@ var BtTslideDate_1 = BtTslideDate;
 
 var Anime$9 = MC.loadPlugin(index);
 
-var LtRslideTop =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var LtRslideTop = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(LtRslideTop, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(LtRslideTop);
 
   function LtRslideTop() {
     _classCallCheck(this, LtRslideTop);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(LtRslideTop).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(LtRslideTop, [{
@@ -3491,15 +3521,15 @@ var LtRslideTop_1 = LtRslideTop;
 
 var Anime$a = MC.loadPlugin(index);
 
-var RtLslide =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var RtLslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(RtLslide, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(RtLslide);
 
   function RtLslide() {
     _classCallCheck(this, RtLslide);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(RtLslide).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(RtLslide, [{
@@ -3688,9 +3718,7 @@ function _setPrototypeOf$2(o, p) {
   return _setPrototypeOf$2(o, p);
 }
 
-var VideoClip =
-/*#__PURE__*/
-function (_MC$API$DOMClip) {
+var VideoClip = /*#__PURE__*/function (_MC$API$DOMClip) {
   _inherits$2(VideoClip, _MC$API$DOMClip);
 
   function VideoClip() {
@@ -3828,9 +3856,7 @@ function _setPrototypeOf$3(o, p) {
   return _setPrototypeOf$3(o, p);
 }
 
-var VideoPlay =
-/*#__PURE__*/
-function (_MC$API$MediaPlayback) {
+var VideoPlay = /*#__PURE__*/function (_MC$API$MediaPlayback) {
   _inherits$3(VideoPlay, _MC$API$MediaPlayback);
 
   function VideoPlay() {
@@ -3990,9 +4016,7 @@ function _setPrototypeOf$4(o, p) {
 
 var effects = compositeAttributes$1.filter;
 
-var VideoEffect =
-/*#__PURE__*/
-function (_MotorCortex$API$Mono) {
+var VideoEffect = /*#__PURE__*/function (_MotorCortex$API$Mono) {
   _inherits$4(VideoEffect, _MotorCortex$API$Mono);
 
   function VideoEffect() {
@@ -4145,15 +4169,15 @@ var main = {
 var Anime$b = MC.loadPlugin(index);
 var VideoPlugin = MC.loadPlugin(main);
 
-var SlideDateOneVid =
-/*#__PURE__*/
-function (_MotorCortex$API$Clip) {
+var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   _inherits(SlideDateOneVid, _MotorCortex$API$Clip);
+
+  var _super = _createSuper(SlideDateOneVid);
 
   function SlideDateOneVid() {
     _classCallCheck(this, SlideDateOneVid);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SlideDateOneVid).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(SlideDateOneVid, [{
@@ -4766,47 +4790,91 @@ var src = {
   incidents: [{
     exportable: Intro_1,
     name: "Intro",
-    attributesValidationRules: validation.intro
+    attributesValidationRules: validation.intro,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: Transition_1,
     name: "Transition",
-    attributesValidationRules: validation.transition
+    attributesValidationRules: validation.transition,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: SlideDateOne_1,
     name: "SlideDateOne",
-    attributesValidationRules: validation.SlideDateOne
+    attributesValidationRules: validation.SlideDateOne,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: SlideDateOneVid_1,
     name: "SlideDateOneVid",
-    attributesValidationRules: validation.SlideDateOneVid
+    attributesValidationRules: validation.SlideDateOneVid,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: SlideDateTwo_1,
     name: "SlideDateTwo",
-    attributesValidationRules: validation.SlideDateTwo
+    attributesValidationRules: validation.SlideDateTwo,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: Scrolslide_1,
     name: "Scrolslide",
-    attributesValidationRules: validation.prisenter
+    attributesValidationRules: validation.prisenter,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: LtRslide_1,
     name: "LtRslide",
-    attributesValidationRules: validation.prisenter
+    attributesValidationRules: validation.prisenter,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: BtTslide_1,
     name: "BtTslide",
-    attributesValidationRules: validation.prisenter
+    attributesValidationRules: validation.prisenter,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: BtTslideDate_1,
     name: "BtTslideDate",
-    attributesValidationRules: validation.BtTslideDate
+    attributesValidationRules: validation.BtTslideDate,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: LtRslideTop_1,
     name: "LtRslideTop",
-    attributesValidationRules: validation.prisenter
+    attributesValidationRules: validation.prisenter,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }, {
     exportable: RtLslide_1,
     name: "RtLslide",
-    attributesValidationRules: validation.prisenter
+    attributesValidationRules: validation.prisenter,
+    originalDims: {
+      width: "1920px",
+      height: "1080px"
+    }
   }]
 };
 var src_1 = src.npm_name;

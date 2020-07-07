@@ -8,8 +8,8 @@ body {
   background-color : white; 
 }              
 .container,.container2,.container3,.container4 {
-  width: 1920px;
-  height: 1080px;
+  width: 500px;
+  height: 281px;
   overflow: hidden;
   display: flex;
   position: absolute;
@@ -74,7 +74,10 @@ const introClip = new Clip.Intro(
     speed: 2
   },
   {
-    selector: ".container1"
+    selector: ".container1",
+    containerParams: {
+      width: "500px"
+    }
   }
 );
 
@@ -191,11 +194,11 @@ const bttDay = new Clip.BtTslideDate(
 );
 
 clip.addIncident(introClip, 0);
-clip.addIncident(dayOne, clip.calculatedDuration - 2000);
-clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
-clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
-clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
-clip.addIncident(bttDay, clip.calculatedDuration - 2000);
-clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
+// clip.addIncident(dayOne, clip.calculatedDuration - 2000);
+// clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
+// clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
+// clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
+// clip.addIncident(bttDay, clip.calculatedDuration - 2000);
+// clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
 
 new Player({ clip });
