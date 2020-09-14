@@ -50,6 +50,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
     <div class="second-slide">
       <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
       <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
+      <div class="second-slide-titleTwo">${this.attrs.title[2]}</div>
       <div class="word-bg">
         <div class="word"></div>
       </div>

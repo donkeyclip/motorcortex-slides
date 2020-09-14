@@ -8,8 +8,8 @@ body {
   background-color : white; 
 }              
 .container,.container2,.container3,.container4 {
-  width: 500px;
-  height: 281px;
+  width: 1280px;
+  height: 720px;
   overflow: hidden;
   display: flex;
   position: absolute;
@@ -76,14 +76,14 @@ const introClip = new Clip.Intro(
   {
     selector: ".container1",
     containerParams: {
-      width: "500px"
+      width: "1280px"
     }
   }
 );
 
 const dayOne = new Clip.SlideDateOneVid(
   {
-    title: ["MOTORCORTEX TEAM", "the", "Presents"],
+    title: ["the", "MOTORCORTEX TEAM", "Presents"],
     description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
@@ -101,7 +101,10 @@ const dayOne = new Clip.SlideDateOneVid(
     vidLink: ["https://kissmybutton.github.io/motorcortex-slides/demo/vid.mp4"]
   },
   {
-    selector: ".container3"
+    selector: ".container3",
+    containerParams: {
+      width: "1280px"
+    }
   }
 );
 
@@ -116,7 +119,10 @@ const scrolPresenter = new Clip.Scrolslide(
     speed: 2
   },
   {
-    selector: ".container4"
+    selector: ".container4",
+    containerParams: {
+      width: "1280px"
+    }
   }
 );
 
@@ -131,7 +137,10 @@ const ltrPresenter = new Clip.LtRslide(
     speed: 2
   },
   {
-    selector: ".container6"
+    selector: ".container6",
+    containerParams: {
+      width: "1280px"
+    }
   }
 );
 
@@ -153,7 +162,10 @@ const dayTwo = new Clip.SlideDateTwo(
     speed: 2
   },
   {
-    selector: ".container7"
+    selector: ".container7",
+    containerParams: {
+      width: "1280px"
+    }
   }
 );
 
@@ -168,10 +180,12 @@ const bttPresenter = new Clip.BtTslide(
     speed: 2
   },
   {
-    selector: ".container16"
+    selector: ".container16",
+    containerParams: {
+      width: "1280px"
+    }
   }
 );
-
 const bttDay = new Clip.BtTslideDate(
   {
     title: "Presenter",
@@ -189,16 +203,19 @@ const bttDay = new Clip.BtTslideDate(
     speed: 2
   },
   {
-    selector: ".container10"
+    selector: ".container10",
+    containerParams: {
+      width: "1280px"
+    }
   }
 );
 
 clip.addIncident(introClip, 0);
-// clip.addIncident(dayOne, clip.calculatedDuration - 2000);
-// clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
-// clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
-// clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
-// clip.addIncident(bttDay, clip.calculatedDuration - 2000);
-// clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
+clip.addIncident(dayOne, clip.calculatedDuration - 2000);
+clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
+clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
+clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
+clip.addIncident(bttDay, clip.calculatedDuration - 2000);
+clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
 
 new Player({ clip });
