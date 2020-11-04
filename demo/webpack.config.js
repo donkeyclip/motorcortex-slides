@@ -70,5 +70,8 @@ module.exports = {
     hot: true,
     contentBase: "./demo",
     open: true
+  },
+  node: {
+    fs: "empty",
   }
 };

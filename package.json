@@ -1,6 +1,6 @@
 {
   "name": "@kissmybutton/motorcortex-slides",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Slides plugin for MotorCortex",
   "main": "dist/motorcortex-slides.cjs.js",
   "module": "dist/motorcortex-slides.esm.js",
@@ -75,10 +75,10 @@
     "@kissmybutton/motorcortex-video": "1.0.5",
     "browserslist": "^4.7.0",
     "caniuse-lite": "^1.0.30000997",
-    "@kissmybutton/motorcortex-anime": "1.4.13"
+    "@kissmybutton/motorcortex-anime": "1.4.15"
   },
   "peerDependencies": {
-    "@kissmybutton/motorcortex": "3.9.1"
+    "@kissmybutton/motorcortex": "5.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -86,8 +86,8 @@
     "@babel/preset-env": "^7.1.0",
     "@commitlint/cli": "^7.2.1",
     "@commitlint/config-conventional": "^7.0.1",
-    "@kissmybutton/motorcortex": "3.9.1",
-    "@kissmybutton/motorcortex-anime": "1.4.13",
+    "@kissmybutton/motorcortex": "5.0.0",
+    "@kissmybutton/motorcortex-anime": "1.4.15",
     "@kissmybutton/motorcortex-player": "1.5.11",
     "@kissmybutton/motorcortex-video": "1.0.5",
     "@semantic-release/changelog": "^3.0.2",
