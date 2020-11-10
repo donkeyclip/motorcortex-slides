@@ -8,8 +8,8 @@ body {
   background-color : white; 
 }              
 .container,.container2,.container3,.container4 {
-  width: 1280px;
-  height: 720px;
+  width: 1920px;
+  height: 1080px;
   overflow: hidden;
   display: flex;
   position: absolute;
@@ -38,8 +38,8 @@ const html = `
 const host = document.getElementById("clip");
 
 const containerParams = {
-  width: "100%",
-  height: "100%"
+  width: "1920px",
+  height: "1080px"
 };
 
 const overlay = ["#101820D7", "#101820FF"];
@@ -74,10 +74,10 @@ const introClip = new Clip.Intro(
     speed: 2
   },
   {
-    selector: ".container1",
-    containerParams: {
-      width: "1280px"
-    }
+    selector: ".container1"
+    // containerParams: {
+    //   width: "1280px"
+    // }
   }
 );
 
@@ -101,10 +101,10 @@ const dayOne = new Clip.SlideDateOneVid(
     vidLink: ["https://kissmybutton.github.io/motorcortex-slides/demo/vid.mp4"]
   },
   {
-    selector: ".container3",
-    containerParams: {
-      width: "1280px"
-    }
+    selector: ".container3"
+    // containerParams: {
+    //   width: "1280px"
+    // }
   }
 );
 
@@ -119,10 +119,10 @@ const scrolPresenter = new Clip.Scrolslide(
     speed: 2
   },
   {
-    selector: ".container4",
-    containerParams: {
-      width: "1280px"
-    }
+    selector: ".container4"
+    // containerParams: {
+    //   width: "1280px"
+    // }
   }
 );
 
@@ -137,10 +137,10 @@ const ltrPresenter = new Clip.LtRslide(
     speed: 2
   },
   {
-    selector: ".container6",
-    containerParams: {
-      width: "1280px"
-    }
+    selector: ".container6"
+    // containerParams: {
+    //   width: "1280px"
+    // }
   }
 );
 
@@ -162,10 +162,10 @@ const dayTwo = new Clip.SlideDateTwo(
     speed: 2
   },
   {
-    selector: ".container7",
-    containerParams: {
-      width: "1280px"
-    }
+    selector: ".container7"
+    // containerParams: {
+    //   width: "1280px"
+    // }
   }
 );
 
@@ -180,10 +180,10 @@ const bttPresenter = new Clip.BtTslide(
     speed: 2
   },
   {
-    selector: ".container16",
-    containerParams: {
-      width: "1280px"
-    }
+    selector: ".container16"
+    // containerParams: {
+    //   width: "1280px"
+    // }
   }
 );
 const bttDay = new Clip.BtTslideDate(
@@ -203,10 +203,10 @@ const bttDay = new Clip.BtTslideDate(
     speed: 2
   },
   {
-    selector: ".container10",
-    containerParams: {
-      width: "1280px"
-    }
+    selector: ".container10"
+    // containerParams: {
+    //   width: "1280px"
+    // }
   }
 );
 
