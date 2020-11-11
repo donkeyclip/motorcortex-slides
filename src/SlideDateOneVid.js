@@ -5,7 +5,7 @@ const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 const MCVideo = require("@kissmybutton/motorcortex-video");
 const VideoPlugin = MotorCortex.loadPlugin(MCVideo);
 
-class SlideDateOneVid extends MotorCortex.API.Clip {
+class SlideDateOneVid extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -253,7 +253,7 @@ class SlideDateOneVid extends MotorCortex.API.Clip {
       html3 = html3 + html;
     }
 
-    const word = new MotorCortex.Clip({
+    const word = new MotorCortex.HTMLClip({
       css: this.css,
       html: ` <div class="conttitle" >${html3.split("undefined")[1]} </div>`,
       selector: ".word",

@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var MC = _interopDefault(require('@kissmybutton/motorcortex'));
+var motorcortex = _interopDefault(require('@kissmybutton/motorcortex'));
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -256,7 +256,7 @@ function _createSuper$1(Derived) {
 }
 /*
  * anime.js v3.1.0
- * (c) 2019 Julian Garnier
+ * (c) 2020 Julian Garnier
  * Released under the MIT license
  * animejs.com
  */
@@ -1077,6 +1077,151 @@ function anime(params) {
 
   instance.reset();
   return instance;
+} // getTotalLength() equivalent for circle, rect, polyline, polygon and line shapes
+// adapted from https://gist.github.com/SebLambla/3e0550c496c236709744
+
+
+function getDistance(p1, p2) {
+  return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+}
+
+function getCircleLength(el) {
+  return Math.PI * 2 * getAttribute(el, 'r');
+}
+
+function getRectLength(el) {
+  return getAttribute(el, 'width') * 2 + getAttribute(el, 'height') * 2;
+}
+
+function getLineLength(el) {
+  return getDistance({
+    x: getAttribute(el, 'x1'),
+    y: getAttribute(el, 'y1')
+  }, {
+    x: getAttribute(el, 'x2'),
+    y: getAttribute(el, 'y2')
+  });
+}
+
+function getPolylineLength(el) {
+  var points = el.points;
+  var totalLength = 0;
+  var previousPos;
+
+  for (var i = 0; i < points.numberOfItems; i++) {
+    var currentPos = points.getItem(i);
+
+    if (i > 0) {
+      totalLength += getDistance(previousPos, currentPos);
+    }
+
+    previousPos = currentPos;
+  }
+
+  return totalLength;
+}
+
+function getPolygonLength(el) {
+  var points = el.points;
+  return getPolylineLength(el) + getDistance(points.getItem(points.numberOfItems - 1), points.getItem(0));
+} // Path animation
+
+
+function getTotalLength(el) {
+  if (el.getTotalLength) {
+    return el.getTotalLength();
+  }
+
+  switch (el.tagName.toLowerCase()) {
+    case 'circle':
+      return getCircleLength(el);
+
+    case 'rect':
+      return getRectLength(el);
+
+    case 'line':
+      return getLineLength(el);
+
+    case 'polyline':
+      return getPolylineLength(el);
+
+    case 'polygon':
+      return getPolygonLength(el);
+  }
+} // Motion path
+
+
+function getParentSvgEl(el) {
+  var parentEl = el.parentNode;
+
+  while (is.svg(parentEl)) {
+    if (!is.svg(parentEl.parentNode)) {
+      break;
+    }
+
+    parentEl = parentEl.parentNode;
+  }
+
+  return parentEl;
+}
+
+function getParentSvg(pathEl, svgData) {
+  var svg = svgData || {};
+  var parentSvgEl = svg.el || getParentSvgEl(pathEl);
+  var rect = parentSvgEl.getBoundingClientRect();
+  var viewBoxAttr = getAttribute(parentSvgEl, 'viewBox');
+  var width = rect.width;
+  var height = rect.height;
+  var viewBox = svg.viewBox || (viewBoxAttr ? viewBoxAttr.split(' ') : [0, 0, width, height]);
+  return {
+    el: parentSvgEl,
+    viewBox: viewBox,
+    x: viewBox[0] / 1,
+    y: viewBox[1] / 1,
+    w: width,
+    h: height,
+    vW: viewBox[2],
+    vH: viewBox[3]
+  };
+}
+
+function getPath(path, percent) {
+  var pathEl = is.str(path) ? selectString(path)[0] : path;
+  var p = percent || 100;
+  return function (property) {
+    return {
+      property: property,
+      el: pathEl,
+      svg: getParentSvg(pathEl),
+      totalLength: getTotalLength(pathEl) * (p / 100)
+    };
+  };
+}
+
+function getPathProgress(path, progress, isPathTargetInsideSVG) {
+  function point(offset) {
+    if (offset === void 0) offset = 0;
+    var l = progress + offset >= 1 ? progress + offset : 0;
+    return path.el.getPointAtLength(l);
+  }
+
+  var svg = getParentSvg(path.el, path.svg);
+  var p = point();
+  var p0 = point(-1);
+  var p1 = point(+1);
+  var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
+  var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+
+  switch (path.property) {
+    case 'x':
+      return (p.x - svg.x) * scaleX;
+
+    case 'y':
+      return (p.y - svg.y) * scaleY;
+
+    case 'angle':
+      return Math.atan2(p1.y - p0.y, p1.x - p0.x) * 180 / Math.PI;
+  }
 }
 
 anime.version = '3.1.0';
@@ -1084,6 +1229,8 @@ anime.get = getOriginalTargetValue;
 anime.set = setTargetsValue;
 anime.convertPx = convertPxToUnit;
 anime.penner = penner;
+anime.path = getPath;
+anime.getPathProgress = getPathProgress;
 var transform = ["translateX", "translateY", "translateZ", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "skewX", "skewY", "perspective"];
 var compositeAttributes = {
   transform: transform
@@ -1127,8 +1274,8 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
-  _inherits$1(Anime, _MC$API$MonoIncident);
+var Anime = /*#__PURE__*/function (_MC$Effect) {
+  _inherits$1(Anime, _MC$Effect);
 
   var _super = _createSuper$1(Anime);
 
@@ -1142,7 +1289,6 @@ var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
     key: "onGetContext",
     value: function onGetContext() {
       var options = {};
-      var initialize = {};
 
       if (Object.prototype.hasOwnProperty.call(compositeAttributes, this.attributeKey)) {
         var compoAttribute = compositeAttributes[this.attributeKey];
@@ -1153,11 +1299,9 @@ var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
           }
 
           options[compoAttribute[i]] = [this.getInitialValue()[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
-          initialize[compoAttribute[i]] = [this.getScratchValue(), this.targetValue[compoAttribute[i]]];
         }
       } else {
         options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
-        initialize[this.targetValue] = [this.getScratchValue(), this.targetValue];
       }
 
       this.target = anime(_objectSpread2({
@@ -1200,7 +1344,7 @@ var Anime = /*#__PURE__*/function (_MC$API$MonoIncident) {
   }]);
 
   return Anime;
-}(MC.API.MonoIncident);
+}(motorcortex.Effect);
 
 var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
@@ -2077,10 +2221,10 @@ var index = {
   compositeAttributes: compositeAttributes
 };
 
-var Anime$1 = MC.loadPlugin(index);
+var Anime$1 = motorcortex.loadPlugin(index);
 
-var Intro = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(Intro, _MotorCortex$API$Clip);
+var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(Intro, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(Intro);
 
@@ -2298,14 +2442,14 @@ var Intro = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return Intro;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var Intro_1 = Intro;
 
-var Anime$2 = MC.loadPlugin(index);
+var Anime$2 = motorcortex.loadPlugin(index);
 
-var Transition = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(Transition, _MotorCortex$API$Clip);
+var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(Transition, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(Transition);
 
@@ -2379,14 +2523,14 @@ var Transition = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return Transition;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var Transition_1 = Transition;
 
-var Anime$3 = MC.loadPlugin(index);
+var Anime$3 = motorcortex.loadPlugin(index);
 
-var SlideDateOne = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideDateOne, _MotorCortex$API$Clip);
+var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideDateOne, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideDateOne);
 
@@ -2427,7 +2571,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new MC.Clip({
+      var word = new motorcortex.HTMLClip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -2623,14 +2767,14 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideDateOne;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var SlideDateOne_1 = SlideDateOne;
 
-var Anime$4 = MC.loadPlugin(index);
+var Anime$4 = motorcortex.loadPlugin(index);
 
-var Scrolslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(Scrolslide, _MotorCortex$API$Clip);
+var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(Scrolslide, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(Scrolslide);
 
@@ -2759,14 +2903,14 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return Scrolslide;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var Scrolslide_1 = Scrolslide;
 
-var Anime$5 = MC.loadPlugin(index);
+var Anime$5 = motorcortex.loadPlugin(index);
 
-var LtRslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(LtRslide, _MotorCortex$API$Clip);
+var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(LtRslide, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(LtRslide);
 
@@ -2867,14 +3011,14 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return LtRslide;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var LtRslide_1 = LtRslide;
 
-var Anime$6 = MC.loadPlugin(index);
+var Anime$6 = motorcortex.loadPlugin(index);
 
-var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideDateTwo, _MotorCortex$API$Clip);
+var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideDateTwo, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideDateTwo);
 
@@ -3091,14 +3235,14 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideDateTwo;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var SlideDateTwo_1 = SlideDateTwo;
 
-var Anime$7 = MC.loadPlugin(index);
+var Anime$7 = motorcortex.loadPlugin(index);
 
-var BtTslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(BtTslide, _MotorCortex$API$Clip);
+var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(BtTslide, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(BtTslide);
 
@@ -3207,14 +3351,14 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return BtTslide;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var BtTslide_1 = BtTslide;
 
-var Anime$8 = MC.loadPlugin(index);
+var Anime$8 = motorcortex.loadPlugin(index);
 
-var BtTslideDate = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(BtTslideDate, _MotorCortex$API$Clip);
+var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(BtTslideDate, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(BtTslideDate);
 
@@ -3411,14 +3555,14 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return BtTslideDate;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var BtTslideDate_1 = BtTslideDate;
 
-var Anime$9 = MC.loadPlugin(index);
+var Anime$9 = motorcortex.loadPlugin(index);
 
-var LtRslideTop = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(LtRslideTop, _MotorCortex$API$Clip);
+var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(LtRslideTop, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(LtRslideTop);
 
@@ -3521,14 +3665,14 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return LtRslideTop;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var LtRslideTop_1 = LtRslideTop;
 
-var Anime$a = MC.loadPlugin(index);
+var Anime$a = motorcortex.loadPlugin(index);
 
-var RtLslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(RtLslide, _MotorCortex$API$Clip);
+var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(RtLslide, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(RtLslide);
 
@@ -3637,23 +3781,9 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return RtLslide;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var RtLslide_1 = RtLslide;
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
 
 function _classCallCheck$2(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -3677,29 +3807,6 @@ function _createClass$2(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
-function _possibleConstructorReturn$2(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized$2(self);
-}
-
-function _assertThisInitialized$2(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _getPrototypeOf$2(o) {
-  _getPrototypeOf$2 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf$2(o);
-}
-
 function _inherits$2(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
@@ -3715,6 +3822,13 @@ function _inherits$2(subClass, superClass) {
   if (superClass) _setPrototypeOf$2(subClass, superClass);
 }
 
+function _getPrototypeOf$2(o) {
+  _getPrototypeOf$2 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf$2(o);
+}
+
 function _setPrototypeOf$2(o, p) {
   _setPrototypeOf$2 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
@@ -3724,13 +3838,63 @@ function _setPrototypeOf$2(o, p) {
   return _setPrototypeOf$2(o, p);
 }
 
-var VideoClip = /*#__PURE__*/function (_MC$API$DOMClip) {
-  _inherits$2(VideoClip, _MC$API$DOMClip);
+function _isNativeReflectConstruct$2() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+
+  try {
+    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function _assertThisInitialized$2(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+function _possibleConstructorReturn$2(self, call) {
+  if (call && (typeof call === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return _assertThisInitialized$2(self);
+}
+
+function _createSuper$2(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$2();
+
+  return function _createSuperInternal() {
+    var Super = _getPrototypeOf$2(Derived),
+        result;
+
+    if (hasNativeReflectConstruct) {
+      var NewTarget = _getPrototypeOf$2(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn$2(this, result);
+  };
+}
+
+var VideoClip = /*#__PURE__*/function (_MC$BrowserClip) {
+  _inherits$2(VideoClip, _MC$BrowserClip);
+
+  var _super = _createSuper$2(VideoClip);
 
   function VideoClip() {
     _classCallCheck$2(this, VideoClip);
 
-    return _possibleConstructorReturn$2(this, _getPrototypeOf$2(VideoClip).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass$2(VideoClip, [{
@@ -3741,13 +3905,12 @@ var VideoClip = /*#__PURE__*/function (_MC$API$DOMClip) {
       var video = this.context.getElements("video")[0];
       video.muted = true;
       var canvas = this.context.getElements("canvas")[0];
-      var ctx = canvas.getContext('2d');
-      video.addEventListener("loadedmetadata", function (e) {
+      var ctx = canvas.getContext("2d");
+      video.addEventListener("loadedmetadata", function () {
         var canvasWidth = _this.attrs.width || 640;
-        var canvasHeight = _this.attrs.height || 360; // console.log(canvasWidth / video.videoWidth, canvasHeight / video.videoHeight)
+        var canvasHeight = _this.attrs.height || 360;
+        canvas.style.transform = "scale(".concat(canvasWidth / video.videoWidth, ", ").concat(canvasHeight / video.videoHeight, ")"); // canvas.style['transform-origin'] = "top left";
 
-        canvas.style.transform = "scale(".concat(canvasWidth / video.videoWidth, ", ").concat(canvasHeight / video.videoHeight, ")");
-        canvas.style['transform-origin'] = "top left";
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
       }, false);
@@ -3763,9 +3926,11 @@ var VideoClip = /*#__PURE__*/function (_MC$API$DOMClip) {
     get: function get() {
       var _this2 = this;
 
-      return "\n        <div>\n            <video id=\"video\" style=\"width:".concat(this.attrs.width || 640, "px;height:").concat(this.attrs.height || 360, "px;\" preload=\"auto\">\n                ").concat(this.attrs.sources.map(function (item, i) {
+      return "\n        <div>\n            <video id=\"video\" style=\"width:".concat(this.attrs.width || 640, "px;height:").concat(this.attrs.height || 360, "px;\" preload=\"auto\">\n                ").concat(this.attrs.sources.map(function (item
+      /*, i*/
+      ) {
         return "\n                    <source src=\"".concat(item, "#t=").concat(_this2.attrs.startFrom || 0, "\"></source>\n                ");
-      }).join(''), "\n            </video>\n            <canvas id=\"canvas\"></canvas>\n        </div>\n        ");
+      }).join(""), "\n            </video>\n            <canvas id=\"canvas\"></canvas>\n        </div>\n        ");
     }
   }, {
     key: "css",
@@ -3775,118 +3940,40 @@ var VideoClip = /*#__PURE__*/function (_MC$API$DOMClip) {
   }]);
 
   return VideoClip;
-}(MC.API.DOMClip);
+}(motorcortex.BrowserClip);
 
 var VideoClip_1 = VideoClip;
 
-function _typeof$1(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof$1 = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof$1 = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
+var VideoPlay = /*#__PURE__*/function (_MC$MediaPlayback) {
+  _inherits$2(VideoPlay, _MC$MediaPlayback);
 
-  return _typeof$1(obj);
-}
-
-function _classCallCheck$3(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties$3(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass$3(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties$3(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties$3(Constructor, staticProps);
-  return Constructor;
-}
-
-function _possibleConstructorReturn$3(self, call) {
-  if (call && (_typeof$1(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized$3(self);
-}
-
-function _assertThisInitialized$3(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _getPrototypeOf$3(o) {
-  _getPrototypeOf$3 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf$3(o);
-}
-
-function _inherits$3(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf$3(subClass, superClass);
-}
-
-function _setPrototypeOf$3(o, p) {
-  _setPrototypeOf$3 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf$3(o, p);
-}
-
-var VideoPlay = /*#__PURE__*/function (_MC$API$MediaPlayback) {
-  _inherits$3(VideoPlay, _MC$API$MediaPlayback);
+  var _super = _createSuper$2(VideoPlay);
 
   function VideoPlay() {
-    _classCallCheck$3(this, VideoPlay);
+    _classCallCheck$2(this, VideoPlay);
 
-    return _possibleConstructorReturn$3(this, _getPrototypeOf$3(VideoPlay).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
-  _createClass$3(VideoPlay, [{
+  _createClass$2(VideoPlay, [{
     key: "play",
-    value: function play(millisecond) {
+    value: function play()
+    /*millisecond*/
+    {
       var _this = this;
 
       var video = this.element.entity.video;
-      var ctx = this.element.entity.ctx;
-      var playPromise = video.play();
+      var ctx = this.element.entity.ctx; // const playPromise = video.play();
+
+      video.play();
 
       if (this.hasSetWaitingListener !== true) {
-        video.addEventListener('waiting', this._waitingHandler.bind(this));
+        video.addEventListener("waiting", this._waitingHandler.bind(this));
         this.hasSetWaitingListener = true;
       }
 
       if (this.hasSetCanplayListener !== true) {
-        video.addEventListener('canplay', this._canplayHandler.bind(this));
+        video.addEventListener("canplay", this._canplayHandler.bind(this));
         this.hasSetCanplayListener = true;
       }
 
@@ -3903,14 +3990,14 @@ var VideoPlay = /*#__PURE__*/function (_MC$API$MediaPlayback) {
   }, {
     key: "_waitingHandler",
     value: function _waitingHandler() {
-      console.log('waiting');
-      console.log('and blocking');
-      this.setBlock('Video loading');
+      // console.log("waiting");
+      // console.log("and blocking");
+      this.setBlock("Video loading");
     }
   }, {
     key: "_canplayHandler",
     value: function _canplayHandler() {
-      console.log('unblocking');
+      // console.log("unblocking");
       this.unblock();
     }
   }, {
@@ -3929,109 +4016,26 @@ var VideoPlay = /*#__PURE__*/function (_MC$API$MediaPlayback) {
   }]);
 
   return VideoPlay;
-}(MC.API.MediaPlayback);
+}(motorcortex.MediaPlayback);
 
 var VideoPlay_1 = VideoPlay;
-
 var compositeAttributes$1 = {
   filter: ["blur", "brightness", "contrast", "drop-shadow", "grayscale", "hue-rotate", "invert", "opacity", "saturate", "sepia"]
 };
-
-function _typeof$2(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof$2 = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof$2 = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof$2(obj);
-}
-
-function _classCallCheck$4(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties$4(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass$4(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties$4(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties$4(Constructor, staticProps);
-  return Constructor;
-}
-
-function _possibleConstructorReturn$4(self, call) {
-  if (call && (_typeof$2(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return _assertThisInitialized$4(self);
-}
-
-function _assertThisInitialized$4(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _getPrototypeOf$4(o) {
-  _getPrototypeOf$4 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf$4(o);
-}
-
-function _inherits$4(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf$4(subClass, superClass);
-}
-
-function _setPrototypeOf$4(o, p) {
-  _setPrototypeOf$4 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf$4(o, p);
-}
-
 var effects = compositeAttributes$1.filter;
 
-var VideoEffect = /*#__PURE__*/function (_MotorCortex$API$Mono) {
-  _inherits$4(VideoEffect, _MotorCortex$API$Mono);
+var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
+  _inherits$2(VideoEffect, _MotorCortex$Effect);
+
+  var _super = _createSuper$2(VideoEffect);
 
   function VideoEffect() {
-    _classCallCheck$4(this, VideoEffect);
+    _classCallCheck$2(this, VideoEffect);
 
-    return _possibleConstructorReturn$4(this, _getPrototypeOf$4(VideoEffect).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
-  _createClass$4(VideoEffect, [{
+  _createClass$2(VideoEffect, [{
     key: "getScratchValue",
     value: function getScratchValue() {
       return {
@@ -4039,7 +4043,7 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$API$Mono) {
         brightness: 1,
         contrast: 1,
         grayscale: 0,
-        'hue-rotate': 0,
+        "hue-rotate": 0,
         invert: 0,
         opacity: 1,
         saturate: 1,
@@ -4059,7 +4063,9 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$API$Mono) {
     }
   }, {
     key: "onProgress",
-    value: function onProgress(f, m) {
+    value: function onProgress(f
+    /*, m*/
+    ) {
       var targetValues = Object.assign({}, this.initialValue);
 
       for (var i = 0; i < effects.length; i++) {
@@ -4076,25 +4082,24 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$API$Mono) {
     key: "_effectsUnits",
     get: function get() {
       return {
-        blur: 'px',
-        brightness: '',
-        contrast: '',
-        grayscale: '',
-        'hue-rotate': 'deg',
-        invert: '',
-        opacity: '',
-        saturate: '',
-        sepia: ''
+        blur: "px",
+        brightness: "",
+        contrast: "",
+        grayscale: "",
+        "hue-rotate": "deg",
+        invert: "",
+        opacity: "",
+        saturate: "",
+        sepia: ""
       };
     }
   }]);
 
   return VideoEffect;
-}(MC.API.MonoIncident);
+}(motorcortex.Effect);
 
 var Effect = VideoEffect;
-
-var main = {
+var src = {
   npm_name: "@kissmybutton/motorcortex-video",
   incidents: [{
     exportable: VideoPlay_1,
@@ -4131,7 +4136,7 @@ var main = {
                 max: 1,
                 optional: true
               },
-              'hue-rotate': {
+              "hue-rotate": {
                 type: "number",
                 optional: true
               },
@@ -4165,18 +4170,48 @@ var main = {
     }
   }],
   compositeAttributes: compositeAttributes$1,
-  Clip: VideoClip_1,
+  Clip: {
+    exportable: VideoClip_1,
+    attributesValidationRules: {
+      sources: {
+        optional: false,
+        type: "array",
+        min: 1,
+        items: {
+          type: "string"
+        }
+      },
+      width: {
+        optional: true,
+        type: "number",
+        integer: true,
+        positive: true
+      },
+      height: {
+        optional: true,
+        type: "number",
+        integer: true,
+        positive: true
+      },
+      startFrom: {
+        optional: true,
+        type: "number",
+        integer: true,
+        min: 0
+      }
+    }
+  },
   capabilities: {
     speed: false,
     preview: false
   }
 };
 
-var Anime$b = MC.loadPlugin(index);
-var VideoPlugin = MC.loadPlugin(main);
+var Anime$b = motorcortex.loadPlugin(index);
+var VideoPlugin = motorcortex.loadPlugin(src);
 
-var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$API$Clip) {
-  _inherits(SlideDateOneVid, _MotorCortex$API$Clip);
+var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
+  _inherits(SlideDateOneVid, _MotorCortex$HTMLClip);
 
   var _super = _createSuper(SlideDateOneVid);
 
@@ -4233,7 +4268,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$API$Clip) {
         html3 = html3 + html;
       }
 
-      var word = new MC.Clip({
+      var word = new motorcortex.HTMLClip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -4434,7 +4469,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$API$Clip) {
   }]);
 
   return SlideDateOneVid;
-}(MC.API.Clip);
+}(motorcortex.HTMLClip);
 
 var SlideDateOneVid_1 = SlideDateOneVid;
 
@@ -4791,7 +4826,7 @@ var validation = /*#__PURE__*/Object.freeze({
   transition: transition
 });
 
-var src = {
+var src$1 = {
   npm_name: "@kissmybutton/motorcortex-slides",
   incidents: [{
     exportable: Intro_1,
@@ -4883,9 +4918,9 @@ var src = {
     }
   }]
 };
-var src_1 = src.npm_name;
-var src_2 = src.incidents;
+var src_1 = src$1.npm_name;
+var src_2 = src$1.incidents;
 
-exports.default = src;
+exports.default = src$1;
 exports.incidents = src_2;
 exports.npm_name = src_1;

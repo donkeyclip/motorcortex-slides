@@ -45,7 +45,7 @@ const containerParams = {
 const overlay = ["#101820D7", "#101820FF"];
 const main = "#FEE715FF";
 
-const clip = new MotorCortex.Clip({
+const clip = new MotorCortex.HTMLClip({
   css,
   html,
   host,
