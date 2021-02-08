@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var motorcortex = _interopDefault(require('@kissmybutton/motorcortex'));
@@ -255,8 +253,8 @@ function _createSuper$1(Derived) {
   };
 }
 /*
- * anime.js v3.1.4
- * (c) 2020 Julian Garnier
+ * anime.js v3.1.5
+ * (c) 2021 Julian Garnier
  * Released under the MIT license
  * animejs.com
  */
@@ -1221,8 +1219,10 @@ function getPathProgress(path, progress, isPathTargetInsideSVG) {
   var p = point();
   var p0 = point(-1);
   var p1 = point(+1);
-  var scaleX = isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
-  var scaleY = isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+  var scaleX = 1; //isPathTargetInsideSVG ? 1 : svg.w / svg.vW;
+
+  var scaleY = 1; //isPathTargetInsideSVG ? 1 : svg.h / svg.vH;
+
   return {
     x: (p.x - svg.x) * scaleX,
     y: (p.y - svg.y) * scaleY,
@@ -1379,6 +1379,8 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   _createClass$1(MotionPath, [{
     key: "onGetContext",
     value: function onGetContext() {
+      this.pixelsAccuracy = this.attrs.pixelsAccuracy || 4;
+      this.calculatedPoints = [];
       var svgEl = this.context.getElements(this.targetValue.pathElement)[0];
       this.path = anime_es.path(svgEl);
       this.isPathTargetInsideSVG = this.element instanceof SVGElement;
@@ -1386,9 +1388,18 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   }, {
     key: "onProgress",
     value: function onProgress(f) {
-      var position = anime_es.getPathProgress(this.path, f, this.isPathTargetInsideSVG); // console.log(position);
+      var toSet;
+      var distance = Math.round(this.path.totalLength / this.pixelsAccuracy * f) * this.pixelsAccuracy;
 
-      var toSet = "\n            translateX(".concat(position.x, "px) \n            translateY(").concat(position.y, "px) \n            rotate(").concat(position.angle, "deg)\n        ");
+      if (this.calculatedPoints[distance] !== null && this.calculatedPoints[distance] !== undefined) {
+        toSet = this.calculatedPoints[distance];
+      } else {
+        var position = anime_es.getPathProgress(this.path, distance / this.path.totalLength, this.isPathTargetInsideSVG); // console.log(position);
+
+        toSet = "\n            translateX(".concat(position.x, "px)\n            translateY(").concat(position.y, "px)\n            rotate(").concat(position.angle, "deg)\n        ");
+        this.calculatedPoints[distance] = toSet;
+      }
+
       this.element.style.transform = toSet;
     }
   }]);
@@ -2259,8 +2270,12 @@ var animatedAttrs = {
     min: 0
   }
 };
+
+var pkg = require('../package.json');
+
 var index = {
-  npm_name: "@kissmybutton/motorcortex-anime",
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [{
     exportable: Anime,
     name: "Anime",
@@ -4167,8 +4182,12 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
 }(motorcortex.Effect);
 
 var Effect = VideoEffect;
-var src = {
-  npm_name: "@kissmybutton/motorcortex-video",
+
+var pkg$1 = require("../package.json");
+
+var index$1 = {
+  npm_name: pkg$1.name,
+  version: pkg$1.version,
   incidents: [{
     exportable: VideoPlay_1,
     name: "Playback"
@@ -4276,7 +4295,7 @@ var src = {
 };
 
 var Anime$b = motorcortex.loadPlugin(index);
-var VideoPlugin = motorcortex.loadPlugin(src);
+var VideoPlugin = motorcortex.loadPlugin(index$1);
 
 var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits(SlideDateOneVid, _MotorCortex$HTMLClip);
@@ -4542,7 +4561,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
 var SlideDateOneVid_1 = SlideDateOneVid;
 
 var _COLOR$1 = "color";
-var intro = {
+var introintroVal = {
   title: {
     optional: false,
     type: "string"
@@ -4582,7 +4601,7 @@ var intro = {
     }
   }
 };
-var SlideDateOneVid$1 = {
+var SlideDateOneVidintroVal = {
   title: {
     optional: false,
     type: "array",
@@ -4653,7 +4672,7 @@ var SlideDateOneVid$1 = {
     min: 0
   }
 };
-var SlideDateOne$1 = {
+var SlideDateOneintroVal = {
   title: {
     optional: false,
     type: "array",
@@ -4711,7 +4730,7 @@ var SlideDateOne$1 = {
     min: 0
   }
 };
-var prisenter = {
+var prisenterintroVal = {
   title: {
     optional: false,
     type: "string"
@@ -4747,7 +4766,7 @@ var prisenter = {
     min: 0
   }
 };
-var SlideDateTwo$1 = {
+var SlideDateTwointroVal = {
   title: {
     optional: false,
     type: "string"
@@ -4811,7 +4830,7 @@ var SlideDateTwo$1 = {
     min: 0
   }
 };
-var BtTslideDate$1 = {
+var BtTslideDateintroVal = {
   title: {
     optional: false,
     type: "string"
@@ -4871,7 +4890,7 @@ var BtTslideDate$1 = {
     min: 0
   }
 };
-var transition = {
+var transitionintroVal = {
   title: {
     optional: true,
     type: "string"
@@ -4883,23 +4902,15 @@ var transition = {
   }
 };
 
-var validation = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  intro: intro,
-  SlideDateOneVid: SlideDateOneVid$1,
-  SlideDateOne: SlideDateOne$1,
-  prisenter: prisenter,
-  SlideDateTwo: SlideDateTwo$1,
-  BtTslideDate: BtTslideDate$1,
-  transition: transition
-});
+var pkg$2 = require("../package.json");
 
-var src$1 = {
-  npm_name: "@kissmybutton/motorcortex-slides",
+var index$2 = {
+  npm_name: pkg$2.name,
+  version: pkg$2.version,
   incidents: [{
     exportable: Intro_1,
     name: "Intro",
-    attributesValidationRules: validation.intro,
+    attributesValidationRules: introintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4907,7 +4918,7 @@ var src$1 = {
   }, {
     exportable: Transition_1,
     name: "Transition",
-    attributesValidationRules: validation.transition,
+    attributesValidationRules: transitionintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4915,7 +4926,7 @@ var src$1 = {
   }, {
     exportable: SlideDateOne_1,
     name: "SlideDateOne",
-    attributesValidationRules: validation.SlideDateOne,
+    attributesValidationRules: SlideDateOneintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4923,7 +4934,7 @@ var src$1 = {
   }, {
     exportable: SlideDateOneVid_1,
     name: "SlideDateOneVid",
-    attributesValidationRules: validation.SlideDateOneVid,
+    attributesValidationRules: SlideDateOneVidintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4931,7 +4942,7 @@ var src$1 = {
   }, {
     exportable: SlideDateTwo_1,
     name: "SlideDateTwo",
-    attributesValidationRules: validation.SlideDateTwo,
+    attributesValidationRules: SlideDateTwointroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4939,7 +4950,7 @@ var src$1 = {
   }, {
     exportable: Scrolslide_1,
     name: "Scrolslide",
-    attributesValidationRules: validation.prisenter,
+    attributesValidationRules: prisenterintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4947,7 +4958,7 @@ var src$1 = {
   }, {
     exportable: LtRslide_1,
     name: "LtRslide",
-    attributesValidationRules: validation.prisenter,
+    attributesValidationRules: prisenterintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4955,7 +4966,7 @@ var src$1 = {
   }, {
     exportable: BtTslide_1,
     name: "BtTslide",
-    attributesValidationRules: validation.prisenter,
+    attributesValidationRules: prisenterintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4963,7 +4974,7 @@ var src$1 = {
   }, {
     exportable: BtTslideDate_1,
     name: "BtTslideDate",
-    attributesValidationRules: validation.BtTslideDate,
+    attributesValidationRules: BtTslideDateintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4971,7 +4982,7 @@ var src$1 = {
   }, {
     exportable: LtRslideTop_1,
     name: "LtRslideTop",
-    attributesValidationRules: validation.prisenter,
+    attributesValidationRules: prisenterintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
@@ -4979,16 +4990,12 @@ var src$1 = {
   }, {
     exportable: RtLslide_1,
     name: "RtLslide",
-    attributesValidationRules: validation.prisenter,
+    attributesValidationRules: prisenterintroVal,
     originalDims: {
       width: "1920px",
       height: "1080px"
     }
   }]
 };
-var src_1 = src$1.npm_name;
-var src_2 = src$1.incidents;
 
-exports.default = src$1;
-exports.incidents = src_2;
-exports.npm_name = src_1;
+module.exports = index$2;

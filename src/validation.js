@@ -1,6 +1,6 @@
 const _COLOR = "color";
 
-export const intro = {
+export const introintroVal = {
   title: {
     optional: false,
     type: "string"
@@ -40,7 +40,7 @@ export const intro = {
     }
   }
 };
-export const SlideDateOneVid = {
+export const SlideDateOneVidintroVal = {
   title: {
     optional: false,
     type: "array",
@@ -112,7 +112,7 @@ export const SlideDateOneVid = {
   }
 };
 
-export const SlideDateOne = {
+export const SlideDateOneintroVal = {
   title: {
     optional: false,
     type: "array",
@@ -171,7 +171,7 @@ export const SlideDateOne = {
   }
 };
 
-export const prisenter = {
+export const prisenterintroVal = {
   title: {
     optional: false,
     type: "string"
@@ -208,7 +208,7 @@ export const prisenter = {
   }
 };
 
-export const SlideDateTwo = {
+export const SlideDateTwointroVal = {
   title: {
     optional: false,
     type: "string"
@@ -273,7 +273,7 @@ export const SlideDateTwo = {
   }
 };
 
-export const BtTslideDate = {
+export const BtTslideDateintroVal = {
   title: {
     optional: false,
     type: "string"
@@ -334,7 +334,7 @@ export const BtTslideDate = {
   }
 };
 
-export const transition = {
+export const transitionintroVal = {
   title: {
     optional: true,
     type: "string"

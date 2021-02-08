@@ -217,5 +217,5 @@ clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
 clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
 clip.addIncident(bttDay, clip.calculatedDuration - 2000);
 clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
-
+window.clip =clip
 new Player({ clip });

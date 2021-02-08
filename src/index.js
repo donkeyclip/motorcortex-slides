@@ -1,23 +1,26 @@
-const Intro = require("./Intro");
-const Transition = require("./Transition");
-const SlideDateOne = require("./SlideDateOne");
-const Scrolslide = require("./Scrolslide");
-const LtRslide = require("./LtRslide");
-const SlideDateTwo = require("./SlideDateTwo");
-const BtTslide = require("./BtTslide");
-const BtTslideDate = require("./BtTslideDate");
-const LtRslideTop = require("./LtRslideTop");
-const RtLslide = require("./RtLslide");
-const SlideDateOneVid = require("./SlideDateOneVid");
-const attrs = require("./validation");
+import Intro from "./Intro"
+import Transition from "./Transition"
+import SlideDateOne from "./SlideDateOne"
+import Scrolslide from "./Scrolslide"
+import LtRslide from "./LtRslide"
+import SlideDateTwo from "./SlideDateTwo"
+import BtTslide from "./BtTslide"
+import BtTslideDate from "./BtTslideDate"
+import LtRslideTop from "./LtRslideTop"
+import RtLslide from "./RtLslide"
+import SlideDateOneVid from "./SlideDateOneVid"
+import {BtTslideDateintroVal,SlideDateOneVidintroVal,SlideDateOneintroVal,SlideDateTwointroVal,introintroVal,prisenterintroVal,transitionintroVal} from "./validation"
 
-module.exports = {
-  npm_name: "@kissmybutton/motorcortex-slides",
+const pkg = require("../package.json");
+
+export default {
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [
     {
       exportable: Intro,
       name: "Intro",
-      attributesValidationRules: attrs.intro,
+      attributesValidationRules: introintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -26,7 +29,7 @@ module.exports = {
     {
       exportable: Transition,
       name: "Transition",
-      attributesValidationRules: attrs.transition,
+      attributesValidationRules: transitionintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -35,7 +38,7 @@ module.exports = {
     {
       exportable: SlideDateOne,
       name: "SlideDateOne",
-      attributesValidationRules: attrs.SlideDateOne,
+      attributesValidationRules: SlideDateOneintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -44,7 +47,7 @@ module.exports = {
     {
       exportable: SlideDateOneVid,
       name: "SlideDateOneVid",
-      attributesValidationRules: attrs.SlideDateOneVid,
+      attributesValidationRules: SlideDateOneVidintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -53,7 +56,7 @@ module.exports = {
     {
       exportable: SlideDateTwo,
       name: "SlideDateTwo",
-      attributesValidationRules: attrs.SlideDateTwo,
+      attributesValidationRules: SlideDateTwointroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -62,7 +65,7 @@ module.exports = {
     {
       exportable: Scrolslide,
       name: "Scrolslide",
-      attributesValidationRules: attrs.prisenter,
+      attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -71,7 +74,7 @@ module.exports = {
     {
       exportable: LtRslide,
       name: "LtRslide",
-      attributesValidationRules: attrs.prisenter,
+      attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -80,7 +83,7 @@ module.exports = {
     {
       exportable: BtTslide,
       name: "BtTslide",
-      attributesValidationRules: attrs.prisenter,
+      attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -89,7 +92,7 @@ module.exports = {
     {
       exportable: BtTslideDate,
       name: "BtTslideDate",
-      attributesValidationRules: attrs.BtTslideDate,
+      attributesValidationRules: BtTslideDateintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -98,7 +101,7 @@ module.exports = {
     {
       exportable: LtRslideTop,
       name: "LtRslideTop",
-      attributesValidationRules: attrs.prisenter,
+      attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
@@ -107,7 +110,7 @@ module.exports = {
     {
       exportable: RtLslide,
       name: "RtLslide",
-      attributesValidationRules: attrs.prisenter,
+      attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
         height: "1080px"
