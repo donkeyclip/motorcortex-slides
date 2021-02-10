@@ -2266,12 +2266,11 @@ var animatedAttrs = {
     min: 0
   }
 };
-
-var pkg = require('../package.json');
-
+var name = "@kissmybutton/motorcortex-anime";
+var version = "2.1.11";
 var index = {
-  npm_name: pkg.name,
-  version: pkg.version,
+  npm_name: name,
+  version: version,
   incidents: [{
     exportable: Anime,
     name: "Anime",
@@ -4178,12 +4177,11 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
 }(motorcortex.Effect);
 
 var Effect = VideoEffect;
-
-var pkg$1 = require("../package.json");
-
+var name$1 = "@kissmybutton/motorcortex-video";
+var version$1 = "1.1.11";
 var index$1 = {
-  npm_name: pkg$1.name,
-  version: pkg$1.version,
+  npm_name: name$1,
+  version: version$1,
   incidents: [{
     exportable: VideoPlay_1,
     name: "Playback"
@@ -4898,11 +4896,12 @@ var transitionintroVal = {
   }
 };
 
-var pkg$2 = require("../package.json");
+var name$2 = "@kissmybutton/motorcortex-slides";
+var version$2 = "1.0.20";
 
 var index$2 = {
-  npm_name: pkg$2.name,
-  version: pkg$2.version,
+  npm_name: name$2,
+  version: version$2,
   incidents: [{
     exportable: Intro_1,
     name: "Intro",
