@@ -4901,7 +4901,7 @@ var transitionintroVal = {
 };
 
 var name$2 = "@kissmybutton/motorcortex-slides";
-var version$2 = "1.0.20";
+var version$2 = "1.0.21";
 
 var index$2 = {
   npm_name: name$2,
