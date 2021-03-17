@@ -81,9 +81,9 @@
     "@kissmybutton/motorcortex": "^6.2.3"
   },
   "devDependencies": {
-    "@babel/cli": "7.10.4",
-    "@babel/core": "7.10.4",
-    "@babel/preset-env": "7.10.4",
+    "@babel/cli": "7.13.10",
+    "@babel/core": "7.13.10",
+    "@babel/preset-env": "7.13.10",
     "@commitlint/cli": "7.6.1",
     "@commitlint/config-conventional": "7.6.0",
     "@kissmybutton/motorcortex": "6.2.3",
@@ -95,7 +95,7 @@
     "@semantic-release/github": "5.5.8",
     "@semantic-release/npm": "5.3.5",
     "babel-eslint": "10.1.0",
-    "babel-loader": "8.1.0",
+    "babel-loader": "8.2.2",
     "babel-preset-es2015-node5": "1.2.0",
     "commitizen": "3.1.2",
     "concurrently": "4.1.2",
