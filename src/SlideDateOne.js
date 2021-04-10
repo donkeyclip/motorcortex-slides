@@ -1,8 +1,8 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
+import MotorCortex from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class SlideDateOne extends MotorCortex.HTMLClip {
+export default class SlideDateOne extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -37,77 +37,74 @@ class SlideDateOne extends MotorCortex.HTMLClip {
       : this.attrs.speed;
 
     return `
-    <div class="bg ">
-    <div class="second-slide">
-      <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
-      <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
-      <div class="word-bg">
-        <div class="word"></div>
+      <div class="bg ">
+        <div class="second-slide">
+          <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
+          <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
+          <div class="word-bg">
+            <div class="word"></div>
+          </div>
+          <div class="short-description">
+            <p>${this.attrs.description}</p>
+          </div>
+        </div>
       </div>
-      <div class="short-description">
-        <p>
-         ${this.attrs.description}
-        </p>
-      </div>
-    </div>
-    </div>
-
-    <div class="bg-second ">
-      <div class="bg-second-slide">
-          <div class="second-date-container">
-          <div class="second-date"><span> ${this.attrs.day || ""} ${this.attrs
+      <div class="bg-second ">
+        <div class="bg-second-slide">
+            <div class="second-date-container">
+            <div class="second-date"><span> ${this.attrs.day || ""} ${this.attrs
       .dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs.year ||
       ""}</div>
-          </div>
+            </div>
+        </div>
       </div>
-    </div>
-    
-
     `;
   }
 
   get css() {
     return `
-    .bg,.bg-second {
-      width: 1920px;
-      height: 1080px;
-      background-image: url(${this.attrs.bgUrl});
-      background-size: 1920px;
-      background-position: center;
-      transform: scale(1);
-      display: flex;
-      position: absolute;
-      align-items: center;
-      flex-wrap: wrap;
-      flex: 1 0 auto;
-      left: -100%
-    }
-    .bg:after,.bg-second:after {
-      content: "";
-      display: block;
-      background: linear-gradient(${this.attrs.overlayColor});
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      z-index: -1;
-    }
-    .bg-second{
-      left:100%;
-      background-image: url(${this.attrs.bgUrl2});
-    }
+      .bg,.bg-second {
+        width: 1920px;
+        height: 1080px;
+        background-image: url(${this.attrs.bgUrl});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left: -100%
+      }
 
-    .short-description{
-      font-size: 20px;
-      color: #fff;
-      position: relative;
-      white-space: normal;
-      text-align: left;
-      text-transform: uppercase;
-      font-family: 'Roboto Mono', monospace;
-      width: 720px;
-      left: -50%;
+      .bg:after,.bg-second:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .bg-second{
+        left:100%;
+        background-image: url(${this.attrs.bgUrl2});
+      }
+
+      .short-description{
+        font-size: 20px;
+        color: #fff;
+        position: relative;
+        white-space: normal;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        width: 720px;
+        left: -50%;
       }
 
       .word-bg{
@@ -153,6 +150,7 @@ class SlideDateOne extends MotorCortex.HTMLClip {
         flex-direction: column;
         margin-left: 10%;
       }
+
       .letter{
         font-size: ${this.dinamicFontSize(this.attrs.str.length, 720)}px;
         font-weight: 700;
@@ -164,13 +162,12 @@ class SlideDateOne extends MotorCortex.HTMLClip {
         text-align: center;
         top : 300px;
         width: 100%;
-        
       }
+
       .second-date-container{
         border-left: 100px solid ${this.attrs.mainColor};
         overflow: hidden;
         width: 200%;
-        
       }
 
       .second-date{
@@ -184,13 +181,11 @@ class SlideDateOne extends MotorCortex.HTMLClip {
         width: 720px;
         left:-100%;
       }
-    
       
       .second-date span{
         color: ${this.attrs.mainColor};
       }
-
-  `;
+    `;
   }
 
   buildTree() {
@@ -360,6 +355,7 @@ class SlideDateOne extends MotorCortex.HTMLClip {
         easing: "easeOutQuad"
       }
     );
+
     const bgsecondscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
@@ -425,7 +421,6 @@ class SlideDateOne extends MotorCortex.HTMLClip {
     );
 
     this.addIncident(bgMove, 0);
-
     this.addIncident(secondSlideTitleOne, 300 * this.attrs.speed);
     this.addIncident(secondSlideTitleTwo, 500 * this.attrs.speed);
     this.addIncident(wordBg, 500 * this.attrs.speed);
@@ -441,5 +436,3 @@ class SlideDateOne extends MotorCortex.HTMLClip {
     );
   }
 }
-
-module.exports = SlideDateOne;

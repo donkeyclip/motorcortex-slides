@@ -1,8 +1,8 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
+import MotorCortex from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class Transition extends MotorCortex.HTMLClip {
+export default class Transition extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -21,37 +21,36 @@ class Transition extends MotorCortex.HTMLClip {
       : this.attrs.speed;
 
     return `
-    <div class="transition-container">
-    <p class="transition-text">${this.attrs.title}</p>
-    </div>
+      <div class="transition-container">
+        <p class="transition-text">${this.attrs.title}</p>
+      </div>
     `;
   }
 
   get css() {
     return `
-    .transition-container {
-      color:white; 
-      background:rgb(0, 0, 0);
-      mix-blend-mode: multiply;
-      font: bolder 400px "Roboto Mono";
-      text-align: center;
-      position: relative;
-      left: -100%;
-      width: 20%;
-      height: 100%;
-      position: absolute;
-      display: flex;
-      align-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+      .transition-container {
+        color:white; 
+        background:rgb(0, 0, 0);
+        mix-blend-mode: multiply;
+        font: bolder 400px "Roboto Mono";
+        text-align: center;
+        position: relative;
+        left: -100%;
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
 
-    .transition-text {
-      position: relative;
-      left: -0%;
-    }
-  
-  `;
+      .transition-text {
+        position: relative;
+        left: -0%;
+      }
+    `;
   }
 
   buildTree() {
@@ -95,5 +94,3 @@ class Transition extends MotorCortex.HTMLClip {
     this.addIncident(transitionContainer, 0);
   }
 }
-
-module.exports = Transition;

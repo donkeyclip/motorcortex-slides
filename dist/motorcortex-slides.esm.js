@@ -1,12 +1,12 @@
-import motorcortex from '@kissmybutton/motorcortex';
+import MotorCortex from '@kissmybutton/motorcortex';
 
-function _classCallCheck(instance, Constructor) {
+function _classCallCheck$2(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
 
-function _defineProperties(target, props) {
+function _defineProperties$2(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
@@ -16,13 +16,13 @@ function _defineProperties(target, props) {
   }
 }
 
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
+function _createClass$2(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$2(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$2(Constructor, staticProps);
   return Constructor;
 }
 
-function _inherits(subClass, superClass) {
+function _inherits$2(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
   }
@@ -34,39 +34,39 @@ function _inherits(subClass, superClass) {
       configurable: true
     }
   });
-  if (superClass) _setPrototypeOf(subClass, superClass);
+  if (superClass) _setPrototypeOf$2(subClass, superClass);
 }
 
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+function _getPrototypeOf$2(o) {
+  _getPrototypeOf$2 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
     return o.__proto__ || Object.getPrototypeOf(o);
   };
-  return _getPrototypeOf(o);
+  return _getPrototypeOf$2(o);
 }
 
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+function _setPrototypeOf$2(o, p) {
+  _setPrototypeOf$2 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
 
-  return _setPrototypeOf(o, p);
+  return _setPrototypeOf$2(o, p);
 }
 
-function _isNativeReflectConstruct() {
+function _isNativeReflectConstruct$2() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
   }
 }
 
-function _assertThisInitialized(self) {
+function _assertThisInitialized$2(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
@@ -74,30 +74,30 @@ function _assertThisInitialized(self) {
   return self;
 }
 
-function _possibleConstructorReturn(self, call) {
+function _possibleConstructorReturn$2(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
   }
 
-  return _assertThisInitialized(self);
+  return _assertThisInitialized$2(self);
 }
 
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+function _createSuper$2(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$2();
 
   return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
+    var Super = _getPrototypeOf$2(Derived),
         result;
 
     if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
+      var NewTarget = _getPrototypeOf$2(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
     } else {
       result = Super.apply(this, arguments);
     }
 
-    return _possibleConstructorReturn(this, result);
+    return _possibleConstructorReturn$2(this, result);
   };
 }
 
@@ -209,7 +209,7 @@ function _isNativeReflectConstruct$1() {
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
@@ -233,11 +233,13 @@ function _possibleConstructorReturn$1(self, call) {
 }
 
 function _createSuper$1(Derived) {
-  return function () {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct$1();
+
+  return function _createSuperInternal() {
     var Super = _getPrototypeOf$1(Derived),
         result;
 
-    if (_isNativeReflectConstruct$1()) {
+    if (hasNativeReflectConstruct) {
       var NewTarget = _getPrototypeOf$1(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
@@ -933,7 +935,7 @@ function anime(params) {
   }
 
   var instance = createNewInstance(params);
-  var promise = makePromise(instance);
+  makePromise(instance);
 
   function seekChild(time, child) {
     if (child) {
@@ -1002,7 +1004,7 @@ function anime(params) {
         progress = strings[0];
 
         for (var s = 0; s < stringsLength; s++) {
-          var a = strings[s];
+          strings[s];
           var b = strings[s + 1];
           var n$1 = numbers[s];
 
@@ -1047,7 +1049,7 @@ function anime(params) {
 
         if (!instance.passThrough && 'Promise' in window) {
           resolve();
-          promise = makePromise(instance);
+          makePromise(instance);
         }
       }
     }
@@ -1235,7 +1237,7 @@ anime.path = getPath;
 anime.getPathProgress = getPathProgress;
 var anime_es = anime;
 var transform = ["translateX", "translateY", "translateZ", "rotate", "rotateX", "rotateY", "rotateZ", "scale", "scaleX", "scaleY", "scaleZ", "skewX", "skewY", "perspective"];
-var compositeAttributes = {
+var compositeAttributes$1 = {
   transform: transform
 };
 
@@ -1277,7 +1279,7 @@ function getMatrix2D(win, element) {
   return qrDecompone(values);
 }
 
-var Anime = /*#__PURE__*/function (_MotorCortex$Effect) {
+var Anime$b = /*#__PURE__*/function (_MotorCortex$Effect) {
   _inherits$1(Anime, _MotorCortex$Effect);
 
   var _super = _createSuper$1(Anime);
@@ -1293,33 +1295,33 @@ var Anime = /*#__PURE__*/function (_MotorCortex$Effect) {
     value: function onGetContext() {
       var options = {};
 
-      if (Object.prototype.hasOwnProperty.call(compositeAttributes, this.attributeKey)) {
-        var compoAttribute = compositeAttributes[this.attributeKey];
+      if (Object.prototype.hasOwnProperty.call(compositeAttributes$1, this.attributeKey)) {
+        var compoAttribute = compositeAttributes$1[this.attributeKey];
 
         for (var i = 0; i < compoAttribute.length; i++) {
           if (!Object.prototype.hasOwnProperty.call(this.targetValue, compoAttribute[i])) {
             continue;
           }
 
-          options[compoAttribute[i]] = [this.getInitialValue()[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
+          options[compoAttribute[i]] = [this.initialValue[compoAttribute[i]], this.targetValue[compoAttribute[i]]];
         }
       } else {
-        options[this.attributeKey] = [this.getInitialValue(), this.targetValue];
+        options[this.attributeKey] = [this.initialValue, this.targetValue];
       }
 
-      this.target = anime_es(_objectSpread2({
+      this.target = anime_es(_objectSpread2(_objectSpread2({
         autoplay: false,
         duration: this.props.duration,
         easing: "linear",
         targets: this.element
-      }, (this.attrs || {}).attrs || {}, {}, options)); // handle first render initial values
+      }, (this.attrs || {}).attrs || {}), options)); // handle first render initial values
     }
   }, {
     key: "getScratchValue",
     value: function getScratchValue() {
       if (this.attributeKey === "transform") {
         var obj = {};
-        var transform = compositeAttributes[this.attributeKey];
+        var transform = compositeAttributes$1[this.attributeKey];
         var currentTransform = getMatrix2D(this.context.window, this.element);
 
         for (var i = 0; i < transform.length; i++) {
@@ -1347,7 +1349,7 @@ var Anime = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return Anime;
-}(motorcortex.Effect);
+}(MotorCortex.Effect);
 /**
  * Takes as attributes:
  * {
@@ -1401,23 +1403,23 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return MotionPath;
-}(motorcortex.Effect);
+}(MotorCortex.Effect);
 
 var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
 var _MEASUREMENT = "measurement";
-var _COLOR = "color";
+var _COLOR$1 = "color";
 var animatedAttrs = {
   type: "object",
   // strict : true,
   props: {
     background: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     backgroundColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     backgroundPosition: {
       optional: true,
@@ -1437,7 +1439,7 @@ var animatedAttrs = {
     },
     borderBottomColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderBottomLeftRadius: {
       optional: true,
@@ -1456,7 +1458,7 @@ var animatedAttrs = {
     },
     borderColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderEndEndRadius: {
       optional: true,
@@ -1492,7 +1494,7 @@ var animatedAttrs = {
     },
     borderLeftColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderLeftWidth: {
       optional: true,
@@ -1510,7 +1512,7 @@ var animatedAttrs = {
     },
     borderRightColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderRightWidth: {
       optional: true,
@@ -1533,7 +1535,7 @@ var animatedAttrs = {
     },
     borderTopColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     borderTopLeftRadius: {
       optional: true,
@@ -1566,11 +1568,11 @@ var animatedAttrs = {
     },
     caretColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     color: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     columnCount: {
       optional: true,
@@ -1589,7 +1591,7 @@ var animatedAttrs = {
     },
     columnRuleColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     columnRuleWidth: {
       optional: true,
@@ -1846,7 +1848,7 @@ var animatedAttrs = {
     },
     outlineColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     outlineOffset: {
       optional: true,
@@ -1939,7 +1941,7 @@ var animatedAttrs = {
     },
     scrollbarColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     scrollMargin: {
       optional: true,
@@ -2083,7 +2085,7 @@ var animatedAttrs = {
     },
     textDecorationColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textDecorationThickness: {
       optional: true,
@@ -2096,11 +2098,11 @@ var animatedAttrs = {
     },
     textEmphasisColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textFillColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textIndent: {
       optional: true,
@@ -2117,7 +2119,7 @@ var animatedAttrs = {
     },
     textStrokeColor: {
       optional: true,
-      type: _COLOR
+      type: _COLOR$1
     },
     textUnderlineOffset: {
       optional: true,
@@ -2266,13 +2268,13 @@ var animatedAttrs = {
     min: 0
   }
 };
-var name = "@kissmybutton/motorcortex-anime";
-var version = "2.1.11";
-var index = {
-  npm_name: name,
-  version: version,
+var name$2 = "@kissmybutton/motorcortex-anime";
+var version$2 = "2.1.13";
+var index$2 = {
+  npm_name: name$2,
+  version: version$2,
   incidents: [{
-    exportable: Anime,
+    exportable: Anime$b,
     name: "Anime",
     attributesValidationRules: {
       animatedAttrs: animatedAttrs
@@ -2296,23 +2298,23 @@ var index = {
       }
     }
   }],
-  compositeAttributes: compositeAttributes
+  compositeAttributes: compositeAttributes$1
 };
 
-var Anime$1 = motorcortex.loadPlugin(index);
+var Anime$a = MotorCortex.loadPlugin(index$2);
 
 var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(Intro, _MotorCortex$HTMLClip);
+  _inherits$2(Intro, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(Intro);
+  var _super = _createSuper$2(Intro);
 
   function Intro() {
-    _classCallCheck(this, Intro);
+    _classCallCheck$2(this, Intro);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Intro, [{
+  _createClass$2(Intro, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2329,9 +2331,23 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg\"> \n        <div class=\"first-slide\">\n          <div class=\"testdiv\">\n            <div class=\"sub\">\n              <div class=\"subtitle\">\n                <div class=\"subtitle-holder\">\n                  <div class=\"subtitle-text\">".concat(this.attrs.subtitle, "</div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"title\">\n            <div class=\"date-holder\">\n              <div class=\"date\">\n                <span> ").concat(this.attrs.month, "</span>\n              </div>\n            </div>\n            <div class=\"holder-title\">\n              <div class=\"title-text\">").concat(this.attrs.title, "</div>\n            </div>\n          </div>\n          <div class=\"description\">\n            <div class=\"description-text\">\n              <p>").concat(this.attrs.description, "</p>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor, ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * this.attrs.speed), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * this.attrs.speed) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor, ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var titleanime = new Anime$1.Anime({
+      var titleanime = new Anime$a.Anime({
         animatedAttrs: {
           width: "100%"
         },
@@ -2344,7 +2360,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".title-text",
         easing: "easeOutQuad"
       });
-      var bg = new Anime$1.Anime({
+      var bg = new Anime$a.Anime({
         animatedAttrs: {
           backgroundSize: "3000px"
         },
@@ -2357,7 +2373,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var subtextRight = new Anime$1.Anime({
+      var subtextRight = new Anime$a.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -2370,7 +2386,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-text",
         easing: "easeOutQuad"
       });
-      var subholderRight = new Anime$1.Anime({
+      var subholderRight = new Anime$a.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -2383,7 +2399,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".subtitle-holder",
         easing: "easeOutQuad"
       });
-      var subtitleRight = new Anime$1.Anime({
+      var subtitleRight = new Anime$a.Anime({
         animatedAttrs: {
           left: "".concat(864 * this.attrs.speed - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
         },
@@ -2394,7 +2410,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".sub",
         easing: "easeOutQuad"
       });
-      var datespan = new Anime$1.Anime({
+      var datespan = new Anime$a.Anime({
         animatedAttrs: {
           transform: {
             translateX: "0%"
@@ -2411,7 +2427,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".date span",
         easing: "easeOutQuad"
       });
-      var dateHolderWidth = new Anime$1.Anime({
+      var dateHolderWidth = new Anime$a.Anime({
         animatedAttrs: {
           width: "45%"
         },
@@ -2423,7 +2439,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 10,
         selector: ".date-holder"
       });
-      var scaleFirstSlide = new Anime$1.Anime({
+      var scaleFirstSlide = new Anime$a.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -2440,7 +2456,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".first-slide",
         easing: "easeOutQuad"
       });
-      var description = new Anime$1.Anime({
+      var description = new Anime$a.Anime({
         animatedAttrs: {
           transform: {
             translateY: "0%"
@@ -2457,7 +2473,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".description",
         easing: "easeOutQuad"
       });
-      var descriptiontext = new Anime$1.Anime({
+      var descriptiontext = new Anime$a.Anime({
         animatedAttrs: {
           transform: {
             translateY: "0%"
@@ -2474,7 +2490,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".description-text",
         easing: "easeOutQuad"
       });
-      var bgQut = new Anime$1.Anime({
+      var bgQut = new Anime$a.Anime({
         animatedAttrs: {
           transform: {
             translateX: "100%"
@@ -2503,41 +2519,25 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(descriptiontext, 2500 * this.attrs.speed);
       this.addIncident(bgQut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\"> \n    <div class=\"first-slide\">\n      <div class=\"testdiv\">\n        \n        <div class=\"sub\">\n          <div class=\"subtitle\">\n            <div class=\"subtitle-holder\">\n              <div class=\"subtitle-text\">".concat(this.attrs.subtitle, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"title\">\n      <div class=\"date-holder\">\n      <div class=\"date\"><span> ").concat(this.attrs.month, "</span></div>\n    </div>\n        <div class=\"holder-title\">\n          <div class=\"title-text\">").concat(this.attrs.title, "</div>\n        </div>\n      </div>\n      <div class=\"description\">\n        <div class=\"description-text\">\n          <p>\n            ").concat(this.attrs.description, "\n          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      height: 1080px;\n      width: 1920px;\n      position: relative;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n\n    .first-slide {\n      display: flex;\n      width: 90%;\n      white-space: nowrap;\n      overflow: hidden;\n      flex-direction: column;\n      position: relative;\n    }\n    .sub {\n      display: flex;\n      overflow: hidden;\n      position: relative;\n      width: 50%;\n    }\n    \n    \n    .title {\n      color: ").concat(this.attrs.mainColor, ";\n      font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * this.attrs.speed), "px;\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * this.attrs.speed) / 2.6, "px;\n      overflow: hidden;\n      display: flex;\n      width: 100%;\n      \n    }\n    .subtitle {\n      color: ").concat(this.attrs.mainColor, ";\n      font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      overflow: hidden;\n      \n    }\n\n\n    .description-text {\n      position: relative;\n      transform: translateY(-200%);\n    }\n    .description {\n      border-top: 15px solid ").concat(this.attrs.mainColor, ";\n      overflow: hidden;\n      transform: translateY(200%);\n      font-size: 30px;\n      color: #fff;\n      position: relative;\n      white-space: normal;\n      text-align: left;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n    }\n\n    .testdiv{\n      width:100%;\n      padding-bottom: 2%;\n    }\n\n    .date-holder{\n      width: 28%;\n      position: absolute;\n      justify-self: center;\n      top: 8%;\n      display: flex;\n      justify-content: flex-end;\n    }\n\n    .date {\n      overflow: hidden;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n    }\n    .date span {\n      position: relative;\n      overflow: hidden;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      font-size: 50px;\n      color: #fff ;\n      transform: translateX(200%);\n    }\n\n    .title-text{\n      overflow: hidden;\n      width : 0%;\n    }\n\n    .subtitle-text{\n      overflow: hidden;\n      right: 100%;\n      position: relative;\n      \n    }\n\n    .subtitle-holder{\n      overflow: hidden;\n      position : relative;\n      right: -100%;\n    }\n\n  \n  ");
-    }
   }]);
 
   return Intro;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Intro_1 = Intro;
-
-var Anime$2 = motorcortex.loadPlugin(index);
+var Anime$9 = MotorCortex.loadPlugin(index$2);
 
 var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(Transition, _MotorCortex$HTMLClip);
+  _inherits$2(Transition, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(Transition);
+  var _super = _createSuper$2(Transition);
 
   function Transition() {
-    _classCallCheck(this, Transition);
+    _classCallCheck$2(this, Transition);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Transition, [{
+  _createClass$2(Transition, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2554,9 +2554,20 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"transition-container\">\n        <p class=\"transition-text\">".concat(this.attrs.title, "</p>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .transition-container {\n        color:white; \n        background:rgb(0, 0, 0);\n        mix-blend-mode: multiply;\n        font: bolder 400px \"Roboto Mono\";\n        text-align: center;\n        position: relative;\n        left: -100%;\n        width: 20%;\n        height: 100%;\n        position: absolute;\n        display: flex;\n        align-content: center;\n        align-items: center;\n        overflow: hidden;\n      }\n\n      .transition-text {\n        position: relative;\n        left: -0%;\n      }\n    ";
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var transitionText = new Anime$2.Anime({
+      var transitionText = new Anime$9.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -2570,7 +2581,7 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.speed,
         selector: ".transition-text"
       });
-      var transitionContainer = new Anime$2.Anime({
+      var transitionContainer = new Anime$9.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -2587,38 +2598,25 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(transitionText, 0);
       this.addIncident(transitionContainer, 0);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"transition-container\">\n    <p class=\"transition-text\">".concat(this.attrs.title, "</p>\n    </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .transition-container {\n      color:white; \n      background:rgb(0, 0, 0);\n      mix-blend-mode: multiply;\n      font: bolder 400px \"Roboto Mono\";\n      text-align: center;\n      position: relative;\n      left: -100%;\n      width: 20%;\n      height: 100%;\n      position: absolute;\n      display: flex;\n      align-content: center;\n      align-items: center;\n      overflow: hidden;\n    }\n\n    .transition-text {\n      position: relative;\n      left: -0%;\n    }\n  \n  ";
-    }
   }]);
 
   return Transition;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Transition_1 = Transition;
-
-var Anime$3 = motorcortex.loadPlugin(index);
+var Anime$8 = MotorCortex.loadPlugin(index$2);
 
 var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideDateOne, _MotorCortex$HTMLClip);
+  _inherits$2(SlideDateOne, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(SlideDateOne);
+  var _super = _createSuper$2(SlideDateOne);
 
   function SlideDateOne() {
-    _classCallCheck(this, SlideDateOne);
+    _classCallCheck$2(this, SlideDateOne);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideDateOne, [{
+  _createClass$2(SlideDateOne, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2635,6 +2633,21 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg \">\n        <div class=\"second-slide\">\n          <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n          <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n          <div class=\"word-bg\">\n            <div class=\"word\"></div>\n          </div>\n          <div class=\"short-description\">\n            <p>").concat(this.attrs.description, "</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-second \">\n        <div class=\"bg-second-slide\">\n            <div class=\"second-date-container\">\n            <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position : absolute;\n        left : 0%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        margin-left: 10%;\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
       var array = this.attrs.title[2].split("");
@@ -2649,7 +2662,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         html3 = html3 + html;
       }
 
-      var word = new motorcortex.HTMLClip({
+      var word = new MotorCortex.HTMLClip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -2658,7 +2671,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(word, 0);
 
       for (var _i = 0; _i < array.length; _i++) {
-        var textAnimation = new Anime$3.Anime({
+        var textAnimation = new Anime$8.Anime({
           animatedAttrs: {
             top: "0px",
             opacity: 1
@@ -2672,7 +2685,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * this.attrs.speed);
       }
 
-      var bgMove = new Anime$3.Anime({
+      var bgMove = new Anime$8.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2685,7 +2698,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleOne = new Anime$3.Anime({
+      var secondSlideTitleOne = new Anime$8.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2698,7 +2711,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleTwo = new Anime$3.Anime({
+      var secondSlideTitleTwo = new Anime$8.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2711,7 +2724,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
-      var wordBg = new Anime$3.Anime({
+      var wordBg = new Anime$8.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2724,7 +2737,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
-      var shortDescription = new Anime$3.Anime({
+      var shortDescription = new Anime$8.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -2737,7 +2750,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".short-description",
         easing: "easeOutQuad"
       });
-      var bgscaledown = new Anime$3.Anime({
+      var bgscaledown = new Anime$8.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -2754,7 +2767,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
-      var bgscaledownMove = new Anime$3.Anime({
+      var bgscaledownMove = new Anime$8.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -2767,7 +2780,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgsecondscaledownMove = new Anime$3.Anime({
+      var bgsecondscaledownMove = new Anime$8.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -2780,7 +2793,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
-      var secondBgDate = new Anime$3.Anime({
+      var secondBgDate = new Anime$8.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -2793,7 +2806,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".second-date",
         easing: "easeOutQuad"
       });
-      var moveSecond = new Anime$3.Anime({
+      var moveSecond = new Anime$8.Anime({
         animatedAttrs: {
           left: "-76%"
         },
@@ -2804,7 +2817,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var moveSecondS = new Anime$3.Anime({
+      var moveSecondS = new Anime$8.Anime({
         animatedAttrs: {
           left: "-76%"
         },
@@ -2827,42 +2840,25 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(moveSecond, 6000 * this.attrs.speed);
       this.addIncident(moveSecondS, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg \">\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n          <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    \n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg,.bg-second {\n      width: 1920px;\n      height: 1080px;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: absolute;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left: -100%\n    }\n    .bg:after,.bg-second:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-second{\n      left:100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n    }\n\n    .short-description{\n      font-size: 20px;\n      color: #fff;\n      position: relative;\n      white-space: normal;\n      text-align: left;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n      width: 720px;\n      left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position : absolute;\n        left : 0%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        margin-left: 10%;\n      }\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n        \n      }\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n        \n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n  ");
-    }
   }]);
 
   return SlideDateOne;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var SlideDateOne_1 = SlideDateOne;
-
-var Anime$4 = motorcortex.loadPlugin(index);
+var Anime$7 = MotorCortex.loadPlugin(index$2);
 
 var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(Scrolslide, _MotorCortex$HTMLClip);
+  _inherits$2(Scrolslide, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(Scrolslide);
+  var _super = _createSuper$2(Scrolslide);
 
   function Scrolslide() {
-    _classCallCheck(this, Scrolslide);
+    _classCallCheck$2(this, Scrolslide);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Scrolslide, [{
+  _createClass$2(Scrolslide, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -2879,9 +2875,23 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"third-holder \">\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        margin-top: 10%;\n        margin-bottom: 10%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n    \n     .bg-third-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        margin-left: 5%;\n      }\n\n      .third-first-presenter-slide{\n        position : relative;\n      }\n\n      .third-presenter-container{\n        overflow: hidden;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n      .third-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n        transform: translateY(-100%);\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .third-holder{\n        left: 100%;\n        position: relative;\n        top : 0%;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var moveThird = new Anime$4.Anime({
+      var moveThird = new Anime$7.Anime({
         animatedAttrs: {
           left: "0%",
           top: "-200%"
@@ -2896,7 +2906,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
-      var thirdScaleUp = new Anime$4.Anime({
+      var thirdScaleUp = new Anime$7.Anime({
         animatedAttrs: {
           transform: {
             scale: 1
@@ -2913,7 +2923,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
-      var moveThirdIner = new Anime$4.Anime({
+      var moveThirdIner = new Anime$7.Anime({
         animatedAttrs: {
           marginTop: "0%",
           marginBottom: "0%"
@@ -2928,7 +2938,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var movePresenter = new Anime$4.Anime({
+      var movePresenter = new Anime$7.Anime({
         animatedAttrs: {
           transform: {
             translateY: "0%"
@@ -2945,7 +2955,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".presenter",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$4.Anime({
+      var bgOut = new Anime$7.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -2964,41 +2974,25 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(movePresenter, 700 * this.attrs.speed);
       this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"third-holder \">\n    <div class=\"bg\">\n      <div class=\"bg-third-slide\">\n        <div class=\"third-first-presenter-slide\">\n          <div class=\"third-presenter-container\">\n            <div class=\"third-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n    <div class=\"bg\">\n      <div class=\"bg-third-slide\">\n        <div class=\"third-first-presenter-slide\">\n          <div class=\"third-presenter-container\">\n            <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n    <div class=\"bg\">\n      <div class=\"bg-third-slide\">\n        <div class=\"third-first-presenter-slide\">\n          <div class=\"third-presenter-container\">\n            <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n    \n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: 100%;\n      height: 100%;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: relative;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n\n      margin-top: 10%;\n      margin-bottom: 10%;\n      \n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n  \n   .bg-third-slide{\n      height: 1080px;\n      width: 1920px;\n      display: flex;\n      align-items: center;\n      margin-left: 5%;\n    }\n\n    .third-first-presenter-slide{\n      position : relative;\n    }\n    .third-presenter-container{\n      overflow: hidden;\n      border-top: 15px solid ").concat(this.attrs.mainColor, ";\n    \n    }\n\n    .presenter,.big-title{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: ").concat(this.attrs.mainColor, ";\n    }\n\n    .third-presenter{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      transform: translateY(-100%);\n    }\n\n    .name-container,.position-container{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: #fff;\n    }\n  \n    .name-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n    }\n    .position-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n    }\n    .third-holder{\n      left: 100%;\n      position: relative;\n      top : 0%;\n    }\n\n  ");
-    }
   }]);
 
   return Scrolslide;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var Scrolslide_1 = Scrolslide;
-
-var Anime$5 = motorcortex.loadPlugin(index);
+var Anime$6 = MotorCortex.loadPlugin(index$2);
 
 var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(LtRslide, _MotorCortex$HTMLClip);
+  _inherits$2(LtRslide, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(LtRslide);
+  var _super = _createSuper$2(LtRslide);
 
   function LtRslide() {
-    _classCallCheck(this, LtRslide);
+    _classCallCheck$2(this, LtRslide);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(LtRslide, [{
+  _createClass$2(LtRslide, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3015,9 +3009,23 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg4.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-right: 15px solid ").concat(this.attrs.mainColor, ";\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        left: -50%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$5.Anime({
+      var personConMove = new Anime$6.Anime({
         animatedAttrs: {
           left: "50%"
         },
@@ -3028,7 +3036,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-first-presenter-slide",
         easing: "easeInSine"
       });
-      var quarterLeft = new Anime$5.Anime({
+      var quarterLeft = new Anime$6.Anime({
         animatedAttrs: {
           left: "-20%"
         },
@@ -3041,7 +3049,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-left",
         easing: "easeOutQuad"
       });
-      var bg = new Anime$5.Anime({
+      var bg = new Anime$6.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3054,7 +3062,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$5.Anime({
+      var bgOut = new Anime$6.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -3072,41 +3080,25 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(quarterLeft, 0);
       this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg4.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: 100%;\n      height: 100%;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: relative;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left : -100%;\n      \n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .third-first-presenter-slide,.quarter-first-presenter-slide{\n      position : relative;\n    }\n  \n    .quarter-first-presenter-slide{\n      margin-bottom: 15%;\n      border-right: 15px solid ").concat(this.attrs.mainColor, ";\n      \n    }\n\n    .quarter-left{\n      display: flex;\n      flex-direction: column;\n      align-items: flex-end;\n      position : relative;\n      left: -50%;\n    }\n    .name-container,.position-container{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: #fff;\n    }\n  \n    .name-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n    }\n    .position-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n    }\n    .bg-quarter-slide{\n      height: 1080px;\n      width: 1920px;\n      display: flex;\n      align-items: center;\n    }\n\n\n    .bg-quarter-slide{\n      align-items: flex-end;\n    }\n\n    .quarter-presenter{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n    }\n    .presenter,.big-title{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: ").concat(this.attrs.mainColor, ";\n    }\n\n  ");
-    }
   }]);
 
   return LtRslide;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var LtRslide_1 = LtRslide;
-
-var Anime$6 = motorcortex.loadPlugin(index);
+var Anime$5 = MotorCortex.loadPlugin(index$2);
 
 var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideDateTwo, _MotorCortex$HTMLClip);
+  _inherits$2(SlideDateTwo, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(SlideDateTwo);
+  var _super = _createSuper$2(SlideDateTwo);
 
   function SlideDateTwo() {
-    _classCallCheck(this, SlideDateTwo);
+    _classCallCheck$2(this, SlideDateTwo);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideDateTwo, [{
+  _createClass$2(SlideDateTwo, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3123,9 +3115,25 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg5.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
+      this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg\">\n        <div class=\"bg-deferi-day-slide\">\n          <div class=\"big-title\">".concat(this.attrs.bigTitle, "</div>\n          <div class=\"test-mask \">\n            <div class=\"defter-date-container\">\n              <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber, " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-second bg-small\">\n        <div class=\"bg-second-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n          <div class=\"quarter-left\">\n            <div class=\"quarter-presenter-container\">\n              <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n            </div>\n            <div class=\"name-container\">").concat(this.attrs.name, "</div>\n            <div class=\"position-container\">").concat(this.attrs.position, "</div>\n          </div>\n        </div>\n        </div>\n      </div>\n      <div class=\"bg-second bg-big \">\n        <div class=\"bg-second-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n          <div class=\"quarter-left\">\n            <div class=\"quarter-presenter-container\">\n              <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n            </div>\n            <div class=\"name-container\">").concat(this.attrs.name, "</div>\n            <div class=\"position-container\">").concat(this.attrs.position, "</div>\n          </div>\n        </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n      }\n\n      .bg-big{\n        left: 100%;\n      }\n\n      .bg-second-slide,.bg-third-slide,.bg-quarter-slide,.bg-deferi-day-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        overflow: hidden;\n      }\n\n      .bg-deferi-day-slide{\n        overflow: hidden;\n      }\n\n      .bg-second-slide{\n        justify-content: center;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    \n      .big-title{\n        font-size: 1700px;\n        position: relative;\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0\n      }\n    \n      .test-mask{\n        height: 132.5px;\n        width: 50%;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        background-position-x: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        overflow: hidden;\n        left: 25%;\n        background-position-x: center;  \n      }\n\n      .test-mask:after{ \n        content: \"\";\n        display: block;\n        background: #4e070799;\n        width: 1920px;\n        height: 1080px;\n        position: absolute;\n        top: -458px;\n        left: 0;\n        z-index: -2;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        top: -345%;\n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color: #fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background:").concat(this.attrs.dateOverlay, ";   \n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .quarter-presenter-container{\n        overflow: hidden;\n      }\n\n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        position: relative;\n        top: 90%;\n        overflow: hidden;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n\n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var bgMove = new Anime$6.Anime({
+      var bgMove = new Anime$5.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3138,7 +3146,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var secondSlide = new Anime$6.Anime({
+      var secondSlide = new Anime$5.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3151,7 +3159,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".second-slide",
         easing: "easeOutCubic"
       });
-      var bigTitle = new Anime$6.Anime({
+      var bigTitle = new Anime$5.Anime({
         animatedAttrs: {
           left: "-1500px"
         },
@@ -3162,7 +3170,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".big-title",
         easing: "easeOutCubic"
       });
-      var bgscaledown = new Anime$6.Anime({
+      var bgscaledown = new Anime$5.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -3179,7 +3187,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg,.bg-small",
         easing: "easeOutCubic"
       });
-      var bgscaledownMove = new Anime$6.Anime({
+      var bgscaledownMove = new Anime$5.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -3192,7 +3200,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgsecondscaledownMove = new Anime$6.Anime({
+      var bgsecondscaledownMove = new Anime$5.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -3205,7 +3213,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg-small",
         easing: "easeOutCubic"
       });
-      var secondBgDate = new Anime$6.Anime({
+      var secondBgDate = new Anime$5.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -3218,7 +3226,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".second-date",
         easing: "easeOutCubic"
       });
-      var moveSecond = new Anime$6.Anime({
+      var moveSecond = new Anime$5.Anime({
         animatedAttrs: {
           left: "-175%"
         },
@@ -3229,7 +3237,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg-small,.bg",
         easing: "easeOutCubic"
       });
-      var movePresenterSlide = new Anime$6.Anime({
+      var movePresenterSlide = new Anime$5.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3242,7 +3250,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
-      var movePresenterSlideLeft = new Anime$6.Anime({
+      var movePresenterSlideLeft = new Anime$5.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3255,7 +3263,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var moveBig = new Anime$6.Anime({
+      var moveBig = new Anime$5.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3268,7 +3276,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg-big",
         easing: "easeOutCubic"
       });
-      var moveBigOut = new Anime$6.Anime({
+      var moveBigOut = new Anime$5.Anime({
         animatedAttrs: {
           top: "-100%"
         },
@@ -3294,43 +3302,25 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(moveBig, this.calculatedDuration - 3200 * this.attrs.speed);
       this.addIncident(moveBigOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg5.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"bg-deferi-day-slide\">\n      <div class=\"big-title\">".concat(this.attrs.bigTitle, "</div>\n      <div class=\"test-mask \">\n        <div class=\"defter-date-container\">\n          <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber, " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    <div class=\"bg-second bg-small\">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    <div class=\"bg-second bg-big \">\n      <div class=\"bg-second-slide\">\n        <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n      </div>\n    </div>\n    \n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg,.bg-second {\n      width: 1920px;\n      height: 1080px;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: absolute;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left: -100%\n    }\n    .bg:after,.bg-second:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-second{\n      left:100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ")\n    }\n    .bg-big{\n      left: 100%\n    }\n\n    .bg-second-slide,.bg-third-slide,.bg-quarter-slide,.bg-deferi-day-slide{\n      height: 1080px;\n      width: 1920px;\n      display: flex;\n      align-items: center;\n      overflow: hidden;\n    }\n    .bg-deferi-day-slide{\n      overflow: hidden;\n    }\n\n    .bg-second-slide{\n      justify-content: center;\n    }\n\n    .presenter,.big-title{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: ").concat(this.attrs.mainColor, ";\n    }\n  \n    .big-title{\n      font-size: 1700px;\n      position: relative;\n    }\n\n    .test-mask{\n      position: absolute;\n      left: 0;\n      height: 132.5px;\n      background-size: 1920px;\n      position: absolute;\n      left: 0\n    }\n  \n  .test-mask{\n    \n    height: 132.5px;\n    width: 50%;\n    background-image: url(").concat(this.attrs.bgUrl, ");\n    background-size: 1920px;\n    background-position: center;\n    background-position-x: center;\n    transform: scale(1);\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-wrap: wrap;\n    overflow: hidden;\n    left: 25%;\n    background-position-x: center;  \n  }\n  .test-mask:after{ \n    content: \"\";\n    display: block;\n    background: #4e070799;\n    width: 1920px;\n    height: 1080px;\n    position: absolute;\n    top: -458px;\n    /* bottom: 0; */\n    /* right: 0; */\n    left: 0;\n    z-index: -2;\n    background: linear-gradient(").concat(this.attrs.overlayColor, ");\n    top: -345%;\n  }\n  .defter-date-container{\n    position: absolute;\n    font-size: 60px;\n    color: #fff;\n    white-space: nowrap;\n    text-transform: uppercase;\n    font-family: 'Roboto Mono', monospace;\n    background:").concat(this.attrs.dateOverlay, ";   \n    padding: 2% 6%;\n    background-blend-mode: multiply;\n    background-image: url(").concat(this.attrs.bgUrl, ");\n    background-size: 1920px;\n    background-position: center;\n    transform: scale(1);\n\n  }\n.quarter-presenter-container{\n  overflow: hidden;\n}\n\n\n\n  .quarter-first-presenter-slide{\n    margin-bottom: 15%;\n    border-top: 15px solid ").concat(this.attrs.mainColor, ";\n    position: relative;\n    top: 90%;\n    overflow: hidden;\n    \n  }\n\n  .quarter-left{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    position : relative;\n    top: 90%;\n  \n  }\n  .name-container,.position-container{\n    font-weight: 700;\n    font-family: 'Roboto Mono', monospace;\n    text-transform: uppercase;\n    color: #fff;\n  }\n\n  .name-container{\n    font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n  }\n  .position-container{\n    font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n  }\n  .bg-quarter-slide{\n    height: 1080px;\n    width: 1920px;\n    display: flex;\n    align-items: center;\n  }\n\n\n  .bg-quarter-slide{\n    align-items: flex-end;\n  }\n\n  .quarter-presenter{\n    font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n  }\n\n\n  ");
-    }
   }]);
 
   return SlideDateTwo;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var SlideDateTwo_1 = SlideDateTwo;
-
-var Anime$7 = motorcortex.loadPlugin(index);
+var Anime$4 = MotorCortex.loadPlugin(index$2);
 
 var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(BtTslide, _MotorCortex$HTMLClip);
+  _inherits$2(BtTslide, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(BtTslide);
+  var _super = _createSuper$2(BtTslide);
 
   function BtTslide() {
-    _classCallCheck(this, BtTslide);
+    _classCallCheck$2(this, BtTslide);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(BtTslide, [{
+  _createClass$2(BtTslide, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3347,9 +3337,23 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      \n        top : 100%;\n        \n      }\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        align-items: center;\n        justify-content: center;\n        \n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n        \n      }\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$7.Anime({
+      var personConMove = new Anime$4.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3363,7 +3367,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1500 * this.attrs.speed,
         selector: ".quarter-first-presenter-slide"
       });
-      var quarterLeft = new Anime$7.Anime({
+      var quarterLeft = new Anime$4.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3377,7 +3381,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 2000 * this.attrs.speed,
         selector: ".quarter-left"
       });
-      var bg = new Anime$7.Anime({
+      var bg = new Anime$4.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3392,7 +3396,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$7.Anime({
+      var bgOut = new Anime$4.Anime({
         animatedAttrs: {
           top: "-100%"
         },
@@ -3412,41 +3416,25 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(quarterLeft, 0);
       this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: 100%;\n      height: 100%;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: relative;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n    \n      top : 100%;\n      \n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .third-first-presenter-slide,.quarter-first-presenter-slide{\n      position : relative;\n    }\n  \n    .quarter-first-presenter-slide{\n      margin-bottom: 15%;\n      border-top: 15px solid ").concat(this.attrs.mainColor, ";\n      align-items: center;\n      justify-content: center;\n      \n    }\n\n    .quarter-left{\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      position : relative;\n      top: 90%;\n      \n    }\n    .name-container,.position-container{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: #fff;\n    }\n  \n    .name-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n    }\n    .position-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n    }\n    .bg-quarter-slide{\n      height: 1080px;\n      width: 1920px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .quarter-presenter{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n    }\n    .presenter,.big-title{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: ").concat(this.attrs.mainColor, ";\n    }\n\n\n  ");
-    }
   }]);
 
   return BtTslide;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var BtTslide_1 = BtTslide;
-
-var Anime$8 = motorcortex.loadPlugin(index);
+var Anime$3 = MotorCortex.loadPlugin(index$2);
 
 var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(BtTslideDate, _MotorCortex$HTMLClip);
+  _inherits$2(BtTslideDate, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(BtTslideDate);
+  var _super = _createSuper$2(BtTslideDate);
 
   function BtTslideDate() {
-    _classCallCheck(this, BtTslideDate);
+    _classCallCheck$2(this, BtTslideDate);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(BtTslideDate, [{
+  _createClass$2(BtTslideDate, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3463,9 +3451,25 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
+      this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-next\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"test-mask\">\n            <div class=\"defter-date-container\">\n              <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        top : 100%; \n      }\n\n      .bg:after,.bg-next {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-next {\n        width: 100%;\n        height: 100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        top : -100%;\n        left : -100%\n       \n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color:#fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background: ").concat(this.attrs.dateOverlay, ";\n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .defter-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0;\n        display: flex;\n        justify-content: center;\n        align-content: center;\n        width: 100%;\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$8.Anime({
+      var personConMove = new Anime$3.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3478,7 +3482,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
-      var quarterLeft = new Anime$8.Anime({
+      var quarterLeft = new Anime$3.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3491,7 +3495,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var bg = new Anime$8.Anime({
+      var bg = new Anime$3.Anime({
         animatedAttrs: {
           top: "0%"
         },
@@ -3504,7 +3508,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgscaledown = new Anime$8.Anime({
+      var bgscaledown = new Anime$3.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -3521,7 +3525,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
-      var bgscaledownMove = new Anime$8.Anime({
+      var bgscaledownMove = new Anime$3.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -3534,7 +3538,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgsecondscaledownMove = new Anime$8.Anime({
+      var bgsecondscaledownMove = new Anime$3.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -3547,7 +3551,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
-      var bgscaleup = new Anime$8.Anime({
+      var bgscaleup = new Anime$3.Anime({
         animatedAttrs: {
           transform: {
             scale: 1
@@ -3564,7 +3568,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
-      var bgscaledownMoveOut = new Anime$8.Anime({
+      var bgscaledownMoveOut = new Anime$3.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -3577,7 +3581,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgsecondscaledownMoveOut = new Anime$8.Anime({
+      var bgsecondscaledownMoveOut = new Anime$3.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3590,7 +3594,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
-      var bgMoveOut = new Anime$8.Anime({
+      var bgMoveOut = new Anime$3.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -3614,43 +3618,25 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(bgsecondscaledownMoveOut, 4000 * this.attrs.speed);
       this.addIncident(bgMoveOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n   <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      <div class=\"quarter-first-presenter-slide\">\n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n\n  <div class=\"bg-next\">\n  <div class=\"bg-quarter-slide\">\n    <div class=\"test-mask\">\n      <div class=\"defter-date-container\">\n        <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n      </div>\n    </div>\n  </div>\n</div>\n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: 100%;\n      height: 100%;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: relative;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      top : 100%; \n    }\n\n\n    .bg:after,.bg-next {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-next {\n      width: 100%;\n      height: 100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: relative;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      top : -100%;\n      left : -100%\n     \n    }\n    .defter-date-container{\n      position: absolute;\n      font-size: 60px;\n      color:#fff;\n      white-space: nowrap;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n      background: ").concat(this.attrs.dateOverlay, ";\n      padding: 2% 6%;\n      background-blend-mode: multiply;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n    }\n\n    .defter-date span{\n      color: ").concat(this.attrs.mainColor, ";\n    }\n\n\n    .third-first-presenter-slide,.quarter-first-presenter-slide{\n      position : relative;\n    }\n  \n    .quarter-first-presenter-slide{\n      margin-bottom: 15%;\n      border-top: 15px solid ").concat(this.attrs.mainColor, ";\n      align-items: center;\n      justify-content: center;\n      \n    }\n\n    .quarter-left{\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      position : relative;\n      top: 90%;\n      \n    }\n    .name-container,.position-container{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: #fff;\n    }\n  \n    .name-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n    }\n    .position-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n    }\n    .bg-quarter-slide{\n      height: 1080px;\n      width: 1920px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .quarter-presenter{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n    }\n    .presenter,.big-title{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: ").concat(this.attrs.mainColor, ";\n    }\n\n    .test-mask{\n      position: absolute;\n      left: 0;\n      height: 132.5px;\n      background-size: 1920px;\n      position: absolute;\n      left: 0;\n      display: flex;\n      justify-content: center;\n      align-content: center;\n      width: 100%;\n    }\n\n\n  ");
-    }
   }]);
 
   return BtTslideDate;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var BtTslideDate_1 = BtTslideDate;
-
-var Anime$9 = motorcortex.loadPlugin(index);
+var Anime$2 = MotorCortex.loadPlugin(index$2);
 
 var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(LtRslideTop, _MotorCortex$HTMLClip);
+  _inherits$2(LtRslideTop, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(LtRslideTop);
+  var _super = _createSuper$2(LtRslideTop);
 
   function LtRslideTop() {
-    _classCallCheck(this, LtRslideTop);
+    _classCallCheck$2(this, LtRslideTop);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(LtRslideTop, [{
+  _createClass$2(LtRslideTop, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3667,9 +3653,23 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return Math.round(fontsize);
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg2.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: -100%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        padding-top: 25%;\n        margin-left: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$9.Anime({
+      var personConMove = new Anime$2.Anime({
         animatedAttrs: {
           paddingTop: "0%"
         },
@@ -3682,7 +3682,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var quarterLeft = new Anime$9.Anime({
+      var quarterLeft = new Anime$2.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -3695,7 +3695,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
-      var bg = new Anime$9.Anime({
+      var bg = new Anime$2.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -3708,7 +3708,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutCubic"
       });
-      var bgOut = new Anime$9.Anime({
+      var bgOut = new Anime$2.Anime({
         animatedAttrs: {
           left: "100%"
         },
@@ -3726,41 +3726,25 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(quarterLeft, 0);
       this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg2.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      \n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n    \n    </div>\n  </div>\n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: 100%;\n      height: 100%;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: relative;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left : -100%;\n      \n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n  \n\n    .quarter-left{\n      display: flex;\n      flex-direction: column;\n      align-items: flex-end;\n      position : relative;\n      top: -100%;\n      border-top: 15px solid ").concat(this.attrs.mainColor, ";\n      padding-top: 25%;\n      margin-left: 4%;\n     \n    }\n    .name-container,.position-container{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: #fff;\n    }\n  \n    .name-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n    }\n    .position-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n    }\n    .bg-quarter-slide{\n      height: 1080px;\n      width: 1920px;\n      display: flex;\n      align-items: center;\n    }\n\n    .quarter-presenter{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n    }\n    .presenter,.big-title{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: ").concat(this.attrs.mainColor, ";\n    }\n\n  ");
-    }
   }]);
 
   return LtRslideTop;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var LtRslideTop_1 = LtRslideTop;
-
-var Anime$a = motorcortex.loadPlugin(index);
+var Anime$1 = MotorCortex.loadPlugin(index$2);
 
 var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(RtLslide, _MotorCortex$HTMLClip);
+  _inherits$2(RtLslide, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(RtLslide);
+  var _super = _createSuper$2(RtLslide);
 
   function RtLslide() {
-    _classCallCheck(this, RtLslide);
+    _classCallCheck$2(this, RtLslide);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(RtLslide, [{
+  _createClass$2(RtLslide, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -3777,9 +3761,23 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       return fontsize;
     }
   }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg4.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        right: -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: 100%;\n        border-bottom: 15px solid ").concat(this.attrs.mainColor, ";\n        padding-bottom: 25%;\n        margin-right: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+    }
+  }, {
     key: "buildTree",
     value: function buildTree() {
-      var personConMove = new Anime$a.Anime({
+      var personConMove = new Anime$1.Anime({
         animatedAttrs: {
           paddingBottom: "0%"
         },
@@ -3793,7 +3791,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.speed,
         selector: ".quarter-left"
       });
-      var quarterLeft = new Anime$a.Anime({
+      var quarterLeft = new Anime$1.Anime({
         animatedAttrs: {
           top: "25%"
         },
@@ -3807,7 +3805,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.speed,
         selector: ".quarter-left"
       });
-      var bg = new Anime$a.Anime({
+      var bg = new Anime$1.Anime({
         animatedAttrs: {
           right: "0%"
         },
@@ -3822,7 +3820,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgOut = new Anime$a.Anime({
+      var bgOut = new Anime$1.Anime({
         animatedAttrs: {
           right: "100%"
         },
@@ -3842,34 +3840,18 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(quarterLeft, 0);
       this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg4.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      return "\n    <div class=\"bg\">\n    <div class=\"bg-quarter-slide\">\n      \n        <div class=\"quarter-left\">\n          <div class=\"quarter-presenter-container\">\n            <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n          </div>\n          <div class=\"name-container\">").concat(this.attrs.name, "</div>\n          <div class=\"position-container\">").concat(this.attrs.position, "</div>\n        </div>\n    \n    </div>\n  </div>\n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg {\n      width: 100%;\n      height: 100%;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: relative;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      right: -100%;\n      \n    }\n    .bg:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n  \n\n    .quarter-left{\n      display: flex;\n      flex-direction: column;\n      align-items: flex-end;\n      position : relative;\n      top: 100%;\n      border-bottom: 15px solid ").concat(this.attrs.mainColor, ";\n      padding-bottom: 25%;\n      margin-right: 4%;\n     \n    }\n    .name-container,.position-container{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: #fff;\n    }\n  \n    .name-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n    }\n    .position-container{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n    }\n    .bg-quarter-slide{\n      height: 1080px;\n      width: 1920px;\n      display: flex;\n      align-items: center;\n      justify-content: flex-end;\n    }\n\n    .quarter-presenter{\n      font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n    }\n    .presenter,.big-title{\n      font-weight: 700;\n      font-family: 'Roboto Mono', monospace;\n      text-transform: uppercase;\n      color: ").concat(this.attrs.mainColor, ";\n    }\n\n  ");
-    }
   }]);
 
   return RtLslide;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var RtLslide_1 = RtLslide;
-
-function _classCallCheck$2(instance, Constructor) {
+function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
 
-function _defineProperties$2(target, props) {
+function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
@@ -3879,13 +3861,13 @@ function _defineProperties$2(target, props) {
   }
 }
 
-function _createClass$2(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties$2(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties$2(Constructor, staticProps);
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
   return Constructor;
 }
 
-function _inherits$2(subClass, superClass) {
+function _inherits(subClass, superClass) {
   if (typeof superClass !== "function" && superClass !== null) {
     throw new TypeError("Super expression must either be null or a function");
   }
@@ -3897,39 +3879,39 @@ function _inherits$2(subClass, superClass) {
       configurable: true
     }
   });
-  if (superClass) _setPrototypeOf$2(subClass, superClass);
+  if (superClass) _setPrototypeOf(subClass, superClass);
 }
 
-function _getPrototypeOf$2(o) {
-  _getPrototypeOf$2 = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+function _getPrototypeOf(o) {
+  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
     return o.__proto__ || Object.getPrototypeOf(o);
   };
-  return _getPrototypeOf$2(o);
+  return _getPrototypeOf(o);
 }
 
-function _setPrototypeOf$2(o, p) {
-  _setPrototypeOf$2 = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
     o.__proto__ = p;
     return o;
   };
 
-  return _setPrototypeOf$2(o, p);
+  return _setPrototypeOf(o, p);
 }
 
-function _isNativeReflectConstruct$2() {
+function _isNativeReflectConstruct() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
 
   try {
-    Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
     return true;
   } catch (e) {
     return false;
   }
 }
 
-function _assertThisInitialized$2(self) {
+function _assertThisInitialized(self) {
   if (self === void 0) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   }
@@ -3937,56 +3919,72 @@ function _assertThisInitialized$2(self) {
   return self;
 }
 
-function _possibleConstructorReturn$2(self, call) {
+function _possibleConstructorReturn(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
   }
 
-  return _assertThisInitialized$2(self);
+  return _assertThisInitialized(self);
 }
 
-function _createSuper$2(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct$2();
+function _createSuper(Derived) {
+  var hasNativeReflectConstruct = _isNativeReflectConstruct();
 
   return function _createSuperInternal() {
-    var Super = _getPrototypeOf$2(Derived),
+    var Super = _getPrototypeOf(Derived),
         result;
 
     if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf$2(this).constructor;
+      var NewTarget = _getPrototypeOf(this).constructor;
 
       result = Reflect.construct(Super, arguments, NewTarget);
     } else {
       result = Super.apply(this, arguments);
     }
 
-    return _possibleConstructorReturn$2(this, result);
+    return _possibleConstructorReturn(this, result);
   };
 }
 
 var VideoClip = /*#__PURE__*/function (_MC$BrowserClip) {
-  _inherits$2(VideoClip, _MC$BrowserClip);
+  _inherits(VideoClip, _MC$BrowserClip);
 
-  var _super = _createSuper$2(VideoClip);
+  var _super = _createSuper(VideoClip);
 
   function VideoClip() {
-    _classCallCheck$2(this, VideoClip);
+    _classCallCheck(this, VideoClip);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$2(VideoClip, [{
+  _createClass(VideoClip, [{
+    key: "html",
+    get: function get() {
+      var _this = this;
+
+      return "\n        <div>\n            <video id=\"video\" style=\"width:".concat(this.attrs.width || 640, "px;height:").concat(this.attrs.height || 360, "px;\" preload=\"auto\">\n                ").concat(this.attrs.sources.map(function (item
+      /*, i*/
+      ) {
+        return "\n                    <source src=\"".concat(item, "#t=").concat(_this.attrs.startFrom || 0, "\"></source>\n                ");
+      }).join(""), "\n            </video>\n            <canvas id=\"canvas\"></canvas>\n        </div>\n        ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n            #video{\n                display:none;\n            }\n        ";
+    }
+  }, {
     key: "onAfterRender",
     value: function onAfterRender() {
-      var _this = this;
+      var _this2 = this;
 
       var video = this.context.getElements("video")[0];
       video.muted = true;
       var canvas = this.context.getElements("canvas")[0];
       var ctx = canvas.getContext("2d");
       video.addEventListener("loadedmetadata", function () {
-        var canvasWidth = _this.attrs.width || 640;
-        var canvasHeight = _this.attrs.height || 360;
+        var canvasWidth = _this2.attrs.width || 640;
+        var canvasHeight = _this2.attrs.height || 360;
         canvas.style.transform = "scale(".concat(canvasWidth / video.videoWidth, ", ").concat(canvasHeight / video.videoHeight, ")"); // canvas.style['transform-origin'] = "top left";
 
         canvas.width = video.videoWidth;
@@ -3999,41 +3997,25 @@ var VideoClip = /*#__PURE__*/function (_MC$BrowserClip) {
         startFrom: this.attrs.startFrom * 1000 || 0
       });
     }
-  }, {
-    key: "html",
-    get: function get() {
-      var _this2 = this;
-
-      return "\n        <div>\n            <video id=\"video\" style=\"width:".concat(this.attrs.width || 640, "px;height:").concat(this.attrs.height || 360, "px;\" preload=\"auto\">\n                ").concat(this.attrs.sources.map(function (item
-      /*, i*/
-      ) {
-        return "\n                    <source src=\"".concat(item, "#t=").concat(_this2.attrs.startFrom || 0, "\"></source>\n                ");
-      }).join(""), "\n            </video>\n            <canvas id=\"canvas\"></canvas>\n        </div>\n        ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n            #video{\n                display:none;\n            }\n        ";
-    }
   }]);
 
   return VideoClip;
-}(motorcortex.BrowserClip);
+}(MotorCortex.BrowserClip);
 
 var VideoClip_1 = VideoClip;
 
 var VideoPlay = /*#__PURE__*/function (_MC$MediaPlayback) {
-  _inherits$2(VideoPlay, _MC$MediaPlayback);
+  _inherits(VideoPlay, _MC$MediaPlayback);
 
-  var _super = _createSuper$2(VideoPlay);
+  var _super = _createSuper(VideoPlay);
 
   function VideoPlay() {
-    _classCallCheck$2(this, VideoPlay);
+    _classCallCheck(this, VideoPlay);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$2(VideoPlay, [{
+  _createClass(VideoPlay, [{
     key: "play",
     value: function play()
     /*millisecond*/
@@ -4094,26 +4076,26 @@ var VideoPlay = /*#__PURE__*/function (_MC$MediaPlayback) {
   }]);
 
   return VideoPlay;
-}(motorcortex.MediaPlayback);
+}(MotorCortex.MediaPlayback);
 
 var VideoPlay_1 = VideoPlay;
-var compositeAttributes$1 = {
+var compositeAttributes = {
   filter: ["blur", "brightness", "contrast", "drop-shadow", "grayscale", "hue-rotate", "invert", "opacity", "saturate", "sepia"]
 };
-var effects = compositeAttributes$1.filter;
+var effects = compositeAttributes.filter;
 
 var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
-  _inherits$2(VideoEffect, _MotorCortex$Effect);
+  _inherits(VideoEffect, _MotorCortex$Effect);
 
-  var _super = _createSuper$2(VideoEffect);
+  var _super = _createSuper(VideoEffect);
 
   function VideoEffect() {
-    _classCallCheck$2(this, VideoEffect);
+    _classCallCheck(this, VideoEffect);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass$2(VideoEffect, [{
+  _createClass(VideoEffect, [{
     key: "getScratchValue",
     value: function getScratchValue() {
       return {
@@ -4126,6 +4108,21 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
         opacity: 1,
         saturate: 1,
         sepia: 0
+      };
+    }
+  }, {
+    key: "_effectsUnits",
+    get: function get() {
+      return {
+        blur: "px",
+        brightness: "",
+        contrast: "",
+        grayscale: "",
+        "hue-rotate": "deg",
+        invert: "",
+        opacity: "",
+        saturate: "",
+        sepia: ""
       };
     }
   }, {
@@ -4156,29 +4153,14 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
 
       this.element.entity.ctx.filter = this._objToFilterValue(targetValues);
     }
-  }, {
-    key: "_effectsUnits",
-    get: function get() {
-      return {
-        blur: "px",
-        brightness: "",
-        contrast: "",
-        grayscale: "",
-        "hue-rotate": "deg",
-        invert: "",
-        opacity: "",
-        saturate: "",
-        sepia: ""
-      };
-    }
   }]);
 
   return VideoEffect;
-}(motorcortex.Effect);
+}(MotorCortex.Effect);
 
 var Effect = VideoEffect;
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "1.1.11";
+var version$1 = "1.1.12";
 var index$1 = {
   npm_name: name$1,
   version: version$1,
@@ -4250,7 +4232,7 @@ var index$1 = {
       }
     }
   }],
-  compositeAttributes: compositeAttributes$1,
+  compositeAttributes: compositeAttributes,
   Clip: {
     exportable: VideoClip_1,
     attributesValidationRules: {
@@ -4288,21 +4270,21 @@ var index$1 = {
   }
 };
 
-var Anime$b = motorcortex.loadPlugin(index);
-var VideoPlugin = motorcortex.loadPlugin(index$1);
+var Anime = MotorCortex.loadPlugin(index$2);
+var VideoPlugin = MotorCortex.loadPlugin(index$1);
 
 var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
-  _inherits(SlideDateOneVid, _MotorCortex$HTMLClip);
+  _inherits$2(SlideDateOneVid, _MotorCortex$HTMLClip);
 
-  var _super = _createSuper(SlideDateOneVid);
+  var _super = _createSuper$2(SlideDateOneVid);
 
   function SlideDateOneVid() {
-    _classCallCheck(this, SlideDateOneVid);
+    _classCallCheck$2(this, SlideDateOneVid);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(SlideDateOneVid, [{
+  _createClass$2(SlideDateOneVid, [{
     key: "dinamicFontSize",
     value: function dinamicFontSize(lc, width) {
       var fontsize;
@@ -4317,6 +4299,22 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       }
 
       return fontsize;
+    }
+  }, {
+    key: "html",
+    get: function get() {
+      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
+      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
+      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
+      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
+      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
+      this.attrs.vidDuration = !this.attrs.vidDuration ? this.attrs.vidDuration = 6000 : this.attrs.vidDuration;
+      return "\n      <div class=\"parent\">\n        <div class=\"bg \">\n          <div class =\"vid\"></div>\n          <div class=\"second-slide\">\n            <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n            <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n            <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[2], "</div>\n            <div class=\"word-bg\">\n              <div class=\"word\"></div>\n            </div>\n            <div class=\"short-description\">\n              <p>\n               ").concat(this.attrs.description, "\n              </p>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg-second \">\n          <div class=\"bg-second-slide\">\n              <div class=\"second-date-container\">\n                  <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n              </div>\n          </div>\n        </div>\n      </div>\n    ");
+    }
+  }, {
+    key: "css",
+    get: function get() {
+      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .parent{\n        position:relative;\n        width: 1920px;\n        height: 1080px;\n        left:0%;\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n      }\n\n      .vid{\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 1920px;\n        height: 1080px;\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[0].length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[1].length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[2].length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -4349,7 +4347,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         html3 = html3 + html;
       }
 
-      var word = new motorcortex.HTMLClip({
+      var word = new MotorCortex.HTMLClip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -4358,7 +4356,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(word, 0);
 
       for (var _i = 0; _i < array.length; _i++) {
-        var textAnimation = new Anime$b.Anime({
+        var textAnimation = new Anime.Anime({
           animatedAttrs: {
             top: "0px",
             opacity: 1
@@ -4372,7 +4370,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * this.attrs.speed);
       }
 
-      var bgMove = new Anime$b.Anime({
+      var bgMove = new Anime.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -4385,7 +4383,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleOne = new Anime$b.Anime({
+      var secondSlideTitleOne = new Anime.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -4398,7 +4396,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
-      var secondSlideTitleTwo = new Anime$b.Anime({
+      var secondSlideTitleTwo = new Anime.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -4411,7 +4409,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
-      var wordBg = new Anime$b.Anime({
+      var wordBg = new Anime.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -4424,7 +4422,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
-      var shortDescription = new Anime$b.Anime({
+      var shortDescription = new Anime.Anime({
         animatedAttrs: {
           left: "0%"
         },
@@ -4437,7 +4435,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".short-description",
         easing: "easeOutQuad"
       });
-      var bgscaledown = new Anime$b.Anime({
+      var bgscaledown = new Anime.Anime({
         animatedAttrs: {
           transform: {
             scale: 0.5
@@ -4454,7 +4452,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
-      var bgscaledownMove = new Anime$b.Anime({
+      var bgscaledownMove = new Anime.Anime({
         animatedAttrs: {
           left: "-25%"
         },
@@ -4467,7 +4465,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg",
         easing: "easeOutQuad"
       });
-      var bgsecondscaledownMove = new Anime$b.Anime({
+      var bgsecondscaledownMove = new Anime.Anime({
         animatedAttrs: {
           left: "25%"
         },
@@ -4480,7 +4478,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
-      var secondBgDate = new Anime$b.Anime({
+      var secondBgDate = new Anime.Anime({
         animatedAttrs: {
           left: "5%"
         },
@@ -4492,22 +4490,8 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         duration: 1000 * this.attrs.speed,
         selector: ".second-date",
         easing: "easeOutQuad"
-      }); // const moveSecond = new Anime.Anime(
-      //   {
-      //     animatedAttrs: {
-      //       left: "-76%"
-      //     },
-      //     initialValues: {},
-      //     attrs: {}
-      //   },
-      //   {
-      //     duration: 1000 * this.attrs.speed,
-      //     selector: ".bg",
-      //     easing: "easeOutQuad"
-      //   }
-      // );
-
-      var moveSecondS = new Anime$b.Anime({
+      });
+      var moveSecondS = new Anime.Anime({
         animatedAttrs: {
           left: "-100%"
         },
@@ -4531,30 +4515,12 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(secondBgDate, 3700 * this.attrs.speed + delay);
       this.addIncident(moveSecondS, this.calculatedDuration + 1000 * this.attrs.speed);
     }
-  }, {
-    key: "html",
-    get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      this.attrs.vidDuration = !this.attrs.vidDuration ? this.attrs.vidDuration = 6000 : this.attrs.vidDuration;
-      return "\n    <div class=\"parent\">\n    <div class=\"bg \">\n    <div class =\"vid\"></div>\n    <div class=\"second-slide\">\n      <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n      <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[2], "</div>\n      <div class=\"word-bg\">\n        <div class=\"word\"></div>\n      </div>\n      <div class=\"short-description\">\n        <p>\n         ").concat(this.attrs.description, "\n        </p>\n      </div>\n    </div>\n    </div>\n\n    <div class=\"bg-second \">\n      <div class=\"bg-second-slide\">\n          <div class=\"second-date-container\">\n              <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n          </div>\n      </div>\n    </div>\n    </div>\n\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n    .bg,.bg-second {\n      width: 1920px;\n      height: 1080px;\n      background-image: url(".concat(this.attrs.bgUrl, ");\n      background-size: 1920px;\n      background-position: center;\n      transform: scale(1);\n      display: flex;\n      position: absolute;\n      align-items: center;\n      flex-wrap: wrap;\n      flex: 1 0 auto;\n      left: -100%\n    }\n    .parent{\n      position:relative;\n      width: 1920px;\n      height: 1080px;\n      left:0%;\n    }\n    .bg:after,.bg-second:after {\n      content: \"\";\n      display: block;\n      background: linear-gradient(").concat(this.attrs.overlayColor, ");\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      right: 0;\n      left: 0;\n      z-index: -1;\n    }\n    .bg-second{\n      left:100%;\n      background-image: url(").concat(this.attrs.bgUrl2, ");\n    }\n    .vid{\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 1920px;\n      height: 1080px;\n    }\n\n    .short-description{\n      font-size: 20px;\n      color: #fff;\n      position: relative;\n      white-space: normal;\n      text-align: left;\n      text-transform: uppercase;\n      font-family: 'Roboto Mono', monospace;\n      width: 720px;\n      left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[0].length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[1].length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[2].length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n        \n      }\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n        \n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n  ");
-    }
   }]);
 
   return SlideDateOneVid;
-}(motorcortex.HTMLClip);
+}(MotorCortex.HTMLClip);
 
-var SlideDateOneVid_1 = SlideDateOneVid;
-
-var _COLOR$1 = "color";
+var _COLOR = "color";
 var introintroVal = {
   title: {
     optional: false,
@@ -4574,7 +4540,7 @@ var introintroVal = {
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   description: {
     optional: false,
@@ -4591,7 +4557,7 @@ var introintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR$1
+      type: _COLOR
     }
   }
 };
@@ -4653,12 +4619,12 @@ var SlideDateOneVidintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4711,12 +4677,12 @@ var SlideDateOneintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4747,12 +4713,12 @@ var prisenterintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4807,16 +4773,16 @@ var SlideDateTwointroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   dateOverlay: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4867,16 +4833,16 @@ var BtTslideDateintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR$1
+      type: _COLOR
     }
   },
   mainColor: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   dateOverlay: {
     optional: true,
-    type: _COLOR$1
+    type: _COLOR
   },
   speed: {
     optional: true,
@@ -4896,14 +4862,14 @@ var transitionintroVal = {
   }
 };
 
-var name$2 = "@kissmybutton/motorcortex-slides";
-var version$2 = "1.0.21";
+var name = "@kissmybutton/motorcortex-slides";
+var version = "1.0.21";
 
-var index$2 = {
-  npm_name: name$2,
-  version: version$2,
+var index = {
+  npm_name: name,
+  version: version,
   incidents: [{
-    exportable: Intro_1,
+    exportable: Intro,
     name: "Intro",
     attributesValidationRules: introintroVal,
     originalDims: {
@@ -4911,7 +4877,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: Transition_1,
+    exportable: Transition,
     name: "Transition",
     attributesValidationRules: transitionintroVal,
     originalDims: {
@@ -4919,7 +4885,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: SlideDateOne_1,
+    exportable: SlideDateOne,
     name: "SlideDateOne",
     attributesValidationRules: SlideDateOneintroVal,
     originalDims: {
@@ -4927,7 +4893,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: SlideDateOneVid_1,
+    exportable: SlideDateOneVid,
     name: "SlideDateOneVid",
     attributesValidationRules: SlideDateOneVidintroVal,
     originalDims: {
@@ -4935,7 +4901,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: SlideDateTwo_1,
+    exportable: SlideDateTwo,
     name: "SlideDateTwo",
     attributesValidationRules: SlideDateTwointroVal,
     originalDims: {
@@ -4943,7 +4909,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: Scrolslide_1,
+    exportable: Scrolslide,
     name: "Scrolslide",
     attributesValidationRules: prisenterintroVal,
     originalDims: {
@@ -4951,7 +4917,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: LtRslide_1,
+    exportable: LtRslide,
     name: "LtRslide",
     attributesValidationRules: prisenterintroVal,
     originalDims: {
@@ -4959,7 +4925,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: BtTslide_1,
+    exportable: BtTslide,
     name: "BtTslide",
     attributesValidationRules: prisenterintroVal,
     originalDims: {
@@ -4967,7 +4933,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: BtTslideDate_1,
+    exportable: BtTslideDate,
     name: "BtTslideDate",
     attributesValidationRules: BtTslideDateintroVal,
     originalDims: {
@@ -4975,7 +4941,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: LtRslideTop_1,
+    exportable: LtRslideTop,
     name: "LtRslideTop",
     attributesValidationRules: prisenterintroVal,
     originalDims: {
@@ -4983,7 +4949,7 @@ var index$2 = {
       height: "1080px"
     }
   }, {
-    exportable: RtLslide_1,
+    exportable: RtLslide,
     name: "RtLslide",
     attributesValidationRules: prisenterintroVal,
     originalDims: {
@@ -4993,4 +4959,4 @@ var index$2 = {
   }]
 };
 
-export default index$2;
+export default index;

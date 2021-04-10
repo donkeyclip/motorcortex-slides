@@ -1,11 +1,11 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import MotorCortex from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import MCVideo from "@kissmybutton/motorcortex-video";
 
-const MCVideo = require("@kissmybutton/motorcortex-video");
+const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 const VideoPlugin = MotorCortex.loadPlugin(MCVideo);
 
-class SlideDateOneVid extends MotorCortex.HTMLClip {
+export default class SlideDateOneVid extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -44,93 +44,95 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
       : this.attrs.vidDuration;
 
     return `
-    <div class="parent">
-    <div class="bg ">
-    <div class ="vid"></div>
-    <div class="second-slide">
-      <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
-      <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
-      <div class="second-slide-titleTwo">${this.attrs.title[2]}</div>
-      <div class="word-bg">
-        <div class="word"></div>
-      </div>
-      <div class="short-description">
-        <p>
-         ${this.attrs.description}
-        </p>
-      </div>
-    </div>
-    </div>
-
-    <div class="bg-second ">
-      <div class="bg-second-slide">
-          <div class="second-date-container">
-              <div class="second-date"><span> ${this.attrs.day || ""} ${this
+      <div class="parent">
+        <div class="bg ">
+          <div class ="vid"></div>
+          <div class="second-slide">
+            <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
+            <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
+            <div class="second-slide-titleTwo">${this.attrs.title[2]}</div>
+            <div class="word-bg">
+              <div class="word"></div>
+            </div>
+            <div class="short-description">
+              <p>
+               ${this.attrs.description}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-second ">
+          <div class="bg-second-slide">
+              <div class="second-date-container">
+                  <div class="second-date"><span> ${this.attrs.day || ""} ${this
       .attrs.dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs
       .year || ""}</div>
+              </div>
           </div>
+        </div>
       </div>
-    </div>
-    </div>
-
     `;
   }
 
   get css() {
     return `
-    .bg,.bg-second {
-      width: 1920px;
-      height: 1080px;
-      background-image: url(${this.attrs.bgUrl});
-      background-size: 1920px;
-      background-position: center;
-      transform: scale(1);
-      display: flex;
-      position: absolute;
-      align-items: center;
-      flex-wrap: wrap;
-      flex: 1 0 auto;
-      left: -100%
-    }
-    .parent{
-      position:relative;
-      width: 1920px;
-      height: 1080px;
-      left:0%;
-    }
-    .bg:after,.bg-second:after {
-      content: "";
-      display: block;
-      background: linear-gradient(${this.attrs.overlayColor});
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      z-index: -1;
-    }
-    .bg-second{
-      left:100%;
-      background-image: url(${this.attrs.bgUrl2});
-    }
-    .vid{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 1920px;
-      height: 1080px;
-    }
+      .bg,.bg-second {
+        width: 1920px;
+        height: 1080px;
+        background-image: url(${this.attrs.bgUrl});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left: -100%
+      }
 
-    .short-description{
-      font-size: 20px;
-      color: #fff;
-      position: relative;
-      white-space: normal;
-      text-align: left;
-      text-transform: uppercase;
-      font-family: 'Roboto Mono', monospace;
-      width: 720px;
-      left: -50%;
+      .parent{
+        position:relative;
+        width: 1920px;
+        height: 1080px;
+        left:0%;
+      }
+
+      .bg:after,.bg-second:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .bg-second{
+        left:100%;
+        background-image: url(${this.attrs.bgUrl2});
+      }
+
+      .vid{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+
+      .short-description{
+        font-size: 20px;
+        color: #fff;
+        position: relative;
+        white-space: normal;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        width: 720px;
+        left: -50%;
       }
 
       .word-bg{
@@ -177,6 +179,7 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
         top: 20%;
         transform: scale(1);
       }
+
       .letter{
         font-size: ${this.dinamicFontSize(this.attrs.title[2].length, 720)}px;
         font-weight: 700;
@@ -188,13 +191,12 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
         text-align: center;
         top : 300px;
         width: 100%;
-        
       }
+
       .second-date-container{
         border-left: 100px solid ${this.attrs.mainColor};
         overflow: hidden;
         width: 200%;
-        
       }
 
       .second-date{
@@ -209,12 +211,10 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
         left:-100%;
       }
     
-      
       .second-date span{
         color: ${this.attrs.mainColor};
       }
-
-  `;
+    `;
   }
 
   buildTree() {
@@ -241,6 +241,7 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
     const delay = this.attrs.vidDuration - 3000 * this.attrs.speed;
 
     const array = this.attrs.title[2].split("");
+
     let html3;
 
     const containerParams = {
@@ -406,6 +407,7 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
         easing: "easeOutQuad"
       }
     );
+
     const bgsecondscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
@@ -440,21 +442,6 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
       }
     );
 
-    // const moveSecond = new Anime.Anime(
-    //   {
-    //     animatedAttrs: {
-    //       left: "-76%"
-    //     },
-    //     initialValues: {},
-    //     attrs: {}
-    //   },
-    //   {
-    //     duration: 1000 * this.attrs.speed,
-    //     selector: ".bg",
-    //     easing: "easeOutQuad"
-    //   }
-    // );
-
     const moveSecondS = new Anime.Anime(
       {
         animatedAttrs: {
@@ -487,5 +474,3 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
     );
   }
 }
-
-module.exports = SlideDateOneVid;

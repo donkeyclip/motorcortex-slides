@@ -40,6 +40,7 @@ export const introintroVal = {
     }
   }
 };
+
 export const SlideDateOneVidintroVal = {
   title: {
     optional: false,

@@ -1,20 +1,21 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const Player = require("@kissmybutton/motorcortex-player");
-const PromoPlugin = require("../dist/motorcortex-slides.umd.js");
+import MotorCortex from "@kissmybutton/motorcortex";
+import Player from "@kissmybutton/motorcortex-player";
+const PromoPlugin = require("../src/");
 const Clip = MotorCortex.loadPlugin(PromoPlugin);
 
 const css = `
-body { 
-  background-color : white; 
-}              
-.container,.container2,.container3,.container4 {
-  width: 1920px;
-  height: 1080px;
-  overflow: hidden;
-  display: flex;
-  position: absolute;
-}
-  `;
+  body { 
+    background-color : white; 
+  }              
+  .container,.container2,.container3,.container4 {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    display: flex;
+    position: absolute;
+  }
+`;
+
 const html = ` 
   <div class="container container1"></div>
   <div class="container container3"></div>
@@ -32,8 +33,7 @@ const html = `
   <div class="container container14"></div>
   <div class="container container15"></div>
   <div class="container container16"></div>
-  
-  `;
+`;
 
 const host = document.getElementById("clip");
 
@@ -68,16 +68,13 @@ const introClip = new Clip.Intro(
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
     month: "December",
     bgUrl:
-      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
   },
   {
     selector: ".container1"
-    // containerParams: {
-    //   width: "1280px"
-    // }
   }
 );
 
@@ -88,23 +85,23 @@ const dayOne = new Clip.SlideDateOneVid(
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
     bgUrl:
-      "https://kissmybutton.github.io/motorcortex-slides/demo/kissmybutonbg.jpg",
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg",
     overlayColor: overlay,
     mainColor: main,
-    bgUrl2: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
+    bgUrl2:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg2.jpg",
     month: "December",
     day: `monday`,
     dayNumber: 20,
     year: 2019,
     speed: 2,
     vidDuration: 6000,
-    vidLink: ["https://kissmybutton.github.io/motorcortex-slides/demo/vid.mp4"]
+    vidLink: [
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/vid.mp4"
+    ]
   },
   {
     selector: ".container3"
-    // containerParams: {
-    //   width: "1280px"
-    // }
   }
 );
 
@@ -113,16 +110,14 @@ const scrolPresenter = new Clip.Scrolslide(
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg3.jpg",
+    bgUrl:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg3.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
   },
   {
     selector: ".container4"
-    // containerParams: {
-    //   width: "1280px"
-    // }
   }
 );
 
@@ -131,16 +126,14 @@ const ltrPresenter = new Clip.LtRslide(
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg4.jpg",
+    bgUrl:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg4.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
   },
   {
     selector: ".container6"
-    // containerParams: {
-    //   width: "1280px"
-    // }
   }
 );
 
@@ -150,11 +143,13 @@ const dayTwo = new Clip.SlideDateTwo(
     name: "name surname",
     position: "Web developer at kissmybuton",
     bigTitle: "Event",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg5.jpg",
+    bgUrl:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg5.jpg",
     overlayColor: overlay,
     dateOverlay: "#ff00b3",
     mainColor: "#00ff40",
-    bgUrl2: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
+    bgUrl2:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg2.jpg",
     month: "December",
     day: `monday`,
     dayNumber: 22,
@@ -163,9 +158,6 @@ const dayTwo = new Clip.SlideDateTwo(
   },
   {
     selector: ".container7"
-    // containerParams: {
-    //   width: "1280px"
-    // }
   }
 );
 
@@ -174,28 +166,29 @@ const bttPresenter = new Clip.BtTslide(
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg4.jpg",
+    bgUrl:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg4.jpg",
     overlayColor: overlay,
     mainColor: main,
     speed: 2
   },
   {
     selector: ".container16"
-    // containerParams: {
-    //   width: "1280px"
-    // }
   }
 );
+
 const bttDay = new Clip.BtTslideDate(
   {
     title: "Presenter",
     name: "name surname",
     position: "Web developer at kissmybuton",
-    bgUrl: "https://kissmybutton.github.io/motorcortex-slides/demo/bg3.jpg",
+    bgUrl:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg3.jpg",
     overlayColor: overlay,
     dateOverlay: "#ff00b3",
     mainColor: "#00ff40",
-    bgUrl2: "https://kissmybutton.github.io/motorcortex-slides/demo/bg2.jpg",
+    bgUrl2:
+      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/bg2.jpg",
     month: "December",
     day: `monday`,
     dayNumber: 21,
@@ -204,9 +197,6 @@ const bttDay = new Clip.BtTslideDate(
   },
   {
     selector: ".container10"
-    // containerParams: {
-    //   width: "1280px"
-    // }
   }
 );
 
@@ -217,5 +207,5 @@ clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
 clip.addIncident(dayTwo, clip.calculatedDuration - 2000);
 clip.addIncident(bttDay, clip.calculatedDuration - 2000);
 clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
-window.clip =clip
+
 new Player({ clip });

@@ -1,8 +1,8 @@
-const MotorCortex = require("@kissmybutton/motorcortex");
-const AnimeDefinition = require("@kissmybutton/motorcortex-anime");
+import MotorCortex from "@kissmybutton/motorcortex";
+import AnimeDefinition from "@kissmybutton/motorcortex-anime";
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
-class Intro extends MotorCortex.HTMLClip {
+export default class Intro extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -33,178 +33,175 @@ class Intro extends MotorCortex.HTMLClip {
       : this.attrs.speed;
 
     return `
-    <div class="bg"> 
-    <div class="first-slide">
-      <div class="testdiv">
-        
-        <div class="sub">
-          <div class="subtitle">
-            <div class="subtitle-holder">
-              <div class="subtitle-text">${this.attrs.subtitle}</div>
+      <div class="bg"> 
+        <div class="first-slide">
+          <div class="testdiv">
+            <div class="sub">
+              <div class="subtitle">
+                <div class="subtitle-holder">
+                  <div class="subtitle-text">${this.attrs.subtitle}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="title">
+            <div class="date-holder">
+              <div class="date">
+                <span> ${this.attrs.month}</span>
+              </div>
+            </div>
+            <div class="holder-title">
+              <div class="title-text">${this.attrs.title}</div>
+            </div>
+          </div>
+          <div class="description">
+            <div class="description-text">
+              <p>${this.attrs.description}</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="title">
-      <div class="date-holder">
-      <div class="date"><span> ${this.attrs.month}</span></div>
-    </div>
-        <div class="holder-title">
-          <div class="title-text">${this.attrs.title}</div>
-        </div>
-      </div>
-      <div class="description">
-        <div class="description-text">
-          <p>
-            ${this.attrs.description}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
     `;
   }
 
   get css() {
     return `
-    .bg {
-      height: 1080px;
-      width: 1920px;
-      position: relative;
-      background-image: url(${this.attrs.bgUrl});
-      background-size: 1920px;
-      background-position: center;
-      transform: scale(1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      flex: 1 0 auto;
-    }
-    .bg:after {
-      content: "";
-      display: block;
-      background: linear-gradient(${this.attrs.overlayColor});
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      z-index: -1;
-    }
+      .bg {
+        height: 1080px;
+        width: 1920px;
+        position: relative;
+        background-image: url(${this.attrs.bgUrl});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+      }
 
-    .first-slide {
-      display: flex;
-      width: 90%;
-      white-space: nowrap;
-      overflow: hidden;
-      flex-direction: column;
-      position: relative;
-    }
-    .sub {
-      display: flex;
-      overflow: hidden;
-      position: relative;
-      width: 50%;
-    }
-    
-    
-    .title {
-      color: ${this.attrs.mainColor};
-      font-size: ${this.dinamicFontSize(
-        this.attrs.title.length,
-        864 * this.attrs.speed
-      )}px;
-      font-weight: 700;
-      font-family: 'Roboto Mono', monospace;
-      text-transform: uppercase;
-      margin-top:-${this.dinamicFontSize(
-        this.attrs.title.length,
-        864 * this.attrs.speed
-      ) / 2.6}px;
-      overflow: hidden;
-      display: flex;
-      width: 100%;
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .first-slide {
+        display: flex;
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .sub {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        width: 50%;
+      }
       
-    }
-    .subtitle {
-      color: ${this.attrs.mainColor};
-      font-size: ${this.dinamicFontSize(this.attrs.subtitle.length, 864)}px;
-      font-weight: 700;
-      font-family: 'Roboto Mono', monospace;
-      text-transform: uppercase;
-      overflow: hidden;
-      
-    }
+      .title {
+        color: ${this.attrs.mainColor};
+        font-size: ${this.dinamicFontSize(
+          this.attrs.title.length,
+          864 * this.attrs.speed
+        )}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        margin-top:-${this.dinamicFontSize(
+          this.attrs.title.length,
+          864 * this.attrs.speed
+        ) / 2.6}px;
+        overflow: hidden;
+        display: flex;
+        width: 100%;
+      }
 
+      .subtitle {
+        color: ${this.attrs.mainColor};
+        font-size: ${this.dinamicFontSize(this.attrs.subtitle.length, 864)}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        overflow: hidden;
+      }
 
-    .description-text {
-      position: relative;
-      transform: translateY(-200%);
-    }
-    .description {
-      border-top: 15px solid ${this.attrs.mainColor};
-      overflow: hidden;
-      transform: translateY(200%);
-      font-size: 30px;
-      color: #fff;
-      position: relative;
-      white-space: normal;
-      text-align: left;
-      text-transform: uppercase;
-      font-family: 'Roboto Mono', monospace;
-    }
+      .description-text {
+        position: relative;
+        transform: translateY(-200%);
+      }
 
-    .testdiv{
-      width:100%;
-      padding-bottom: 2%;
-    }
+      .description {
+        border-top: 15px solid ${this.attrs.mainColor};
+        overflow: hidden;
+        transform: translateY(200%);
+        font-size: 30px;
+        color: #fff;
+        position: relative;
+        white-space: normal;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+      }
 
-    .date-holder{
-      width: 28%;
-      position: absolute;
-      justify-self: center;
-      top: 8%;
-      display: flex;
-      justify-content: flex-end;
-    }
+      .testdiv{
+        width:100%;
+        padding-bottom: 2%;
+      }
 
-    .date {
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .date span {
-      position: relative;
-      overflow: hidden;
-      font-family: 'Roboto Mono', monospace;
-      text-transform: uppercase;
-      font-size: 50px;
-      color: #fff ;
-      transform: translateX(200%);
-    }
+      .date-holder{
+        width: 28%;
+        position: absolute;
+        justify-self: center;
+        top: 8%;
+        display: flex;
+        justify-content: flex-end;
+      }
 
-    .title-text{
-      overflow: hidden;
-      width : 0%;
-    }
+      .date {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .subtitle-text{
-      overflow: hidden;
-      right: 100%;
-      position: relative;
-      
-    }
+      .date span {
+        position: relative;
+        overflow: hidden;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        font-size: 50px;
+        color: #fff ;
+        transform: translateX(200%);
+      }
 
-    .subtitle-holder{
-      overflow: hidden;
-      position : relative;
-      right: -100%;
-    }
+      .title-text{
+        overflow: hidden;
+        width : 0%;
+      }
 
-  
-  `;
+      .subtitle-text{
+        overflow: hidden;
+        right: 100%;
+        position: relative;
+      }
+
+      .subtitle-holder{
+        overflow: hidden;
+        position : relative;
+        right: -100%;
+      }
+    `;
   }
 
   buildTree() {
@@ -429,5 +426,3 @@ class Intro extends MotorCortex.HTMLClip {
     this.addIncident(bgQut, this.calculatedDuration + 1000 * this.attrs.speed);
   }
 }
-
-module.exports = Intro;

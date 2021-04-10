@@ -15,8 +15,8 @@ $ yarn add @kissmybutton/motorcortex-slides
 ## Loading
 
 ```javascript
-const MotorCortex = require("@kissmybutton/motorcortex/");
-const slides = require("@kissmybutton/motorcortex-slides");
+import MotorCortex from "@kissmybutton/motorcortex";
+import slides from "@kissmybutton/motorcortex-slides";
 const SlidesPlugin = MotorCortex.loadPlugin(slides);
 ```
 
@@ -58,8 +58,6 @@ const introClip = new Clip.Intro(
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
 
 
-
-
 ## transition
 
 ```javascript
@@ -80,8 +78,6 @@ const transition = new Clip.Transition(
 | ------------- |:-------------:| -----:|
 | title     | title text  | string |
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
-
-
 
 
 ## SlideDateOne
@@ -129,7 +125,6 @@ const dayOne = new Clip.SlideDateOne(
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
 
 
-
 ## Scrolslide
 
 ```javascript
@@ -160,7 +155,6 @@ const scrolPresenter = new Clip.Scrolslide(
 | overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
 | mainColor |  the main color of elements  |  hex values or RGB(A) or text ("blue", "red", etc)  |
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
-
 
 
 ## LtRslide
@@ -273,9 +267,6 @@ const bttPresenter = new Clip.BtTslide(
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
 
 
-
-
-
 ## BtTslideDate
 
 ```javascript
@@ -320,7 +311,6 @@ const bttDay = new Clip.BtTslideDate(
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
 
 
-
 ## LtRslideTop
 
 ```javascript
@@ -351,7 +341,6 @@ const ltrPresenterTop = new Clip.LtRslideTop(
 | overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
 | mainColor |  the main color of elementes  |  hex values or RGB(A) or text ("blue", "red", etc)  |
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
-
 
 
 ## RtLslide
@@ -386,9 +375,6 @@ const rtlPresenter = new Clip.RtLslide(
 | speed |  animation speed. Defaults to 1  |  num, min:0 |
 
 
-
-
-
 # Just add your incident to any clip
 
 ```javascript
@@ -396,11 +382,8 @@ anyClip.addIncident(rtlPresenter, 0);
 
 ```
 
-
 ## License
 [MIT License](https://opensource.org/licenses/MIT)
-
-
   
   
 [![Kiss My Button](https://presskit.kissmybutton.gr/logos/kissmybutton-logo-small.png)](https://kissmybutton.gr)

@@ -1,17 +1,25 @@
-import Intro from "./Intro"
-import Transition from "./Transition"
-import SlideDateOne from "./SlideDateOne"
-import Scrolslide from "./Scrolslide"
-import LtRslide from "./LtRslide"
-import SlideDateTwo from "./SlideDateTwo"
-import BtTslide from "./BtTslide"
-import BtTslideDate from "./BtTslideDate"
-import LtRslideTop from "./LtRslideTop"
-import RtLslide from "./RtLslide"
-import SlideDateOneVid from "./SlideDateOneVid"
-import {BtTslideDateintroVal,SlideDateOneVidintroVal,SlideDateOneintroVal,SlideDateTwointroVal,introintroVal,prisenterintroVal,transitionintroVal} from "./validation"
+import Intro from "./Intro";
+import Transition from "./Transition";
+import SlideDateOne from "./SlideDateOne";
+import Scrolslide from "./Scrolslide";
+import LtRslide from "./LtRslide";
+import SlideDateTwo from "./SlideDateTwo";
+import BtTslide from "./BtTslide";
+import BtTslideDate from "./BtTslideDate";
+import LtRslideTop from "./LtRslideTop";
+import RtLslide from "./RtLslide";
+import SlideDateOneVid from "./SlideDateOneVid";
+import {
+  BtTslideDateintroVal,
+  SlideDateOneVidintroVal,
+  SlideDateOneintroVal,
+  SlideDateTwointroVal,
+  introintroVal,
+  prisenterintroVal,
+  transitionintroVal
+} from "./validation";
 
-import {name,version}  from '../package.json'
+import { name, version } from "../package.json";
 
 export default {
   npm_name: name,
