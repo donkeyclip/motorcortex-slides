@@ -8,6 +8,8 @@ coverage
 build
 compiled
 .nyc_output
+bundle.js
+dist 
 
 # Cachses
 .awcache
