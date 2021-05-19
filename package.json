@@ -130,7 +130,7 @@
     "semantic-release": "17.4.3",
     "shelljs": "0.8.4",
     "stylelint": "9.10.1",
-    "stylelint-config-prettier": "4.0.0",
+    "stylelint-config-prettier": "8.0.2",
     "stylelint-config-recommended": "2.2.0",
     "stylelint-config-recommended-scss": "3.3.0",
     "stylelint-config-sass-guidelines": "5.4.0",
