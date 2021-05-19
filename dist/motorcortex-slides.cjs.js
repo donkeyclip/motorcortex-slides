@@ -3948,8 +3948,8 @@ function _createSuper(Derived) {
   };
 }
 
-var VideoClip = /*#__PURE__*/function (_MC$BrowserClip) {
-  _inherits(VideoClip, _MC$BrowserClip);
+var VideoClip = /*#__PURE__*/function (_BrowserClip) {
+  _inherits(VideoClip, _BrowserClip);
 
   var _super = _createSuper(VideoClip);
 
@@ -3964,16 +3964,19 @@ var VideoClip = /*#__PURE__*/function (_MC$BrowserClip) {
     get: function get() {
       var _this = this;
 
-      return "\n        <div>\n            <video id=\"video\" style=\"width:".concat(this.attrs.width || 640, "px;height:").concat(this.attrs.height || 360, "px;\" preload=\"auto\">\n                ").concat(this.attrs.sources.map(function (item
-      /*, i*/
-      ) {
-        return "\n                    <source src=\"".concat(item, "#t=").concat(_this.attrs.startFrom || 0, "\"></source>\n                ");
-      }).join(""), "\n            </video>\n            <canvas id=\"canvas\"></canvas>\n        </div>\n        ");
+      this.width = this.attrs.width || 640;
+      this.height = this.attrs.height || 360;
+      this.startFrom = this.attrs.startFrom || 0;
+      var videoStyle = "width:".concat(this.width, "px;height:").concat(this.height, "px;");
+      var videoSources = this.attrs.sources.map(function (item) {
+        return "<source src=\"".concat(item, "#t=").concat(_this.startFrom, "\"></source>");
+      }).join("\n");
+      return "\n      <div>\n          <video id=\"video\" style=\"".concat(videoStyle, "\" preload=\"auto\">\n              ").concat(videoSources, "\n          </video>\n          <canvas id=\"canvas\"></canvas>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n            #video{\n                display:none;\n            }\n        ";
+      return "\n      #video{\n        display:none;\n      }\n    ";
     }
   }, {
     key: "onAfterRender",
@@ -3984,30 +3987,32 @@ var VideoClip = /*#__PURE__*/function (_MC$BrowserClip) {
       video.muted = true;
       var canvas = this.context.getElements("canvas")[0];
       var ctx = canvas.getContext("2d");
-      video.addEventListener("loadedmetadata", function () {
-        var canvasWidth = _this2.attrs.width || 640;
-        var canvasHeight = _this2.attrs.height || 360;
-        canvas.style.transform = "scale(".concat(canvasWidth / video.videoWidth, ", ").concat(canvasHeight / video.videoHeight, ")"); // canvas.style['transform-origin'] = "top left";
 
+      var loadedmetadataListener = function loadedmetadataListener() {
+        var scaleX = _this2.width / video.videoWidth;
+        var scaleY = _this2.width / video.videoWidth;
+        canvas.style.transform = "scale(".concat(scaleX, ", ").concat(scaleY, ")");
         canvas.width = video.videoWidth;
         canvas.height = video.videoHeight;
-      }, false);
+      };
+
+      video.addEventListener("loadedmetadata", loadedmetadataListener, {
+        once: true
+      });
       this.setCustomEntity("video", {
         video: video,
         canvas: canvas,
         ctx: ctx,
-        startFrom: this.attrs.startFrom * 1000 || 0
+        startFrom: this.startFrom
       });
     }
   }]);
 
   return VideoClip;
-}(MotorCortex__default['default'].BrowserClip);
+}(MotorCortex.BrowserClip);
 
-var VideoClip_1 = VideoClip;
-
-var VideoPlay = /*#__PURE__*/function (_MC$MediaPlayback) {
-  _inherits(VideoPlay, _MC$MediaPlayback);
+var VideoPlay = /*#__PURE__*/function (_MediaPlayback) {
+  _inherits(VideoPlay, _MediaPlayback);
 
   var _super = _createSuper(VideoPlay);
 
@@ -4022,44 +4027,41 @@ var VideoPlay = /*#__PURE__*/function (_MC$MediaPlayback) {
     value: function play()
     /*millisecond*/
     {
-      var _this = this;
-
       var video = this.element.entity.video;
-      var ctx = this.element.entity.ctx; // const playPromise = video.play();
-
       video.play();
 
       if (this.hasSetWaitingListener !== true) {
-        video.addEventListener("waiting", this._waitingHandler.bind(this));
+        video.addEventListener("waiting", this.waitingHandler.bind(this));
         this.hasSetWaitingListener = true;
       }
 
       if (this.hasSetCanplayListener !== true) {
-        video.addEventListener("canplay", this._canplayHandler.bind(this));
+        video.addEventListener("canplay", this.canplayHandler.bind(this));
         this.hasSetCanplayListener = true;
       }
 
-      var drawFrame = function drawFrame(video) {
-        ctx.drawImage(video, 0, 0);
-        _this.timeout = setTimeout(function () {
-          drawFrame(video);
-        }, 10);
-      };
-
-      drawFrame(video);
+      this.drawFrame(video);
       return true;
     }
   }, {
-    key: "_waitingHandler",
-    value: function _waitingHandler() {
-      // console.log("waiting");
-      // console.log("and blocking");
+    key: "drawFrame",
+    value: function drawFrame(video) {
+      var _this = this;
+
+      var ctx = this.element.entity.ctx;
+      ctx.drawImage(video, 0, 0);
+      this.timeout = setTimeout(function () {
+        _this.drawFrame(video);
+      }, 10);
+    }
+  }, {
+    key: "waitingHandler",
+    value: function waitingHandler() {
       this.setBlock("Video loading");
     }
   }, {
-    key: "_canplayHandler",
-    value: function _canplayHandler() {
-      // console.log("unblocking");
+    key: "canplayHandler",
+    value: function canplayHandler() {
       this.unblock();
     }
   }, {
@@ -4070,7 +4072,7 @@ var VideoPlay = /*#__PURE__*/function (_MC$MediaPlayback) {
     }
   }, {
     key: "onProgress",
-    value: function onProgress(f, millisecond) {
+    value: function onProgress(fraction, millisecond) {
       var startFrom = millisecond + this.element.entity.startFrom;
       this.element.entity.video.currentTime = (startFrom + millisecond) / 1000;
       this.element.entity.ctx.drawImage(this.element.entity.video, 0, 0);
@@ -4078,16 +4080,26 @@ var VideoPlay = /*#__PURE__*/function (_MC$MediaPlayback) {
   }]);
 
   return VideoPlay;
-}(MotorCortex__default['default'].MediaPlayback);
+}(MotorCortex.MediaPlayback);
 
-var VideoPlay_1 = VideoPlay;
 var compositeAttributes = {
   filter: ["blur", "brightness", "contrast", "drop-shadow", "grayscale", "hue-rotate", "invert", "opacity", "saturate", "sepia"]
 };
 var effects = compositeAttributes.filter;
+var effectsUnits = {
+  opacity: "",
+  contrast: "",
+  saturate: "",
+  brightness: "",
+  blur: "px",
+  sepia: "",
+  invert: "",
+  grayscale: "",
+  "hue-rotate": "deg"
+};
 
-var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
-  _inherits(VideoEffect, _MotorCortex$Effect);
+var VideoEffect = /*#__PURE__*/function (_Effect) {
+  _inherits(VideoEffect, _Effect);
 
   var _super = _createSuper(VideoEffect);
 
@@ -4101,76 +4113,58 @@ var VideoEffect = /*#__PURE__*/function (_MotorCortex$Effect) {
     key: "getScratchValue",
     value: function getScratchValue() {
       return {
-        blur: 0,
-        brightness: 1,
-        contrast: 1,
-        grayscale: 0,
-        "hue-rotate": 0,
-        invert: 0,
         opacity: 1,
+        contrast: 1,
         saturate: 1,
-        sepia: 0
+        brightness: 1,
+        blur: 0,
+        sepia: 0,
+        invert: 0,
+        grayscale: 0,
+        "hue-rotate": 0
       };
     }
   }, {
-    key: "_effectsUnits",
-    get: function get() {
-      return {
-        blur: "px",
-        brightness: "",
-        contrast: "",
-        grayscale: "",
-        "hue-rotate": "deg",
-        invert: "",
-        opacity: "",
-        saturate: "",
-        sepia: ""
-      };
-    }
-  }, {
-    key: "_objToFilterValue",
-    value: function _objToFilterValue(obj) {
+    key: "objToFilterValue",
+    value: function objToFilterValue(obj) {
       var string = "";
 
       for (var filter in obj) {
-        string += "".concat(filter, "(").concat(obj[filter]).concat(this._effectsUnits[filter], ") ");
+        string += "".concat(filter, "(").concat(obj[filter]).concat(effectsUnits[filter], ") ");
       }
 
       return string;
     }
   }, {
     key: "onProgress",
-    value: function onProgress(f
-    /*, m*/
-    ) {
+    value: function onProgress(fraction) {
       var targetValues = Object.assign({}, this.initialValue);
 
-      for (var i = 0; i < effects.length; i++) {
+      for (var i in effects) {
         var effect = effects[i];
 
         if (this.initialValue[effect] !== this.targetValue[effect]) {
-          targetValues[effect] = f * (this.targetValue[effect] - this.initialValue[effect]) + this.initialValue[effect];
+          targetValues[effect] = fraction * (this.targetValue[effect] - this.initialValue[effect]) + this.initialValue[effect];
         }
       }
 
-      this.element.entity.ctx.filter = this._objToFilterValue(targetValues);
+      this.element.entity.ctx.filter = this.objToFilterValue(targetValues);
     }
   }]);
 
   return VideoEffect;
-}(MotorCortex__default['default'].Effect);
+}(MotorCortex.Effect);
 
-var Effect = VideoEffect;
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "1.1.12";
+var version$1 = "1.1.13";
 var index$1 = {
   npm_name: name$1,
   version: version$1,
   incidents: [{
-    exportable: VideoPlay_1,
+    exportable: VideoPlay,
     name: "Playback"
   }, {
-    exportable: Effect,
+    exportable: VideoEffect,
     name: "VideoEffect",
     attributesValidationRules: {
       animatedAttrs: {
@@ -4236,7 +4230,7 @@ var index$1 = {
   }],
   compositeAttributes: compositeAttributes,
   Clip: {
-    exportable: VideoClip_1,
+    exportable: VideoClip,
     attributesValidationRules: {
       sources: {
         optional: false,
