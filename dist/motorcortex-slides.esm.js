@@ -1319,23 +1319,19 @@ var Anime$b = /*#__PURE__*/function (_MotorCortex$Effect) {
   }, {
     key: "getScratchValue",
     value: function getScratchValue() {
-      if (this.attributeKey === "transform") {
-        var obj = {};
-        var transform = compositeAttributes$1[this.attributeKey];
-        var currentTransform = getMatrix2D(this.context.window, this.element);
-
-        for (var i = 0; i < transform.length; i++) {
-          if (Object.prototype.hasOwnProperty.call(currentTransform, transform[i])) {
-            obj[transform[i]] = currentTransform[transform[i]];
-          } else {
-            obj[transform[i]] = anime_es.get(this.element, transform[i]);
-          }
-        }
-
-        return obj;
+      if (this.attributeKey !== "transform") {
+        return anime_es.get(this.element, this.attributeKey);
       }
 
-      return anime_es.get(this.element, this.attributeKey);
+      var obj = {};
+      var transform = compositeAttributes$1[this.attributeKey];
+      var currentTransform = getMatrix2D(this.context.window, this.element);
+
+      for (var i = 0; i < transform.length; i++) {
+        obj[transform[i]] = Object.prototype.hasOwnProperty.call(currentTransform, transform[i]) ? currentTransform[transform[i]] : anime_es.get(this.element, transform[i]);
+      }
+
+      return obj;
     }
     /**
      * @param {number} f
@@ -2269,7 +2265,7 @@ var animatedAttrs = {
   }
 };
 var name$2 = "@kissmybutton/motorcortex-anime";
-var version$2 = "2.1.13";
+var version$2 = "2.1.14";
 var index$2 = {
   npm_name: name$2,
   version: version$2,
