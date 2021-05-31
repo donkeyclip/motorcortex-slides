@@ -41,6 +41,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       : this.attrs.speed;
 
     return `
+    <div class="fragment">
       <div class="bg">
         <div class="bg-quarter-slide">
           <div class="quarter-first-presenter-slide">
@@ -67,11 +68,15 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
           </div>
         </div>
       </div>
+      </div>
     `;
   }
 
   get css() {
     return `
+      .fragment{
+        position: relative
+      }
       .bg {
         width: 100%;
         height: 100%;
@@ -251,7 +256,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       },
       {
         duration: 1000 * this.attrs.speed,
-        selector: ".bg",
+        selector: ".bg,.fragment",
         easing: "easeOutQuad"
       }
     );
