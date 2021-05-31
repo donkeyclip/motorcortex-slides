@@ -17,22 +17,24 @@ const css = `
 `;
 
 const html = ` 
-  <div class="container container1"></div>
-  <div class="container container3"></div>
-  <div class="container container2"></div>
-  <div class="container container4"></div>
-  <div class="container container6"></div>
-  <div class="container container5"></div>
-  <div class="container container7"></div>
-  <div class="container container8"></div>
-  <div class="container container9"></div>
-  <div class="container container10"></div>
-  <div class="container container11"></div>
-  <div class="container container12"></div>
-  <div class="container container13"></div>
-  <div class="container container14"></div>
-  <div class="container container15"></div>
-  <div class="container container16"></div>
+  <div>
+    <div class="container container1"></div>
+    <div class="container container3"></div>
+    <div class="container container2"></div>
+    <div class="container container4"></div>
+    <div class="container container6"></div>
+    <div class="container container5"></div>
+    <div class="container container7"></div>
+    <div class="container container8"></div>
+    <div class="container container9"></div>
+    <div class="container container10"></div>
+    <div class="container container11"></div>
+    <div class="container container12"></div>
+    <div class="container container13"></div>
+    <div class="container container14"></div>
+    <div class="container container15"></div>
+    <div class="container container16"></div>
+  </div>
 `;
 
 const host = document.getElementById("clip");
@@ -173,13 +175,13 @@ const bttPresenter = new Clip.BtTslide(
     speed: 2
   },
   {
-    selector: ".container16"
+    selector: ".container10"
   }
 );
 
 const bttDay = new Clip.BtTslideDate(
   {
-    title: "Presenter",
+    title: "PresenterTEST",
     name: "name surname",
     position: "Web developer at kissmybuton",
     bgUrl:
@@ -196,7 +198,7 @@ const bttDay = new Clip.BtTslideDate(
     speed: 2
   },
   {
-    selector: ".container10"
+    selector: ".container16"
   }
 );
 

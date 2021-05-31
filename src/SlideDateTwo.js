@@ -41,6 +41,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       : this.attrs.speed;
 
     return `
+    <div>
       <div class="bg">
         <div class="bg-deferi-day-slide">
           <div class="big-title">${this.attrs.bigTitle}</div>
@@ -79,6 +80,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
         </div>
         </div>
       </div>
+    </div>
     `;
   }
 
