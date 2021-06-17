@@ -99,7 +99,7 @@ const dayOne = new Clip.SlideDateOneVid(
     speed: 2,
     vidDuration: 6000,
     vidLink: [
-      "https://kissmybutton.github.io/motorcortex-slides/demo/assets/vid.mp4"
+      "https://donkey-spaces.ams3.digitaloceanspaces.com/assets/motorcortex-slides/vid.mp4"
     ]
   },
   {
