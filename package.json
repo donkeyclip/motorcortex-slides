@@ -100,7 +100,7 @@
     "commitizen": "3.1.2",
     "concurrently": "4.1.2",
     "coveralls": "3.1.0",
-    "css-loader": "2.1.1",
+    "css-loader": "5.2.7",
     "cz-conventional-changelog": "2.1.0",
     "es6-promise": "4.2.8",
     "eslint": "5.16.0",
