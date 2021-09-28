@@ -99,7 +99,7 @@
     "browserify": "^17.0.0",
     "browserslist": "^4.7.0",
     "caniuse-lite": "^1.0.30000997",
-    "commitizen": "3.1.2",
+    "commitizen": "4.2.4",
     "concurrently": "4.1.2",
     "coveralls": "3.1.1",
     "css-loader": "3.6.0",
