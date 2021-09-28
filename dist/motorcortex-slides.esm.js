@@ -1,4 +1,4 @@
-import MotorCortex, { BrowserClip, MediaPlayback, Effect } from '@kissmybutton/motorcortex';
+import MotorCortex, { BrowserClip, MediaPlayback, Effect } from '@donkeyclip/motorcortex';
 
 function _classCallCheck$2(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -77,6 +77,8 @@ function _assertThisInitialized$2(self) {
 function _possibleConstructorReturn$2(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized$2(self);
@@ -231,6 +233,8 @@ function _assertThisInitialized$1(self) {
 function _possibleConstructorReturn$1(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized$1(self);
@@ -2268,7 +2272,7 @@ var animatedAttrs = {
     min: 0
   }
 };
-var name$2 = "@kissmybutton/motorcortex-anime";
+var name$2 = "@donkeyclip/motorcortex-anime";
 var version$2 = "2.1.16";
 var index$2 = {
   npm_name: name$2,
@@ -3922,6 +3926,8 @@ function _assertThisInitialized(self) {
 function _possibleConstructorReturn(self, call) {
   if (call && (typeof call === "object" || typeof call === "function")) {
     return call;
+  } else if (call !== void 0) {
+    throw new TypeError("Derived constructors may only return object or undefined");
   }
 
   return _assertThisInitialized(self);
@@ -4022,9 +4028,7 @@ var VideoPlay = /*#__PURE__*/function (_MediaPlayback) {
 
   _createClass(VideoPlay, [{
     key: "play",
-    value: function play()
-    /*millisecond*/
-    {
+    value: function play() {
       var video = this.element.entity.video;
       video.play();
 
@@ -4154,7 +4158,7 @@ var VideoEffect = /*#__PURE__*/function (_Effect) {
 }(Effect);
 
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "1.1.15";
+var version$1 = "1.1.17";
 var index$1 = {
   npm_name: name$1,
   version: version$1,
@@ -4856,7 +4860,7 @@ var transitionintroVal = {
   }
 };
 
-var name = "@kissmybutton/motorcortex-slides";
+var name = "@donkeyclip/motorcortex-slides";
 var version = "1.0.23";
 
 var index = {

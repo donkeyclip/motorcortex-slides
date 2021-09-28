@@ -1,5 +1,5 @@
-import MotorCortex from "@kissmybutton/motorcortex";
-import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import MotorCortex from "@donkeyclip/motorcortex";
+import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
 
 export default class SlideDateTwo extends MotorCortex.HTMLClip {

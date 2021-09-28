@@ -1,5 +1,5 @@
-import MotorCortex from "@kissmybutton/motorcortex";
-import AnimeDefinition from "@kissmybutton/motorcortex-anime";
+import MotorCortex from "@donkeyclip/motorcortex";
+import AnimeDefinition from "@donkeyclip/motorcortex-anime";
 import MCVideo from "@kissmybutton/motorcortex-video";
 
 const Anime = MotorCortex.loadPlugin(AnimeDefinition);
