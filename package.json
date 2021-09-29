@@ -130,7 +130,7 @@
     "rollup-plugin-terser": "5.3.1",
     "semantic-release": "17.4.7",
     "shelljs": "0.8.4",
-    "size-limit": "5.0.4",
+    "size-limit": "5.0.5",
     "webpack": "5.53.0",
     "webpack-cli": "4.8.0",
     "webpack-dev-server": "3.11.2",
