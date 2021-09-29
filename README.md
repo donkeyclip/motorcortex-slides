@@ -2,21 +2,21 @@
 # motorcortex-slides
 
 ## Demo
-[Check it out here](https://kissmybutton.github.io/motorcortex-slides/demo/index.html)
+[Check it out here](https://donkeyclip.github.io/motorcortex-slides/demo/index.html)
 
 ## Installation
 
 ```bash
-$ npm install --save @kissmybutton/motorcortex-slides
+$ npm install --save @donkeyclip/motorcortex-slides
 # OR
-$ yarn add @kissmybutton/motorcortex-slides
+$ yarn add @donkeyclip/motorcortex-slides
 ```
 
 ## Loading
 
 ```javascript
-import MotorCortex from "@kissmybutton/motorcortex";
-import slides from "@kissmybutton/motorcortex-slides";
+import MotorCortex from "@donkeyclip/motorcortex";
+import slides from "@donkeyclip/motorcortex-slides";
 const SlidesPlugin = MotorCortex.loadPlugin(slides);
 ```
 
