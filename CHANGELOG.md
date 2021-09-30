@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.0.24](https://www.github.com/donkeyclip/motorcortex-slides/compare/v1.0.23...v1.0.24) (2021-09-30)
+
+
+### Bug Fixes
+
+* update deps ([c891b53](https://www.github.com/donkeyclip/motorcortex-slides/commit/c891b53dec34b93b0a5556a2437a8d734f71b32c))
+* update npm name ([1685d57](https://www.github.com/donkeyclip/motorcortex-slides/commit/1685d57b3f6161618e9e80e585b948508d1b7459))
+
 ### 1.0.23 (2021-07-15)
 
 
