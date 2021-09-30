@@ -1359,7 +1359,7 @@ var Anime$b = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return Anime;
-}(MotorCortex__default['default'].Effect);
+}(MotorCortex__default["default"].Effect);
 /**
  * Takes as attributes:
  * {
@@ -1413,7 +1413,7 @@ var MotionPath = /*#__PURE__*/function (_MotorCortex$Effect) {
   }]);
 
   return MotionPath;
-}(MotorCortex__default['default'].Effect);
+}(MotorCortex__default["default"].Effect);
 
 var nu = ["cm", "mm", "in", "px", "pt", "pc", "em", "ex", "ch", "rem", "vw", "vh", "vmin", "vmax", "%"];
 var ru = ["deg", "rad", "grad", "turn"];
@@ -2311,7 +2311,7 @@ var index$2 = {
   compositeAttributes: compositeAttributes$1
 };
 
-var Anime$a = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$a = MotorCortex__default["default"].loadPlugin(index$2);
 
 var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(Intro, _MotorCortex$HTMLClip);
@@ -2532,9 +2532,9 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return Intro;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$9 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$9 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(Transition, _MotorCortex$HTMLClip);
@@ -2611,9 +2611,9 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return Transition;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$8 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$8 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(SlideDateOne, _MotorCortex$HTMLClip);
@@ -2672,7 +2672,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         html3 = html3 + html;
       }
 
-      var word = new MotorCortex__default['default'].HTMLClip({
+      var word = new MotorCortex__default["default"].HTMLClip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -2853,9 +2853,9 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return SlideDateOne;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$7 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$7 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(Scrolslide, _MotorCortex$HTMLClip);
@@ -2987,9 +2987,9 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return Scrolslide;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$6 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$6 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(LtRslide, _MotorCortex$HTMLClip);
@@ -3093,9 +3093,9 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return LtRslide;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$5 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$5 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(SlideDateTwo, _MotorCortex$HTMLClip);
@@ -3315,9 +3315,9 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return SlideDateTwo;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$4 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$4 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(BtTslide, _MotorCortex$HTMLClip);
@@ -3429,9 +3429,9 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return BtTslide;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$3 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$3 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(BtTslideDate, _MotorCortex$HTMLClip);
@@ -3631,9 +3631,9 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return BtTslideDate;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$2 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$2 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(LtRslideTop, _MotorCortex$HTMLClip);
@@ -3739,9 +3739,9 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return LtRslideTop;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
-var Anime$1 = MotorCortex__default['default'].loadPlugin(index$2);
+var Anime$1 = MotorCortex__default["default"].loadPlugin(index$2);
 
 var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(RtLslide, _MotorCortex$HTMLClip);
@@ -3853,7 +3853,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return RtLslide;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -4274,8 +4274,8 @@ var index$1 = {
   }
 };
 
-var Anime = MotorCortex__default['default'].loadPlugin(index$2);
-var VideoPlugin = MotorCortex__default['default'].loadPlugin(index$1);
+var Anime = MotorCortex__default["default"].loadPlugin(index$2);
+var VideoPlugin = MotorCortex__default["default"].loadPlugin(index$1);
 
 var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   _inherits$2(SlideDateOneVid, _MotorCortex$HTMLClip);
@@ -4351,7 +4351,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         html3 = html3 + html;
       }
 
-      var word = new MotorCortex__default['default'].HTMLClip({
+      var word = new MotorCortex__default["default"].HTMLClip({
         css: this.css,
         html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
         selector: ".word",
@@ -4522,7 +4522,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }]);
 
   return SlideDateOneVid;
-}(MotorCortex__default['default'].HTMLClip);
+}(MotorCortex__default["default"].HTMLClip);
 
 var _COLOR = "color";
 var introintroVal = {
