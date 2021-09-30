@@ -7,12 +7,12 @@ module.exports = {
     modules: [path.resolve("./"), "node_modules"],
     fallback: {
       fs: false,
-      path: require.resolve("path-browserify")
-    }
+      path: require.resolve("path-browserify"),
+    },
   },
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "./")
+    path: path.resolve(__dirname, "./"),
   },
   mode: "development",
   module: {
@@ -20,28 +20,27 @@ module.exports = {
       {
         test: /\.js?$/,
         use: ["babel-loader"],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.svg$/,
-        loader: "svg-inline-loader"
+        loader: "svg-inline-loader",
       },
       {
         test: /\.html$/i,
-        loader: "html-loader"
-      }
-    ]
+        loader: "html-loader",
+      },
+    ],
   },
   devServer: {
-    watchContentBase: true,
     host: "0.0.0.0",
     port: 8080,
     historyApiFallback: false,
     hot: false,
-    contentBase: "./demo"
-  }
+    static: "./demo",
+  },
 };
