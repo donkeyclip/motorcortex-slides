@@ -3993,8 +3993,8 @@ var VideoClip = /*#__PURE__*/function (_BrowserClip) {
     value: function onAfterRender() {
       var _this2 = this;
 
-      var video = this.context.getElements("video")[0];
-      video.muted = true;
+      var video = this.context.getElements("video")[0]; // video.muted = true;
+
       var canvas = this.context.getElements("canvas")[0];
       var ctx = canvas.getContext("2d");
 
@@ -4014,7 +4014,14 @@ var VideoClip = /*#__PURE__*/function (_BrowserClip) {
         canvas: canvas,
         ctx: ctx,
         startFrom: this.startFrom
-      });
+      }); // Audio
+
+      if (this.attrs.audio === false) {
+        video.muted = true;
+      } else {
+        video.crossOrigin = "anonymous";
+        this.DescriptiveIncident.attachMediaElementSource(video);
+      }
     }
   }]);
 
@@ -4164,7 +4171,7 @@ var VideoEffect = /*#__PURE__*/function (_Effect) {
 }(MotorCortex.Effect);
 
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "1.1.17";
+var version$1 = "1.2.0";
 var index$1 = {
   npm_name: name$1,
   version: version$1,
@@ -4265,13 +4272,19 @@ var index$1 = {
         type: "number",
         integer: true,
         min: 0
+      },
+      audio: {
+        optional: true,
+        type: "boolean",
+        default: true
       }
     }
   },
   capabilities: {
     speed: false,
     preview: false
-  }
+  },
+  audio: "on"
 };
 
 var Anime = MotorCortex__default["default"].loadPlugin(index$2);
