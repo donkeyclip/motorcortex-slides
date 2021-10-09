@@ -115,7 +115,7 @@
     "husky": "7.0.2",
     "imports-loader": "3.0.0",
     "json-stringify-safe": "5.0.1",
-    "lint-staged": "11.2.0",
+    "lint-staged": "11.2.1",
     "npm-check-updates": "*",
     "npx": "*",
     "prettier": "2.4.1",
