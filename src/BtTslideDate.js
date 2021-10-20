@@ -16,30 +16,6 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.bgUrl = !this.attrs.bgUrl
-      ? (this.attrs.bgUrl = "./bg3.jpg")
-      : this.attrs.bgUrl;
-
-    this.attrs.overlayColor = !this.attrs.overlayColor
-      ? (this.attrs.overlayColor = "#ff00b34d")
-      : this.attrs.overlayColor;
-
-    this.attrs.bgUrl2 = !this.attrs.bgUrl2
-      ? (this.attrs.bgUrl2 = "./bg2.jpg")
-      : this.attrs.bgUrl2;
-
-    this.attrs.dateOverlay = !this.attrs.dateOverlay
-      ? (this.attrs.dateOverlay = "#ff00b3")
-      : this.attrs.dateOverlay;
-
-    this.attrs.mainColor = !this.attrs.mainColor
-      ? (this.attrs.mainColor = "#00ff40")
-      : this.attrs.mainColor;
-
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
-
     return `
     <div class="fragment">
       <div class="bg">
@@ -61,9 +37,9 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
         <div class="bg-quarter-slide">
           <div class="test-mask">
             <div class="defter-date-container">
-              <div class="defter-date"><span> ${this.attrs.day || ""} ${this
-      .attrs.dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs
-      .year || ""}</div>
+              <div class="defter-date"><span> ${this.attrs.day || ""} ${
+      this.attrs.dayNumber || ""
+    } </span>${this.attrs.month || ""} ${this.attrs.year || ""}</div>
             </div>
           </div>
         </div>
@@ -80,7 +56,10 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       .bg {
         width: 100%;
         height: 100%;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
@@ -95,7 +74,9 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       .bg:after,.bg-next {
         content: "";
         display: block;
-        background: linear-gradient(${this.attrs.overlayColor});
+        background: linear-gradient(${
+          this.attrs.overlayColor || "#101820D7,#101820FF"
+        });
         position: absolute;
         top: 0;
         bottom: 0;
@@ -107,16 +88,18 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       .bg-next {
         width: 100%;
         height: 100%;
-        background-image: url(${this.attrs.bgUrl2});
+        background-image: url(${
+          this.attrs.bgUrl2 ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
         display: flex;
-        position: relative;
+        position: absolute;
         align-items: center;
         flex-wrap: wrap;
         flex: 1 0 auto;
-        top : -100%;
         left : -100%
        
       }
@@ -128,17 +111,20 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
         white-space: nowrap;
         text-transform: uppercase;
         font-family: 'Roboto Mono', monospace;
-        background: ${this.attrs.dateOverlay};
+        background: ${this.attrs.dateOverlay || "#ff00b3"};
         padding: 2% 6%;
         background-blend-mode: multiply;
-        background-image: url(${this.attrs.bgUrl2});
+        background-image: url(${
+          this.attrs.bgUrl2 ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
       }
 
       .defter-date span{
-        color: ${this.attrs.mainColor};
+        color: ${this.attrs.mainColor || "#00ff40"};
       }
 
       .third-first-presenter-slide,.quarter-first-presenter-slide{
@@ -147,7 +133,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
     
       .quarter-first-presenter-slide{
         margin-bottom: 15%;
-        border-top: 15px solid ${this.attrs.mainColor};
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
         align-items: center;
         justify-content: center;
       }
@@ -191,7 +177,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
-        color: ${this.attrs.mainColor};
+        color: ${this.attrs.mainColor || "#00ff40"};
       }
 
       .test-mask{
@@ -213,51 +199,51 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
     const personConMove = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "90%"
+          top: "90%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-first-presenter-slide",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const quarterLeft = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "90%"
+          top: "90%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 2000 * this.attrs.speed,
+        duration: 2000 * (this.attrs.speed || 2),
         selector: ".quarter-left",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bg = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "100%"
+          top: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg,.fragment",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -265,54 +251,54 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            scale: 0.5
-          }
+            scale: 0.5,
+          },
         },
         initialValues: {
           transform: {
-            scale: 1
-          }
+            scale: 1,
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-next",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bgscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "25%"
+          left: "25%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bgsecondscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-25%"
+          left: "-25%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-next",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
@@ -320,86 +306,86 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            scale: 1
-          }
+            scale: 1,
+          },
         },
         initialValues: {
           transform: {
-            scale: 0.5
-          }
+            scale: 0.5,
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-next",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bgscaledownMoveOut = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "100%"
+          left: "100%",
         },
         initialValues: {
-          left: "25%"
+          left: "25%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bgsecondscaledownMoveOut = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-25%"
+          left: "-25%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-next",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bgMoveOut = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "100%"
+          left: "100%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-next",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(bgscaledown, 3000 * this.attrs.speed);
-    this.addIncident(bgsecondscaledownMove, 3000 * this.attrs.speed);
-    this.addIncident(bgscaledownMove, 3000 * this.attrs.speed);
-    this.addIncident(bgscaleup, 4000 * this.attrs.speed);
-    this.addIncident(bgscaledownMoveOut, 4000 * this.attrs.speed);
-    this.addIncident(bgsecondscaledownMoveOut, 4000 * this.attrs.speed);
+    this.addIncident(bgscaledown, 3000 * (this.attrs.speed || 2));
+    this.addIncident(bgsecondscaledownMove, 3000 * (this.attrs.speed || 2));
+    this.addIncident(bgscaledownMove, 3000 * (this.attrs.speed || 2));
+    this.addIncident(bgscaleup, 4000 * (this.attrs.speed || 2));
+    this.addIncident(bgscaledownMoveOut, 4000 * (this.attrs.speed || 2));
+    this.addIncident(bgsecondscaledownMoveOut, 4000 * (this.attrs.speed || 2));
     this.addIncident(
       bgMoveOut,
-      this.calculatedDuration + 1000 * this.attrs.speed
+      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
     );
   }
 }

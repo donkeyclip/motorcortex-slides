@@ -2337,16 +2337,12 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./kissmybutonbg.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n      <div class=\"bg\"> \n        <div class=\"first-slide\">\n          <div class=\"testdiv\">\n            <div class=\"sub\">\n              <div class=\"subtitle\">\n                <div class=\"subtitle-holder\">\n                  <div class=\"subtitle-text\">".concat(this.attrs.subtitle, "</div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"title\">\n            <div class=\"date-holder\">\n              <div class=\"date\">\n                <span> ").concat(this.attrs.month, "</span>\n              </div>\n            </div>\n            <div class=\"holder-title\">\n              <div class=\"title-text\">").concat(this.attrs.title, "</div>\n            </div>\n          </div>\n          <div class=\"description\">\n            <div class=\"description-text\">\n              <p>").concat(this.attrs.description, "</p>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor, ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * this.attrs.speed), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * this.attrs.speed) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor, ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
+      return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * (this.attrs.speed || 2)), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * (this.attrs.speed || 2)) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -2360,7 +2356,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".title-text",
         easing: "easeOutQuad"
       });
@@ -2373,7 +2369,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2800 * this.attrs.speed,
+        duration: 2800 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -2386,7 +2382,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".subtitle-text",
         easing: "easeOutQuad"
       });
@@ -2399,18 +2395,18 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".subtitle-holder",
         easing: "easeOutQuad"
       });
       var subtitleRight = new Anime$a.Anime({
         animatedAttrs: {
-          left: "".concat(864 * this.attrs.speed - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
+          left: "".concat(864 * (this.attrs.speed || 2) - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
         },
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".sub",
         easing: "easeOutQuad"
       });
@@ -2427,7 +2423,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".date span",
         easing: "easeOutQuad"
       });
@@ -2456,7 +2452,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".first-slide",
         easing: "easeOutQuad"
       });
@@ -2473,7 +2469,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".description",
         easing: "easeOutQuad"
       });
@@ -2490,7 +2486,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 300 * this.attrs.speed,
+        duration: 300 * (this.attrs.speed || 2),
         selector: ".description-text",
         easing: "easeOutQuad"
       });
@@ -2507,7 +2503,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2515,13 +2511,13 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(titleanime, 0);
       this.addIncident(subtextRight, 0);
       this.addIncident(subholderRight, 0);
-      this.addIncident(subtitleRight, 1500 * this.attrs.speed);
-      this.addIncident(scaleFirstSlide, 1500 * this.attrs.speed);
-      this.addIncident(description, 1500 * this.attrs.speed);
-      this.addIncident(datespan, 1800 * this.attrs.speed);
-      this.addIncident(dateHolderWidth, 2050 * this.attrs.speed);
-      this.addIncident(descriptiontext, 2500 * this.attrs.speed);
-      this.addIncident(bgQut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(subtitleRight, 1500 * (this.attrs.speed || 2));
+      this.addIncident(scaleFirstSlide, 1500 * (this.attrs.speed || 2));
+      this.addIncident(description, 1500 * (this.attrs.speed || 2));
+      this.addIncident(datespan, 1800 * (this.attrs.speed || 2));
+      this.addIncident(dateHolderWidth, 2050 * (this.attrs.speed || 2));
+      this.addIncident(descriptiontext, 2500 * (this.attrs.speed || 2));
+      this.addIncident(bgQut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -2560,7 +2556,6 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n      <div class=\"transition-container\">\n        <p class=\"transition-text\">".concat(this.attrs.title, "</p>\n      </div>\n    ");
     }
   }, {
@@ -2582,7 +2577,7 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".transition-text"
       });
       var transitionContainer = new Anime$9.Anime({
@@ -2596,7 +2591,7 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".transition-container"
       });
       this.addIncident(transitionText, 0);
@@ -2639,17 +2634,12 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div>\n      <div class=\"bg \">\n        <div class=\"second-slide\">\n          <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n          <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n          <div class=\"word-bg\">\n            <div class=\"word\"></div>\n          </div>\n          <div class=\"short-description\">\n            <p>").concat(this.attrs.description, "</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-second \">\n        <div class=\"bg-second-slide\">\n            <div class=\"second-date-container\">\n            <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n        </div>\n      </div>\n    </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position : absolute;\n        left : 0%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        margin-left: 10%;\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor || "#00ff40", ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor || "#00ff40", "\n      }\n\n      .second-slide{\n        position : absolute;\n        left : 0%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        margin-left: 10%;\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -2686,7 +2676,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           selector: ".letter" + (_i + 1),
           easing: "easeOutQuad"
         });
-        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * this.attrs.speed);
+        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * (this.attrs.speed || 2));
       }
 
       var bgMove = new Anime$8.Anime({
@@ -2698,7 +2688,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2711,7 +2701,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
@@ -2724,7 +2714,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
@@ -2737,7 +2727,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1200 * this.attrs.speed,
+        duration: 1200 * (this.attrs.speed || 2),
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
@@ -2750,7 +2740,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".short-description",
         easing: "easeOutQuad"
       });
@@ -2767,7 +2757,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
@@ -2780,7 +2770,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2793,7 +2783,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
@@ -2806,7 +2796,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-date",
         easing: "easeOutQuad"
       });
@@ -2817,7 +2807,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 800 * this.attrs.speed,
+        duration: 800 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2828,21 +2818,21 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlideTitleOne, 300 * this.attrs.speed);
-      this.addIncident(secondSlideTitleTwo, 500 * this.attrs.speed);
-      this.addIncident(wordBg, 500 * this.attrs.speed);
-      this.addIncident(shortDescription, 900 * this.attrs.speed);
-      this.addIncident(bgscaledown, 3700 * this.attrs.speed);
-      this.addIncident(bgscaledownMove, 3700 * this.attrs.speed);
-      this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
-      this.addIncident(secondBgDate, 3700 * this.attrs.speed);
-      this.addIncident(moveSecond, 6000 * this.attrs.speed);
-      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(secondSlideTitleOne, 300 * (this.attrs.speed || 2));
+      this.addIncident(secondSlideTitleTwo, 500 * (this.attrs.speed || 2));
+      this.addIncident(wordBg, 500 * (this.attrs.speed || 2));
+      this.addIncident(shortDescription, 900 * (this.attrs.speed || 2));
+      this.addIncident(bgscaledown, 3700 * (this.attrs.speed || 2));
+      this.addIncident(bgscaledownMove, 3700 * (this.attrs.speed || 2));
+      this.addIncident(bgsecondscaledownMove, 3700 * (this.attrs.speed || 2));
+      this.addIncident(secondBgDate, 3700 * (this.attrs.speed || 2));
+      this.addIncident(moveSecond, 6000 * (this.attrs.speed || 2));
+      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -2881,16 +2871,12 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n      <div class=\"third-holder \">\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        margin-top: 10%;\n        margin-bottom: 10%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n    \n     .bg-third-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        margin-left: 5%;\n      }\n\n      .third-first-presenter-slide{\n        position : relative;\n      }\n\n      .third-presenter-container{\n        overflow: hidden;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n      .third-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n        transform: translateY(-100%);\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .third-holder{\n        left: 100%;\n        position: relative;\n        top : 0%;\n      }\n    ");
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        margin-top: 10%;\n        margin-bottom: 10%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n    \n     .bg-third-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        margin-left: 5%;\n      }\n\n      .third-first-presenter-slide{\n        position : relative;\n      }\n\n      .third-presenter-container{\n        overflow: hidden;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .third-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n        transform: translateY(-100%);\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .third-holder{\n        left: 100%;\n        position: relative;\n        top : 0%;\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -2906,7 +2892,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
@@ -2923,7 +2909,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
@@ -2938,7 +2924,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2955,7 +2941,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 800 * this.attrs.speed,
+        duration: 800 * (this.attrs.speed || 2),
         selector: ".presenter",
         easing: "easeOutQuad"
       });
@@ -2968,15 +2954,15 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
       this.addIncident(moveThird, 0);
       this.addIncident(thirdScaleUp, 0);
       this.addIncident(moveThirdIner, 0);
-      this.addIncident(movePresenter, 700 * this.attrs.speed);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(movePresenter, 700 * (this.attrs.speed || 2));
+      this.addIncident(bgOut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -3015,16 +3001,12 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg4.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-right: 15px solid ").concat(this.attrs.mainColor, ";\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        left: -50%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-right: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        left: -50%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -3036,7 +3018,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".quarter-first-presenter-slide",
         easing: "easeInSine"
       });
@@ -3049,7 +3031,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-left",
         easing: "easeOutQuad"
       });
@@ -3062,7 +3044,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -3075,14 +3057,14 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(bgOut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -3121,18 +3103,12 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg5.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div>\n      <div class=\"bg\">\n        <div class=\"bg-deferi-day-slide\">\n          <div class=\"big-title\">".concat(this.attrs.bigTitle, "</div>\n          <div class=\"test-mask \">\n            <div class=\"defter-date-container\">\n              <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber, " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-second bg-small\">\n        <div class=\"bg-second-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n          <div class=\"quarter-left\">\n            <div class=\"quarter-presenter-container\">\n              <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n            </div>\n            <div class=\"name-container\">").concat(this.attrs.name, "</div>\n            <div class=\"position-container\">").concat(this.attrs.position, "</div>\n          </div>\n        </div>\n        </div>\n      </div>\n      <div class=\"bg-second bg-big \">\n        <div class=\"bg-second-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n          <div class=\"quarter-left\">\n            <div class=\"quarter-presenter-container\">\n              <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n            </div>\n            <div class=\"name-container\">").concat(this.attrs.name, "</div>\n            <div class=\"position-container\">").concat(this.attrs.position, "</div>\n          </div>\n        </div>\n        </div>\n      </div>\n    </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n      }\n\n      .bg-big{\n        left: 100%;\n      }\n\n      .bg-second-slide,.bg-third-slide,.bg-quarter-slide,.bg-deferi-day-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        overflow: hidden;\n      }\n\n      .bg-deferi-day-slide{\n        overflow: hidden;\n      }\n\n      .bg-second-slide{\n        justify-content: center;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    \n      .big-title{\n        font-size: 1700px;\n        position: relative;\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0\n      }\n    \n      .test-mask{\n        height: 132.5px;\n        width: 50%;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        background-position-x: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        overflow: hidden;\n        left: 25%;\n        background-position-x: center;  \n      }\n\n      .test-mask:after{ \n        content: \"\";\n        display: block;\n        background: #4e070799;\n        width: 1920px;\n        height: 1080px;\n        position: absolute;\n        top: -458px;\n        left: 0;\n        z-index: -2;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        top: -345%;\n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color: #fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background:").concat(this.attrs.dateOverlay, ";   \n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-image: url(").concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .quarter-presenter-container{\n        overflow: hidden;\n      }\n\n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        position: relative;\n        top: 90%;\n        overflow: hidden;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n\n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n    ");
+      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n      }\n\n      .bg-big{\n        left: 100%;\n      }\n\n      .bg-second-slide,.bg-third-slide,.bg-quarter-slide,.bg-deferi-day-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        overflow: hidden;\n      }\n\n      .bg-deferi-day-slide{\n        overflow: hidden;\n      }\n\n      .bg-second-slide{\n        justify-content: center;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    \n      .big-title{\n        font-size: 1700px;\n        position: relative;\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0\n      }\n    \n      .test-mask{\n        height: 132.5px;\n        width: 50%;\n        background-image: url(").concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        background-position-x: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        overflow: hidden;\n        left: 25%;\n        background-position-x: center;  \n      }\n\n      .test-mask:after{ \n        content: \"\";\n        display: block;\n        background: #4e070799;\n        width: 1920px;\n        height: 1080px;\n        position: absolute;\n        top: -458px;\n        left: 0;\n        z-index: -2;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        top: -345%;\n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color: #fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background:").concat(this.attrs.dateOverlay || "#ff00b3", ";   \n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-image: url(").concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .quarter-presenter-container{\n        overflow: hidden;\n      }\n\n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        position: relative;\n        top: 90%;\n        overflow: hidden;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n\n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -3146,7 +3122,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3159,7 +3135,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide",
         easing: "easeOutCubic"
       });
@@ -3170,7 +3146,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 7400 * this.attrs.speed,
+        duration: 7400 * (this.attrs.speed || 2),
         selector: ".big-title",
         easing: "easeOutCubic"
       });
@@ -3187,7 +3163,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-small",
         easing: "easeOutCubic"
       });
@@ -3213,7 +3189,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-small",
         easing: "easeOutCubic"
       });
@@ -3226,7 +3202,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-date",
         easing: "easeOutCubic"
       });
@@ -3237,7 +3213,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-small,.bg",
         easing: "easeOutCubic"
       });
@@ -3250,7 +3226,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
@@ -3263,7 +3239,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3276,7 +3252,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-big",
         easing: "easeOutCubic"
       });
@@ -3289,22 +3265,22 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-big",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlide, 500 * this.attrs.speed);
+      this.addIncident(secondSlide, 500 * (this.attrs.speed || 2));
       this.addIncident(bigTitle, 0);
-      this.addIncident(bgscaledown, 3700 * this.attrs.speed);
-      this.addIncident(bgscaledownMove, 3700 * this.attrs.speed);
-      this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
-      this.addIncident(secondBgDate, 3700 * this.attrs.speed);
-      this.addIncident(movePresenterSlide, 3700 * this.attrs.speed);
-      this.addIncident(movePresenterSlideLeft, 4000 * this.attrs.speed);
-      this.addIncident(moveSecond, this.calculatedDuration - 3000 * this.attrs.speed);
-      this.addIncident(moveBig, this.calculatedDuration - 3200 * this.attrs.speed);
-      this.addIncident(moveBigOut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(bgscaledown, 3700 * (this.attrs.speed || 2));
+      this.addIncident(bgscaledownMove, 3700 * (this.attrs.speed || 2));
+      this.addIncident(bgsecondscaledownMove, 3700 * (this.attrs.speed || 2));
+      this.addIncident(secondBgDate, 3700 * (this.attrs.speed || 2));
+      this.addIncident(movePresenterSlide, 3700 * (this.attrs.speed || 2));
+      this.addIncident(movePresenterSlideLeft, 4000 * (this.attrs.speed || 2));
+      this.addIncident(moveSecond, this.calculatedDuration - 3000 * (this.attrs.speed || 2));
+      this.addIncident(moveBig, this.calculatedDuration - 3200 * (this.attrs.speed || 2));
+      this.addIncident(moveBigOut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -3343,16 +3319,12 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      \n        top : 100%;\n        \n      }\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        align-items: center;\n        justify-content: center;\n        \n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n        \n      }\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      \n        top : 100%;\n        \n      }\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        align-items: center;\n        justify-content: center;\n        \n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n        \n      }\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -3368,7 +3340,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-first-presenter-slide"
       });
       var quarterLeft = new Anime$4.Anime({
@@ -3382,7 +3354,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 2000 * this.attrs.speed,
+        duration: 2000 * (this.attrs.speed || 2),
         selector: ".quarter-left"
       });
       var bg = new Anime$4.Anime({
@@ -3396,7 +3368,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -3411,14 +3383,14 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(bgOut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -3457,18 +3429,12 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.dateOverlay = !this.attrs.dateOverlay ? this.attrs.dateOverlay = "#ff00b3" : this.attrs.dateOverlay;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n    <div class=\"fragment\">\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-next\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"test-mask\">\n            <div class=\"defter-date-container\">\n              <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .fragment{\n        position: relative\n      }\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        top : 100%; \n      }\n\n      .bg:after,.bg-next {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-next {\n        width: 100%;\n        height: 100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        top : -100%;\n        left : -100%\n       \n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color:#fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background: ").concat(this.attrs.dateOverlay, ";\n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .defter-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0;\n        display: flex;\n        justify-content: center;\n        align-content: center;\n        width: 100%;\n      }\n    ");
+      return "\n      .fragment{\n        position: relative\n      }\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        top : 100%; \n      }\n\n      .bg:after,.bg-next {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-next {\n        width: 100%;\n        height: 100%;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%\n       \n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color:#fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background: ").concat(this.attrs.dateOverlay || "#ff00b3", ";\n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .defter-date span{\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0;\n        display: flex;\n        justify-content: center;\n        align-content: center;\n        width: 100%;\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -3482,7 +3448,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
@@ -3495,7 +3461,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2000 * this.attrs.speed,
+        duration: 2000 * (this.attrs.speed || 2),
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3508,7 +3474,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg,.fragment",
         easing: "easeOutQuad"
       });
@@ -3525,7 +3491,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
@@ -3538,7 +3504,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3551,7 +3517,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
@@ -3568,7 +3534,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
@@ -3581,7 +3547,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3594,7 +3560,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
@@ -3607,20 +3573,20 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-next",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgscaledown, 3000 * this.attrs.speed);
-      this.addIncident(bgsecondscaledownMove, 3000 * this.attrs.speed);
-      this.addIncident(bgscaledownMove, 3000 * this.attrs.speed);
-      this.addIncident(bgscaleup, 4000 * this.attrs.speed);
-      this.addIncident(bgscaledownMoveOut, 4000 * this.attrs.speed);
-      this.addIncident(bgsecondscaledownMoveOut, 4000 * this.attrs.speed);
-      this.addIncident(bgMoveOut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(bgscaledown, 3000 * (this.attrs.speed || 2));
+      this.addIncident(bgsecondscaledownMove, 3000 * (this.attrs.speed || 2));
+      this.addIncident(bgscaledownMove, 3000 * (this.attrs.speed || 2));
+      this.addIncident(bgscaleup, 4000 * (this.attrs.speed || 2));
+      this.addIncident(bgscaledownMoveOut, 4000 * (this.attrs.speed || 2));
+      this.addIncident(bgsecondscaledownMoveOut, 4000 * (this.attrs.speed || 2));
+      this.addIncident(bgMoveOut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -3659,16 +3625,12 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg2.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n        </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: -100%;\n        border-top: 15px solid ").concat(this.attrs.mainColor, ";\n        padding-top: 25%;\n        margin-left: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: -100%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        padding-top: 25%;\n        margin-left: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -3682,7 +3644,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3695,7 +3657,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3708,7 +3670,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3721,14 +3683,14 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutCubic"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(bgOut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -3767,16 +3729,12 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg4.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
       return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n        </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        right: -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: 100%;\n        border-bottom: 15px solid ").concat(this.attrs.mainColor, ";\n        padding-bottom: 25%;\n        margin-right: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+      return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        right: -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: 100%;\n        border-bottom: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        padding-bottom: 25%;\n        margin-right: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -3792,7 +3750,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".quarter-left"
       });
       var quarterLeft = new Anime$1.Anime({
@@ -3806,7 +3764,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".quarter-left"
       });
       var bg = new Anime$1.Anime({
@@ -3820,7 +3778,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -3835,14 +3793,14 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(bgOut, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 
@@ -4314,18 +4272,12 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "html",
     get: function get() {
-      this.attrs.bgUrl = !this.attrs.bgUrl ? this.attrs.bgUrl = "./bg3.jpg" : this.attrs.bgUrl;
-      this.attrs.overlayColor = !this.attrs.overlayColor ? this.attrs.overlayColor = "#ff00b34d" : this.attrs.overlayColor;
-      this.attrs.bgUrl2 = !this.attrs.bgUrl2 ? this.attrs.bgUrl2 = "./bg2.jpg" : this.attrs.bgUrl2;
-      this.attrs.mainColor = !this.attrs.mainColor ? this.attrs.mainColor = "#00ff40" : this.attrs.mainColor;
-      this.attrs.speed = !this.attrs.speed ? this.attrs.speed = 2 : this.attrs.speed;
-      this.attrs.vidDuration = !this.attrs.vidDuration ? this.attrs.vidDuration = 6000 : this.attrs.vidDuration;
       return "\n      <div class=\"parent\">\n        <div class=\"bg \">\n          <div class =\"vid\"></div>\n          <div class=\"second-slide\">\n            <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n            <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n            <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[2], "</div>\n            <div class=\"word-bg\">\n              <div class=\"word\"></div>\n            </div>\n            <div class=\"short-description\">\n              <p>\n               ").concat(this.attrs.description, "\n              </p>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg-second \">\n          <div class=\"bg-second-slide\">\n              <div class=\"second-date-container\">\n                  <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n              </div>\n          </div>\n        </div>\n      </div>\n    ");
     }
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl, ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .parent{\n        position:relative;\n        width: 1920px;\n        height: 1080px;\n        left:0%;\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor, ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2, ");\n      }\n\n      .vid{\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 1920px;\n        height: 1080px;\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor, ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[0].length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[1].length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor, "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[2].length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor, ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+      return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .parent{\n        position:relative;\n        width: 1920px;\n        height: 1080px;\n        left:0%;\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n      }\n\n      .vid{\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 1920px;\n        height: 1080px;\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor || "#00ff40", ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[0].length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[1].length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor || "#00ff40", "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[2].length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -4341,11 +4293,11 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       });
       var Playback = new VideoPlugin.Playback({
         selector: "!#video",
-        duration: this.attrs.vidDuration
+        duration: this.attrs.vidDuration || 6000
       });
       this.addIncident(VideoClip, 0);
       VideoClip.addIncident(Playback, 0);
-      var delay = this.attrs.vidDuration - 3000 * this.attrs.speed;
+      var delay = (this.attrs.vidDuration || 6000) - 3000 * (this.attrs.speed || 2);
       var array = this.attrs.title[2].split("");
       var html3;
       var containerParams = {
@@ -4378,7 +4330,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           selector: ".letter" + (_i + 1),
           easing: "easeOutQuad"
         });
-        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * this.attrs.speed);
+        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * (this.attrs.speed || 2));
       }
 
       var bgMove = new Anime.Anime({
@@ -4390,7 +4342,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -4403,7 +4355,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
@@ -4416,7 +4368,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
@@ -4429,7 +4381,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1200 * this.attrs.speed,
+        duration: 1200 * (this.attrs.speed || 2),
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
@@ -4442,7 +4394,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".short-description",
         easing: "easeOutQuad"
       });
@@ -4459,7 +4411,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
@@ -4472,7 +4424,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -4485,7 +4437,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
@@ -4498,7 +4450,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-date",
         easing: "easeOutQuad"
       });
@@ -4511,20 +4463,20 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".parent",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlideTitleOne, 300 * this.attrs.speed);
-      this.addIncident(secondSlideTitleTwo, 500 * this.attrs.speed);
-      this.addIncident(wordBg, 500 * this.attrs.speed);
-      this.addIncident(shortDescription, 900 * this.attrs.speed);
-      this.addIncident(bgscaledown, 3700 * this.attrs.speed + delay);
-      this.addIncident(bgscaledownMove, 3700 * this.attrs.speed + delay);
-      this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed + delay);
-      this.addIncident(secondBgDate, 3700 * this.attrs.speed + delay);
-      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * this.attrs.speed);
+      this.addIncident(secondSlideTitleOne, 300 * (this.attrs.speed || 2));
+      this.addIncident(secondSlideTitleTwo, 500 * (this.attrs.speed || 2));
+      this.addIncident(wordBg, 500 * (this.attrs.speed || 2));
+      this.addIncident(shortDescription, 900 * (this.attrs.speed || 2));
+      this.addIncident(bgscaledown, 3700 * (this.attrs.speed || 2) + delay);
+      this.addIncident(bgscaledownMove, 3700 * (this.attrs.speed || 2) + delay);
+      this.addIncident(bgsecondscaledownMove, 3700 * (this.attrs.speed || 2) + delay);
+      this.addIncident(secondBgDate, 3700 * (this.attrs.speed || 2) + delay);
+      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * (this.attrs.speed || 2));
     }
   }]);
 

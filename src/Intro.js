@@ -16,22 +16,6 @@ export default class Intro extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.bgUrl = !this.attrs.bgUrl
-      ? (this.attrs.bgUrl = "./kissmybutonbg.jpg")
-      : this.attrs.bgUrl;
-
-    this.attrs.overlayColor = !this.attrs.overlayColor
-      ? (this.attrs.overlayColor = "#ff00b34d")
-      : this.attrs.overlayColor;
-
-    this.attrs.mainColor = !this.attrs.mainColor
-      ? (this.attrs.mainColor = "#00ff40")
-      : this.attrs.mainColor;
-
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
-
     return `
       <div class="bg"> 
         <div class="first-slide">
@@ -70,7 +54,10 @@ export default class Intro extends MotorCortex.HTMLClip {
         height: 1080px;
         width: 1920px;
         position: relative;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
@@ -84,7 +71,9 @@ export default class Intro extends MotorCortex.HTMLClip {
       .bg:after {
         content: "";
         display: block;
-        background: linear-gradient(${this.attrs.overlayColor});
+        background: linear-gradient(${
+          this.attrs.overlayColor || "#101820D7,#101820FF"
+        });
         position: absolute;
         top: 0;
         bottom: 0;
@@ -110,25 +99,27 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
       
       .title {
-        color: ${this.attrs.mainColor};
+        color: ${this.attrs.mainColor || "#00ff40"};
         font-size: ${this.dinamicFontSize(
           this.attrs.title.length,
-          864 * this.attrs.speed
+          864 * (this.attrs.speed || 2)
         )}px;
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
-        margin-top:-${this.dinamicFontSize(
-          this.attrs.title.length,
-          864 * this.attrs.speed
-        ) / 2.6}px;
+        margin-top:-${
+          this.dinamicFontSize(
+            this.attrs.title.length,
+            864 * (this.attrs.speed || 2)
+          ) / 2.6
+        }px;
         overflow: hidden;
         display: flex;
         width: 100%;
       }
 
       .subtitle {
-        color: ${this.attrs.mainColor};
+        color: ${this.attrs.mainColor || "#00ff40"};
         font-size: ${this.dinamicFontSize(this.attrs.subtitle.length, 864)}px;
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
@@ -142,7 +133,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
 
       .description {
-        border-top: 15px solid ${this.attrs.mainColor};
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
         overflow: hidden;
         transform: translateY(200%);
         font-size: 30px;
@@ -208,87 +199,89 @@ export default class Intro extends MotorCortex.HTMLClip {
     const titleanime = new Anime.Anime(
       {
         animatedAttrs: {
-          width: "100%"
+          width: "100%",
         },
         initialValues: {
-          width: "0%"
+          width: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".title-text",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const bg = new Anime.Anime(
       {
         animatedAttrs: {
-          backgroundSize: "3000px"
+          backgroundSize: "3000px",
         },
         initialValues: {
-          backgroundSize: "1980px"
+          backgroundSize: "1980px",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 2800 * this.attrs.speed,
+        duration: 2800 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const subtextRight = new Anime.Anime(
       {
         animatedAttrs: {
-          right: "0%"
+          right: "0%",
         },
         initialValues: {
-          right: "100%"
+          right: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".subtitle-text",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const subholderRight = new Anime.Anime(
       {
         animatedAttrs: {
-          right: "0%"
+          right: "0%",
         },
         initialValues: {
-          right: "-100%"
+          right: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".subtitle-holder",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const subtitleRight = new Anime.Anime(
       {
         animatedAttrs: {
-          left: `${864 * this.attrs.speed -
+          left: `${
+            864 * (this.attrs.speed || 2) -
             (this.dinamicFontSize(this.attrs.subtitle.length, 864) *
               0.6 *
               this.attrs.subtitle.length,
-            864)}px`
+            864)
+          }px`,
         },
         initialValues: {},
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".sub",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -296,36 +289,36 @@ export default class Intro extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            translateX: "0%"
-          }
+            translateX: "0%",
+          },
         },
         initialValues: {
           transform: {
-            translateX: "200%"
-          }
+            translateX: "200%",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".date span",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const dateHolderWidth = new Anime.Anime(
       {
         animatedAttrs: {
-          width: "45%"
+          width: "45%",
         },
         initialValues: {
-          width: "28%"
+          width: "28%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 10,
-        selector: ".date-holder"
+        selector: ".date-holder",
       }
     );
 
@@ -333,20 +326,20 @@ export default class Intro extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            scale: 0.5
-          }
+            scale: 0.5,
+          },
         },
         initialValues: {
           transform: {
-            scale: 1
-          }
+            scale: 1,
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".first-slide",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -354,20 +347,20 @@ export default class Intro extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            translateY: "0%"
-          }
+            translateY: "0%",
+          },
         },
         initialValues: {
           transform: {
-            translateY: "200%"
-          }
+            translateY: "200%",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".description",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -375,20 +368,20 @@ export default class Intro extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            translateY: "0%"
-          }
+            translateY: "0%",
+          },
         },
         initialValues: {
           transform: {
-            translateY: "-200%"
-          }
+            translateY: "-200%",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 300 * this.attrs.speed,
+        duration: 300 * (this.attrs.speed || 2),
         selector: ".description-text",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -396,20 +389,20 @@ export default class Intro extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            translateX: "100%"
-          }
+            translateX: "100%",
+          },
         },
         initialValues: {
           transform: {
-            translateX: "0%"
-          }
+            translateX: "0%",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -417,12 +410,15 @@ export default class Intro extends MotorCortex.HTMLClip {
     this.addIncident(titleanime, 0);
     this.addIncident(subtextRight, 0);
     this.addIncident(subholderRight, 0);
-    this.addIncident(subtitleRight, 1500 * this.attrs.speed);
-    this.addIncident(scaleFirstSlide, 1500 * this.attrs.speed);
-    this.addIncident(description, 1500 * this.attrs.speed);
-    this.addIncident(datespan, 1800 * this.attrs.speed);
-    this.addIncident(dateHolderWidth, 2050 * this.attrs.speed);
-    this.addIncident(descriptiontext, 2500 * this.attrs.speed);
-    this.addIncident(bgQut, this.calculatedDuration + 1000 * this.attrs.speed);
+    this.addIncident(subtitleRight, 1500 * (this.attrs.speed || 2));
+    this.addIncident(scaleFirstSlide, 1500 * (this.attrs.speed || 2));
+    this.addIncident(description, 1500 * (this.attrs.speed || 2));
+    this.addIncident(datespan, 1800 * (this.attrs.speed || 2));
+    this.addIncident(dateHolderWidth, 2050 * (this.attrs.speed || 2));
+    this.addIncident(descriptiontext, 2500 * (this.attrs.speed || 2));
+    this.addIncident(
+      bgQut,
+      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
+    );
   }
 }
