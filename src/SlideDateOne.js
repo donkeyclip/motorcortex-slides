@@ -16,26 +16,6 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.bgUrl = !this.attrs.bgUrl
-      ? (this.attrs.bgUrl = "./bg3.jpg")
-      : this.attrs.bgUrl;
-
-    this.attrs.overlayColor = !this.attrs.overlayColor
-      ? (this.attrs.overlayColor = "#ff00b34d")
-      : this.attrs.overlayColor;
-
-    this.attrs.bgUrl2 = !this.attrs.bgUrl2
-      ? (this.attrs.bgUrl2 = "./bg2.jpg")
-      : this.attrs.bgUrl2;
-
-    this.attrs.mainColor = !this.attrs.mainColor
-      ? (this.attrs.mainColor = "#00ff40")
-      : this.attrs.mainColor;
-
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
-
     return `
     <div>
       <div class="bg ">
@@ -53,9 +33,9 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       <div class="bg-second ">
         <div class="bg-second-slide">
             <div class="second-date-container">
-            <div class="second-date"><span> ${this.attrs.day || ""} ${this.attrs
-      .dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs.year ||
-      ""}</div>
+            <div class="second-date"><span> ${this.attrs.day || ""} ${
+      this.attrs.dayNumber || ""
+    } </span>${this.attrs.month || ""} ${this.attrs.year || ""}</div>
             </div>
         </div>
       </div>
@@ -68,7 +48,10 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       .bg,.bg-second {
         width: 1920px;
         height: 1080px;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
@@ -83,7 +66,9 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       .bg:after,.bg-second:after {
         content: "";
         display: block;
-        background: linear-gradient(${this.attrs.overlayColor});
+        background: linear-gradient(${
+          this.attrs.overlayColor || "#101820D7,#101820FF"
+        });
         position: absolute;
         top: 0;
         bottom: 0;
@@ -94,7 +79,10 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
 
       .bg-second{
         left:100%;
-        background-image: url(${this.attrs.bgUrl2});
+        background-image: url(${
+          this.attrs.bgUrl2 ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"
+        });
       }
 
       .short-description{
@@ -110,7 +98,7 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       }
 
       .word-bg{
-        background-color:${this.attrs.mainColor};
+        background-color:${this.attrs.mainColor || "#00ff40"};
         width: 720px;
         position: relative;
         left: -50%
@@ -140,7 +128,7 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       }
 
       .second-slide-titleOne{
-        color :${this.attrs.mainColor}
+        color :${this.attrs.mainColor || "#00ff40"}
       }
 
       .second-slide{
@@ -167,7 +155,7 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       }
 
       .second-date-container{
-        border-left: 100px solid ${this.attrs.mainColor};
+        border-left: 100px solid ${this.attrs.mainColor || "#00ff40"};
         overflow: hidden;
         width: 200%;
       }
@@ -196,7 +184,7 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
 
     const containerParams = {
       width: "100%",
-      height: "100%"
+      height: "100%",
     };
 
     for (let i = 0; i < array.length; i++) {
@@ -208,7 +196,7 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       css: this.css,
       html: ` <div class="conttitle" >${html3.split("undefined")[1]} </div>`,
       selector: ".word",
-      containerParams
+      containerParams,
     });
 
     this.addIncident(word, 0);
@@ -218,105 +206,105 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
         {
           animatedAttrs: {
             top: "0px",
-            opacity: 1
+            opacity: 1,
           },
-          attrs: {}
+          attrs: {},
         },
         {
           duration: 500,
           selector: ".letter" + (i + 1),
-          easing: "easeOutQuad"
+          easing: "easeOutQuad",
         }
       );
 
       word.addIncident(
         textAnimation,
-        (2000 + 100 * (i + 1)) * this.attrs.speed
+        (2000 + 100 * (i + 1)) * (this.attrs.speed || 2)
       );
     }
 
     const bgMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const secondSlideTitleOne = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-50%"
+          left: "-50%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide-titleOne",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const secondSlideTitleTwo = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-50%"
+          left: "-50%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide-titleTwo",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const wordBg = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-50%"
+          left: "-50%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1200 * this.attrs.speed,
+        duration: 1200 * (this.attrs.speed || 2),
         selector: ".word-bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const shortDescription = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-50%"
+          left: "-50%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".short-description",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -324,117 +312,117 @@ export default class SlideDateOne extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            scale: 0.5
-          }
+            scale: 0.5,
+          },
         },
         initialValues: {
           transform: {
-            scale: 1
-          }
+            scale: 1,
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-second",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const bgscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-25%"
+          left: "-25%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const bgsecondscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "25%"
+          left: "25%",
         },
         initialValues: {
-          left: "100%"
+          left: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-second",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const secondBgDate = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "5%"
+          left: "5%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-date",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const moveSecond = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-76%"
+          left: "-76%",
         },
         initialValues: {},
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 800 * this.attrs.speed,
+        duration: 800 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const moveSecondS = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-76%"
+          left: "-76%",
         },
         initialValues: {},
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".bg-second",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     this.addIncident(bgMove, 0);
-    this.addIncident(secondSlideTitleOne, 300 * this.attrs.speed);
-    this.addIncident(secondSlideTitleTwo, 500 * this.attrs.speed);
-    this.addIncident(wordBg, 500 * this.attrs.speed);
-    this.addIncident(shortDescription, 900 * this.attrs.speed);
-    this.addIncident(bgscaledown, 3700 * this.attrs.speed);
-    this.addIncident(bgscaledownMove, 3700 * this.attrs.speed);
-    this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
-    this.addIncident(secondBgDate, 3700 * this.attrs.speed);
-    this.addIncident(moveSecond, 6000 * this.attrs.speed);
+    this.addIncident(secondSlideTitleOne, 300 * (this.attrs.speed || 2));
+    this.addIncident(secondSlideTitleTwo, 500 * (this.attrs.speed || 2));
+    this.addIncident(wordBg, 500 * (this.attrs.speed || 2));
+    this.addIncident(shortDescription, 900 * (this.attrs.speed || 2));
+    this.addIncident(bgscaledown, 3700 * (this.attrs.speed || 2));
+    this.addIncident(bgscaledownMove, 3700 * (this.attrs.speed || 2));
+    this.addIncident(bgsecondscaledownMove, 3700 * (this.attrs.speed || 2));
+    this.addIncident(secondBgDate, 3700 * (this.attrs.speed || 2));
+    this.addIncident(moveSecond, 6000 * (this.attrs.speed || 2));
     this.addIncident(
       moveSecondS,
-      this.calculatedDuration + 1000 * this.attrs.speed
+      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
     );
   }
 }

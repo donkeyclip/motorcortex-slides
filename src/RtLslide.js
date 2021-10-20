@@ -16,22 +16,6 @@ export default class RtLslide extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.bgUrl = !this.attrs.bgUrl
-      ? (this.attrs.bgUrl = "./bg4.jpg")
-      : this.attrs.bgUrl;
-
-    this.attrs.overlayColor = !this.attrs.overlayColor
-      ? (this.attrs.overlayColor = "#ff00b34d")
-      : this.attrs.overlayColor;
-
-    this.attrs.mainColor = !this.attrs.mainColor
-      ? (this.attrs.mainColor = "#00ff40")
-      : this.attrs.mainColor;
-
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
-
     return `
       <div class="bg">
         <div class="bg-quarter-slide">
@@ -52,7 +36,10 @@ export default class RtLslide extends MotorCortex.HTMLClip {
       .bg {
         width: 100%;
         height: 100%;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
@@ -67,7 +54,9 @@ export default class RtLslide extends MotorCortex.HTMLClip {
       .bg:after {
         content: "";
         display: block;
-        background: linear-gradient(${this.attrs.overlayColor});
+        background: linear-gradient(${
+          this.attrs.overlayColor || "#101820D7,#101820FF"
+        });
         position: absolute;
         top: 0;
         bottom: 0;
@@ -82,7 +71,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         align-items: flex-end;
         position : relative;
         top: 100%;
-        border-bottom: 15px solid ${this.attrs.mainColor};
+        border-bottom: 15px solid ${this.attrs.mainColor || "#00ff40"};
         padding-bottom: 25%;
         margin-right: 4%;
       }
@@ -118,7 +107,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
-        color: ${this.attrs.mainColor};
+        color: ${this.attrs.mainColor || "#00ff40"};
       }
     `;
   }
@@ -127,80 +116,83 @@ export default class RtLslide extends MotorCortex.HTMLClip {
     const personConMove = new Anime.Anime(
       {
         animatedAttrs: {
-          paddingBottom: "0%"
+          paddingBottom: "0%",
         },
         initialValues: {
-          paddingBottom: "40%"
+          paddingBottom: "40%",
         },
         attrs: {
-          easing: "linear"
-        }
+          easing: "linear",
+        },
       },
       {
-        duration: 1000 * this.attrs.speed,
-        selector: ".quarter-left"
+        duration: 1000 * (this.attrs.speed || 2),
+        selector: ".quarter-left",
       }
     );
 
     const quarterLeft = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "25%"
+          top: "25%",
         },
         initialValues: {
-          top: "100%"
+          top: "100%",
         },
         attrs: {
-          easing: "linear"
-        }
+          easing: "linear",
+        },
       },
       {
-        duration: 1000 * this.attrs.speed,
-        selector: ".quarter-left"
+        duration: 1000 * (this.attrs.speed || 2),
+        selector: ".quarter-left",
       }
     );
 
     const bg = new Anime.Anime(
       {
         animatedAttrs: {
-          right: "0%"
+          right: "0%",
         },
         initialValues: {
-          right: "-100%"
+          right: "-100%",
         },
         attrs: {
-          easing: "linear"
-        }
+          easing: "linear",
+        },
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const bgOut = new Anime.Anime(
       {
         animatedAttrs: {
-          right: "100%"
+          right: "100%",
         },
         initialValues: {
-          right: "0%"
+          right: "0%",
         },
         attrs: {
-          easing: "linear"
-        }
+          easing: "linear",
+        },
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
+    this.addIncident(
+      bgOut,
+      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
+    );
   }
 }

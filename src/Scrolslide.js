@@ -16,22 +16,6 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.bgUrl = !this.attrs.bgUrl
-      ? (this.attrs.bgUrl = "./bg3.jpg")
-      : this.attrs.bgUrl;
-
-    this.attrs.overlayColor = !this.attrs.overlayColor
-      ? (this.attrs.overlayColor = "#ff00b34d")
-      : this.attrs.overlayColor;
-
-    this.attrs.mainColor = !this.attrs.mainColor
-      ? (this.attrs.mainColor = "#00ff40")
-      : this.attrs.mainColor;
-
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
-
     return `
       <div class="third-holder ">
         <div class="bg">
@@ -76,7 +60,10 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       .bg {
         width: 100%;
         height: 100%;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
@@ -92,7 +79,9 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       .bg:after {
         content: "";
         display: block;
-        background: linear-gradient(${this.attrs.overlayColor});
+        background: linear-gradient(${
+          this.attrs.overlayColor || "#101820D7,#101820FF"
+        });
         position: absolute;
         top: 0;
         bottom: 0;
@@ -115,14 +104,14 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
 
       .third-presenter-container{
         overflow: hidden;
-        border-top: 15px solid ${this.attrs.mainColor};
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
       }
 
       .presenter,.big-title{
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
-        color: ${this.attrs.mainColor};
+        color: ${this.attrs.mainColor || "#00ff40"};
       }
 
       .third-presenter{
@@ -158,18 +147,18 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           left: "0%",
-          top: "-200%"
+          top: "-200%",
         },
         initialValues: {
           left: "100%",
-          top: "-100%"
+          top: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".third-holder",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -177,20 +166,20 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            scale: 1
-          }
+            scale: 1,
+          },
         },
         initialValues: {
           transform: {
-            scale: 0.5
-          }
+            scale: 0.5,
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".third-holder",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -198,18 +187,18 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           marginTop: "0%",
-          marginBottom: "0%"
+          marginBottom: "0%",
         },
         initialValues: {
           marginTop: "10%",
-          marginBottom: "10%"
+          marginBottom: "10%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
@@ -217,44 +206,47 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            translateY: "0%"
-          }
+            translateY: "0%",
+          },
         },
         initialValues: {
           transform: {
-            translateY: "-100%"
-          }
+            translateY: "-100%",
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 800 * this.attrs.speed,
+        duration: 800 * (this.attrs.speed || 2),
         selector: ".presenter",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     const bgOut = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "100%"
+          left: "100%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".third-holder",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     this.addIncident(moveThird, 0);
     this.addIncident(thirdScaleUp, 0);
     this.addIncident(moveThirdIner, 0);
-    this.addIncident(movePresenter, 700 * this.attrs.speed);
-    this.addIncident(bgOut, this.calculatedDuration + 1000 * this.attrs.speed);
+    this.addIncident(movePresenter, 700 * (this.attrs.speed || 2));
+    this.addIncident(
+      bgOut,
+      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
+    );
   }
 }

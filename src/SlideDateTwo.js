@@ -16,30 +16,6 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.bgUrl = !this.attrs.bgUrl
-      ? (this.attrs.bgUrl = "./bg5.jpg")
-      : this.attrs.bgUrl;
-
-    this.attrs.overlayColor = !this.attrs.overlayColor
-      ? (this.attrs.overlayColor = "#ff00b34d")
-      : this.attrs.overlayColor;
-
-    this.attrs.bgUrl2 = !this.attrs.bgUrl2
-      ? (this.attrs.bgUrl2 = "./bg2.jpg")
-      : this.attrs.bgUrl2;
-
-    this.attrs.dateOverlay = !this.attrs.dateOverlay
-      ? (this.attrs.dateOverlay = "#ff00b3")
-      : this.attrs.dateOverlay;
-
-    this.attrs.mainColor = !this.attrs.mainColor
-      ? (this.attrs.mainColor = "#00ff40")
-      : this.attrs.mainColor;
-
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
-
     return `
     <div>
       <div class="bg">
@@ -89,7 +65,10 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       .bg,.bg-second {
         width: 1920px;
         height: 1080px;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
@@ -104,7 +83,9 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       .bg:after,.bg-second:after {
         content: "";
         display: block;
-        background: linear-gradient(${this.attrs.overlayColor});
+        background: linear-gradient(${
+          this.attrs.overlayColor || "#101820D7,#101820FF"
+        });
         position: absolute;
         top: 0;
         bottom: 0;
@@ -115,7 +96,10 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
 
       .bg-second{
         left:100%;
-        background-image: url(${this.attrs.bgUrl2});
+        background-image: url(${
+          this.attrs.bgUrl2 ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"
+        });
       }
 
       .bg-big{
@@ -142,7 +126,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
-        color: ${this.attrs.mainColor};
+        color: ${this.attrs.mainColor || "#00ff40"};
       }
     
       .big-title{
@@ -162,7 +146,10 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       .test-mask{
         height: 132.5px;
         width: 50%;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         background-position-x: center;
@@ -186,7 +173,9 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
         top: -458px;
         left: 0;
         z-index: -2;
-        background: linear-gradient(${this.attrs.overlayColor});
+        background: linear-gradient(${
+          this.attrs.overlayColor || "#101820D7,#101820FF"
+        });
         top: -345%;
       }
 
@@ -197,10 +186,13 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
         white-space: nowrap;
         text-transform: uppercase;
         font-family: 'Roboto Mono', monospace;
-        background:${this.attrs.dateOverlay};   
+        background:${this.attrs.dateOverlay || "#ff00b3"};   
         padding: 2% 6%;
         background-blend-mode: multiply;
-        background-image: url(${this.attrs.bgUrl});
+        background-image: url(${
+          this.attrs.bgUrl ||
+          "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg"
+        });
         background-size: 1920px;
         background-position: center;
         transform: scale(1);
@@ -212,7 +204,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
 
       .quarter-first-presenter-slide{
         margin-bottom: 15%;
-        border-top: 15px solid ${this.attrs.mainColor};
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
         position: relative;
         top: 90%;
         overflow: hidden;
@@ -262,49 +254,49 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
     const bgMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const secondSlide = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-slide",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bigTitle = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-1500px"
+          left: "-1500px",
         },
         initialValues: {},
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 7400 * this.attrs.speed,
+        duration: 7400 * (this.attrs.speed || 2),
         selector: ".big-title",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
@@ -312,177 +304,177 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           transform: {
-            scale: 0.5
-          }
+            scale: 0.5,
+          },
         },
         initialValues: {
           transform: {
-            scale: 1
-          }
+            scale: 1,
+          },
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg,.bg-small",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bgscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-25%"
+          left: "-25%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
         duration: 500,
         selector: ".bg",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const bgsecondscaledownMove = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "25%"
+          left: "25%",
         },
         initialValues: {
-          left: "100%"
+          left: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 500 * this.attrs.speed,
+        duration: 500 * (this.attrs.speed || 2),
         selector: ".bg-small",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const secondBgDate = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "5%"
+          left: "5%",
         },
         initialValues: {
-          left: "-100%"
+          left: "-100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".second-date",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const moveSecond = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-175%"
+          left: "-175%",
         },
         initialValues: {},
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-small,.bg",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const movePresenterSlide = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "90%"
+          top: "90%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-first-presenter-slide",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const movePresenterSlideLeft = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "0%"
+          top: "0%",
         },
         initialValues: {
-          top: "90%"
+          top: "90%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1500 * this.attrs.speed,
+        duration: 1500 * (this.attrs.speed || 2),
         selector: ".quarter-left",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const moveBig = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "0%"
+          left: "0%",
         },
         initialValues: {
-          left: "100%"
+          left: "100%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-big",
-        easing: "easeOutCubic"
+        easing: "easeOutCubic",
       }
     );
 
     const moveBigOut = new Anime.Anime(
       {
         animatedAttrs: {
-          top: "-100%"
+          top: "-100%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
-        attrs: {}
+        attrs: {},
       },
       {
-        duration: 1000 * this.attrs.speed,
+        duration: 1000 * (this.attrs.speed || 2),
         selector: ".bg-big",
-        easing: "easeOutQuad"
+        easing: "easeOutQuad",
       }
     );
 
     this.addIncident(bgMove, 0);
-    this.addIncident(secondSlide, 500 * this.attrs.speed);
+    this.addIncident(secondSlide, 500 * (this.attrs.speed || 2));
     this.addIncident(bigTitle, 0);
-    this.addIncident(bgscaledown, 3700 * this.attrs.speed);
-    this.addIncident(bgscaledownMove, 3700 * this.attrs.speed);
-    this.addIncident(bgsecondscaledownMove, 3700 * this.attrs.speed);
-    this.addIncident(secondBgDate, 3700 * this.attrs.speed);
-    this.addIncident(movePresenterSlide, 3700 * this.attrs.speed);
-    this.addIncident(movePresenterSlideLeft, 4000 * this.attrs.speed);
+    this.addIncident(bgscaledown, 3700 * (this.attrs.speed || 2));
+    this.addIncident(bgscaledownMove, 3700 * (this.attrs.speed || 2));
+    this.addIncident(bgsecondscaledownMove, 3700 * (this.attrs.speed || 2));
+    this.addIncident(secondBgDate, 3700 * (this.attrs.speed || 2));
+    this.addIncident(movePresenterSlide, 3700 * (this.attrs.speed || 2));
+    this.addIncident(movePresenterSlideLeft, 4000 * (this.attrs.speed || 2));
     this.addIncident(
       moveSecond,
-      this.calculatedDuration - 3000 * this.attrs.speed
+      this.calculatedDuration - 3000 * (this.attrs.speed || 2)
     );
     this.addIncident(
       moveBig,
-      this.calculatedDuration - 3200 * this.attrs.speed
+      this.calculatedDuration - 3200 * (this.attrs.speed || 2)
     );
     this.addIncident(
       moveBigOut,
-      this.calculatedDuration + 1000 * this.attrs.speed
+      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
     );
   }
 }

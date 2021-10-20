@@ -16,10 +16,6 @@ export default class Transition extends MotorCortex.HTMLClip {
   }
 
   get html() {
-    this.attrs.speed = !this.attrs.speed
-      ? (this.attrs.speed = 2)
-      : this.attrs.speed;
-
     return `
       <div class="transition-container">
         <p class="transition-text">${this.attrs.title}</p>
@@ -57,36 +53,36 @@ export default class Transition extends MotorCortex.HTMLClip {
     const transitionText = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "-100%"
+          left: "-100%",
         },
         initialValues: {
-          left: "0%"
+          left: "0%",
         },
         attrs: {
-          easing: "linear"
-        }
+          easing: "linear",
+        },
       },
       {
-        duration: 1000 * this.attrs.speed,
-        selector: ".transition-text"
+        duration: 1000 * (this.attrs.speed || 2),
+        selector: ".transition-text",
       }
     );
 
     const transitionContainer = new Anime.Anime(
       {
         animatedAttrs: {
-          left: "100%"
+          left: "100%",
         },
         initialValues: {
-          left: "-20%"
+          left: "-20%",
         },
         attrs: {
-          easing: "linear"
-        }
+          easing: "linear",
+        },
       },
       {
-        duration: 1000 * this.attrs.speed,
-        selector: ".transition-container"
+        duration: 1000 * (this.attrs.speed || 2),
+        selector: ".transition-container",
       }
     );
 
