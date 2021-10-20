@@ -122,6 +122,7 @@ export default class BtTslide extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
+    const speed = this.attrs.speed || 2;
     const personConMove = new Anime.Anime(
       {
         animatedAttrs: {
@@ -135,7 +136,7 @@ export default class BtTslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1500 * (this.attrs.speed || 2),
+        duration: 1500 * speed,
         selector: ".quarter-first-presenter-slide",
       }
     );
@@ -153,7 +154,7 @@ export default class BtTslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 2000 * (this.attrs.speed || 2),
+        duration: 2000 * speed,
         selector: ".quarter-left",
       }
     );
@@ -171,7 +172,7 @@ export default class BtTslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -190,7 +191,7 @@ export default class BtTslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -199,9 +200,6 @@ export default class BtTslide extends MotorCortex.HTMLClip {
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(
-      bgOut,
-      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
-    );
+    this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
   }
 }

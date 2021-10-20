@@ -202,6 +202,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
+    const speed = this.attrs.speed || 2;
     const VideoClip = new VideoPlugin.Clip(
       {
         sources: this.attrs.vidLink,
@@ -222,8 +223,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
     this.addIncident(VideoClip, 0);
     VideoClip.addIncident(Playback, 0);
 
-    const delay =
-      (this.attrs.vidDuration || 6000) - 3000 * (this.attrs.speed || 2);
+    const delay = (this.attrs.vidDuration || 6000) - 3000 * speed;
 
     const array = this.attrs.title[2].split("");
 
@@ -264,10 +264,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         }
       );
 
-      word.addIncident(
-        textAnimation,
-        (2000 + 100 * (i + 1)) * (this.attrs.speed || 2)
-      );
+      word.addIncident(textAnimation, (2000 + 100 * (i + 1)) * speed);
     }
 
     const bgMove = new Anime.Anime(
@@ -281,7 +278,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -298,7 +295,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad",
       }
@@ -315,7 +312,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad",
       }
@@ -332,7 +329,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1200 * (this.attrs.speed || 2),
+        duration: 1200 * speed,
         selector: ".word-bg",
         easing: "easeOutQuad",
       }
@@ -349,7 +346,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".short-description",
         easing: "easeOutQuad",
       }
@@ -370,7 +367,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 500 * (this.attrs.speed || 2),
+        duration: 500 * speed,
         selector: ".bg,.bg-second",
         easing: "easeOutQuad",
       }
@@ -387,7 +384,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 500 * (this.attrs.speed || 2),
+        duration: 500 * speed,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -404,7 +401,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 500 * (this.attrs.speed || 2),
+        duration: 500 * speed,
         selector: ".bg-second",
         easing: "easeOutQuad",
       }
@@ -421,7 +418,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".second-date",
         easing: "easeOutQuad",
       }
@@ -438,27 +435,21 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".parent",
         easing: "easeOutQuad",
       }
     );
 
     this.addIncident(bgMove, 0);
-    this.addIncident(secondSlideTitleOne, 300 * (this.attrs.speed || 2));
-    this.addIncident(secondSlideTitleTwo, 500 * (this.attrs.speed || 2));
-    this.addIncident(wordBg, 500 * (this.attrs.speed || 2));
-    this.addIncident(shortDescription, 900 * (this.attrs.speed || 2));
-    this.addIncident(bgscaledown, 3700 * (this.attrs.speed || 2) + delay);
-    this.addIncident(bgscaledownMove, 3700 * (this.attrs.speed || 2) + delay);
-    this.addIncident(
-      bgsecondscaledownMove,
-      3700 * (this.attrs.speed || 2) + delay
-    );
-    this.addIncident(secondBgDate, 3700 * (this.attrs.speed || 2) + delay);
-    this.addIncident(
-      moveSecondS,
-      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
-    );
+    this.addIncident(secondSlideTitleOne, 300 * speed);
+    this.addIncident(secondSlideTitleTwo, 500 * speed);
+    this.addIncident(wordBg, 500 * speed);
+    this.addIncident(shortDescription, 900 * speed);
+    this.addIncident(bgscaledown, 3700 * speed + delay);
+    this.addIncident(bgscaledownMove, 3700 * speed + delay);
+    this.addIncident(bgsecondscaledownMove, 3700 * speed + delay);
+    this.addIncident(secondBgDate, 3700 * speed + delay);
+    this.addIncident(moveSecondS, this.calculatedDuration + 1000 * speed);
   }
 }

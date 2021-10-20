@@ -143,6 +143,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
+    const speed = this.attrs.speed || 2;
     const moveThird = new Anime.Anime(
       {
         animatedAttrs: {
@@ -156,7 +157,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".third-holder",
         easing: "easeOutQuad",
       }
@@ -177,7 +178,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1500 * (this.attrs.speed || 2),
+        duration: 1500 * speed,
         selector: ".third-holder",
         easing: "easeOutQuad",
       }
@@ -196,7 +197,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1500 * (this.attrs.speed || 2),
+        duration: 1500 * speed,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -217,7 +218,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 800 * (this.attrs.speed || 2),
+        duration: 800 * speed,
         selector: ".presenter",
         easing: "easeOutQuad",
       }
@@ -234,7 +235,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".third-holder",
         easing: "easeOutQuad",
       }
@@ -243,10 +244,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
     this.addIncident(moveThird, 0);
     this.addIncident(thirdScaleUp, 0);
     this.addIncident(moveThirdIner, 0);
-    this.addIncident(movePresenter, 700 * (this.attrs.speed || 2));
-    this.addIncident(
-      bgOut,
-      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
-    );
+    this.addIncident(movePresenter, 700 * speed);
+    this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
   }
 }
