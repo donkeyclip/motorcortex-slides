@@ -113,6 +113,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
+    const speed = this.attrs.speed || 2;
     const personConMove = new Anime.Anime(
       {
         animatedAttrs: {
@@ -126,7 +127,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".quarter-left",
       }
     );
@@ -144,7 +145,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".quarter-left",
       }
     );
@@ -162,7 +163,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -181,7 +182,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 1000 * speed,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -190,9 +191,6 @@ export default class RtLslide extends MotorCortex.HTMLClip {
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(
-      bgOut,
-      this.calculatedDuration + 1000 * (this.attrs.speed || 2)
-    );
+    this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
   }
 }
