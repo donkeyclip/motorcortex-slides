@@ -1389,7 +1389,9 @@ var bind$1 = uncurryThis$8(uncurryThis$8.bind); // optional / simple context bin
 
 var functionBindContext = function (fn, that) {
   aCallable(fn);
-  return that === undefined ? fn : bind$1 ? bind$1(fn, that) : function () {
+  return that === undefined ? fn : bind$1 ? bind$1(fn, that) : function
+    /* ...args */
+  () {
     return fn.apply(that, arguments);
   };
 };
