@@ -75,7 +75,7 @@
     "@commitlint/config-conventional": "13.2.0",
     "@donkeyclip/motorcortex": "7.5.5",
     "@donkeyclip/motorcortex-anime": "2.1.16",
-    "@donkeyclip/motorcortex-player": "2.3.6",
+    "@donkeyclip/motorcortex-player": "2.3.7",
     "@kissmybutton/motorcortex-video": "1.2.0",
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-commonjs": "21.0.1",
