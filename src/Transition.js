@@ -1,6 +1,4 @@
-import MotorCortex from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class Transition extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
@@ -50,7 +48,7 @@ export default class Transition extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
-    const transitionText = new Anime.Anime(
+    const transitionText = new CSSEffect(
       {
         animatedAttrs: {
           left: "-100%",
@@ -68,7 +66,7 @@ export default class Transition extends MotorCortex.HTMLClip {
       }
     );
 
-    const transitionContainer = new Anime.Anime(
+    const transitionContainer = new CSSEffect(
       {
         animatedAttrs: {
           left: "100%",

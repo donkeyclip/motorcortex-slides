@@ -1,6 +1,4 @@
-import MotorCortex from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class Scrolslide extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
@@ -144,7 +142,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
 
   buildTree() {
     const speed = this.attrs.speed || 2;
-    const moveThird = new Anime.Anime(
+    const moveThird = new CSSEffect(
       {
         animatedAttrs: {
           left: "0%",
@@ -163,7 +161,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       }
     );
 
-    const thirdScaleUp = new Anime.Anime(
+    const thirdScaleUp = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -184,7 +182,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       }
     );
 
-    const moveThirdIner = new Anime.Anime(
+    const moveThirdIner = new CSSEffect(
       {
         animatedAttrs: {
           marginTop: "0%",
@@ -203,7 +201,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       }
     );
 
-    const movePresenter = new Anime.Anime(
+    const movePresenter = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -224,7 +222,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgOut = new Anime.Anime(
+    const bgOut = new CSSEffect(
       {
         animatedAttrs: {
           left: "100%",

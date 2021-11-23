@@ -1,6 +1,4 @@
-import MotorCortex from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class LtRslideTop extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
@@ -113,7 +111,7 @@ export default class LtRslideTop extends MotorCortex.HTMLClip {
 
   buildTree() {
     const speed = this.attrs.speed || 2;
-    const personConMove = new Anime.Anime(
+    const personConMove = new CSSEffect(
       {
         animatedAttrs: {
           paddingTop: "0%",
@@ -130,7 +128,7 @@ export default class LtRslideTop extends MotorCortex.HTMLClip {
       }
     );
 
-    const quarterLeft = new Anime.Anime(
+    const quarterLeft = new CSSEffect(
       {
         animatedAttrs: {
           top: "25%",
@@ -147,7 +145,7 @@ export default class LtRslideTop extends MotorCortex.HTMLClip {
       }
     );
 
-    const bg = new Anime.Anime(
+    const bg = new CSSEffect(
       {
         animatedAttrs: {
           left: "0%",
@@ -164,7 +162,7 @@ export default class LtRslideTop extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgOut = new Anime.Anime(
+    const bgOut = new CSSEffect(
       {
         animatedAttrs: {
           left: "100%",
