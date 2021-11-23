@@ -1,6 +1,6 @@
 {
   "name": "@donkeyclip/motorcortex-slides",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Slides plugin for MotorCortex",
   "main": "dist/motorcortex-slides.cjs.js",
   "module": "dist/motorcortex-slides.esm.js",
