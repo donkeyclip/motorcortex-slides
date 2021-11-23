@@ -1,6 +1,4 @@
-import MotorCortex from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class Intro extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
@@ -197,7 +195,7 @@ export default class Intro extends MotorCortex.HTMLClip {
 
   buildTree() {
     const speed = this.attrs.speed || 2;
-    const titleanime = new Anime.Anime(
+    const titleanime = new CSSEffect(
       {
         animatedAttrs: {
           width: "100%",
@@ -214,7 +212,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const bg = new Anime.Anime(
+    const bg = new CSSEffect(
       {
         animatedAttrs: {
           backgroundSize: "3000px",
@@ -231,7 +229,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const subtextRight = new Anime.Anime(
+    const subtextRight = new CSSEffect(
       {
         animatedAttrs: {
           right: "0%",
@@ -248,7 +246,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const subholderRight = new Anime.Anime(
+    const subholderRight = new CSSEffect(
       {
         animatedAttrs: {
           right: "0%",
@@ -265,7 +263,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const subtitleRight = new Anime.Anime(
+    const subtitleRight = new CSSEffect(
       {
         animatedAttrs: {
           left: `${
@@ -286,7 +284,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const datespan = new Anime.Anime(
+    const datespan = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -307,7 +305,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const dateHolderWidth = new Anime.Anime(
+    const dateHolderWidth = new CSSEffect(
       {
         animatedAttrs: {
           width: "45%",
@@ -323,7 +321,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const scaleFirstSlide = new Anime.Anime(
+    const scaleFirstSlide = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -344,7 +342,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const description = new Anime.Anime(
+    const description = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -365,7 +363,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const descriptiontext = new Anime.Anime(
+    const descriptiontext = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -386,7 +384,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgQut = new Anime.Anime(
+    const bgQut = new CSSEffect(
       {
         animatedAttrs: {
           transform: {

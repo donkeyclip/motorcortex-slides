@@ -1,6 +1,4 @@
-import MotorCortex from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class SlideDateTwo extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
@@ -252,7 +250,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
 
   buildTree() {
     const speed = this.attrs.speed || 2;
-    const bgMove = new Anime.Anime(
+    const bgMove = new CSSEffect(
       {
         animatedAttrs: {
           left: "0%",
@@ -269,7 +267,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const secondSlide = new Anime.Anime(
+    const secondSlide = new CSSEffect(
       {
         animatedAttrs: {
           left: "0%",
@@ -286,7 +284,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const bigTitle = new Anime.Anime(
+    const bigTitle = new CSSEffect(
       {
         animatedAttrs: {
           left: "-1500px",
@@ -301,7 +299,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgscaledown = new Anime.Anime(
+    const bgscaledown = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -322,7 +320,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgscaledownMove = new Anime.Anime(
+    const bgscaledownMove = new CSSEffect(
       {
         animatedAttrs: {
           left: "-25%",
@@ -339,7 +337,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgsecondscaledownMove = new Anime.Anime(
+    const bgsecondscaledownMove = new CSSEffect(
       {
         animatedAttrs: {
           left: "25%",
@@ -356,7 +354,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const secondBgDate = new Anime.Anime(
+    const secondBgDate = new CSSEffect(
       {
         animatedAttrs: {
           left: "5%",
@@ -373,7 +371,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const moveSecond = new Anime.Anime(
+    const moveSecond = new CSSEffect(
       {
         animatedAttrs: {
           left: "-175%",
@@ -388,7 +386,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const movePresenterSlide = new Anime.Anime(
+    const movePresenterSlide = new CSSEffect(
       {
         animatedAttrs: {
           top: "0%",
@@ -405,7 +403,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const movePresenterSlideLeft = new Anime.Anime(
+    const movePresenterSlideLeft = new CSSEffect(
       {
         animatedAttrs: {
           top: "0%",
@@ -422,7 +420,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const moveBig = new Anime.Anime(
+    const moveBig = new CSSEffect(
       {
         animatedAttrs: {
           left: "0%",
@@ -439,7 +437,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
       }
     );
 
-    const moveBigOut = new Anime.Anime(
+    const moveBigOut = new CSSEffect(
       {
         animatedAttrs: {
           top: "-100%",

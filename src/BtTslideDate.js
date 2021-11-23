@@ -1,6 +1,4 @@
-import MotorCortex from "@donkeyclip/motorcortex";
-import AnimeDefinition from "@donkeyclip/motorcortex-anime";
-const Anime = MotorCortex.loadPlugin(AnimeDefinition);
+import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
 
 export default class BtTslideDate extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
@@ -195,7 +193,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
 
   buildTree() {
     const speed = this.attrs.speed || 2;
-    const personConMove = new Anime.Anime(
+    const personConMove = new CSSEffect(
       {
         animatedAttrs: {
           top: "0%",
@@ -212,7 +210,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const quarterLeft = new Anime.Anime(
+    const quarterLeft = new CSSEffect(
       {
         animatedAttrs: {
           top: "0%",
@@ -229,7 +227,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bg = new Anime.Anime(
+    const bg = new CSSEffect(
       {
         animatedAttrs: {
           top: "0%",
@@ -246,7 +244,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgscaledown = new Anime.Anime(
+    const bgscaledown = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -267,7 +265,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgscaledownMove = new Anime.Anime(
+    const bgscaledownMove = new CSSEffect(
       {
         animatedAttrs: {
           left: "25%",
@@ -284,7 +282,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgsecondscaledownMove = new Anime.Anime(
+    const bgsecondscaledownMove = new CSSEffect(
       {
         animatedAttrs: {
           left: "-25%",
@@ -301,7 +299,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgscaleup = new Anime.Anime(
+    const bgscaleup = new CSSEffect(
       {
         animatedAttrs: {
           transform: {
@@ -322,7 +320,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgscaledownMoveOut = new Anime.Anime(
+    const bgscaledownMoveOut = new CSSEffect(
       {
         animatedAttrs: {
           left: "100%",
@@ -339,7 +337,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgsecondscaledownMoveOut = new Anime.Anime(
+    const bgsecondscaledownMoveOut = new CSSEffect(
       {
         animatedAttrs: {
           left: "0%",
@@ -356,7 +354,7 @@ export default class BtTslideDate extends MotorCortex.HTMLClip {
       }
     );
 
-    const bgMoveOut = new Anime.Anime(
+    const bgMoveOut = new CSSEffect(
       {
         animatedAttrs: {
           left: "100%",
