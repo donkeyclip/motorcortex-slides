@@ -4086,12 +4086,17 @@ var VideoClip = /*#__PURE__*/function (_BrowserClip) {
       return "\n      #video{\n        display:none;\n      }\n    ";
     }
   }, {
+    key: "setVolume",
+    value: function setVolume(volume) {
+      this.video.volume = volume;
+    }
+  }, {
     key: "onAfterRender",
     value: function onAfterRender() {
       var _this2 = this;
 
-      var video = this.context.getElements("video")[0]; // video.muted = true;
-
+      var video = this.context.getElements("video")[0];
+      this.video = video;
       var canvas = this.context.getElements("canvas")[0];
       var ctx = canvas.getContext("2d");
 
@@ -4116,8 +4121,18 @@ var VideoClip = /*#__PURE__*/function (_BrowserClip) {
       if (this.attrs.audio === false) {
         video.muted = true;
       } else {
-        video.crossOrigin = "anonymous";
-        this.DescriptiveIncident.attachMediaElementSource(video);
+        var that = this;
+        /*
+          The execution of this code occurs moments before the DescriptiveClip of this RealClip actually gets accepted and attached to the Descriptive Tree it tries to enter. 
+          It occurs on the Descriptive Incident of the Root Clip of the tree it tries to enter. 
+          We don’t want to move the responsibility of the execution of the actual clips rendering anywhere else for the time being but we prefer keeping it to the Descriptive Clip Root level, as it is right now. For this the setTimeout(funct, 0) ensures that this block of code will be executed RIGHT after the Descriptive Clip gets accepted and attached to the Descriptive Tree. Sorry about that :slightly_smiling_face:
+        */
+
+        setTimeout(function () {
+          video.crossOrigin = "anonymous";
+          var res = that.DescriptiveIncident.volumeChangeSubscribe(that.id, that.setVolume.bind(that));
+          that.setVolume(res);
+        }, 0);
       }
     }
   }]);
@@ -4138,7 +4153,9 @@ var VideoPlay = /*#__PURE__*/function (_MediaPlayback) {
 
   _createClass(VideoPlay, [{
     key: "play",
-    value: function play() {
+    value: function
+    /*millisecond*/
+    play() {
       var video = this.element.entity.video;
       video.play();
 
@@ -4268,10 +4285,125 @@ var VideoEffect = /*#__PURE__*/function (_Effect) {
 }(MotorCortex.Effect);
 
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "1.2.0";
-var index$1 = {
-  npm_name: name$1,
+var version$1 = "1.2.1";
+var main = "dist/motorcortex-video.cjs.js";
+var module$1 = "dist/motorcortex-video.esm.js";
+var browser = "dist/motorcortex-video.umd.js";
+var repository = "https://github.com/kissmybutton/motorcortex-video";
+var author = "KissMyButton PC (kissmybutton.gr) <opensource@kissmybutton.gr>";
+var license = "MIT";
+var engines = {
+  node: ">=10"
+};
+var scripts = {
+  "update:packages": "npm update --save/--save-dev",
+  concurrently: "concurrently -c \"cyan.bold,magenta.bold\" --names \"JS,Styles\"",
+  "lint:styles": "stylelint  --allow-empty-input \"src/**.css\" \"src/**/*.scss\" --config .stylelintrc.json",
+  "lint:js": "eslint -c .eslintrc src/**/*.js",
+  lint: "npm run concurrently \"npm:lint:js\" \"npm:lint:styles\"",
+  "lint:fix": "npm run concurrently  \"npm:lint:js -- --fix\" \"npm:lint:styles -- --fix\"",
+  build: "npm run build:lib && npm run build:demo",
+  "build:lib": "rollup -c",
+  start: "npm run build:lib && concurrently -c \"cyan.bold,magenta.bold\" \"npm:build:lib -- -w\"  \"npm:start:demo\" ",
+  "start:demo": "webpack serve --config ./demo/webpack.config.js --mode=development --progress ",
+  "build:demo": "webpack --mode=production --config ./demo/webpack.config.js",
+  "test:prod": "npm run lint",
+  "report-coverage": "cat ./coverage/lcov.info | coveralls",
+  commit: "git-cz",
+  prebuild: "rimraf dist",
+  prepare: "husky install"
+};
+var keywords = ["motorcortex", "animation"];
+var release = {
+  verifyConditions: ["@semantic-release/changelog", "@semantic-release/npm", "@semantic-release/github", "@semantic-release/git"],
+  prepare: ["@semantic-release/changelog", "@semantic-release/npm", "@semantic-release/git"]
+};
+var config = {
+  commitizen: {
+    path: "cz-conventional-changelog"
+  }
+};
+var devDependencies = {
+  "@babel/cli": "7.16.0",
+  "@babel/core": "7.16.0",
+  "@babel/preset-env": "7.16.0",
+  "@commitlint/cli": "14.1.0",
+  "@commitlint/config-conventional": "14.1.0",
+  "@donkeyclip/motorcortex": ">=7.5.5",
+  "@donkeyclip/motorcortex-player": "2.3.6",
+  "@rollup/plugin-json": "4.1.0",
+  "@semantic-release/changelog": "6.0.1",
+  "@semantic-release/git": "10.0.1",
+  "@semantic-release/github": "8.0.1",
+  "@semantic-release/npm": "8.0.2",
+  "@size-limit/preset-big-lib": "6.0.4",
+  "babel-eslint": "10.1.0",
+  "babel-loader": "8.2.3",
+  browserslist: "4.17.5",
+  "caniuse-lite": "1.0.30001274",
+  commitizen: "4.2.4",
+  concurrently: "6.3.0",
+  coveralls: "3.1.1",
+  "css-loader": "6.5.0",
+  "cz-conventional-changelog": "3.3.0",
+  "es6-promise": "4.2.8",
+  eslint: "7.32.0",
+  "eslint-config-prettier": "8.3.0",
+  "eslint-config-standard": "16.0.3",
+  "eslint-plugin-babel": "5.3.1",
+  "eslint-plugin-import": "2.25.2",
+  "eslint-plugin-node": "11.1.0",
+  "eslint-plugin-prettier": "4.0.0",
+  "eslint-plugin-standard": "5.0.0",
+  "exports-loader": "3.1.0",
+  husky: "^7.0.0",
+  "imports-loader": "3.1.1",
+  "json-stringify-safe": "5.0.1",
+  "lint-staged": "11.2.6",
+  npx: "10.2.2",
+  prettier: "2.4.1",
+  rimraf: "3.0.2",
+  rollup: "2.59.0",
+  "rollup-plugin-babel": "4.4.0",
+  "rollup-plugin-commonjs": "10.1.0",
+  "rollup-plugin-node-resolve": "5.2.0",
+  "rollup-plugin-terser": "7.0.2",
+  "semantic-release": "18.0.0",
+  shelljs: "0.8.4",
+  "size-limit": "6.0.4",
+  webpack: "5.61.0",
+  "webpack-cli": "4.9.1",
+  "webpack-dev-server": "4.4.0",
+  "whatwg-fetch": "3.6.2"
+};
+var peerDependencies = {
+  "@donkeyclip/motorcortex": ">=7.5.5"
+};
+var pkg = {
+  name: name$1,
   version: version$1,
+  main: main,
+  module: module$1,
+  browser: browser,
+  repository: repository,
+  author: author,
+  license: license,
+  engines: engines,
+  scripts: scripts,
+  keywords: keywords,
+  "lint-staged": {
+    "*.{json,md,yml,yaml}": ["prettier --write"],
+    "*.css": ["prettier --write", "stylelint  \"src/**.css\" --config .stylelintrc.json --fix"],
+    "*.{js,jsx}": ["prettier --write", "eslint --fix"]
+  },
+  release: release,
+  config: config,
+  devDependencies: devDependencies,
+  peerDependencies: peerDependencies
+};
+var index$1 = {
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [{
     exportable: VideoPlay,
     name: "Playback"
