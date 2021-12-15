@@ -391,7 +391,7 @@ var store$2 = sharedStore;
 (shared$5.exports = function (key, value) {
   return store$2[key] || (store$2[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.19.3',
+  version: '3.20.0',
   mode: 'global',
   copyright: '© 2021 Denis Pushkarev (zloirock.ru)'
 });
@@ -880,14 +880,17 @@ var ownKeys = ownKeys$1;
 var getOwnPropertyDescriptorModule$1 = objectGetOwnPropertyDescriptor;
 var definePropertyModule$3 = objectDefineProperty;
 
-var copyConstructorProperties$2 = function (target, source) {
+var copyConstructorProperties$2 = function (target, source, exceptions) {
   var keys = ownKeys(source);
   var defineProperty = definePropertyModule$3.f;
   var getOwnPropertyDescriptor = getOwnPropertyDescriptorModule$1.f;
 
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-    if (!hasOwn$4(target, key)) defineProperty(target, key, getOwnPropertyDescriptor(source, key));
+
+    if (!hasOwn$4(target, key) && !(exceptions && hasOwn$4(exceptions, key))) {
+      defineProperty(target, key, getOwnPropertyDescriptor(source, key));
+    }
   }
 };
 
@@ -1040,7 +1043,7 @@ var constructorRegExp = /^\s*(?:class|function)\b/;
 var exec$2 = uncurryThis$a(constructorRegExp.exec);
 var INCORRECT_TO_STRING = !constructorRegExp.exec(noop);
 
-var isConstructorModern = function (argument) {
+var isConstructorModern = function isConstructor(argument) {
   if (!isCallable$3(argument)) return false;
 
   try {
@@ -1051,7 +1054,7 @@ var isConstructorModern = function (argument) {
   }
 };
 
-var isConstructorLegacy = function (argument) {
+var isConstructorLegacy = function isConstructor(argument) {
   if (!isCallable$3(argument)) return false;
 
   switch (classof$4(argument)) {
@@ -1059,13 +1062,20 @@ var isConstructorLegacy = function (argument) {
     case 'GeneratorFunction':
     case 'AsyncGeneratorFunction':
       return false;
-    // we can't check .prototype since constructors produced by .bind haven't it
   }
 
-  return INCORRECT_TO_STRING || !!exec$2(constructorRegExp, inspectSource(argument));
-}; // `IsConstructor` abstract operation
-// https://tc39.es/ecma262/#sec-isconstructor
+  try {
+    // we can't check .prototype since constructors produced by .bind haven't it
+    // `Function#toString` throws on some built-it function in some legacy engines
+    // (for example, `DOMQuad` and similar in FF41-)
+    return INCORRECT_TO_STRING || !!exec$2(constructorRegExp, inspectSource(argument));
+  } catch (error) {
+    return true;
+  }
+};
 
+isConstructorLegacy.sham = true; // `IsConstructor` abstract operation
+// https://tc39.es/ecma262/#sec-isconstructor
 
 var isConstructor$2 = !construct || fails$8(function () {
   var called;
@@ -1405,9 +1415,11 @@ var hasOwn$2 = hasOwnProperty_1;
 var wellKnownSymbol$4 = wellKnownSymbol$c;
 var TO_STRING_TAG = wellKnownSymbol$4('toStringTag');
 
-var setToStringTag$1 = function (it, TAG, STATIC) {
-  if (it && !hasOwn$2(it = STATIC ? it : it.prototype, TO_STRING_TAG)) {
-    defineProperty$2(it, TO_STRING_TAG, {
+var setToStringTag$1 = function (target, TAG, STATIC) {
+  if (target && !STATIC) target = target.prototype;
+
+  if (target && !hasOwn$2(target, TO_STRING_TAG)) {
+    defineProperty$2(target, TO_STRING_TAG, {
       configurable: true,
       value: TAG
     });
