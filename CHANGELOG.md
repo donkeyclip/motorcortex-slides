@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/donkeyclip/motorcortex-slides/compare/v1.0.24...v1.1.0) (2021-12-23)
+
+
+### Features
+
+* use CSSEffect and remove anime ([d8dca50](https://www.github.com/donkeyclip/motorcortex-slides/commit/d8dca501b102645d9104b37b0f8d56bfe352aef3))
+
+
+### Bug Fixes
+
+* drop code from demo config ([556335c](https://www.github.com/donkeyclip/motorcortex-slides/commit/556335cf25a8b274cf8bc0ea50b0385a732ee6af))
+* fix broken config ([efdb1c3](https://www.github.com/donkeyclip/motorcortex-slides/commit/efdb1c352ec6b9e610ab6551cdb2ce6d2ba4d394))
+* fix broken webpack config ([378440e](https://www.github.com/donkeyclip/motorcortex-slides/commit/378440e75f8f2e40b93d87fa5ef82ac01b85f906))
+* fix bttslide and clear code smell ([a973d37](https://www.github.com/donkeyclip/motorcortex-slides/commit/a973d37ab4eef9a06c599ec5e0e90e2c5684d57b))
+* remove duplicated lines ([b5f2962](https://www.github.com/donkeyclip/motorcortex-slides/commit/b5f29620c1fa59cb86448dd1bf2e3d5de93e70c3))
+* update build and demo files drop old babel config ([321a0eb](https://www.github.com/donkeyclip/motorcortex-slides/commit/321a0ebba8984ef5ffbf4f67644a79e4b707bdac))
+* update build and demo files drop old babel config ([1e3351b](https://www.github.com/donkeyclip/motorcortex-slides/commit/1e3351b89e0374bc2e638616196577ea2a30735d))
+* update build and demo files drop old babel config ([d5f772a](https://www.github.com/donkeyclip/motorcortex-slides/commit/d5f772a46a6a2eeddbfce3f1ebc661924b042125))
+* update rollup deps to latest packages ([cb63156](https://www.github.com/donkeyclip/motorcortex-slides/commit/cb631568cb4b38fc73ef8e97d904705e5b38354c))
+
 ### [1.0.24](https://www.github.com/donkeyclip/motorcortex-slides/compare/v1.0.23...v1.0.24) (2021-09-30)
 
 
