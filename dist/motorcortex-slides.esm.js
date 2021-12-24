@@ -1971,12 +1971,11 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * (this.attrs.speed || 2)), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * (this.attrs.speed || 2)) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
+      return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
     }
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var titleanime = new CSSEffect({
         animatedAttrs: {
           width: "100%"
@@ -1986,7 +1985,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".title-text",
         easing: "easeOutQuad"
       });
@@ -1999,7 +1998,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2800 * speed,
+        duration: 5600,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -2012,7 +2011,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".subtitle-text",
         easing: "easeOutQuad"
       });
@@ -2025,18 +2024,18 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeOutQuad"
       });
       var subtitleRight = new CSSEffect({
         animatedAttrs: {
-          left: "".concat(864 * speed - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
+          left: "".concat(1728 - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
         },
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".sub",
         easing: "easeOutQuad"
       });
@@ -2053,7 +2052,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".date span",
         easing: "easeOutQuad"
       });
@@ -2082,7 +2081,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".first-slide",
         easing: "easeOutQuad"
       });
@@ -2099,7 +2098,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".description",
         easing: "easeOutQuad"
       });
@@ -2116,7 +2115,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 300 * speed,
+        duration: 600,
         selector: ".description-text",
         easing: "easeOutQuad"
       });
@@ -2133,7 +2132,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2141,13 +2140,13 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       this.addIncident(titleanime, 0);
       this.addIncident(subtextRight, 0);
       this.addIncident(subholderRight, 0);
-      this.addIncident(subtitleRight, 1500 * speed);
-      this.addIncident(scaleFirstSlide, 1500 * speed);
-      this.addIncident(description, 1500 * speed);
-      this.addIncident(datespan, 1800 * speed);
-      this.addIncident(dateHolderWidth, 2050 * speed);
-      this.addIncident(descriptiontext, 2500 * speed);
-      this.addIncident(bgQut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(subtitleRight, 3000);
+      this.addIncident(scaleFirstSlide, 3000);
+      this.addIncident(description, 3000);
+      this.addIncident(datespan, 3600);
+      this.addIncident(dateHolderWidth, 4100);
+      this.addIncident(descriptiontext, 5000);
+      this.addIncident(bgQut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -2205,7 +2204,7 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 2000,
         selector: ".transition-text"
       });
       var transitionContainer = new CSSEffect({
@@ -2219,7 +2218,7 @@ var Transition = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 2000,
         selector: ".transition-container"
       });
       this.addIncident(transitionText, 0);
@@ -2785,7 +2784,6 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
     value: function buildTree() {
       var array = this.attrs.title[2].split("");
       var html3;
-      var speed = this.attrs.speed || 2;
       var containerParams = {
         width: "100%",
         height: "100%"
@@ -2816,7 +2814,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           selector: ".letter" + (_i + 1),
           easing: "easeOutQuad"
         });
-        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * speed);
+        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * 2);
       }
 
       var bgMove = new CSSEffect({
@@ -2828,7 +2826,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 1000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2841,7 +2839,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 1000,
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
@@ -2854,7 +2852,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 1000,
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
@@ -2867,7 +2865,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1200 * speed,
+        duration: 2400,
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
@@ -2880,7 +2878,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 1000,
         selector: ".short-description",
         easing: "easeOutQuad"
       });
@@ -2897,7 +2895,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
@@ -2910,7 +2908,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2923,7 +2921,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
@@ -2936,7 +2934,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 1000,
         selector: ".second-date",
         easing: "easeOutQuad"
       });
@@ -2947,7 +2945,7 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 800 * speed,
+        duration: 16000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -2958,21 +2956,21 @@ var SlideDateOne = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlideTitleOne, 300 * speed);
-      this.addIncident(secondSlideTitleTwo, 500 * speed);
-      this.addIncident(wordBg, 500 * speed);
-      this.addIncident(shortDescription, 900 * speed);
-      this.addIncident(bgscaledown, 3700 * speed);
-      this.addIncident(bgscaledownMove, 3700 * speed);
-      this.addIncident(bgsecondscaledownMove, 3700 * speed);
-      this.addIncident(secondBgDate, 3700 * speed);
-      this.addIncident(moveSecond, 6000 * speed);
-      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * speed);
+      this.addIncident(secondSlideTitleOne, 600);
+      this.addIncident(secondSlideTitleTwo, 1000);
+      this.addIncident(wordBg, 1000);
+      this.addIncident(shortDescription, 1800);
+      this.addIncident(bgscaledown, 7400);
+      this.addIncident(bgscaledownMove, 7400);
+      this.addIncident(bgsecondscaledownMove, 7400);
+      this.addIncident(secondBgDate, 7400);
+      this.addIncident(moveSecond, 12000);
+      this.addIncident(moveSecondS, this.calculatedDuration + 1000);
     }
   }]);
 
@@ -3043,7 +3041,6 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var moveThird = new CSSEffect({
         animatedAttrs: {
           left: "0%",
@@ -3055,7 +3052,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
@@ -3072,7 +3069,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
@@ -3087,7 +3084,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -3104,7 +3101,7 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 800 * speed,
+        duration: 1600,
         selector: ".presenter",
         easing: "easeOutQuad"
       });
@@ -3117,15 +3114,15 @@ var Scrolslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".third-holder",
         easing: "easeOutQuad"
       });
       this.addIncident(moveThird, 0);
       this.addIncident(thirdScaleUp, 0);
       this.addIncident(moveThirdIner, 0);
-      this.addIncident(movePresenter, 700 * speed);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(movePresenter, 1400);
+      this.addIncident(bgOut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -3172,7 +3169,6 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var personConMove = new CSSEffect({
         animatedAttrs: {
           left: "50%"
@@ -3180,7 +3176,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".quarter-first-presenter-slide",
         easing: "easeInSine"
       });
@@ -3193,7 +3189,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".quarter-left",
         easing: "easeOutQuad"
       });
@@ -3206,7 +3202,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -3219,14 +3215,14 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(bgOut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -3273,7 +3269,6 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var bgMove = new CSSEffect({
         animatedAttrs: {
           left: "0%"
@@ -3283,7 +3278,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3296,7 +3291,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".second-slide",
         easing: "easeOutCubic"
       });
@@ -3307,7 +3302,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 7400 * speed,
+        duration: 14800,
         selector: ".big-title",
         easing: "easeOutCubic"
       });
@@ -3324,7 +3319,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg,.bg-small",
         easing: "easeOutCubic"
       });
@@ -3350,7 +3345,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg-small",
         easing: "easeOutCubic"
       });
@@ -3363,7 +3358,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".second-date",
         easing: "easeOutCubic"
       });
@@ -3374,7 +3369,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         initialValues: {},
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg-small,.bg",
         easing: "easeOutCubic"
       });
@@ -3387,7 +3382,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
@@ -3400,7 +3395,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3413,7 +3408,7 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg-big",
         easing: "easeOutCubic"
       });
@@ -3426,22 +3421,22 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg-big",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlide, 500 * speed);
+      this.addIncident(secondSlide, 1000);
       this.addIncident(bigTitle, 0);
-      this.addIncident(bgscaledown, 3700 * speed);
-      this.addIncident(bgscaledownMove, 3700 * speed);
-      this.addIncident(bgsecondscaledownMove, 3700 * speed);
-      this.addIncident(secondBgDate, 3700 * speed);
-      this.addIncident(movePresenterSlide, 3700 * speed);
-      this.addIncident(movePresenterSlideLeft, 4000 * speed);
-      this.addIncident(moveSecond, this.calculatedDuration - 3000 * speed);
-      this.addIncident(moveBig, this.calculatedDuration - 3200 * speed);
-      this.addIncident(moveBigOut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(bgscaledown, 7400);
+      this.addIncident(bgscaledownMove, 7400);
+      this.addIncident(bgsecondscaledownMove, 7400);
+      this.addIncident(secondBgDate, 7400);
+      this.addIncident(movePresenterSlide, 7400);
+      this.addIncident(movePresenterSlideLeft, 8000);
+      this.addIncident(moveSecond, this.calculatedDuration - 6000);
+      this.addIncident(moveBig, this.calculatedDuration - 6400);
+      this.addIncident(moveBigOut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -3488,7 +3483,6 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var personConMove = new CSSEffect({
         animatedAttrs: {
           top: "0%"
@@ -3500,7 +3494,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".quarter-first-presenter-slide"
       });
       var quarterLeft = new CSSEffect({
@@ -3514,7 +3508,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 2000 * speed,
+        duration: 4000,
         selector: ".quarter-left"
       });
       var bg = new CSSEffect({
@@ -3528,7 +3522,7 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -3543,14 +3537,14 @@ var BtTslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(bgOut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -3597,7 +3591,6 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var personConMove = new CSSEffect({
         animatedAttrs: {
           top: "0%"
@@ -3607,7 +3600,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".quarter-first-presenter-slide",
         easing: "easeOutCubic"
       });
@@ -3620,7 +3613,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 2000 * speed,
+        duration: 4000,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3633,7 +3626,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg,.fragment",
         easing: "easeOutQuad"
       });
@@ -3650,7 +3643,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
@@ -3663,7 +3656,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3676,7 +3669,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
@@ -3693,7 +3686,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg,.bg-next",
         easing: "easeOutCubic"
       });
@@ -3706,7 +3699,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3719,7 +3712,7 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg-next",
         easing: "easeOutCubic"
       });
@@ -3732,20 +3725,20 @@ var BtTslideDate = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg-next",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgscaledown, 3000 * speed);
-      this.addIncident(bgsecondscaledownMove, 3000 * speed);
-      this.addIncident(bgscaledownMove, 3000 * speed);
-      this.addIncident(bgscaleup, 4000 * speed);
-      this.addIncident(bgscaledownMoveOut, 4000 * speed);
-      this.addIncident(bgsecondscaledownMoveOut, 4000 * speed);
-      this.addIncident(bgMoveOut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(bgscaledown, 6000);
+      this.addIncident(bgsecondscaledownMove, 6000);
+      this.addIncident(bgscaledownMove, 6000);
+      this.addIncident(bgscaleup, 8000);
+      this.addIncident(bgscaledownMoveOut, 8000);
+      this.addIncident(bgsecondscaledownMoveOut, 8000);
+      this.addIncident(bgMoveOut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -3792,7 +3785,6 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var personConMove = new CSSEffect({
         animatedAttrs: {
           paddingTop: "0%"
@@ -3802,7 +3794,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3815,7 +3807,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".quarter-left",
         easing: "easeOutCubic"
       });
@@ -3828,7 +3820,7 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutCubic"
       });
@@ -3841,14 +3833,14 @@ var LtRslideTop = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutCubic"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(bgOut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -3895,7 +3887,6 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var personConMove = new CSSEffect({
         animatedAttrs: {
           paddingBottom: "0%"
@@ -3907,7 +3898,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".quarter-left"
       });
       var quarterLeft = new CSSEffect({
@@ -3921,7 +3912,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".quarter-left"
       });
       var bg = new CSSEffect({
@@ -3935,7 +3926,7 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -3950,14 +3941,14 @@ var RtLslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           easing: "linear"
         }
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
       this.addIncident(bg, 0);
       this.addIncident(personConMove, 0);
       this.addIncident(quarterLeft, 0);
-      this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
+      this.addIncident(bgOut, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -4570,7 +4561,6 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "buildTree",
     value: function buildTree() {
-      var speed = this.attrs.speed || 2;
       var VideoClip = new VideoPlugin.Clip({
         sources: this.attrs.vidLink,
         width: 1920,
@@ -4586,7 +4576,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       });
       this.addIncident(VideoClip, 0);
       VideoClip.addIncident(Playback, 0);
-      var delay = (this.attrs.vidDuration || 6000) - 3000 * speed;
+      var delay = (this.attrs.vidDuration || 6000) - 3000 * 2;
       var array = this.attrs.title[2].split("");
       var html3;
       var containerParams = {
@@ -4619,7 +4609,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           selector: ".letter" + (_i + 1),
           easing: "easeOutQuad"
         });
-        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * speed);
+        word.addIncident(textAnimation, (2000 + 100 * (_i + 1)) * 2);
       }
 
       var bgMove = new CSSEffect({
@@ -4631,7 +4621,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -4644,7 +4634,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".second-slide-titleOne",
         easing: "easeOutQuad"
       });
@@ -4657,7 +4647,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".second-slide-titleTwo",
         easing: "easeOutQuad"
       });
@@ -4670,7 +4660,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1200 * speed,
+        duration: 2400,
         selector: ".word-bg",
         easing: "easeOutQuad"
       });
@@ -4683,7 +4673,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".short-description",
         easing: "easeOutQuad"
       });
@@ -4700,7 +4690,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg,.bg-second",
         easing: "easeOutQuad"
       });
@@ -4713,7 +4703,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg",
         easing: "easeOutQuad"
       });
@@ -4726,7 +4716,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 500 * speed,
+        duration: 1000,
         selector: ".bg-second",
         easing: "easeOutQuad"
       });
@@ -4739,7 +4729,7 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".second-date",
         easing: "easeOutQuad"
       });
@@ -4752,20 +4742,20 @@ var SlideDateOneVid = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         attrs: {}
       }, {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".parent",
         easing: "easeOutQuad"
       });
       this.addIncident(bgMove, 0);
-      this.addIncident(secondSlideTitleOne, 300 * speed);
-      this.addIncident(secondSlideTitleTwo, 500 * speed);
-      this.addIncident(wordBg, 500 * speed);
-      this.addIncident(shortDescription, 900 * speed);
-      this.addIncident(bgscaledown, 3700 * speed + delay);
-      this.addIncident(bgscaledownMove, 3700 * speed + delay);
-      this.addIncident(bgsecondscaledownMove, 3700 * speed + delay);
-      this.addIncident(secondBgDate, 3700 * speed + delay);
-      this.addIncident(moveSecondS, this.calculatedDuration + 1000 * speed);
+      this.addIncident(secondSlideTitleOne, 600);
+      this.addIncident(secondSlideTitleTwo, 1000);
+      this.addIncident(wordBg, 1000);
+      this.addIncident(shortDescription, 1800);
+      this.addIncident(bgscaledown, 7400 + delay);
+      this.addIncident(bgscaledownMove, 7400 + delay);
+      this.addIncident(bgsecondscaledownMove, 7400 + delay);
+      this.addIncident(secondBgDate, 7400 + delay);
+      this.addIncident(moveSecondS, this.calculatedDuration + 2000);
     }
   }]);
 
@@ -4797,11 +4787,6 @@ var introintroVal = {
   description: {
     optional: false,
     type: "string"
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   },
   overlayColor: {
     optional: true,
@@ -4877,11 +4862,6 @@ var SlideDateOneVidintroVal = {
   mainColor: {
     optional: true,
     type: _COLOR
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 var SlideDateOneintroVal = {
@@ -4935,11 +4915,6 @@ var SlideDateOneintroVal = {
   mainColor: {
     optional: true,
     type: _COLOR
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 var prisenterintroVal = {
@@ -4971,11 +4946,6 @@ var prisenterintroVal = {
   mainColor: {
     optional: true,
     type: _COLOR
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 var SlideDateTwointroVal = {
@@ -5035,11 +5005,6 @@ var SlideDateTwointroVal = {
   dateOverlay: {
     optional: true,
     type: _COLOR
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 var BtTslideDateintroVal = {
@@ -5095,22 +5060,12 @@ var BtTslideDateintroVal = {
   dateOverlay: {
     optional: true,
     type: _COLOR
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 var transitionintroVal = {
   title: {
     optional: true,
     type: "string"
-  },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
   }
 };
 

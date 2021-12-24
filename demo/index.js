@@ -73,7 +73,6 @@ const introClip = new Clip.Intro(
       "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg",
     overlayColor: overlay,
     mainColor: main,
-    speed: 2,
   },
   {
     selector: ".container1",
@@ -96,7 +95,6 @@ const dayOne = new Clip.SlideDateOneVid(
     day: `monday`,
     dayNumber: 20,
     year: 2019,
-    speed: 2,
     vidDuration: 6000,
     vidLink: [
       "https://donkey-spaces.ams3.digitaloceanspaces.com/assets/motorcortex-slides/vid.mp4",
@@ -116,7 +114,6 @@ const scrolPresenter = new Clip.Scrolslide(
       "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg",
     overlayColor: overlay,
     mainColor: main,
-    speed: 2,
   },
   {
     selector: ".container4",
@@ -132,7 +129,6 @@ const ltrPresenter = new Clip.LtRslide(
       "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg",
     overlayColor: overlay,
     mainColor: main,
-    speed: 2,
   },
   {
     selector: ".container6",
@@ -156,7 +152,6 @@ const dayTwo = new Clip.SlideDateTwo(
     day: `monday`,
     dayNumber: 22,
     year: 2019,
-    speed: 2,
   },
   {
     selector: ".container7",
@@ -172,7 +167,6 @@ const bttPresenter = new Clip.BtTslide(
       "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg",
     overlayColor: overlay,
     mainColor: main,
-    speed: 2,
   },
   {
     selector: ".container10",
@@ -195,7 +189,6 @@ const bttDay = new Clip.BtTslideDate(
     day: `monday`,
     dayNumber: 21,
     year: 2019,
-    speed: 2,
   },
   {
     selector: ".container16",
