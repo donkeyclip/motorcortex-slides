@@ -98,18 +98,12 @@ export default class Intro extends MotorCortex.HTMLClip {
       
       .title {
         color: ${this.attrs.mainColor || "#00ff40"};
-        font-size: ${this.dinamicFontSize(
-          this.attrs.title.length,
-          864 * (this.attrs.speed || 2)
-        )}px;
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 864 * 2)}px;
         font-weight: 700;
         font-family: 'Roboto Mono', monospace;
         text-transform: uppercase;
         margin-top:-${
-          this.dinamicFontSize(
-            this.attrs.title.length,
-            864 * (this.attrs.speed || 2)
-          ) / 2.6
+          this.dinamicFontSize(this.attrs.title.length, 864 * 2) / 2.6
         }px;
         overflow: hidden;
         display: flex;
@@ -194,7 +188,6 @@ export default class Intro extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
-    const speed = this.attrs.speed || 2;
     const titleanime = new CSSEffect(
       {
         animatedAttrs: {
@@ -206,7 +199,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".title-text",
         easing: "easeOutQuad",
       }
@@ -223,7 +216,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 2800 * speed,
+        duration: 5600,
         selector: ".bg",
         easing: "easeOutCubic",
       }
@@ -240,7 +233,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".subtitle-text",
         easing: "easeOutQuad",
       }
@@ -257,7 +250,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".subtitle-holder",
         easing: "easeOutQuad",
       }
@@ -267,7 +260,7 @@ export default class Intro extends MotorCortex.HTMLClip {
       {
         animatedAttrs: {
           left: `${
-            864 * speed -
+            1728 -
             (this.dinamicFontSize(this.attrs.subtitle.length, 864) *
               0.6 *
               this.attrs.subtitle.length,
@@ -278,7 +271,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".sub",
         easing: "easeOutQuad",
       }
@@ -299,7 +292,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".date span",
         easing: "easeOutQuad",
       }
@@ -336,7 +329,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".first-slide",
         easing: "easeOutQuad",
       }
@@ -357,7 +350,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".description",
         easing: "easeOutQuad",
       }
@@ -378,7 +371,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 300 * speed,
+        duration: 600,
         selector: ".description-text",
         easing: "easeOutQuad",
       }
@@ -399,7 +392,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -409,12 +402,12 @@ export default class Intro extends MotorCortex.HTMLClip {
     this.addIncident(titleanime, 0);
     this.addIncident(subtextRight, 0);
     this.addIncident(subholderRight, 0);
-    this.addIncident(subtitleRight, 1500 * speed);
-    this.addIncident(scaleFirstSlide, 1500 * speed);
-    this.addIncident(description, 1500 * speed);
-    this.addIncident(datespan, 1800 * speed);
-    this.addIncident(dateHolderWidth, 2050 * speed);
-    this.addIncident(descriptiontext, 2500 * speed);
-    this.addIncident(bgQut, this.calculatedDuration + 1000 * speed);
+    this.addIncident(subtitleRight, 3000);
+    this.addIncident(scaleFirstSlide, 3000);
+    this.addIncident(description, 3000);
+    this.addIncident(datespan, 3600);
+    this.addIncident(dateHolderWidth, 4100);
+    this.addIncident(descriptiontext, 5000);
+    this.addIncident(bgQut, this.calculatedDuration + 2000);
   }
 }

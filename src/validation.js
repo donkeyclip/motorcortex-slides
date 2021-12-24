@@ -3,42 +3,38 @@ const _COLOR = "color";
 export const introintroVal = {
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   subtitle: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   month: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   bgUrl: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   mainColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   description: {
     optional: false,
-    type: "string"
+    type: "string",
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  },
+
   overlayColor: {
     optional: true,
     type: "array",
     min: 2,
     items: {
       optional: true,
-      type: _COLOR
-    }
-  }
+      type: _COLOR,
+    },
+  },
 };
 
 export const SlideDateOneVidintroVal = {
@@ -49,32 +45,32 @@ export const SlideDateOneVidintroVal = {
     max: 3,
     items: {
       optional: false,
-      type: "string"
-    }
+      type: "string",
+    },
   },
   description: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   month: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   day: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   dayNumber: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   year: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   vidDuration: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   vidLink: {
     optional: true,
@@ -82,16 +78,16 @@ export const SlideDateOneVidintroVal = {
     min: 1,
     items: {
       optional: true,
-      type: "string"
-    }
+      type: "string",
+    },
   },
   bgUrl: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   bgUrl2: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   overlayColor: {
     optional: true,
@@ -99,18 +95,13 @@ export const SlideDateOneVidintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR
-    }
+      type: _COLOR,
+    },
   },
   mainColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
 };
 
 export const SlideDateOneintroVal = {
@@ -121,36 +112,36 @@ export const SlideDateOneintroVal = {
     max: 3,
     items: {
       optional: false,
-      type: "string"
-    }
+      type: "string",
+    },
   },
   description: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   month: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   day: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   dayNumber: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   year: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   bgUrl: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   bgUrl2: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   overlayColor: {
     optional: true,
@@ -158,36 +149,31 @@ export const SlideDateOneintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR
-    }
+      type: _COLOR,
+    },
   },
   mainColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
 };
 
 export const prisenterintroVal = {
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   name: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   position: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   bgUrl: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   overlayColor: {
     optional: true,
@@ -195,60 +181,55 @@ export const prisenterintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR
-    }
+      type: _COLOR,
+    },
   },
   mainColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
 };
 
 export const SlideDateTwointroVal = {
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   bigTitle: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   name: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   position: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   month: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   day: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   dayNumber: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   year: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   bgUrl: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   bgUrl2: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   overlayColor: {
     optional: true,
@@ -256,60 +237,55 @@ export const SlideDateTwointroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR
-    }
+      type: _COLOR,
+    },
   },
   mainColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   dateOverlay: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
 };
 
 export const BtTslideDateintroVal = {
   title: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   name: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   position: {
     optional: false,
-    type: "string"
+    type: "string",
   },
   month: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   day: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   dayNumber: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   year: {
     optional: true,
-    type: "number"
+    type: "number",
   },
   bgUrl: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   bgUrl2: {
     optional: true,
-    type: "string"
+    type: "string",
   },
   overlayColor: {
     optional: true,
@@ -317,32 +293,22 @@ export const BtTslideDateintroVal = {
     min: 2,
     items: {
       optional: true,
-      type: _COLOR
-    }
+      type: _COLOR,
+    },
   },
   mainColor: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
   dateOverlay: {
     optional: true,
-    type: _COLOR
+    type: _COLOR,
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
 };
 
 export const transitionintroVal = {
   title: {
     optional: true,
-    type: "string"
+    type: "string",
   },
-  speed: {
-    optional: true,
-    type: "number",
-    min: 0
-  }
 };

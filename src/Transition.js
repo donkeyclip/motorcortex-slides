@@ -61,7 +61,7 @@ export default class Transition extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 2000,
         selector: ".transition-text",
       }
     );
@@ -79,7 +79,7 @@ export default class Transition extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * (this.attrs.speed || 2),
+        duration: 2000,
         selector: ".transition-container",
       }
     );

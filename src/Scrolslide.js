@@ -141,7 +141,6 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
-    const speed = this.attrs.speed || 2;
     const moveThird = new CSSEffect(
       {
         animatedAttrs: {
@@ -155,7 +154,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".third-holder",
         easing: "easeOutQuad",
       }
@@ -176,7 +175,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".third-holder",
         easing: "easeOutQuad",
       }
@@ -195,7 +194,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1500 * speed,
+        duration: 3000,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -216,7 +215,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 800 * speed,
+        duration: 1600,
         selector: ".presenter",
         easing: "easeOutQuad",
       }
@@ -233,7 +232,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
         attrs: {},
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".third-holder",
         easing: "easeOutQuad",
       }
@@ -242,7 +241,7 @@ export default class Scrolslide extends MotorCortex.HTMLClip {
     this.addIncident(moveThird, 0);
     this.addIncident(thirdScaleUp, 0);
     this.addIncident(moveThirdIner, 0);
-    this.addIncident(movePresenter, 700 * speed);
-    this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
+    this.addIncident(movePresenter, 1400);
+    this.addIncident(bgOut, this.calculatedDuration + 2000);
   }
 }

@@ -1,7 +1,7 @@
-
 # motorcortex-slides
 
 ## Demo
+
 [Check it out here](https://donkeyclip.github.io/motorcortex-slides/demo/index.html)
 
 ## Installation
@@ -32,31 +32,29 @@ const introClip = new Clip.Intro(
     description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
-    month: "December"
-    bgUrl: "./kissmybutonbg.jpg",
-    overlayColor: "#ff00004d",
-    mainColor: "blue",
-    speed: 2
+    month: "December",
+    bgUrl:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg",
+    overlayColor: ["#101820D7", "#101820FF"],
+    mainColor: "#FEE715FF",
   },
   {
-    selector: ".container1"
+    selector: ".container1",
   }
 );
 ```
 
 ### introClip Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| subtitle   | subtitle text | string |
-| description |  description text   |  string |
-| month |  the month  |  string  |
-| bgUrl |  the path of background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc) |
-| mainColor |  the main color of elements  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                  Are                  |                                            Values |
+| ------------ | :-----------------------------------: | ------------------------------------------------: |
+| title        |              title text               |                                            string |
+| subtitle     |             subtitle text             |                                            string |
+| description  |           description text            |                                            string |
+| month        |               the month               |                                            string |
+| bgUrl        |     the path of background image      |                                            string |
+| overlayColor | the overlay color of background image | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |      the main color of elements       | hex values or RGB(A) or text ("blue", "red", etc) |
 
 ## transition
 
@@ -64,66 +62,67 @@ const introClip = new Clip.Intro(
 const transition = new Clip.Transition(
   {
     title: "test",
-    speed: 2
+    speed: 2,
   },
   {
-    selector: ".container2"
+    selector: ".container2",
   }
 );
 ```
 
 ### transition Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name  |              Are               |     Values |
+| ----- | :----------------------------: | ---------: |
+| title |           title text           |     string |
+| speed | animation speed. Defaults to 1 | num, min:0 |
 
 ## SlideDateOne
 
 ```javascript
-const dayOne = new Clip.SlideDateOne(
+new Clip.SlideDateOneVid(
   {
-    subtitle: "MOTORCORTEX TEAM",
-    titleone: "the",
-    str: "Present",
+    title: ["the", "MOTORCORTEX TEAM", "Presents"],
     description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam
     eveniet eosdsdawdw numquam facilis libero iure natus, voluptatibus
     deserunt laboriosam, perspiciatis consequatur nostrum.`,
-    bgUrl: "./kissmybutonbg.jpg",
-    overlayColor: "#ff00004d",
-    mainColor: "blue",
-    bgUrl2: "./bg2.jpg",
+    bgUrl:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg",
+    overlayColor: ["#101820D7", "#101820FF"],
+    mainColor: "#FEE715FF",
+    bgUrl2:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg",
     month: "December",
     day: `monday`,
-    number: "20",
-    year: "2019",
-    speed: 2
+    dayNumber: 20,
+    year: 2019,
+    vidDuration: 6000,
+    vidLink: [
+      "https://donkey-spaces.ams3.digitaloceanspaces.com/assets/motorcortex-slides/vid.mp4",
+    ],
   },
   {
-    selector: ".container3"
+    selector: ".container3",
   }
 );
 ```
 
 ### SlideDateOne Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| subtitle   | subtitle text | string |
-| description |  description text   |  string |
-| month |  the month  |  string  |
-| day |  the day name  |  string  |
-| number |  the number of day  |  string  |
-| year |  the year |  string  |
-| bgUrl |  the path of background image |  string  |
-| bgUrl2 |  the path of second background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elements  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                  Are                  |                                            Values |
+| ------------ | :-----------------------------------: | ------------------------------------------------: |
+| title        |              title text               |                                            string |
+| subtitle     |             subtitle text             |                                            string |
+| description  |           description text            |                                            string |
+| month        |               the month               |                                            string |
+| day          |             the day name              |                                            string |
+| number       |           the number of day           |                                            string |
+| year         |               the year                |                                            string |
+| bgUrl        |     the path of background image      |                                            string |
+| bgUrl2       |  the path of second background image  |                                            string |
+| overlayColor | the overlay color of background image | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |      the main color of elements       | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
 ## Scrolslide
 
@@ -131,31 +130,30 @@ const dayOne = new Clip.SlideDateOne(
 const scrolPresenter = new Clip.Scrolslide(
   {
     title: "Presenter",
-    name: "JOE SMO",
-    position: "Web developer at KissMyButton",
-    bgUrl: "./bg3.jpg",
-    overlayColor: "#ff00004d",
-    mainColor: "blue",
-    speed: 2
+    name: "name surname",
+    position: "Web developer at kissmybuton",
+    bgUrl:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg",
+    overlayColor: ["#101820D7", "#101820FF"],
+    mainColor: main,
   },
   {
-    selector: ".container4"
+    selector: ".container4",
   }
 );
 ```
 
 ### Scrolslide Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| name   |  second title | string |
-| position |  subtitle   |  string |
-| bgUrl |  the path of background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elements  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                  Are                  |                                            Values |
+| ------------ | :-----------------------------------: | ------------------------------------------------: |
+| title        |              title text               |                                            string |
+| name         |             second title              |                                            string |
+| position     |               subtitle                |                                            string |
+| bgUrl        |     the path of background image      |                                            string |
+| overlayColor | the overlay color of background image | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |      the main color of elements       | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
 ## LtRslide
 
@@ -163,31 +161,30 @@ const scrolPresenter = new Clip.Scrolslide(
 const ltrPresenter = new Clip.LtRslide(
   {
     title: "Presenter",
-    name: "JOE SMO",
-    position: "Web developer at KissMyButton",
-    bgUrl: "./bg4.jpg",
-    overlayColor: "#ff00004d",
-    mainColor: "blue",
-    speed: 2
+    name: "name surname",
+    position: "Web developer at kissmybuton",
+    bgUrl:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg",
+    overlayColor: ["#101820D7", "#101820FF"],
+    mainColor: main,
   },
   {
-    selector: ".container6"
+    selector: ".container6",
   }
 );
 ```
 
 ### LtRslide Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| name   |  second title | string |
-| position |  (secondary subtitle, can used to describe the job position of the presenter)   |  string |
-| bgUrl |  the path of background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elements  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                                     Are                                      |                                            Values |
+| ------------ | :--------------------------------------------------------------------------: | ------------------------------------------------: |
+| title        |                                  title text                                  |                                            string |
+| name         |                                 second title                                 |                                            string |
+| position     | (secondary subtitle, can used to describe the job position of the presenter) |                                            string |
+| bgUrl        |                         the path of background image                         |                                            string |
+| overlayColor |                    the overlay color of background image                     | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |                          the main color of elements                          | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |                        animation speed. Defaults to 1                        |                                        num, min:0 |
 
 ## SlideDateTwo
 
@@ -195,45 +192,45 @@ const ltrPresenter = new Clip.LtRslide(
 const dayTwo = new Clip.SlideDateTwo(
   {
     title: "Presenter",
-    name: "JOE SMO",
-    position: "Web developer at KissMyButton",
+    name: "name surname",
+    position: "Web developer at kissmybuton",
     bigTitle: "Event",
-    bgUrl: "./bg5.jpg",
-    overlayColor: "#ff00b34d",
+    bgUrl:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg",
+    overlayColor: ["#101820D7", "#101820FF"],
     dateOverlay: "#ff00b3",
     mainColor: "#00ff40",
-    bgUrl2: "./bg2.jpg",
+    bgUrl2:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg",
     month: "December",
     day: `monday`,
-    number: "20",
-    year: "2019",
-    speed: 2
+    dayNumber: 22,
+    year: 2019,
   },
   {
-    selector: ".container7"
+    selector: ".container7",
   }
 );
 ```
 
 ### SlideDateTwo Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| bigTitle     | big title title text  | string |
-| name   |  second title | string |
-| position |  (secondary subtitle, can used to describe the job position of the presenter)  |  string |
-| month |  the month  |  string  |
-| day |  the day name  |  string  |
-| number |  the number of day  |  string  |
-| year |  the year |  string  |
-| bgUrl |  the path of background image |  string  |
-| bgUrl2 |  the path of second background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| dateOverlay |  the overlay color of date container |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elementes  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                                     Are                                      |                                            Values |
+| ------------ | :--------------------------------------------------------------------------: | ------------------------------------------------: |
+| title        |                                  title text                                  |                                            string |
+| bigTitle     |                             big title title text                             |                                            string |
+| name         |                                 second title                                 |                                            string |
+| position     | (secondary subtitle, can used to describe the job position of the presenter) |                                            string |
+| month        |                                  the month                                   |                                            string |
+| day          |                                 the day name                                 |                                            string |
+| number       |                              the number of day                               |                                            string |
+| year         |                                   the year                                   |                                            string |
+| bgUrl        |                         the path of background image                         |                                            string |
+| bgUrl2       |                     the path of second background image                      |                                            string |
+| overlayColor |                    the overlay color of background image                     | hex values or RGB(A) or text ("blue", "red", etc) |
+| dateOverlay  |                     the overlay color of date container                      | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |                         the main color of elementes                          | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |                        animation speed. Defaults to 1                        |                                        num, min:0 |
 
 ## BtTslide
 
@@ -241,75 +238,74 @@ const dayTwo = new Clip.SlideDateTwo(
 const bttPresenter = new Clip.BtTslide(
   {
     title: "Presenter",
-    name: "JOE SMO",
-    position: "Web developer at KissMyButton",
-    bgUrl: "./bg4.jpg",
-    overlayColor: "#ff00004d",
-    mainColor: "blue",
-    speed: 2
+    name: "name surname",
+    position: "Web developer at kissmybuton",
+    bgUrl:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg",
+    overlayColor: ["#101820D7", "#101820FF"],
+    mainColor: main,
   },
   {
-    selector: ".container4"
+    selector: ".container10",
   }
 );
 ```
 
 ### BtTslide Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| name   |  second title | string |
-| position |  (secondary subtitle, can used to describe the job position of the presenter)   |  string |
-| bgUrl |  the path of background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elementes  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                                     Are                                      |                                            Values |
+| ------------ | :--------------------------------------------------------------------------: | ------------------------------------------------: |
+| title        |                                  title text                                  |                                            string |
+| name         |                                 second title                                 |                                            string |
+| position     | (secondary subtitle, can used to describe the job position of the presenter) |                                            string |
+| bgUrl        |                         the path of background image                         |                                            string |
+| overlayColor |                    the overlay color of background image                     | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |                         the main color of elementes                          | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |                        animation speed. Defaults to 1                        |                                        num, min:0 |
 
 ## BtTslideDate
 
 ```javascript
 const bttDay = new Clip.BtTslideDate(
   {
-    title: "Presenter",
-    name: "JOE SMO",
-    position: "Web developer at KissMyButton",
-    bgUrl: "./bg3.jpg",
-    overlayColor: "#ff00b34d",
+    title: "PresenterTEST",
+    name: "name surname",
+    position: "Web developer at kissmybuton",
+    bgUrl:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg",
+    overlayColor: ["#101820D7", "#101820FF"],
     dateOverlay: "#ff00b3",
     mainColor: "#00ff40",
-    bgUrl2: "./bg2.jpg",
+    bgUrl2:
+      "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg",
     month: "December",
     day: `monday`,
-    number: "20",
-    year: "2019",
-    speed: 2
+    dayNumber: 21,
+    year: 2019,
   },
   {
-    selector: ".container10"
+    selector: ".container16",
   }
 );
 ```
 
 ### BtTslideDate Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| name   |  second title | string |
-| position |  subtitle   |  string |
-| month |  the month  |  string  |
-| day |  the day name  |  string  |
-| number |  the number of day  |  string  |
-| year |  the year |  string  |
-| bgUrl |  the path of background image |  string  |
-| bgUrl2 |  the path of second background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| dateOverlay |  the overlay color of date container |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elementes  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                  Are                  |                                            Values |
+| ------------ | :-----------------------------------: | ------------------------------------------------: |
+| title        |              title text               |                                            string |
+| name         |             second title              |                                            string |
+| position     |               subtitle                |                                            string |
+| month        |               the month               |                                            string |
+| day          |             the day name              |                                            string |
+| number       |           the number of day           |                                            string |
+| year         |               the year                |                                            string |
+| bgUrl        |     the path of background image      |                                            string |
+| bgUrl2       |  the path of second background image  |                                            string |
+| overlayColor | the overlay color of background image | hex values or RGB(A) or text ("blue", "red", etc) |
+| dateOverlay  |  the overlay color of date container  | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |      the main color of elementes      | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
 ## LtRslideTop
 
@@ -320,28 +316,27 @@ const ltrPresenterTop = new Clip.LtRslideTop(
     name: "JOE SMO",
     position: "Web developer at KissMyButton",
     bgUrl: "./bg2.jpg",
-    overlayColor: "#ff00004d",
+    overlayColor: ["#101820D7", "#101820FF"],
     mainColor: "blue",
-    speed: 2
+    speed: 2,
   },
   {
-    selector: ".container11"
+    selector: ".container11",
   }
 );
 ```
 
 ### LtRslideTop Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| name   |  second title | string |
-| position |  subtitle   |  string |
-| bgUrl |  the path of background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elementes  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                  Are                  |                                            Values |
+| ------------ | :-----------------------------------: | ------------------------------------------------: |
+| title        |              title text               |                                            string |
+| name         |             second title              |                                            string |
+| position     |               subtitle                |                                            string |
+| bgUrl        |     the path of background image      |                                            string |
+| overlayColor | the overlay color of background image | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |      the main color of elementes      | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
 ## RtLslide
 
@@ -352,38 +347,36 @@ const rtlPresenter = new Clip.RtLslide(
     name: "JOE SMO",
     position: "Web developer at KissMyButton",
     bgUrl: "./bg4.jpg",
-    overlayColor: "#ff00004d",
+    overlayColor: ["#101820D7", "#101820FF"],
     mainColor: "blue",
-    speed: 2
+    speed: 2,
   },
   {
-    selector: ".container4"
+    selector: ".container4",
   }
 );
 ```
 
 ### RtLslide Attrs
 
-| Name        | Are           | Values  |
-| ------------- |:-------------:| -----:|
-| title     | title text  | string |
-| name   |  second title | string |
-| position |  subtitle   |  string |
-| bgUrl |  the path of background image |  string  |
-| overlayColor |  the overlay color of background image |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| mainColor |  the main color of elementes  |  hex values or RGB(A) or text ("blue", "red", etc)  |
-| speed |  animation speed. Defaults to 1  |  num, min:0 |
-
+| Name         |                  Are                  |                                            Values |
+| ------------ | :-----------------------------------: | ------------------------------------------------: |
+| title        |              title text               |                                            string |
+| name         |             second title              |                                            string |
+| position     |               subtitle                |                                            string |
+| bgUrl        |     the path of background image      |                                            string |
+| overlayColor | the overlay color of background image | hex values or RGB(A) or text ("blue", "red", etc) |
+| mainColor    |      the main color of elementes      | hex values or RGB(A) or text ("blue", "red", etc) |
+| speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
 # Just add your incident to any clip
 
 ```javascript
 anyClip.addIncident(rtlPresenter, 0);
-
 ```
 
 ## License
+
 [MIT License](https://opensource.org/licenses/MIT)
-  
-  
-[![Kiss My Button](https://presskit.kissmybutton.gr/logos/kissmybutton-logo-small.png)](https://kissmybutton.gr)
+
+[<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)

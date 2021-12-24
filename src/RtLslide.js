@@ -111,7 +111,6 @@ export default class RtLslide extends MotorCortex.HTMLClip {
   }
 
   buildTree() {
-    const speed = this.attrs.speed || 2;
     const personConMove = new CSSEffect(
       {
         animatedAttrs: {
@@ -125,7 +124,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".quarter-left",
       }
     );
@@ -143,7 +142,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".quarter-left",
       }
     );
@@ -161,7 +160,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -180,7 +179,7 @@ export default class RtLslide extends MotorCortex.HTMLClip {
         },
       },
       {
-        duration: 1000 * speed,
+        duration: 2000,
         selector: ".bg",
         easing: "easeOutQuad",
       }
@@ -189,6 +188,6 @@ export default class RtLslide extends MotorCortex.HTMLClip {
     this.addIncident(bg, 0);
     this.addIncident(personConMove, 0);
     this.addIncident(quarterLeft, 0);
-    this.addIncident(bgOut, this.calculatedDuration + 1000 * speed);
+    this.addIncident(bgOut, this.calculatedDuration + 2000);
   }
 }
