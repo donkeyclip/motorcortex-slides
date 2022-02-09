@@ -127,8 +127,9 @@ export default class LtRslide extends MotorCortex.HTMLClip {
         animatedAttrs: {
           left: "50%",
         },
-        initialValues: {},
-        attrs: {},
+        initialValues: {
+          left: "0%",
+        },
       },
       {
         duration: 2000,
@@ -145,7 +146,6 @@ export default class LtRslide extends MotorCortex.HTMLClip {
         initialValues: {
           left: "-50%",
         },
-        attrs: {},
       },
       {
         duration: 3000,
@@ -162,7 +162,6 @@ export default class LtRslide extends MotorCortex.HTMLClip {
         initialValues: {
           left: "-100%",
         },
-        attrs: {},
       },
       {
         duration: 2000,
@@ -179,7 +178,6 @@ export default class LtRslide extends MotorCortex.HTMLClip {
         initialValues: {
           left: "0%",
         },
-        attrs: {},
       },
       {
         duration: 2000,

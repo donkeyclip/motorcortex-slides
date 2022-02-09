@@ -288,8 +288,9 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
         animatedAttrs: {
           left: "-1500px",
         },
-        initialValues: {},
-        attrs: {},
+        initialValues: {
+          left: "0px"
+        },
       },
       {
         duration: 14800,
@@ -442,9 +443,8 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
           top: "-100%",
         },
         initialValues: {
-          left: "0%",
+          top: "0%",
         },
-        attrs: {},
       },
       {
         duration: 2000,

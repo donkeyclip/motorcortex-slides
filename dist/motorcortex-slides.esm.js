@@ -3232,8 +3232,9 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         animatedAttrs: {
           left: "50%"
         },
-        initialValues: {},
-        attrs: {}
+        initialValues: {
+          left: "0%"
+        }
       }, {
         duration: 2000,
         selector: ".quarter-first-presenter-slide",
@@ -3245,8 +3246,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           left: "-50%"
-        },
-        attrs: {}
+        }
       }, {
         duration: 3000,
         selector: ".quarter-left",
@@ -3258,8 +3258,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           left: "-100%"
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".bg",
@@ -3271,8 +3270,7 @@ var LtRslide = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           left: "0%"
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".bg",
@@ -3358,8 +3356,9 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         animatedAttrs: {
           left: "-1500px"
         },
-        initialValues: {},
-        attrs: {}
+        initialValues: {
+          left: "0px"
+        }
       }, {
         duration: 14800,
         selector: ".big-title",
@@ -3476,9 +3475,8 @@ var SlideDateTwo = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           top: "-100%"
         },
         initialValues: {
-          left: "0%"
-        },
-        attrs: {}
+          top: "0%"
+        }
       }, {
         duration: 2000,
         selector: ".bg-big",
