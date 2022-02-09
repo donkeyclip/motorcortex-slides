@@ -195,10 +195,10 @@ const bttDay = new Clip.BtTslideDate(
   }
 );
 
-// clip.addIncident(introClip, 0);
-// clip.addIncident(dayOne, clip.calculatedDuration - 2000);
-// clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
-// clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
+clip.addIncident(introClip, 0);
+clip.addIncident(dayOne, clip.calculatedDuration - 2000);
+clip.addIncident(scrolPresenter, clip.calculatedDuration - 2000);
+clip.addIncident(ltrPresenter, clip.calculatedDuration - 2000);
 clip.addIncident(dayTwo, 0);
 clip.addIncident(bttDay, clip.calculatedDuration - 2000);
 clip.addIncident(bttPresenter, clip.calculatedDuration - 2000);
