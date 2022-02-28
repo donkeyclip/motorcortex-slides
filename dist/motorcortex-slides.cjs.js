@@ -2036,7 +2036,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
   }, {
     key: "css",
     get: function get() {
-      return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
+      return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n        left:0px;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
     }
   }, {
     key: "buildTree",
@@ -2047,8 +2047,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           width: "0%"
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".title-text",
@@ -2060,8 +2059,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           backgroundSize: "1980px"
-        },
-        attrs: {}
+        }
       }, {
         duration: 5600,
         selector: ".bg",
@@ -2073,8 +2071,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           right: "100%"
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".subtitle-text",
@@ -2086,8 +2083,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           right: "-100%"
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".subtitle-holder",
@@ -2096,9 +2092,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
       var subtitleRight = new MotorCortex.CSSEffect({
         animatedAttrs: {
           left: "".concat(1728 - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
-        },
-        initialValues: {},
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".sub",
@@ -2114,8 +2108,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           transform: {
             translateX: "200%"
           }
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".date span",
@@ -2127,8 +2120,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
         },
         initialValues: {
           width: "28%"
-        },
-        attrs: {}
+        }
       }, {
         duration: 10,
         selector: ".date-holder"
@@ -2143,8 +2135,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           transform: {
             scale: 1
           }
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".first-slide",
@@ -2160,8 +2151,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           transform: {
             translateY: "200%"
           }
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".description",
@@ -2177,8 +2167,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           transform: {
             translateY: "-200%"
           }
-        },
-        attrs: {}
+        }
       }, {
         duration: 600,
         selector: ".description-text",
@@ -2194,8 +2183,7 @@ var Intro = /*#__PURE__*/function (_MotorCortex$HTMLClip) {
           transform: {
             translateX: "0%"
           }
-        },
-        attrs: {}
+        }
       }, {
         duration: 2000,
         selector: ".bg",
