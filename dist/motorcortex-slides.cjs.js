@@ -5121,7 +5121,7 @@ var transitionintroVal = {
 };
 
 var name = "@donkeyclip/motorcortex-slides";
-var version = "1.1.1";
+var version = "1.1.2";
 
 var index = {
   npm_name: name,
