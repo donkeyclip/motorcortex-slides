@@ -94,6 +94,7 @@ export default class Intro extends MotorCortex.HTMLClip {
         overflow: hidden;
         position: relative;
         width: 50%;
+        left:0px;
       }
       
       .title {
@@ -196,7 +197,6 @@ export default class Intro extends MotorCortex.HTMLClip {
         initialValues: {
           width: "0%",
         },
-        attrs: {},
       },
       {
         duration: 2000,
@@ -213,7 +213,6 @@ export default class Intro extends MotorCortex.HTMLClip {
         initialValues: {
           backgroundSize: "1980px",
         },
-        attrs: {},
       },
       {
         duration: 5600,
@@ -230,7 +229,6 @@ export default class Intro extends MotorCortex.HTMLClip {
         initialValues: {
           right: "100%",
         },
-        attrs: {},
       },
       {
         duration: 2000,
@@ -247,7 +245,6 @@ export default class Intro extends MotorCortex.HTMLClip {
         initialValues: {
           right: "-100%",
         },
-        attrs: {},
       },
       {
         duration: 2000,
@@ -267,8 +264,6 @@ export default class Intro extends MotorCortex.HTMLClip {
             864)
           }px`,
         },
-        initialValues: {},
-        attrs: {},
       },
       {
         duration: 2000,
@@ -289,7 +284,6 @@ export default class Intro extends MotorCortex.HTMLClip {
             translateX: "200%",
           },
         },
-        attrs: {},
       },
       {
         duration: 2000,
@@ -306,7 +300,6 @@ export default class Intro extends MotorCortex.HTMLClip {
         initialValues: {
           width: "28%",
         },
-        attrs: {},
       },
       {
         duration: 10,
@@ -326,7 +319,6 @@ export default class Intro extends MotorCortex.HTMLClip {
             scale: 1,
           },
         },
-        attrs: {},
       },
       {
         duration: 2000,
@@ -347,7 +339,6 @@ export default class Intro extends MotorCortex.HTMLClip {
             translateY: "200%",
           },
         },
-        attrs: {},
       },
       {
         duration: 2000,
@@ -368,7 +359,6 @@ export default class Intro extends MotorCortex.HTMLClip {
             translateY: "-200%",
           },
         },
-        attrs: {},
       },
       {
         duration: 600,
@@ -389,7 +379,6 @@ export default class Intro extends MotorCortex.HTMLClip {
             translateX: "0%",
           },
         },
-        attrs: {},
       },
       {
         duration: 2000,
