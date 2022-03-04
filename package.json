@@ -87,7 +87,7 @@
     "babel-loader": "8.2.3",
     "browserify": "17.0.0",
     "browserslist": "4.19.3",
-    "caniuse-lite": "1.0.30001312",
+    "caniuse-lite": "1.0.30001313",
     "commitizen": "4.2.4",
     "concurrently": "7.0.0",
     "core-js": "3.21.1",
