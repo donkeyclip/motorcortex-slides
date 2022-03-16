@@ -73,7 +73,7 @@
     "@commitlint/cli": "16.2.3",
     "@commitlint/config-conventional": "16.2.1",
     "@donkeyclip/motorcortex": "7.9.3",
-    "@donkeyclip/motorcortex-player": "2.5.1",
+    "@donkeyclip/motorcortex-player": "2.5.2",
     "@kissmybutton/motorcortex-video": "1.2.1",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-commonjs": "21.0.2",
