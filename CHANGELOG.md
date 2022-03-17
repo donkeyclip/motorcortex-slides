@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/donkeyclip/motorcortex-slides/compare/v1.1.2...v1.2.0) (2022-03-17)
+
+
+### Features
+
+* declare mc 8 as compatible ([c285c1b](https://www.github.com/donkeyclip/motorcortex-slides/commit/c285c1b3908b7423fade4b34dd12e0ea01dcd6fe))
+
 ### [1.1.2](https://www.github.com/donkeyclip/motorcortex-slides/compare/v1.1.1...v1.1.2) (2022-02-28)
 
 
