@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8.3.2"
+    "node": ">=12"
   },
   "scripts": {
     "lint": "eslint -c .eslintrc src/**/*.js",
@@ -60,7 +60,7 @@
     }
   },
   "peerDependencies": {
-    "@donkeyclip/motorcortex": ">= 7.6.1 < 8",
+    "@donkeyclip/motorcortex": ">= 8 < 9",
     "@kissmybutton/motorcortex-video": "^1"
   },
   "devDependencies": {
