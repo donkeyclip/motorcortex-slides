@@ -89,7 +89,7 @@
     "browserslist": "4.20.2",
     "caniuse-lite": "1.0.30001324",
     "commitizen": "4.2.4",
-    "concurrently": "7.0.0",
+    "concurrently": "7.1.0",
     "core-js": "3.21.1",
     "css-loader": "6.7.1",
     "cz-conventional-changelog": "3.3.0",
