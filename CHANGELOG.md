@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.3.0](https://github.com/donkeyclip/motorcortex-slides/compare/v1.2.0...v1.3.0) (2022-04-08)
+
+
+### Features
+
+* drop explorer 11 support ([4463530](https://github.com/donkeyclip/motorcortex-slides/commit/4463530a438f7c61d3976d58787989b9eb58016e))
+* update compatibility with motorcortex ([25acec0](https://github.com/donkeyclip/motorcortex-slides/commit/25acec07fc7175725f9c28817864881c2cf8b80c))
+
+
+### Bug Fixes
+
+* delete commitlint.config.js ([75ecb9d](https://github.com/donkeyclip/motorcortex-slides/commit/75ecb9de2e7a201f1ef536a156f3e4252f32cdc6))
+
 ## [1.2.0](https://www.github.com/donkeyclip/motorcortex-slides/compare/v1.1.2...v1.2.0) (2022-03-17)
 
 
