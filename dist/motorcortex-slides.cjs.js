@@ -1553,7 +1553,7 @@ var VideoPlay = /*#__PURE__*/function (_MediaPlayback) {
     }
   }, {
     key: "onProgress",
-    value: function onProgress(fraction, millisecond) {
+    value: function onProgress(millisecond) {
       var startFrom = millisecond + this.element.entity.startFrom;
       this.element.entity.video.currentTime = (startFrom + millisecond) / 1000;
       this.element.entity.ctx.drawImage(this.element.entity.video, 0, 0);
@@ -1618,7 +1618,8 @@ var VideoEffect = /*#__PURE__*/function (_Effect) {
     }
   }, {
     key: "onProgress",
-    value: function onProgress(fraction) {
+    value: function onProgress(ms) {
+      var fraction = this.getFraction(ms);
       var targetValues = Object.assign({}, this.initialValue);
 
       for (var i in effects) {
@@ -1637,7 +1638,7 @@ var VideoEffect = /*#__PURE__*/function (_Effect) {
 }(MotorCortex.Effect);
 
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "1.2.1";
+var version$1 = "2.0.0";
 var main = "dist/motorcortex-video.cjs.js";
 var module$1 = "dist/motorcortex-video.esm.js";
 var browser = "dist/motorcortex-video.umd.js";
@@ -1681,8 +1682,8 @@ var devDependencies = {
   "@babel/preset-env": "7.16.0",
   "@commitlint/cli": "14.1.0",
   "@commitlint/config-conventional": "14.1.0",
-  "@donkeyclip/motorcortex": ">=7.5.5",
-  "@donkeyclip/motorcortex-player": "2.3.6",
+  "@donkeyclip/motorcortex": "^8.0.2",
+  "@donkeyclip/motorcortex-player": "^2.5.2",
   "@rollup/plugin-json": "4.1.0",
   "@semantic-release/changelog": "6.0.1",
   "@semantic-release/git": "10.0.1",
@@ -1729,7 +1730,7 @@ var devDependencies = {
   "whatwg-fetch": "3.6.2"
 };
 var peerDependencies = {
-  "@donkeyclip/motorcortex": ">=7.5.5"
+  "@donkeyclip/motorcortex": ">=8 <9"
 };
 var pkg = {
   name: name$1,

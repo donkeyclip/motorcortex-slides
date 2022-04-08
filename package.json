@@ -61,7 +61,7 @@
   },
   "peerDependencies": {
     "@donkeyclip/motorcortex": ">= 8 < 10",
-    "@kissmybutton/motorcortex-video": "^1"
+    "@kissmybutton/motorcortex-video": "^2"
   },
   "devDependencies": {
     "@babel/cli": "7.17.6",
@@ -74,7 +74,6 @@
     "@commitlint/config-conventional": "16.2.1",
     "@donkeyclip/motorcortex": "8.0.4",
     "@donkeyclip/motorcortex-player": "2.6.1",
-    "@kissmybutton/motorcortex-video": "1.2.1",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-commonjs": "21.0.3",
     "@rollup/plugin-json": "4.1.0",
