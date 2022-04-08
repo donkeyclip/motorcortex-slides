@@ -60,7 +60,7 @@
     }
   },
   "peerDependencies": {
-    "@donkeyclip/motorcortex": ">= 8 < 9",
+    "@donkeyclip/motorcortex": ">= 8 < 10",
     "@kissmybutton/motorcortex-video": "^1"
   },
   "devDependencies": {
