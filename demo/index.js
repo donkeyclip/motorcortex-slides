@@ -105,7 +105,7 @@ const dayOne = new Clip.SlideDateOneVid(
   }
 );
 
-const scrolPresenter = new Clip.Scrolslide(
+const scrolPresenter = new Clip.Scrollslide(
   {
     title: "Presenter",
     name: "name surname",

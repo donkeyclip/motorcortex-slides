@@ -12,7 +12,7 @@
   - [Intro](#intro)
   - [Transition](#transition)
   - [SlideDateOneVid](#slidedateonevid)
-  - [Scrolslide](#scrolslide)
+  - [Scrollslide](#scrollslide)
   - [LtRslide](#ltrslide)
   - [SlideDateTwo](#slidedatetwo)
   - [BtTslide](#bttslide)
@@ -25,16 +25,19 @@
 - [Sponsored by](#sponsored-by)
 
 ## Demo
+
 [Check it out here](https://donkeyclip.github.io/motorcortex-slides/demo/index.html)
 
 # Intro / Features
+
 With MotorCortex-slides you can easily create attractive slideshows.
 
 This Plugin exposes ten Incident:
+
 - Intro
 - Transition
 - SlideDateOneVid
-- Scrolslide
+- Scrollslide
 - LtRslide
 - SlideDateTwo
 - BtTslide
@@ -43,6 +46,7 @@ This Plugin exposes ten Incident:
 - RtLslide
 
 # Getting Started
+
 ## Installation
 
 ```bash
@@ -163,10 +167,10 @@ new Clip.SlideDateOneVid(
 | mainColor    |      the main color of elements       | hex values or RGB(A) or text ("blue", "red", etc) |
 | speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
-## Scrolslide
+## Scrollslide
 
 ```javascript
-const scrolPresenter = new Clip.Scrolslide(
+const scrolPresenter = new Clip.Scrollslide(
   {
     title: "Presenter",
     name: "name surname",
@@ -182,7 +186,7 @@ const scrolPresenter = new Clip.Scrolslide(
 );
 ```
 
-### Scrolslide Attrs
+### Scrollslide Attrs
 
 | Name         |                  Are                  |                                            Values |
 | ------------ | :-----------------------------------: | ------------------------------------------------: |
@@ -411,21 +415,23 @@ const rtlPresenter = new Clip.RtLslide(
 # Adding Incidents in your clip
 
 ```javascript
-clipName.addIncident(incidentName,startTime);
+clipName.addIncident(incidentName, startTime);
 ```
 
-# Contributing 
+# Contributing
 
 In general, we follow the "fork-and-pull" Git workflow, so if you want to submit patches and additions you should follow the next steps:
-1.	**Fork** the repo on GitHub
-2.	**Clone** the project to your own machine
-3.	**Commit** changes to your own branch
-4.	**Push** your work back up to your fork
-5.	Submit a **Pull request** so that we can review your changes
+
+1. **Fork** the repo on GitHub
+2. **Clone** the project to your own machine
+3. **Commit** changes to your own branch
+4. **Push** your work back up to your fork
+5. Submit a **Pull request** so that we can review your changes
 
 # License
 
 [MIT License](https://opensource.org/licenses/MIT)
 
 # Sponsored by
+
 [<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
