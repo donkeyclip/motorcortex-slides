@@ -1,8 +1,51 @@
-# motorcortex-slides
+# MotorCortex-Slides
+
+**Table of Contents**
+
+- [MotorCortex-Slides](#motorcortex-slides)
+  - [Demo](#demo)
+- [Intro / Features](#intro--features)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Importing and Loading](#importing-and-loading)
+- [Creating Incidents](#creating-incidents)
+  - [Intro](#intro)
+  - [Transition](#transition)
+  - [SlideDateOneVid](#slidedateonevid)
+  - [Scrollslide](#scrollslide)
+  - [LtRslide](#ltrslide)
+  - [SlideDateTwo](#slidedatetwo)
+  - [BtTslide](#bttslide)
+  - [BtTslideDate](#bttslidedate)
+  - [LtRslideTop](#ltrslidetop)
+  - [RtLslide](#rtlslide)
+- [Adding Incidents in your clip](#adding-incidents-in-your-clip)
+- [Contributing](#contributing)
+- [License](#license)
+- [Sponsored by](#sponsored-by)
 
 ## Demo
 
 [Check it out here](https://donkeyclip.github.io/motorcortex-slides/demo/index.html)
+
+# Intro / Features
+
+With MotorCortex-slides you can easily create attractive slideshows.
+
+This Plugin exposes ten Incident:
+
+- Intro
+- Transition
+- SlideDateOneVid
+- Scrollslide
+- LtRslide
+- SlideDateTwo
+- BtTslide
+- BtTslideDate
+- LtRslideTop
+- RtLslide
+
+# Getting Started
 
 ## Installation
 
@@ -12,17 +55,17 @@ $ npm install --save @donkeyclip/motorcortex-slides
 $ yarn add @donkeyclip/motorcortex-slides
 ```
 
-## Loading
+## Importing and loading
 
 ```javascript
-import MotorCortex from "@donkeyclip/motorcortex";
+import { loadPlugin } from "@donkeyclip/motorcortex";
 import slides from "@donkeyclip/motorcortex-slides";
-const SlidesPlugin = MotorCortex.loadPlugin(slides);
+const SlidesPlugin = loadPlugin(slides);
 ```
 
-# Create incident
+# Creating Incidents
 
-## introClip
+## Intro
 
 ```javascript
 const introClip = new Clip.Intro(
@@ -44,7 +87,7 @@ const introClip = new Clip.Intro(
 );
 ```
 
-### introClip Attrs
+### Intro Attrs
 
 | Name         |                  Are                  |                                            Values |
 | ------------ | :-----------------------------------: | ------------------------------------------------: |
@@ -56,7 +99,7 @@ const introClip = new Clip.Intro(
 | overlayColor | the overlay color of background image | hex values or RGB(A) or text ("blue", "red", etc) |
 | mainColor    |      the main color of elements       | hex values or RGB(A) or text ("blue", "red", etc) |
 
-## transition
+## Transition
 
 ```javascript
 const transition = new Clip.Transition(
@@ -70,14 +113,14 @@ const transition = new Clip.Transition(
 );
 ```
 
-### transition Attrs
+### Transition Attrs
 
 | Name  |              Are               |     Values |
 | ----- | :----------------------------: | ---------: |
 | title |           title text           |     string |
 | speed | animation speed. Defaults to 1 | num, min:0 |
 
-## SlideDateOne
+## SlideDateOneVid
 
 ```javascript
 new Clip.SlideDateOneVid(
@@ -107,7 +150,7 @@ new Clip.SlideDateOneVid(
 );
 ```
 
-### SlideDateOne Attrs
+### SlideDateOneVid Attrs
 
 | Name         |                  Are                  |                                            Values |
 | ------------ | :-----------------------------------: | ------------------------------------------------: |
@@ -124,10 +167,10 @@ new Clip.SlideDateOneVid(
 | mainColor    |      the main color of elements       | hex values or RGB(A) or text ("blue", "red", etc) |
 | speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
-## Scrolslide
+## Scrollslide
 
 ```javascript
-const scrolPresenter = new Clip.Scrolslide(
+const scrolPresenter = new Clip.Scrollslide(
   {
     title: "Presenter",
     name: "name surname",
@@ -143,7 +186,7 @@ const scrolPresenter = new Clip.Scrolslide(
 );
 ```
 
-### Scrolslide Attrs
+### Scrollslide Attrs
 
 | Name         |                  Are                  |                                            Values |
 | ------------ | :-----------------------------------: | ------------------------------------------------: |
@@ -369,14 +412,26 @@ const rtlPresenter = new Clip.RtLslide(
 | mainColor    |      the main color of elementes      | hex values or RGB(A) or text ("blue", "red", etc) |
 | speed        |    animation speed. Defaults to 1     |                                        num, min:0 |
 
-# Just add your incident to any clip
+# Adding Incidents in your clip
 
 ```javascript
-anyClip.addIncident(rtlPresenter, 0);
+clipName.addIncident(incidentName, startTime);
 ```
 
-## License
+# Contributing
+
+In general, we follow the "fork-and-pull" Git workflow, so if you want to submit patches and additions you should follow the next steps:
+
+1. **Fork** the repo on GitHub
+2. **Clone** the project to your own machine
+3. **Commit** changes to your own branch
+4. **Push** your work back up to your fork
+5. Submit a **Pull request** so that we can review your changes
+
+# License
 
 [MIT License](https://opensource.org/licenses/MIT)
+
+# Sponsored by
 
 [<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)

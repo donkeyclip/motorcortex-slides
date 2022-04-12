@@ -1,7 +1,7 @@
 import Intro from "./Intro";
 import Transition from "./Transition";
 import SlideDateOne from "./SlideDateOne";
-import Scrolslide from "./Scrolslide";
+import Scrollslide from "./Scrollslide";
 import LtRslide from "./LtRslide";
 import SlideDateTwo from "./SlideDateTwo";
 import BtTslide from "./BtTslide";
@@ -16,7 +16,7 @@ import {
   SlideDateTwointroVal,
   introintroVal,
   prisenterintroVal,
-  transitionintroVal
+  transitionintroVal,
 } from "./validation";
 
 import { name, version } from "../package.json";
@@ -31,8 +31,8 @@ export default {
       attributesValidationRules: introintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: Transition,
@@ -40,8 +40,8 @@ export default {
       attributesValidationRules: transitionintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: SlideDateOne,
@@ -49,8 +49,8 @@ export default {
       attributesValidationRules: SlideDateOneintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: SlideDateOneVid,
@@ -58,8 +58,8 @@ export default {
       attributesValidationRules: SlideDateOneVidintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: SlideDateTwo,
@@ -67,17 +67,17 @@ export default {
       attributesValidationRules: SlideDateTwointroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
-      exportable: Scrolslide,
-      name: "Scrolslide",
+      exportable: Scrollslide,
+      name: "Scrollslide",
       attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: LtRslide,
@@ -85,8 +85,8 @@ export default {
       attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: BtTslide,
@@ -94,8 +94,8 @@ export default {
       attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: BtTslideDate,
@@ -103,8 +103,8 @@ export default {
       attributesValidationRules: BtTslideDateintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: LtRslideTop,
@@ -112,8 +112,8 @@ export default {
       attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
+        height: "1080px",
+      },
     },
     {
       exportable: RtLslide,
@@ -121,8 +121,8 @@ export default {
       attributesValidationRules: prisenterintroVal,
       originalDims: {
         width: "1920px",
-        height: "1080px"
-      }
-    }
-  ]
+        height: "1080px",
+      },
+    },
+  ],
 };
