@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/donkeyclip/motorcortex-slides/compare/v1.3.1...v2.0.0) (2022-04-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update readme and rename Scrollslide Incident (#105)
+
+### Bug Fixes
+
+* add missing dev dep ([c4a2176](https://github.com/donkeyclip/motorcortex-slides/commit/c4a21760534f99be1a2a48a981023f7ba530e280))
+* Update readme and rename Scrollslide Incident ([#105](https://github.com/donkeyclip/motorcortex-slides/issues/105)) ([981579e](https://github.com/donkeyclip/motorcortex-slides/commit/981579e5332309ce8a02d73bdd371b474c43b6e1))
+
 ### [1.3.1](https://github.com/donkeyclip/motorcortex-slides/compare/v1.3.0...v1.3.1) (2022-04-08)
 
 
