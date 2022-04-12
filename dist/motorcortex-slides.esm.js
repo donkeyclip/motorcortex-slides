@@ -465,7 +465,7 @@ class SlideDateOne extends MotorCortex.HTMLClip {
 
 }
 
-class Scrolslide extends MotorCortex.HTMLClip {
+class Scrollslide extends MotorCortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1298,270 +1298,121 @@ class RtLslide extends MotorCortex.HTMLClip {
 
 }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
+class VideoClip extends BrowserClip {
+  get html() {
+    this.width = this.attrs.width || 640;
+    this.height = this.attrs.height || 360;
+    this.startFrom = this.attrs.startFrom || 0;
+    const videoStyle = "width:".concat(this.width, "px;height:").concat(this.height, "px;");
+    const videoSources = this.attrs.sources.map(item => "<source src=\"".concat(item, "#t=").concat(this.startFrom, "\"></source>")).join("\n");
+    return "\n      <div>\n          <video id=\"video\" style=\"".concat(videoStyle, "\" preload=\"auto\">\n              ").concat(videoSources, "\n          </video>\n          <canvas id=\"canvas\"></canvas>\n      </div>\n    ");
   }
 
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) _setPrototypeOf(subClass, superClass);
-}
-
-function _getPrototypeOf(o) {
-  _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-
-  return _setPrototypeOf(o, p);
-}
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-
-  try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  get css() {
+    return "\n      #video{\n        display:none;\n      }\n    ";
   }
 
-  return self;
-}
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (typeof call === "object" || typeof call === "function")) {
-    return call;
-  } else if (call !== void 0) {
-    throw new TypeError("Derived constructors may only return object or undefined");
+  setVolume(volume) {
+    this.video.volume = volume;
   }
 
-  return _assertThisInitialized(self);
-}
+  onAfterRender() {
+    const video = this.context.getElements("video")[0];
+    this.video = video;
+    const canvas = this.context.getElements("canvas")[0];
+    const ctx = canvas.getContext("2d");
 
-function _createSuper(Derived) {
-  var hasNativeReflectConstruct = _isNativeReflectConstruct();
+    const loadedmetadataListener = () => {
+      const scaleX = this.width / video.videoWidth;
+      const scaleY = this.width / video.videoWidth;
+      canvas.style.transform = "scale(".concat(scaleX, ", ").concat(scaleY, ")");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+    };
 
-  return function _createSuperInternal() {
-    var Super = _getPrototypeOf(Derived),
-        result;
+    video.addEventListener("loadedmetadata", loadedmetadataListener, {
+      once: true
+    });
+    this.setCustomEntity("video", {
+      video,
+      canvas,
+      ctx,
+      startFrom: this.startFrom
+    }); // Audio
 
-    if (hasNativeReflectConstruct) {
-      var NewTarget = _getPrototypeOf(this).constructor;
-
-      result = Reflect.construct(Super, arguments, NewTarget);
+    if (this.attrs.audio === false) {
+      video.muted = true;
     } else {
-      result = Super.apply(this, arguments);
-    }
+      const that = this;
+      /*
+        The execution of this code occurs moments before the DescriptiveClip of this RealClip actually gets accepted and attached to the Descriptive Tree it tries to enter. 
+        It occurs on the Descriptive Incident of the Root Clip of the tree it tries to enter. 
+        We don’t want to move the responsibility of the execution of the actual clips rendering anywhere else for the time being but we prefer keeping it to the Descriptive Clip Root level, as it is right now. For this the setTimeout(funct, 0) ensures that this block of code will be executed RIGHT after the Descriptive Clip gets accepted and attached to the Descriptive Tree. Sorry about that :slightly_smiling_face:
+      */
 
-    return _possibleConstructorReturn(this, result);
-  };
+      setTimeout(() => {
+        video.crossOrigin = "anonymous";
+        const res = that.DescriptiveIncident.volumeChangeSubscribe(that.id, that.setVolume.bind(that));
+        that.setVolume(res);
+      }, 0);
+    }
+  }
+
 }
 
-var VideoClip = /*#__PURE__*/function (_BrowserClip) {
-  _inherits(VideoClip, _BrowserClip);
+class VideoPlay extends MediaPlayback {
+  play() {
+    const video = this.element.entity.video;
+    video.play();
 
-  var _super = _createSuper(VideoClip);
+    if (this.hasSetWaitingListener !== true) {
+      video.addEventListener("waiting", this.waitingHandler.bind(this));
+      this.hasSetWaitingListener = true;
+    }
 
-  function VideoClip() {
-    _classCallCheck(this, VideoClip);
+    if (this.hasSetCanplayListener !== true) {
+      video.addEventListener("canplay", this.canplayHandler.bind(this));
+      this.hasSetCanplayListener = true;
+    }
 
-    return _super.apply(this, arguments);
+    this.drawFrame(video);
+    return true;
   }
 
-  _createClass(VideoClip, [{
-    key: "html",
-    get: function get() {
-      var _this = this;
-
-      this.width = this.attrs.width || 640;
-      this.height = this.attrs.height || 360;
-      this.startFrom = this.attrs.startFrom || 0;
-      var videoStyle = "width:".concat(this.width, "px;height:").concat(this.height, "px;");
-      var videoSources = this.attrs.sources.map(function (item) {
-        return "<source src=\"".concat(item, "#t=").concat(_this.startFrom, "\"></source>");
-      }).join("\n");
-      return "\n      <div>\n          <video id=\"video\" style=\"".concat(videoStyle, "\" preload=\"auto\">\n              ").concat(videoSources, "\n          </video>\n          <canvas id=\"canvas\"></canvas>\n      </div>\n    ");
-    }
-  }, {
-    key: "css",
-    get: function get() {
-      return "\n      #video{\n        display:none;\n      }\n    ";
-    }
-  }, {
-    key: "setVolume",
-    value: function setVolume(volume) {
-      this.video.volume = volume;
-    }
-  }, {
-    key: "onAfterRender",
-    value: function onAfterRender() {
-      var _this2 = this;
-
-      var video = this.context.getElements("video")[0];
-      this.video = video;
-      var canvas = this.context.getElements("canvas")[0];
-      var ctx = canvas.getContext("2d");
-
-      var loadedmetadataListener = function loadedmetadataListener() {
-        var scaleX = _this2.width / video.videoWidth;
-        var scaleY = _this2.width / video.videoWidth;
-        canvas.style.transform = "scale(".concat(scaleX, ", ").concat(scaleY, ")");
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-      };
-
-      video.addEventListener("loadedmetadata", loadedmetadataListener, {
-        once: true
-      });
-      this.setCustomEntity("video", {
-        video: video,
-        canvas: canvas,
-        ctx: ctx,
-        startFrom: this.startFrom
-      }); // Audio
-
-      if (this.attrs.audio === false) {
-        video.muted = true;
-      } else {
-        var that = this;
-        /*
-          The execution of this code occurs moments before the DescriptiveClip of this RealClip actually gets accepted and attached to the Descriptive Tree it tries to enter. 
-          It occurs on the Descriptive Incident of the Root Clip of the tree it tries to enter. 
-          We don’t want to move the responsibility of the execution of the actual clips rendering anywhere else for the time being but we prefer keeping it to the Descriptive Clip Root level, as it is right now. For this the setTimeout(funct, 0) ensures that this block of code will be executed RIGHT after the Descriptive Clip gets accepted and attached to the Descriptive Tree. Sorry about that :slightly_smiling_face:
-        */
-
-        setTimeout(function () {
-          video.crossOrigin = "anonymous";
-          var res = that.DescriptiveIncident.volumeChangeSubscribe(that.id, that.setVolume.bind(that));
-          that.setVolume(res);
-        }, 0);
-      }
-    }
-  }]);
-
-  return VideoClip;
-}(BrowserClip);
-
-var VideoPlay = /*#__PURE__*/function (_MediaPlayback) {
-  _inherits(VideoPlay, _MediaPlayback);
-
-  var _super = _createSuper(VideoPlay);
-
-  function VideoPlay() {
-    _classCallCheck(this, VideoPlay);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(VideoPlay, [{
-    key: "play",
-    value: function
-    /*millisecond*/
-    play() {
-      var video = this.element.entity.video;
-      video.play();
-
-      if (this.hasSetWaitingListener !== true) {
-        video.addEventListener("waiting", this.waitingHandler.bind(this));
-        this.hasSetWaitingListener = true;
-      }
-
-      if (this.hasSetCanplayListener !== true) {
-        video.addEventListener("canplay", this.canplayHandler.bind(this));
-        this.hasSetCanplayListener = true;
-      }
-
+  drawFrame(video) {
+    const ctx = this.element.entity.ctx;
+    ctx.drawImage(video, 0, 0);
+    this.timeout = setTimeout(() => {
       this.drawFrame(video);
-      return true;
-    }
-  }, {
-    key: "drawFrame",
-    value: function drawFrame(video) {
-      var _this = this;
+    }, 10);
+  }
 
-      var ctx = this.element.entity.ctx;
-      ctx.drawImage(video, 0, 0);
-      this.timeout = setTimeout(function () {
-        _this.drawFrame(video);
-      }, 10);
-    }
-  }, {
-    key: "waitingHandler",
-    value: function waitingHandler() {
-      this.setBlock("Video loading");
-    }
-  }, {
-    key: "canplayHandler",
-    value: function canplayHandler() {
-      this.unblock();
-    }
-  }, {
-    key: "stop",
-    value: function stop() {
-      this.element.entity.video.pause();
-      clearTimeout(this.timeout);
-    }
-  }, {
-    key: "onProgress",
-    value: function onProgress(millisecond) {
-      var startFrom = millisecond + this.element.entity.startFrom;
-      this.element.entity.video.currentTime = (startFrom + millisecond) / 1000;
-      this.element.entity.ctx.drawImage(this.element.entity.video, 0, 0);
-    }
-  }]);
+  waitingHandler() {
+    this.setBlock("Video loading");
+  }
 
-  return VideoPlay;
-}(MediaPlayback);
+  canplayHandler() {
+    this.unblock();
+  }
+
+  stop() {
+    this.element.entity.video.pause();
+    clearTimeout(this.timeout);
+  }
+
+  onProgress(millisecond) {
+    const startFrom = millisecond + this.element.entity.startFrom;
+    this.element.entity.video.currentTime = (startFrom + millisecond) / 1000;
+    this.element.entity.ctx.drawImage(this.element.entity.video, 0, 0);
+  }
+
+}
 
 var compositeAttributes = {
   filter: ["blur", "brightness", "contrast", "drop-shadow", "grayscale", "hue-rotate", "invert", "opacity", "saturate", "sepia"]
 };
-var effects = compositeAttributes.filter;
-var effectsUnits = {
+const effects = compositeAttributes.filter;
+const effectsUnits = {
   opacity: "",
   contrast: "",
   saturate: "",
@@ -1573,66 +1424,50 @@ var effectsUnits = {
   "hue-rotate": "deg"
 };
 
-var VideoEffect = /*#__PURE__*/function (_Effect) {
-  _inherits(VideoEffect, _Effect);
-
-  var _super = _createSuper(VideoEffect);
-
-  function VideoEffect() {
-    _classCallCheck(this, VideoEffect);
-
-    return _super.apply(this, arguments);
+class VideoEffect extends Effect {
+  getScratchValue() {
+    return {
+      opacity: 1,
+      contrast: 1,
+      saturate: 1,
+      brightness: 1,
+      blur: 0,
+      sepia: 0,
+      invert: 0,
+      grayscale: 0,
+      "hue-rotate": 0
+    };
   }
 
-  _createClass(VideoEffect, [{
-    key: "getScratchValue",
-    value: function getScratchValue() {
-      return {
-        opacity: 1,
-        contrast: 1,
-        saturate: 1,
-        brightness: 1,
-        blur: 0,
-        sepia: 0,
-        invert: 0,
-        grayscale: 0,
-        "hue-rotate": 0
-      };
-    }
-  }, {
-    key: "objToFilterValue",
-    value: function objToFilterValue(obj) {
-      var string = "";
+  objToFilterValue(obj) {
+    let string = "";
 
-      for (var filter in obj) {
-        string += "".concat(filter, "(").concat(obj[filter]).concat(effectsUnits[filter], ") ");
+    for (const filter in obj) {
+      string += "".concat(filter, "(").concat(obj[filter]).concat(effectsUnits[filter], ") ");
+    }
+
+    return string;
+  }
+
+  onProgress(ms) {
+    const fraction = this.getFraction(ms);
+    const targetValues = Object.assign({}, this.initialValue);
+
+    for (const i in effects) {
+      const effect = effects[i];
+
+      if (this.initialValue[effect] !== this.targetValue[effect]) {
+        targetValues[effect] = fraction * (this.targetValue[effect] - this.initialValue[effect]) + this.initialValue[effect];
       }
-
-      return string;
     }
-  }, {
-    key: "onProgress",
-    value: function onProgress(ms) {
-      var fraction = this.getFraction(ms);
-      var targetValues = Object.assign({}, this.initialValue);
 
-      for (var i in effects) {
-        var effect = effects[i];
+    this.element.entity.ctx.filter = this.objToFilterValue(targetValues);
+  }
 
-        if (this.initialValue[effect] !== this.targetValue[effect]) {
-          targetValues[effect] = fraction * (this.targetValue[effect] - this.initialValue[effect]) + this.initialValue[effect];
-        }
-      }
-
-      this.element.entity.ctx.filter = this.objToFilterValue(targetValues);
-    }
-  }]);
-
-  return VideoEffect;
-}(Effect);
+}
 
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "2.0.0";
+var version$1 = "2.1.0";
 var main = "dist/motorcortex-video.cjs.js";
 var module = "dist/motorcortex-video.esm.js";
 var browser = "dist/motorcortex-video.umd.js";
@@ -1724,7 +1559,7 @@ var devDependencies = {
   "whatwg-fetch": "3.6.2"
 };
 var peerDependencies = {
-  "@donkeyclip/motorcortex": ">=8 <9"
+  "@donkeyclip/motorcortex": ">=8 <10"
 };
 var pkg = {
   name: name$1,
@@ -1819,7 +1654,7 @@ var index$1 = {
       }
     }
   }],
-  compositeAttributes: compositeAttributes,
+  compositeAttributes,
   Clip: {
     exportable: VideoClip,
     attributesValidationRules: {
@@ -2442,8 +2277,8 @@ var index = {
       height: "1080px"
     }
   }, {
-    exportable: Scrolslide,
-    name: "Scrolslide",
+    exportable: Scrollslide,
+    name: "Scrollslide",
     attributesValidationRules: prisenterintroVal,
     originalDims: {
       width: "1920px",
