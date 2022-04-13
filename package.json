@@ -80,7 +80,7 @@
     "babel-loader": "8.2.4",
     "browserify": "17.0.0",
     "browserslist": "4.20.2",
-    "caniuse-lite": "^1.0.30001328",
+    "caniuse-lite": "1.0.30001331",
     "core-js": "3.21.1",
     "css-loader": "6.7.1",
     "eslint": "^8.13.0",
