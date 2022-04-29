@@ -1467,7 +1467,7 @@ class VideoEffect extends Effect {
 }
 
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "2.1.0";
+var version$1 = "2.1.1";
 var main = "dist/motorcortex-video.cjs.js";
 var module = "dist/motorcortex-video.esm.js";
 var browser = "dist/motorcortex-video.umd.js";
@@ -1506,34 +1506,24 @@ var config = {
   }
 };
 var devDependencies = {
-  "@babel/cli": "7.16.0",
-  "@babel/core": "7.16.0",
-  "@babel/preset-env": "7.16.0",
-  "@commitlint/cli": "14.1.0",
-  "@commitlint/config-conventional": "14.1.0",
-  "@donkeyclip/motorcortex": "^8.0.2",
-  "@donkeyclip/motorcortex-player": "^2.5.2",
+  "@babel/cli": "^7.17.6",
+  "@babel/core": "^7.17.9",
+  "@babel/preset-env": "^7.16.11",
+  "@donkeyclip/motorcortex": "^8.0.4",
+  "@donkeyclip/motorcortex-player": "^2.8.0",
   "@rollup/plugin-json": "4.1.0",
-  "@semantic-release/changelog": "6.0.1",
-  "@semantic-release/git": "10.0.1",
-  "@semantic-release/github": "8.0.1",
-  "@semantic-release/npm": "8.0.2",
-  "@size-limit/preset-big-lib": "6.0.4",
   "babel-eslint": "10.1.0",
-  "babel-loader": "8.2.3",
-  browserslist: "4.17.5",
-  "caniuse-lite": "1.0.30001274",
-  commitizen: "4.2.4",
-  concurrently: "6.3.0",
+  "babel-loader": "^8.2.4",
+  browserslist: "^4.20.2",
+  "caniuse-lite": "^1.0.30001328",
+  concurrently: "^7.1.0",
   coveralls: "3.1.1",
-  "css-loader": "6.5.0",
-  "cz-conventional-changelog": "3.3.0",
+  "css-loader": "^6.7.1",
   "es6-promise": "4.2.8",
-  eslint: "7.32.0",
-  "eslint-config-prettier": "8.3.0",
-  "eslint-config-standard": "16.0.3",
+  eslint: "^8.13.0",
+  "eslint-config-prettier": "^8.5.0",
   "eslint-plugin-babel": "5.3.1",
-  "eslint-plugin-import": "2.25.2",
+  "eslint-plugin-import": "^2.26.0",
   "eslint-plugin-node": "11.1.0",
   "eslint-plugin-prettier": "4.0.0",
   "eslint-plugin-standard": "5.0.0",
@@ -1541,21 +1531,19 @@ var devDependencies = {
   husky: "^7.0.0",
   "imports-loader": "3.1.1",
   "json-stringify-safe": "5.0.1",
-  "lint-staged": "11.2.6",
+  "lint-staged": "^12.3.7",
   npx: "10.2.2",
-  prettier: "2.4.1",
+  prettier: "^2.6.2",
   rimraf: "3.0.2",
-  rollup: "2.59.0",
+  rollup: "^2.70.1",
   "rollup-plugin-babel": "4.4.0",
   "rollup-plugin-commonjs": "10.1.0",
   "rollup-plugin-node-resolve": "5.2.0",
   "rollup-plugin-terser": "7.0.2",
-  "semantic-release": "18.0.0",
-  shelljs: "0.8.4",
-  "size-limit": "6.0.4",
-  webpack: "5.61.0",
-  "webpack-cli": "4.9.1",
-  "webpack-dev-server": "4.4.0",
+  shelljs: "^0.8.5",
+  webpack: "^5.72.0",
+  "webpack-cli": "^4.9.2",
+  "webpack-dev-server": "^4.8.1",
   "whatwg-fetch": "3.6.2"
 };
 var peerDependencies = {
