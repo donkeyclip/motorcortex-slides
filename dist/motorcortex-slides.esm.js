@@ -1305,7 +1305,7 @@ class VideoClip extends BrowserClip {
     this.startFrom = this.attrs.startFrom || 0;
     const videoStyle = "width:".concat(this.width, "px;height:").concat(this.height, "px;");
     const videoSources = this.attrs.sources.map(item => "<source src=\"".concat(item, "#t=").concat(this.startFrom, "\"></source>")).join("\n");
-    return "\n      <div>\n          <video id=\"video\" style=\"".concat(videoStyle, "\" preload=\"auto\">\n              ").concat(videoSources, "\n          </video>\n          <canvas id=\"canvas\"></canvas>\n      </div>\n    ");
+    return "\n      <div>\n          <video id=\"video\" style=\"".concat(videoStyle, "\" preload=\"auto\" playsinline>\n              ").concat(videoSources, "\n          </video>\n          <canvas id=\"canvas\"></canvas>\n      </div>\n    ");
   }
 
   get css() {
@@ -1345,8 +1345,8 @@ class VideoClip extends BrowserClip {
     } else {
       const that = this;
       /*
-        The execution of this code occurs moments before the DescriptiveClip of this RealClip actually gets accepted and attached to the Descriptive Tree it tries to enter. 
-        It occurs on the Descriptive Incident of the Root Clip of the tree it tries to enter. 
+        The execution of this code occurs moments before the DescriptiveClip of this RealClip actually gets accepted and attached to the Descriptive Tree it tries to enter.
+        It occurs on the Descriptive Incident of the Root Clip of the tree it tries to enter.
         We don’t want to move the responsibility of the execution of the actual clips rendering anywhere else for the time being but we prefer keeping it to the Descriptive Clip Root level, as it is right now. For this the setTimeout(funct, 0) ensures that this block of code will be executed RIGHT after the Descriptive Clip gets accepted and attached to the Descriptive Tree. Sorry about that :slightly_smiling_face:
       */
 
@@ -1467,7 +1467,7 @@ class VideoEffect extends Effect {
 }
 
 var name$1 = "@kissmybutton/motorcortex-video";
-var version$1 = "2.2.0";
+var version$1 = "2.2.1";
 var main = "dist/motorcortex-video.cjs.js";
 var module = "dist/motorcortex-video.esm.js";
 var browser = "dist/motorcortex-video.umd.js";
@@ -1506,21 +1506,21 @@ var config = {
   }
 };
 var devDependencies = {
-  "@babel/cli": "^7.17.6",
-  "@babel/core": "^7.17.9",
-  "@babel/preset-env": "^7.16.11",
-  "@donkeyclip/motorcortex": "^9.1.1",
-  "@donkeyclip/motorcortex-player": "^2.9.5",
+  "@babel/cli": "^7.17.10",
+  "@babel/core": "^7.17.10",
+  "@babel/preset-env": "^7.17.10",
+  "@donkeyclip/motorcortex": "^9.1.3",
+  "@donkeyclip/motorcortex-player": "^2.9.6",
   "@rollup/plugin-json": "4.1.0",
   "babel-eslint": "10.1.0",
-  "babel-loader": "^8.2.4",
-  browserslist: "^4.20.2",
-  "caniuse-lite": "^1.0.30001328",
+  "babel-loader": "^8.2.5",
+  browserslist: "^4.20.3",
+  "caniuse-lite": "^1.0.30001338",
   concurrently: "^7.1.0",
   coveralls: "3.1.1",
   "css-loader": "^6.7.1",
   "es6-promise": "4.2.8",
-  eslint: "^8.13.0",
+  eslint: "^8.14.0",
   "eslint-config-prettier": "^8.5.0",
   "eslint-plugin-babel": "5.3.1",
   "eslint-plugin-import": "^2.26.0",
@@ -1531,11 +1531,11 @@ var devDependencies = {
   husky: "^7.0.0",
   "imports-loader": "3.1.1",
   "json-stringify-safe": "5.0.1",
-  "lint-staged": "^12.3.7",
+  "lint-staged": "^12.4.1",
   npx: "10.2.2",
   prettier: "^2.6.2",
   rimraf: "3.0.2",
-  rollup: "^2.70.1",
+  rollup: "^2.72.0",
   "rollup-plugin-babel": "4.4.0",
   "rollup-plugin-commonjs": "10.1.0",
   "rollup-plugin-node-resolve": "5.2.0",
@@ -1543,7 +1543,7 @@ var devDependencies = {
   shelljs: "^0.8.5",
   webpack: "^5.72.0",
   "webpack-cli": "^4.9.2",
-  "webpack-dev-server": "^4.8.1",
+  "webpack-dev-server": "^4.9.0",
   "whatwg-fetch": "3.6.2"
 };
 var peerDependencies = {
