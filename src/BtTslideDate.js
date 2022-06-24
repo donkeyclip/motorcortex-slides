@@ -1,6 +1,6 @@
-import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
+import { CSSEffect, HTMLClip } from "@donkeyclip/motorcortex";
 
-export default class BtTslideDate extends MotorCortex.HTMLClip {
+export default class BtTslideDate extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;

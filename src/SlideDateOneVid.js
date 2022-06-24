@@ -1,8 +1,8 @@
-import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
+import { CSSEffect, HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
 import MCVideo from "@kissmybutton/motorcortex-video";
-const VideoPlugin = MotorCortex.loadPlugin(MCVideo);
+const VideoPlugin = loadPlugin(MCVideo);
 
-export default class SlideDateOneVid extends MotorCortex.HTMLClip {
+export default class SlideDateOneVid extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -235,7 +235,7 @@ export default class SlideDateOneVid extends MotorCortex.HTMLClip {
       html3 = html3 + html;
     }
 
-    const word = new MotorCortex.HTMLClip({
+    const word = new HTMLClip({
       css: this.css,
       html: ` <div class="conttitle" >${html3.split("undefined")[1]} </div>`,
       selector: ".word",

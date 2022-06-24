@@ -1,6 +1,6 @@
-import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
+import { CSSEffect, HTMLClip } from "@donkeyclip/motorcortex";
 
-export default class RtLslide extends MotorCortex.HTMLClip {
+export default class RtLslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;

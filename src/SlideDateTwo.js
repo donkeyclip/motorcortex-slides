@@ -1,6 +1,6 @@
-import MotorCortex, { CSSEffect } from "@donkeyclip/motorcortex";
+import { CSSEffect, HTMLClip } from "@donkeyclip/motorcortex";
 
-export default class SlideDateTwo extends MotorCortex.HTMLClip {
+export default class SlideDateTwo extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -289,7 +289,7 @@ export default class SlideDateTwo extends MotorCortex.HTMLClip {
           left: "-1500px",
         },
         initialValues: {
-          left: "0px"
+          left: "0px",
         },
       },
       {
