@@ -1,6 +1,6 @@
-import MotorCortex, { CSSEffect, BrowserClip, MediaPlayback } from '@donkeyclip/motorcortex';
+import { HTMLClip, CSSEffect, BrowserClip, MediaPlayback, loadPlugin } from '@donkeyclip/motorcortex';
 
-class Intro extends MotorCortex.HTMLClip {
+class Intro extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -188,7 +188,7 @@ class Intro extends MotorCortex.HTMLClip {
 
 }
 
-class Transition extends MotorCortex.HTMLClip {
+class Transition extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -247,7 +247,7 @@ class Transition extends MotorCortex.HTMLClip {
 
 }
 
-class SlideDateOne extends MotorCortex.HTMLClip {
+class SlideDateOne extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -284,7 +284,7 @@ class SlideDateOne extends MotorCortex.HTMLClip {
       html3 = html3 + html;
     }
 
-    const word = new MotorCortex.HTMLClip({
+    const word = new HTMLClip({
       css: this.css,
       html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
       selector: ".word",
@@ -465,7 +465,7 @@ class SlideDateOne extends MotorCortex.HTMLClip {
 
 }
 
-class Scrollslide extends MotorCortex.HTMLClip {
+class Scrollslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -576,7 +576,7 @@ class Scrollslide extends MotorCortex.HTMLClip {
 
 }
 
-class LtRslide extends MotorCortex.HTMLClip {
+class LtRslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -657,7 +657,7 @@ class LtRslide extends MotorCortex.HTMLClip {
 
 }
 
-class SlideDateTwo extends MotorCortex.HTMLClip {
+class SlideDateTwo extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -854,7 +854,7 @@ class SlideDateTwo extends MotorCortex.HTMLClip {
 
 }
 
-class BtTslide extends MotorCortex.HTMLClip {
+class BtTslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -945,7 +945,7 @@ class BtTslide extends MotorCortex.HTMLClip {
 
 }
 
-class BtTslideDate extends MotorCortex.HTMLClip {
+class BtTslideDate extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1122,7 +1122,7 @@ class BtTslideDate extends MotorCortex.HTMLClip {
 
 }
 
-class LtRslideTop extends MotorCortex.HTMLClip {
+class LtRslideTop extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1207,7 +1207,7 @@ class LtRslideTop extends MotorCortex.HTMLClip {
 
 }
 
-class RtLslide extends MotorCortex.HTMLClip {
+class RtLslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1534,8 +1534,8 @@ var index$1 = {
   audio: "on"
 };
 
-const VideoPlugin = MotorCortex.loadPlugin(index$1);
-class SlideDateOneVid extends MotorCortex.HTMLClip {
+const VideoPlugin = loadPlugin(index$1);
+class SlideDateOneVid extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1588,7 +1588,7 @@ class SlideDateOneVid extends MotorCortex.HTMLClip {
       html3 = html3 + html;
     }
 
-    const word = new MotorCortex.HTMLClip({
+    const word = new HTMLClip({
       css: this.css,
       html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
       selector: ".word",

@@ -1,7 +1,7 @@
-import MotorCortex from "@donkeyclip/motorcortex";
+import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
 import Player from "@donkeyclip/motorcortex-player";
 import SlideDefinition from "../dist/motorcortex-slides.esm";
-const Clip = MotorCortex.loadPlugin(SlideDefinition);
+const Clip = loadPlugin(SlideDefinition);
 
 const css = `
   body {
@@ -47,7 +47,7 @@ const containerParams = {
 const overlay = ["#101820D7", "#101820FF"];
 const main = "#FEE715FF";
 
-const clip = new MotorCortex.HTMLClip({
+const clip = new HTMLClip({
   css,
   html,
   host,

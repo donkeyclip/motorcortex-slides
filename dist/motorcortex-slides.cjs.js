@@ -1,12 +1,8 @@
 'use strict';
 
-var MotorCortex = require('@donkeyclip/motorcortex');
+var motorcortex = require('@donkeyclip/motorcortex');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var MotorCortex__default = /*#__PURE__*/_interopDefaultLegacy(MotorCortex);
-
-class Intro extends MotorCortex__default["default"].HTMLClip {
+class Intro extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -31,7 +27,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const titleanime = new MotorCortex.CSSEffect({
+    const titleanime = new motorcortex.CSSEffect({
       animatedAttrs: {
         width: "100%"
       },
@@ -43,7 +39,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".title-text",
       easing: "easeOutQuad"
     });
-    const bg = new MotorCortex.CSSEffect({
+    const bg = new motorcortex.CSSEffect({
       animatedAttrs: {
         backgroundSize: "3000px"
       },
@@ -55,7 +51,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutCubic"
     });
-    const subtextRight = new MotorCortex.CSSEffect({
+    const subtextRight = new motorcortex.CSSEffect({
       animatedAttrs: {
         right: "0%"
       },
@@ -67,7 +63,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".subtitle-text",
       easing: "easeOutQuad"
     });
-    const subholderRight = new MotorCortex.CSSEffect({
+    const subholderRight = new motorcortex.CSSEffect({
       animatedAttrs: {
         right: "0%"
       },
@@ -79,7 +75,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".subtitle-holder",
       easing: "easeOutQuad"
     });
-    const subtitleRight = new MotorCortex.CSSEffect({
+    const subtitleRight = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "".concat(1728 - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
       }
@@ -88,7 +84,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".sub",
       easing: "easeOutQuad"
     });
-    const datespan = new MotorCortex.CSSEffect({
+    const datespan = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           translateX: "0%"
@@ -104,7 +100,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".date span",
       easing: "easeOutQuad"
     });
-    const dateHolderWidth = new MotorCortex.CSSEffect({
+    const dateHolderWidth = new motorcortex.CSSEffect({
       animatedAttrs: {
         width: "45%"
       },
@@ -115,7 +111,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       duration: 10,
       selector: ".date-holder"
     });
-    const scaleFirstSlide = new MotorCortex.CSSEffect({
+    const scaleFirstSlide = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           scale: 0.5
@@ -131,7 +127,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".first-slide",
       easing: "easeOutQuad"
     });
-    const description = new MotorCortex.CSSEffect({
+    const description = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           translateY: "0%"
@@ -147,7 +143,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".description",
       easing: "easeOutQuad"
     });
-    const descriptiontext = new MotorCortex.CSSEffect({
+    const descriptiontext = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           translateY: "0%"
@@ -163,7 +159,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
       selector: ".description-text",
       easing: "easeOutQuad"
     });
-    const bgQut = new MotorCortex.CSSEffect({
+    const bgQut = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           translateX: "100%"
@@ -194,7 +190,7 @@ class Intro extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class Transition extends MotorCortex__default["default"].HTMLClip {
+class Transition extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -219,7 +215,7 @@ class Transition extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const transitionText = new MotorCortex.CSSEffect({
+    const transitionText = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-100%"
       },
@@ -233,7 +229,7 @@ class Transition extends MotorCortex__default["default"].HTMLClip {
       duration: 2000,
       selector: ".transition-text"
     });
-    const transitionContainer = new MotorCortex.CSSEffect({
+    const transitionContainer = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "100%"
       },
@@ -253,7 +249,7 @@ class Transition extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
+class SlideDateOne extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -290,7 +286,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       html3 = html3 + html;
     }
 
-    const word = new MotorCortex__default["default"].HTMLClip({
+    const word = new motorcortex.HTMLClip({
       css: this.css,
       html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
       selector: ".word",
@@ -299,7 +295,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
     this.addIncident(word, 0);
 
     for (let i = 0; i < array.length; i++) {
-      const textAnimation = new MotorCortex.CSSEffect({
+      const textAnimation = new motorcortex.CSSEffect({
         animatedAttrs: {
           top: "0px",
           opacity: 1
@@ -313,7 +309,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       word.addIncident(textAnimation, (2000 + 100 * (i + 1)) * 2);
     }
 
-    const bgMove = new MotorCortex.CSSEffect({
+    const bgMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -326,7 +322,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const secondSlideTitleOne = new MotorCortex.CSSEffect({
+    const secondSlideTitleOne = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -339,7 +335,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-slide-titleOne",
       easing: "easeOutQuad"
     });
-    const secondSlideTitleTwo = new MotorCortex.CSSEffect({
+    const secondSlideTitleTwo = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -352,7 +348,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-slide-titleTwo",
       easing: "easeOutQuad"
     });
-    const wordBg = new MotorCortex.CSSEffect({
+    const wordBg = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -365,7 +361,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".word-bg",
       easing: "easeOutQuad"
     });
-    const shortDescription = new MotorCortex.CSSEffect({
+    const shortDescription = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -378,7 +374,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".short-description",
       easing: "easeOutQuad"
     });
-    const bgscaledown = new MotorCortex.CSSEffect({
+    const bgscaledown = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           scale: 0.5
@@ -395,7 +391,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg,.bg-second",
       easing: "easeOutQuad"
     });
-    const bgscaledownMove = new MotorCortex.CSSEffect({
+    const bgscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-25%"
       },
@@ -408,7 +404,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const bgsecondscaledownMove = new MotorCortex.CSSEffect({
+    const bgsecondscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "25%"
       },
@@ -421,7 +417,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg-second",
       easing: "easeOutQuad"
     });
-    const secondBgDate = new MotorCortex.CSSEffect({
+    const secondBgDate = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "5%"
       },
@@ -434,7 +430,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-date",
       easing: "easeOutQuad"
     });
-    const moveSecond = new MotorCortex.CSSEffect({
+    const moveSecond = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-76%"
       },
@@ -445,7 +441,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const moveSecondS = new MotorCortex.CSSEffect({
+    const moveSecondS = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-76%"
       },
@@ -471,7 +467,7 @@ class SlideDateOne extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class Scrollslide extends MotorCortex__default["default"].HTMLClip {
+class Scrollslide extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -496,7 +492,7 @@ class Scrollslide extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const moveThird = new MotorCortex.CSSEffect({
+    const moveThird = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%",
         top: "-200%"
@@ -511,7 +507,7 @@ class Scrollslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".third-holder",
       easing: "easeOutQuad"
     });
-    const thirdScaleUp = new MotorCortex.CSSEffect({
+    const thirdScaleUp = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           scale: 1
@@ -528,7 +524,7 @@ class Scrollslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".third-holder",
       easing: "easeOutQuad"
     });
-    const moveThirdIner = new MotorCortex.CSSEffect({
+    const moveThirdIner = new motorcortex.CSSEffect({
       animatedAttrs: {
         marginTop: "0%",
         marginBottom: "0%"
@@ -543,7 +539,7 @@ class Scrollslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const movePresenter = new MotorCortex.CSSEffect({
+    const movePresenter = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           translateY: "0%"
@@ -560,7 +556,7 @@ class Scrollslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".presenter",
       easing: "easeOutQuad"
     });
-    const bgOut = new MotorCortex.CSSEffect({
+    const bgOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "100%"
       },
@@ -582,7 +578,7 @@ class Scrollslide extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class LtRslide extends MotorCortex__default["default"].HTMLClip {
+class LtRslide extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -607,7 +603,7 @@ class LtRslide extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const personConMove = new MotorCortex.CSSEffect({
+    const personConMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "50%"
       },
@@ -619,7 +615,7 @@ class LtRslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-first-presenter-slide",
       easing: "easeInSine"
     });
-    const quarterLeft = new MotorCortex.CSSEffect({
+    const quarterLeft = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-20%"
       },
@@ -631,7 +627,7 @@ class LtRslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-left",
       easing: "easeOutQuad"
     });
-    const bg = new MotorCortex.CSSEffect({
+    const bg = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -643,7 +639,7 @@ class LtRslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const bgOut = new MotorCortex.CSSEffect({
+    const bgOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "100%"
       },
@@ -663,7 +659,7 @@ class LtRslide extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
+class SlideDateTwo extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -688,7 +684,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const bgMove = new MotorCortex.CSSEffect({
+    const bgMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -701,7 +697,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutCubic"
     });
-    const secondSlide = new MotorCortex.CSSEffect({
+    const secondSlide = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -714,7 +710,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-slide",
       easing: "easeOutCubic"
     });
-    const bigTitle = new MotorCortex.CSSEffect({
+    const bigTitle = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-1500px"
       },
@@ -726,7 +722,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".big-title",
       easing: "easeOutCubic"
     });
-    const bgscaledown = new MotorCortex.CSSEffect({
+    const bgscaledown = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           scale: 0.5
@@ -743,7 +739,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg,.bg-small",
       easing: "easeOutCubic"
     });
-    const bgscaledownMove = new MotorCortex.CSSEffect({
+    const bgscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-25%"
       },
@@ -756,7 +752,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutCubic"
     });
-    const bgsecondscaledownMove = new MotorCortex.CSSEffect({
+    const bgsecondscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "25%"
       },
@@ -769,7 +765,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg-small",
       easing: "easeOutCubic"
     });
-    const secondBgDate = new MotorCortex.CSSEffect({
+    const secondBgDate = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "5%"
       },
@@ -782,7 +778,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-date",
       easing: "easeOutCubic"
     });
-    const moveSecond = new MotorCortex.CSSEffect({
+    const moveSecond = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-175%"
       },
@@ -793,7 +789,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg-small,.bg",
       easing: "easeOutCubic"
     });
-    const movePresenterSlide = new MotorCortex.CSSEffect({
+    const movePresenterSlide = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -806,7 +802,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-first-presenter-slide",
       easing: "easeOutCubic"
     });
-    const movePresenterSlideLeft = new MotorCortex.CSSEffect({
+    const movePresenterSlideLeft = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -819,7 +815,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-left",
       easing: "easeOutCubic"
     });
-    const moveBig = new MotorCortex.CSSEffect({
+    const moveBig = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -832,7 +828,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg-big",
       easing: "easeOutCubic"
     });
-    const moveBigOut = new MotorCortex.CSSEffect({
+    const moveBigOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "-100%"
       },
@@ -860,7 +856,7 @@ class SlideDateTwo extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class BtTslide extends MotorCortex__default["default"].HTMLClip {
+class BtTslide extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -885,7 +881,7 @@ class BtTslide extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const personConMove = new MotorCortex.CSSEffect({
+    const personConMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -899,7 +895,7 @@ class BtTslide extends MotorCortex__default["default"].HTMLClip {
       duration: 3000,
       selector: ".quarter-first-presenter-slide"
     });
-    const quarterLeft = new MotorCortex.CSSEffect({
+    const quarterLeft = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -913,7 +909,7 @@ class BtTslide extends MotorCortex__default["default"].HTMLClip {
       duration: 4000,
       selector: ".quarter-left"
     });
-    const bg = new MotorCortex.CSSEffect({
+    const bg = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -928,7 +924,7 @@ class BtTslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const bgOut = new MotorCortex.CSSEffect({
+    const bgOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "-100%"
       },
@@ -951,7 +947,7 @@ class BtTslide extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
+class BtTslideDate extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -976,7 +972,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const personConMove = new MotorCortex.CSSEffect({
+    const personConMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -989,7 +985,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-first-presenter-slide",
       easing: "easeOutCubic"
     });
-    const quarterLeft = new MotorCortex.CSSEffect({
+    const quarterLeft = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -1002,7 +998,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-left",
       easing: "easeOutCubic"
     });
-    const bg = new MotorCortex.CSSEffect({
+    const bg = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "0%"
       },
@@ -1015,7 +1011,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg,.fragment",
       easing: "easeOutQuad"
     });
-    const bgscaledown = new MotorCortex.CSSEffect({
+    const bgscaledown = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           scale: 0.5
@@ -1032,7 +1028,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg,.bg-next",
       easing: "easeOutCubic"
     });
-    const bgscaledownMove = new MotorCortex.CSSEffect({
+    const bgscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "25%"
       },
@@ -1045,7 +1041,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutCubic"
     });
-    const bgsecondscaledownMove = new MotorCortex.CSSEffect({
+    const bgsecondscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-25%"
       },
@@ -1058,7 +1054,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg-next",
       easing: "easeOutCubic"
     });
-    const bgscaleup = new MotorCortex.CSSEffect({
+    const bgscaleup = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           scale: 1
@@ -1075,7 +1071,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg,.bg-next",
       easing: "easeOutCubic"
     });
-    const bgscaledownMoveOut = new MotorCortex.CSSEffect({
+    const bgscaledownMoveOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "100%"
       },
@@ -1088,7 +1084,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutCubic"
     });
-    const bgsecondscaledownMoveOut = new MotorCortex.CSSEffect({
+    const bgsecondscaledownMoveOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -1101,7 +1097,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg-next",
       easing: "easeOutCubic"
     });
-    const bgMoveOut = new MotorCortex.CSSEffect({
+    const bgMoveOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "100%"
       },
@@ -1128,7 +1124,7 @@ class BtTslideDate extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class LtRslideTop extends MotorCortex__default["default"].HTMLClip {
+class LtRslideTop extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1153,7 +1149,7 @@ class LtRslideTop extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const personConMove = new MotorCortex.CSSEffect({
+    const personConMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         paddingTop: "0%"
       },
@@ -1166,7 +1162,7 @@ class LtRslideTop extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-left",
       easing: "easeOutCubic"
     });
-    const quarterLeft = new MotorCortex.CSSEffect({
+    const quarterLeft = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "25%"
       },
@@ -1179,7 +1175,7 @@ class LtRslideTop extends MotorCortex__default["default"].HTMLClip {
       selector: ".quarter-left",
       easing: "easeOutCubic"
     });
-    const bg = new MotorCortex.CSSEffect({
+    const bg = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -1192,7 +1188,7 @@ class LtRslideTop extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutCubic"
     });
-    const bgOut = new MotorCortex.CSSEffect({
+    const bgOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "100%"
       },
@@ -1213,7 +1209,7 @@ class LtRslideTop extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class RtLslide extends MotorCortex__default["default"].HTMLClip {
+class RtLslide extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1238,7 +1234,7 @@ class RtLslide extends MotorCortex__default["default"].HTMLClip {
   }
 
   buildTree() {
-    const personConMove = new MotorCortex.CSSEffect({
+    const personConMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         paddingBottom: "0%"
       },
@@ -1252,7 +1248,7 @@ class RtLslide extends MotorCortex__default["default"].HTMLClip {
       duration: 2000,
       selector: ".quarter-left"
     });
-    const quarterLeft = new MotorCortex.CSSEffect({
+    const quarterLeft = new motorcortex.CSSEffect({
       animatedAttrs: {
         top: "25%"
       },
@@ -1266,7 +1262,7 @@ class RtLslide extends MotorCortex__default["default"].HTMLClip {
       duration: 2000,
       selector: ".quarter-left"
     });
-    const bg = new MotorCortex.CSSEffect({
+    const bg = new motorcortex.CSSEffect({
       animatedAttrs: {
         right: "0%"
       },
@@ -1281,7 +1277,7 @@ class RtLslide extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const bgOut = new MotorCortex.CSSEffect({
+    const bgOut = new motorcortex.CSSEffect({
       animatedAttrs: {
         right: "100%"
       },
@@ -1304,7 +1300,7 @@ class RtLslide extends MotorCortex__default["default"].HTMLClip {
 
 }
 
-class VideoClip extends MotorCortex.BrowserClip {
+class VideoClip extends motorcortex.BrowserClip {
   get html() {
     this.width = this.attrs.width || 640;
     this.height = this.attrs.height || 360;
@@ -1350,7 +1346,7 @@ class VideoClip extends MotorCortex.BrowserClip {
 
 }
 
-class VideoPlay extends MotorCortex.MediaPlayback {
+class VideoPlay extends motorcortex.MediaPlayback {
   play() {
     const video = this.element.entity.video; // If the video is ready to play we don't need to block again
 
@@ -1540,8 +1536,8 @@ var index$1 = {
   audio: "on"
 };
 
-const VideoPlugin = MotorCortex__default["default"].loadPlugin(index$1);
-class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
+const VideoPlugin = motorcortex.loadPlugin(index$1);
+class SlideDateOneVid extends motorcortex.HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
@@ -1594,7 +1590,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       html3 = html3 + html;
     }
 
-    const word = new MotorCortex__default["default"].HTMLClip({
+    const word = new motorcortex.HTMLClip({
       css: this.css,
       html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
       selector: ".word",
@@ -1603,7 +1599,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
     this.addIncident(word, 0);
 
     for (let i = 0; i < array.length; i++) {
-      const textAnimation = new MotorCortex.CSSEffect({
+      const textAnimation = new motorcortex.CSSEffect({
         animatedAttrs: {
           top: "0px",
           opacity: 1
@@ -1617,7 +1613,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       word.addIncident(textAnimation, (2000 + 100 * (i + 1)) * 2);
     }
 
-    const bgMove = new MotorCortex.CSSEffect({
+    const bgMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -1630,7 +1626,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const secondSlideTitleOne = new MotorCortex.CSSEffect({
+    const secondSlideTitleOne = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -1643,7 +1639,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-slide-titleOne",
       easing: "easeOutQuad"
     });
-    const secondSlideTitleTwo = new MotorCortex.CSSEffect({
+    const secondSlideTitleTwo = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -1656,7 +1652,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-slide-titleTwo",
       easing: "easeOutQuad"
     });
-    const wordBg = new MotorCortex.CSSEffect({
+    const wordBg = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -1669,7 +1665,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".word-bg",
       easing: "easeOutQuad"
     });
-    const shortDescription = new MotorCortex.CSSEffect({
+    const shortDescription = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "0%"
       },
@@ -1682,7 +1678,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".short-description",
       easing: "easeOutQuad"
     });
-    const bgscaledown = new MotorCortex.CSSEffect({
+    const bgscaledown = new motorcortex.CSSEffect({
       animatedAttrs: {
         transform: {
           scale: 0.5
@@ -1699,7 +1695,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg,.bg-second",
       easing: "easeOutQuad"
     });
-    const bgscaledownMove = new MotorCortex.CSSEffect({
+    const bgscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-25%"
       },
@@ -1712,7 +1708,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg",
       easing: "easeOutQuad"
     });
-    const bgsecondscaledownMove = new MotorCortex.CSSEffect({
+    const bgsecondscaledownMove = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "25%"
       },
@@ -1725,7 +1721,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".bg-second",
       easing: "easeOutQuad"
     });
-    const secondBgDate = new MotorCortex.CSSEffect({
+    const secondBgDate = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "5%"
       },
@@ -1738,7 +1734,7 @@ class SlideDateOneVid extends MotorCortex__default["default"].HTMLClip {
       selector: ".second-date",
       easing: "easeOutQuad"
     });
-    const moveSecondS = new MotorCortex.CSSEffect({
+    const moveSecondS = new motorcortex.CSSEffect({
       animatedAttrs: {
         left: "-100%"
       },
