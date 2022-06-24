@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/donkeyclip/motorcortex-slides/compare/v2.0.1...v2.0.2) (2022-06-24)
+
+
+### Bug Fixes
+
+* fix imports ([970b6cf](https://github.com/donkeyclip/motorcortex-slides/commit/970b6cf80d40253d9e18c8c2b3b8679f04f4f59a))
+
 ### [2.0.1](https://github.com/donkeyclip/motorcortex-slides/compare/v2.0.0...v2.0.1) (2022-04-12)
 
 
