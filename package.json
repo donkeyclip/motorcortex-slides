@@ -80,7 +80,7 @@
     "babel-loader": "8.2.5",
     "browserify": "17.0.0",
     "browserslist": "4.21.3",
-    "caniuse-lite": "1.0.30001373",
+    "caniuse-lite": "1.0.30001374",
     "core-js": "3.24.1",
     "concurrently": "7.3.0",
     "css-loader": "6.7.1",
