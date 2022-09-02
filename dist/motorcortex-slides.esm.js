@@ -17,11 +17,171 @@ class Intro extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"bg\"> \n        <div class=\"first-slide\">\n          <div class=\"testdiv\">\n            <div class=\"sub\">\n              <div class=\"subtitle\">\n                <div class=\"subtitle-holder\">\n                  <div class=\"subtitle-text\">".concat(this.attrs.subtitle, "</div>\n                </div>\n              </div>\n            </div>\n          </div>\n          <div class=\"title\">\n            <div class=\"date-holder\">\n              <div class=\"date\">\n                <span> ").concat(this.attrs.month, "</span>\n              </div>\n            </div>\n            <div class=\"holder-title\">\n              <div class=\"title-text\">").concat(this.attrs.title, "</div>\n            </div>\n          </div>\n          <div class=\"description\">\n            <div class=\"description-text\">\n              <p>").concat(this.attrs.description, "</p>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="bg"> 
+        <div class="first-slide">
+          <div class="testdiv">
+            <div class="sub">
+              <div class="subtitle">
+                <div class="subtitle-holder">
+                  <div class="subtitle-text">${this.attrs.subtitle}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="title">
+            <div class="date-holder">
+              <div class="date">
+                <span> ${this.attrs.month}</span>
+              </div>
+            </div>
+            <div class="holder-title">
+              <div class="title-text">${this.attrs.title}</div>
+            </div>
+          </div>
+          <div class="description">
+            <div class="description-text">
+              <p>${this.attrs.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        height: 1080px;\n        width: 1920px;\n        position: relative;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .first-slide {\n        display: flex;\n        width: 90%;\n        white-space: nowrap;\n        overflow: hidden;\n        flex-direction: column;\n        position: relative;\n      }\n\n      .sub {\n        display: flex;\n        overflow: hidden;\n        position: relative;\n        width: 50%;\n        left:0px;\n      }\n      \n      .title {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        margin-top:-").concat(this.dinamicFontSize(this.attrs.title.length, 864 * 2) / 2.6, "px;\n        overflow: hidden;\n        display: flex;\n        width: 100%;\n      }\n\n      .subtitle {\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 864), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        overflow: hidden;\n      }\n\n      .description-text {\n        position: relative;\n        transform: translateY(-200%);\n      }\n\n      .description {\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        transform: translateY(200%);\n        font-size: 30px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n      }\n\n      .testdiv{\n        width:100%;\n        padding-bottom: 2%;\n      }\n\n      .date-holder{\n        width: 28%;\n        position: absolute;\n        justify-self: center;\n        top: 8%;\n        display: flex;\n        justify-content: flex-end;\n      }\n\n      .date {\n        overflow: hidden;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n      }\n\n      .date span {\n        position: relative;\n        overflow: hidden;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        font-size: 50px;\n        color: #fff ;\n        transform: translateX(200%);\n      }\n\n      .title-text{\n        overflow: hidden;\n        width : 0%;\n      }\n\n      .subtitle-text{\n        overflow: hidden;\n        right: 100%;\n        position: relative;\n      }\n\n      .subtitle-holder{\n        overflow: hidden;\n        position : relative;\n        right: -100%;\n      }\n    ");
+    return `
+      .bg {
+        height: 1080px;
+        width: 1920px;
+        position: relative;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/kissmybutonbg.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+      }
+
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .first-slide {
+        display: flex;
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .sub {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        width: 50%;
+        left:0px;
+      }
+      
+      .title {
+        color: ${this.attrs.mainColor || "#00ff40"};
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 864 * 2)}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        margin-top:-${this.dinamicFontSize(this.attrs.title.length, 864 * 2) / 2.6}px;
+        overflow: hidden;
+        display: flex;
+        width: 100%;
+      }
+
+      .subtitle {
+        color: ${this.attrs.mainColor || "#00ff40"};
+        font-size: ${this.dinamicFontSize(this.attrs.subtitle.length, 864)}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        overflow: hidden;
+      }
+
+      .description-text {
+        position: relative;
+        transform: translateY(-200%);
+      }
+
+      .description {
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
+        overflow: hidden;
+        transform: translateY(200%);
+        font-size: 30px;
+        color: #fff;
+        position: relative;
+        white-space: normal;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+      }
+
+      .testdiv{
+        width:100%;
+        padding-bottom: 2%;
+      }
+
+      .date-holder{
+        width: 28%;
+        position: absolute;
+        justify-self: center;
+        top: 8%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .date {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .date span {
+        position: relative;
+        overflow: hidden;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        font-size: 50px;
+        color: #fff ;
+        transform: translateX(200%);
+      }
+
+      .title-text{
+        overflow: hidden;
+        width : 0%;
+      }
+
+      .subtitle-text{
+        overflow: hidden;
+        right: 100%;
+        position: relative;
+      }
+
+      .subtitle-holder{
+        overflow: hidden;
+        position : relative;
+        right: -100%;
+      }
+    `;
   }
 
   buildTree() {
@@ -75,7 +235,7 @@ class Intro extends HTMLClip {
     });
     const subtitleRight = new CSSEffect({
       animatedAttrs: {
-        left: "".concat(1728 - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864), "px")
+        left: `${1728 - (this.dinamicFontSize(this.attrs.subtitle.length, 864) * 0.6 * this.attrs.subtitle.length, 864)}px`
       }
     }, {
       duration: 2000,
@@ -205,11 +365,37 @@ class Transition extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"transition-container\">\n        <p class=\"transition-text\">".concat(this.attrs.title, "</p>\n      </div>\n    ");
+    return `
+      <div class="transition-container">
+        <p class="transition-text">${this.attrs.title}</p>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .transition-container {\n        color:white; \n        background:rgb(0, 0, 0);\n        mix-blend-mode: multiply;\n        font: bolder 400px \"Roboto Mono\";\n        text-align: center;\n        position: relative;\n        left: -100%;\n        width: 20%;\n        height: 100%;\n        position: absolute;\n        display: flex;\n        align-content: center;\n        align-items: center;\n        overflow: hidden;\n      }\n\n      .transition-text {\n        position: relative;\n        left: -0%;\n      }\n    ";
+    return `
+      .transition-container {
+        color:white; 
+        background:rgb(0, 0, 0);
+        mix-blend-mode: multiply;
+        font: bolder 400px "Roboto Mono";
+        text-align: center;
+        position: relative;
+        left: -100%;
+        width: 20%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .transition-text {
+        position: relative;
+        left: -0%;
+      }
+    `;
   }
 
   buildTree() {
@@ -264,11 +450,156 @@ class SlideDateOne extends HTMLClip {
   }
 
   get html() {
-    return "\n    <div>\n      <div class=\"bg \">\n        <div class=\"second-slide\">\n          <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n          <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n          <div class=\"word-bg\">\n            <div class=\"word\"></div>\n          </div>\n          <div class=\"short-description\">\n            <p>").concat(this.attrs.description, "</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-second \">\n        <div class=\"bg-second-slide\">\n            <div class=\"second-date-container\">\n            <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n        </div>\n      </div>\n    </div>\n    ");
+    return `
+    <div>
+      <div class="bg ">
+        <div class="second-slide">
+          <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
+          <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
+          <div class="word-bg">
+            <div class="word"></div>
+          </div>
+          <div class="short-description">
+            <p>${this.attrs.description}</p>
+          </div>
+        </div>
+      </div>
+      <div class="bg-second ">
+        <div class="bg-second-slide">
+            <div class="second-date-container">
+            <div class="second-date"><span> ${this.attrs.day || ""} ${this.attrs.dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs.year || ""}</div>
+            </div>
+        </div>
+      </div>
+    </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor || "#00ff40", ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.titleone.length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.subtitle.length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor || "#00ff40", "\n      }\n\n      .second-slide{\n        position : absolute;\n        left : 0%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        margin-left: 10%;\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.str.length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n      \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+    return `
+      .bg,.bg-second {
+        width: 1920px;
+        height: 1080px;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left: -100%
+      }
+
+      .bg:after,.bg-second:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .bg-second{
+        left:100%;
+        background-image: url(${this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"});
+      }
+
+      .short-description{
+        font-size: 20px;
+        color: #fff;
+        position: relative;
+        white-space: normal;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        width: 720px;
+        left: -50%;
+      }
+
+      .word-bg{
+        background-color:${this.attrs.mainColor || "#00ff40"};
+        width: 720px;
+        position: relative;
+        left: -50%
+      }
+
+      .word{
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 720px
+      }
+
+      .second-slide-titleTwo,.second-slide-titleOne{
+        font-size: ${this.dinamicFontSize(this.attrs.titleone.length, 360)}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+        position: relative;
+        left : -50%;
+      }
+
+      .second-slide-titleTwo{
+        font-size: ${this.dinamicFontSize(this.attrs.subtitle.length, 720)}px;
+      }
+
+      .second-slide-titleOne{
+        color :${this.attrs.mainColor || "#00ff40"}
+      }
+
+      .second-slide{
+        position : absolute;
+        left : 0%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 10%;
+      }
+
+      .letter{
+        font-size: ${this.dinamicFontSize(this.attrs.str.length, 720)}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+        position: relative;
+        position: relative;
+        text-align: center;
+        top : 300px;
+        width: 100%;
+      }
+
+      .second-date-container{
+        border-left: 100px solid ${this.attrs.mainColor || "#00ff40"};
+        overflow: hidden;
+        width: 200%;
+      }
+
+      .second-date{
+        font-size: 100px;
+        color: #fff;
+        position: relative;
+        white-space: nowrap;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        width: 720px;
+        left:-100%;
+      }
+      
+      .second-date span{
+        color: ${this.attrs.mainColor};
+      }
+    `;
   }
 
   buildTree() {
@@ -280,13 +611,13 @@ class SlideDateOne extends HTMLClip {
     };
 
     for (let i = 0; i < array.length; i++) {
-      const html = "<span class='letter letter".concat(i + 1, "'>").concat(array[i], "</span>");
+      const html = `<span class='letter letter${i + 1}'>${array[i]}</span>`;
       html3 = html3 + html;
     }
 
     const word = new HTMLClip({
       css: this.css,
-      html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
+      html: ` <div class="conttitle" >${html3.split("undefined")[1]} </div>`,
       selector: ".word",
       containerParams
     });
@@ -482,11 +813,125 @@ class Scrollslide extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"third-holder \">\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg\">\n          <div class=\"bg-third-slide\">\n            <div class=\"third-first-presenter-slide\">\n              <div class=\"third-presenter-container\">\n                <div class=\"third-presenter presenter\">").concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="third-holder ">
+        <div class="bg">
+          <div class="bg-third-slide">
+            <div class="third-first-presenter-slide">
+              <div class="third-presenter-container">
+                <div class="third-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg">
+          <div class="bg-third-slide">
+            <div class="third-first-presenter-slide">
+              <div class="third-presenter-container">
+                <div class="third-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg">
+          <div class="bg-third-slide">
+            <div class="third-first-presenter-slide">
+              <div class="third-presenter-container">
+                <div class="third-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        margin-top: 10%;\n        margin-bottom: 10%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n    \n     .bg-third-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        margin-left: 5%;\n      }\n\n      .third-first-presenter-slide{\n        position : relative;\n      }\n\n      .third-presenter-container{\n        overflow: hidden;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .third-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n        transform: translateY(-100%);\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .third-holder{\n        left: 100%;\n        position: relative;\n        top : 0%;\n      }\n    ");
+    return `
+      .bg {
+        width: 100%;
+        height: 100%;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        margin-top: 10%;
+        margin-bottom: 10%;
+      }
+
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+    
+     .bg-third-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+        margin-left: 5%;
+      }
+
+      .third-first-presenter-slide{
+        position : relative;
+      }
+
+      .third-presenter-container{
+        overflow: hidden;
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
+      }
+
+      .presenter,.big-title{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+
+      .third-presenter{
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 720)}px;
+        transform: translateY(-100%);
+      }
+
+      .name-container,.position-container{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    
+      .name-container{
+        font-size: ${this.dinamicFontSize(this.attrs.name.length, 360)}px;
+      }
+
+      .position-container{
+        font-size: ${this.dinamicFontSize(this.attrs.position.length, 360)}px;
+      }
+
+      .third-holder{
+        left: 100%;
+        position: relative;
+        top : 0%;
+      }
+    `;
   }
 
   buildTree() {
@@ -593,11 +1038,106 @@ class LtRslide extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="bg">
+        <div class="bg-quarter-slide">
+          <div class="quarter-first-presenter-slide">
+            <div class="quarter-left">
+              <div class="quarter-presenter-container">
+                <div class="quarter-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-right: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        left: -50%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
+    return `
+      .bg {
+        width: 100%;
+        height: 100%;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left : -100%;
+      }
+
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .third-first-presenter-slide,.quarter-first-presenter-slide{
+        position : relative;
+      }
+    
+      .quarter-first-presenter-slide{
+        margin-bottom: 15%;
+        border-right: 15px solid ${this.attrs.mainColor || "#00ff40"};
+      }
+
+      .quarter-left{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position : relative;
+        left: -50%;
+      }
+
+      .name-container,.position-container{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    
+      .name-container{
+        font-size: ${this.dinamicFontSize(this.attrs.name.length, 360)}px;
+      }
+
+      .position-container{
+        font-size: ${this.dinamicFontSize(this.attrs.position.length, 360)}px;
+      }
+
+      .bg-quarter-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+      }
+
+      .bg-quarter-slide{
+        align-items: flex-end;
+      }
+
+      .quarter-presenter{
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 720)}px;
+      }
+
+      .presenter,.big-title{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+    `;
   }
 
   buildTree() {
@@ -674,11 +1214,220 @@ class SlideDateTwo extends HTMLClip {
   }
 
   get html() {
-    return "\n    <div>\n      <div class=\"bg\">\n        <div class=\"bg-deferi-day-slide\">\n          <div class=\"big-title\">".concat(this.attrs.bigTitle, "</div>\n          <div class=\"test-mask \">\n            <div class=\"defter-date-container\">\n              <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber, " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-second bg-small\">\n        <div class=\"bg-second-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n          <div class=\"quarter-left\">\n            <div class=\"quarter-presenter-container\">\n              <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n            </div>\n            <div class=\"name-container\">").concat(this.attrs.name, "</div>\n            <div class=\"position-container\">").concat(this.attrs.position, "</div>\n          </div>\n        </div>\n        </div>\n      </div>\n      <div class=\"bg-second bg-big \">\n        <div class=\"bg-second-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n          <div class=\"quarter-left\">\n            <div class=\"quarter-presenter-container\">\n              <div class=\"quarter-presenter presenter\">").concat(this.attrs.title, "</div>\n            </div>\n            <div class=\"name-container\">").concat(this.attrs.name, "</div>\n            <div class=\"position-container\">").concat(this.attrs.position, "</div>\n          </div>\n        </div>\n        </div>\n      </div>\n    </div>\n    ");
+    return `
+    <div>
+      <div class="bg">
+        <div class="bg-deferi-day-slide">
+          <div class="big-title">${this.attrs.bigTitle}</div>
+          <div class="test-mask ">
+            <div class="defter-date-container">
+              <div class="defter-date"><span> ${this.attrs.day || ""} ${this.attrs.dayNumber} </span>${this.attrs.month || ""} ${this.attrs.year || ""}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-second bg-small">
+        <div class="bg-second-slide">
+          <div class="quarter-first-presenter-slide">
+          <div class="quarter-left">
+            <div class="quarter-presenter-container">
+              <div class="quarter-presenter presenter">${this.attrs.title}</div>
+            </div>
+            <div class="name-container">${this.attrs.name}</div>
+            <div class="position-container">${this.attrs.position}</div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="bg-second bg-big ">
+        <div class="bg-second-slide">
+          <div class="quarter-first-presenter-slide">
+          <div class="quarter-left">
+            <div class="quarter-presenter-container">
+              <div class="quarter-presenter presenter">${this.attrs.title}</div>
+            </div>
+            <div class="name-container">${this.attrs.name}</div>
+            <div class="position-container">${this.attrs.position}</div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n      }\n\n      .bg-big{\n        left: 100%;\n      }\n\n      .bg-second-slide,.bg-third-slide,.bg-quarter-slide,.bg-deferi-day-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        overflow: hidden;\n      }\n\n      .bg-deferi-day-slide{\n        overflow: hidden;\n      }\n\n      .bg-second-slide{\n        justify-content: center;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    \n      .big-title{\n        font-size: 1700px;\n        position: relative;\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0\n      }\n    \n      .test-mask{\n        height: 132.5px;\n        width: 50%;\n        background-image: url(").concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        background-position-x: center;\n        transform: scale(1);\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n        overflow: hidden;\n        left: 25%;\n        background-position-x: center;  \n      }\n\n      .test-mask:after{ \n        content: \"\";\n        display: block;\n        background: #4e070799;\n        width: 1920px;\n        height: 1080px;\n        position: absolute;\n        top: -458px;\n        left: 0;\n        z-index: -2;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        top: -345%;\n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color: #fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background:").concat(this.attrs.dateOverlay || "#ff00b3", ";   \n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-image: url(").concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .quarter-presenter-container{\n        overflow: hidden;\n      }\n\n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        position: relative;\n        top: 90%;\n        overflow: hidden;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n\n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .bg-quarter-slide{\n        align-items: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n    ");
+    return `
+      .bg,.bg-second {
+        width: 1920px;
+        height: 1080px;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left: -100%
+      }
+
+      .bg:after,.bg-second:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .bg-second{
+        left:100%;
+        background-image: url(${this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"});
+      }
+
+      .bg-big{
+        left: 100%;
+      }
+
+      .bg-second-slide,.bg-third-slide,.bg-quarter-slide,.bg-deferi-day-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .bg-deferi-day-slide{
+        overflow: hidden;
+      }
+
+      .bg-second-slide{
+        justify-content: center;
+      }
+
+      .presenter,.big-title{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+    
+      .big-title{
+        font-size: 1700px;
+        position: relative;
+      }
+
+      .test-mask{
+        position: absolute;
+        left: 0;
+        height: 132.5px;
+        background-size: 1920px;
+        position: absolute;
+        left: 0
+      }
+    
+      .test-mask{
+        height: 132.5px;
+        width: 50%;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        background-position-x: center;
+        transform: scale(1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        overflow: hidden;
+        left: 25%;
+        background-position-x: center;  
+      }
+
+      .test-mask:after{ 
+        content: "";
+        display: block;
+        background: #4e070799;
+        width: 1920px;
+        height: 1080px;
+        position: absolute;
+        top: -458px;
+        left: 0;
+        z-index: -2;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        top: -345%;
+      }
+
+      .defter-date-container{
+        position: absolute;
+        font-size: 60px;
+        color: #fff;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        background:${this.attrs.dateOverlay || "#ff00b3"};   
+        padding: 2% 6%;
+        background-blend-mode: multiply;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg5.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+      }
+
+      .quarter-presenter-container{
+        overflow: hidden;
+      }
+
+      .quarter-first-presenter-slide{
+        margin-bottom: 15%;
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
+        position: relative;
+        top: 90%;
+        overflow: hidden;
+      }
+
+      .quarter-left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position : relative;
+        top: 90%;
+      }
+
+      .name-container,.position-container{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+      }
+
+      .name-container{
+        font-size: ${this.dinamicFontSize(this.attrs.name.length, 360)}px;
+      }
+
+      .position-container{
+        font-size: ${this.dinamicFontSize(this.attrs.position.length, 360)}px;
+      }
+
+      .bg-quarter-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+      }
+
+      .bg-quarter-slide{
+        align-items: flex-end;
+      }
+
+      .quarter-presenter{
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 720)}px;
+      }
+    `;
   }
 
   buildTree() {
@@ -871,11 +1620,103 @@ class BtTslide extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="bg">
+        <div class="bg-quarter-slide">
+          <div class="quarter-first-presenter-slide">
+            <div class="quarter-left">
+              <div class="quarter-presenter-container">
+                <div class="quarter-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n      \n        top : 100%;\n        \n      }\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        align-items: center;\n        justify-content: center;\n        \n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n        \n      }\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
+    return `
+      .bg {
+        width: 100%;
+        height: 100%;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+      
+        top : 100%;
+        
+      }
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+      .third-first-presenter-slide,.quarter-first-presenter-slide{
+        position : relative;
+      }
+    
+      .quarter-first-presenter-slide{
+        margin-bottom: 15%;
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
+        align-items: center;
+        justify-content: center;
+        
+      }
+
+      .quarter-left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position : relative;
+        top: 90%;
+        
+      }
+      .name-container,.position-container{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    
+      .name-container{
+        font-size: ${this.dinamicFontSize(this.attrs.name.length, 360)}px;
+      }
+      .position-container{
+        font-size: ${this.dinamicFontSize(this.attrs.position.length, 360)}px;
+      }
+      .bg-quarter-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .quarter-presenter{
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 720)}px;
+      }
+      .presenter,.big-title{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+    `;
   }
 
   buildTree() {
@@ -962,11 +1803,169 @@ class BtTslideDate extends HTMLClip {
   }
 
   get html() {
-    return "\n    <div class=\"fragment\">\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"quarter-first-presenter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"bg-next\">\n        <div class=\"bg-quarter-slide\">\n          <div class=\"test-mask\">\n            <div class=\"defter-date-container\">\n              <div class=\"defter-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n            </div>\n          </div>\n        </div>\n      </div>\n      </div>\n    ");
+    return `
+    <div class="fragment">
+      <div class="bg">
+        <div class="bg-quarter-slide">
+          <div class="quarter-first-presenter-slide">
+            <div class="quarter-left">
+              <div class="quarter-presenter-container">
+                <div class="quarter-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-next">
+        <div class="bg-quarter-slide">
+          <div class="test-mask">
+            <div class="defter-date-container">
+              <div class="defter-date"><span> ${this.attrs.day || ""} ${this.attrs.dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs.year || ""}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .fragment{\n        position: relative\n      }\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        top : 100%; \n      }\n\n      .bg:after,.bg-next {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-next {\n        width: 100%;\n        height: 100%;\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%\n      }\n\n      .bg-next,.defter-date-container{\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n      }\n\n      .defter-date-container{\n        position: absolute;\n        font-size: 60px;\n        color:#fff;\n        white-space: nowrap;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        background: ").concat(this.attrs.dateOverlay || "#ff00b3", ";\n        padding: 2% 6%;\n        background-blend-mode: multiply;\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n      }\n\n      .defter-date span{\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .third-first-presenter-slide,.quarter-first-presenter-slide{\n        position : relative;\n      }\n    \n      .quarter-first-presenter-slide{\n        margin-bottom: 15%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        position : relative;\n        top: 90%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n\n      .test-mask{\n        position: absolute;\n        left: 0;\n        height: 132.5px;\n        background-size: 1920px;\n        position: absolute;\n        left: 0;\n        display: flex;\n        justify-content: center;\n        align-content: center;\n        width: 100%;\n      }\n    ");
+    return `
+      .fragment{
+        position: relative
+      }
+      .bg {
+        width: 100%;
+        height: 100%;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        top : 100%; 
+      }
+
+      .bg:after,.bg-next {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .bg-next {
+        width: 100%;
+        height: 100%;
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left : -100%
+      }
+
+      .bg-next,.defter-date-container{
+        background-image: url(${this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"});
+      }
+
+      .defter-date-container{
+        position: absolute;
+        font-size: 60px;
+        color:#fff;
+        white-space: nowrap;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        background: ${this.attrs.dateOverlay || "#ff00b3"};
+        padding: 2% 6%;
+        background-blend-mode: multiply;
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+      }
+
+      .defter-date span{
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+
+      .third-first-presenter-slide,.quarter-first-presenter-slide{
+        position : relative;
+      }
+    
+      .quarter-first-presenter-slide{
+        margin-bottom: 15%;
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
+        align-items: center;
+        justify-content: center;
+      }
+
+      .quarter-left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position : relative;
+        top: 90%;
+      }
+
+      .name-container,.position-container{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    
+      .name-container{
+        font-size: ${this.dinamicFontSize(this.attrs.name.length, 360)}px;
+      }
+
+      .position-container{
+        font-size: ${this.dinamicFontSize(this.attrs.position.length, 360)}px;
+      }
+
+      .bg-quarter-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .quarter-presenter{
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 720)}px;
+      }
+
+      .presenter,.big-title{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+
+      .test-mask{
+        position: absolute;
+        left: 0;
+        height: 132.5px;
+        background-size: 1920px;
+        position: absolute;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+      }
+    `;
   }
 
   buildTree() {
@@ -1139,11 +2138,94 @@ class LtRslideTop extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="bg">
+        <div class="bg-quarter-slide">
+            <div class="quarter-left">
+              <div class="quarter-presenter-container">
+                <div class="quarter-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left : -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: -100%;\n        border-top: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        padding-top: 25%;\n        margin-left: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
+    return `
+      .bg {
+        width: 100%;
+        height: 100%;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left : -100%;
+      }
+
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .quarter-left{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position : relative;
+        top: -100%;
+        border-top: 15px solid ${this.attrs.mainColor || "#00ff40"};
+        padding-top: 25%;
+        margin-left: 4%;
+      }
+
+      .name-container,.position-container{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    
+      .name-container{
+        font-size: ${this.dinamicFontSize(this.attrs.name.length, 360)}px;
+      }
+
+      .position-container{
+        font-size: ${this.dinamicFontSize(this.attrs.position.length, 360)}px;
+      }
+
+      .bg-quarter-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+      }
+
+      .quarter-presenter{
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 720)}px;
+      }
+
+      .presenter,.big-title{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+    `;
   }
 
   buildTree() {
@@ -1224,11 +2306,95 @@ class RtLslide extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"bg\">\n        <div class=\"bg-quarter-slide\">\n            <div class=\"quarter-left\">\n              <div class=\"quarter-presenter-container\">\n                <div class=\"quarter-presenter presenter\">".concat(this.attrs.title, "</div>\n              </div>\n              <div class=\"name-container\">").concat(this.attrs.name, "</div>\n              <div class=\"position-container\">").concat(this.attrs.position, "</div>\n            </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="bg">
+        <div class="bg-quarter-slide">
+            <div class="quarter-left">
+              <div class="quarter-presenter-container">
+                <div class="quarter-presenter presenter">${this.attrs.title}</div>
+              </div>
+              <div class="name-container">${this.attrs.name}</div>
+              <div class="position-container">${this.attrs.position}</div>
+            </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg {\n        width: 100%;\n        height: 100%;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: relative;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        right: -100%;\n      }\n\n      .bg:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .quarter-left{\n        display: flex;\n        flex-direction: column;\n        align-items: flex-end;\n        position : relative;\n        top: 100%;\n        border-bottom: 15px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        padding-bottom: 25%;\n        margin-right: 4%;\n      }\n\n      .name-container,.position-container{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n      }\n    \n      .name-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.name.length, 360), "px;\n      }\n\n      .position-container{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.position.length, 360), "px;\n      }\n\n      .bg-quarter-slide{\n        height: 1080px;\n        width: 1920px;\n        display: flex;\n        align-items: center;\n        justify-content: flex-end;\n      }\n\n      .quarter-presenter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title.length, 720), "px;\n      }\n\n      .presenter,.big-title{\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: ").concat(this.attrs.mainColor || "#00ff40", ";\n      }\n    ");
+    return `
+      .bg {
+        width: 100%;
+        height: 100%;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg4.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        right: -100%;
+      }
+
+      .bg:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .quarter-left{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position : relative;
+        top: 100%;
+        border-bottom: 15px solid ${this.attrs.mainColor || "#00ff40"};
+        padding-bottom: 25%;
+        margin-right: 4%;
+      }
+
+      .name-container,.position-container{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+      }
+    
+      .name-container{
+        font-size: ${this.dinamicFontSize(this.attrs.name.length, 360)}px;
+      }
+
+      .position-container{
+        font-size: ${this.dinamicFontSize(this.attrs.position.length, 360)}px;
+      }
+
+      .bg-quarter-slide{
+        height: 1080px;
+        width: 1920px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .quarter-presenter{
+        font-size: ${this.dinamicFontSize(this.attrs.title.length, 720)}px;
+      }
+
+      .presenter,.big-title{
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: ${this.attrs.mainColor || "#00ff40"};
+      }
+    `;
   }
 
   buildTree() {
@@ -1552,11 +2718,176 @@ class SlideDateOneVid extends HTMLClip {
   }
 
   get html() {
-    return "\n      <div class=\"parent\">\n        <div class=\"bg \">\n          <div class =\"vid\"></div>\n          <div class=\"second-slide\">\n            <div class=\"second-slide-titleOne\">".concat(this.attrs.title[0], "</div>\n            <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[1], "</div>\n            <div class=\"second-slide-titleTwo\">").concat(this.attrs.title[2], "</div>\n            <div class=\"word-bg\">\n              <div class=\"word\"></div>\n            </div>\n            <div class=\"short-description\">\n              <p>\n               ").concat(this.attrs.description, "\n              </p>\n            </div>\n          </div>\n        </div>\n        <div class=\"bg-second \">\n          <div class=\"bg-second-slide\">\n              <div class=\"second-date-container\">\n                  <div class=\"second-date\"><span> ").concat(this.attrs.day || "", " ").concat(this.attrs.dayNumber || "", " </span>").concat(this.attrs.month || "", " ").concat(this.attrs.year || "", "</div>\n              </div>\n          </div>\n        </div>\n      </div>\n    ");
+    return `
+      <div class="parent">
+        <div class="bg ">
+          <div class ="vid"></div>
+          <div class="second-slide">
+            <div class="second-slide-titleOne">${this.attrs.title[0]}</div>
+            <div class="second-slide-titleTwo">${this.attrs.title[1]}</div>
+            <div class="second-slide-titleTwo">${this.attrs.title[2]}</div>
+            <div class="word-bg">
+              <div class="word"></div>
+            </div>
+            <div class="short-description">
+              <p>
+               ${this.attrs.description}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-second ">
+          <div class="bg-second-slide">
+              <div class="second-date-container">
+                  <div class="second-date"><span> ${this.attrs.day || ""} ${this.attrs.dayNumber || ""} </span>${this.attrs.month || ""} ${this.attrs.year || ""}</div>
+              </div>
+          </div>
+        </div>
+      </div>
+    `;
   }
 
   get css() {
-    return "\n      .bg,.bg-second {\n        width: 1920px;\n        height: 1080px;\n        background-image: url(".concat(this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg", ");\n        background-size: 1920px;\n        background-position: center;\n        transform: scale(1);\n        display: flex;\n        position: absolute;\n        align-items: center;\n        flex-wrap: wrap;\n        flex: 1 0 auto;\n        left: -100%\n      }\n\n      .parent{\n        position:relative;\n        width: 1920px;\n        height: 1080px;\n        left:0%;\n      }\n\n      .bg:after,.bg-second:after {\n        content: \"\";\n        display: block;\n        background: linear-gradient(").concat(this.attrs.overlayColor || "#101820D7,#101820FF", ");\n        position: absolute;\n        top: 0;\n        bottom: 0;\n        right: 0;\n        left: 0;\n        z-index: -1;\n      }\n\n      .bg-second{\n        left:100%;\n        background-image: url(").concat(this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg", ");\n      }\n\n      .vid{\n        position: absolute;\n        top: 0;\n        left: 0;\n        width: 1920px;\n        height: 1080px;\n      }\n\n      .short-description{\n        font-size: 20px;\n        color: #fff;\n        position: relative;\n        white-space: normal;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left: -50%;\n      }\n\n      .word-bg{\n        background-color:").concat(this.attrs.mainColor || "#00ff40", ";\n        width: 720px;\n        position: relative;\n        left: -50%\n      }\n\n      .word{\n        overflow: hidden;\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 720px\n      }\n\n      .second-slide-titleTwo,.second-slide-titleOne{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[0].length, 360), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        left : -50%;\n      }\n\n      .second-slide-titleTwo{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[1].length, 720), "px;\n      }\n\n      .second-slide-titleOne{\n        color :").concat(this.attrs.mainColor || "#00ff40", "\n      }\n\n      .second-slide{\n        position: absolute;\n        left: 10%;\n        display: flex;\n        align-content: center;\n        justify-content: center;\n        flex-direction: column;\n        top: 20%;\n        transform: scale(1);\n      }\n\n      .letter{\n        font-size: ").concat(this.dinamicFontSize(this.attrs.title[2].length, 720), "px;\n        font-weight: 700;\n        font-family: 'Roboto Mono', monospace;\n        text-transform: uppercase;\n        color: #fff;\n        position: relative;\n        position: relative;\n        text-align: center;\n        top : 300px;\n        width: 100%;\n      }\n\n      .second-date-container{\n        border-left: 100px solid ").concat(this.attrs.mainColor || "#00ff40", ";\n        overflow: hidden;\n        width: 200%;\n      }\n\n      .second-date{\n        font-size: 100px;\n        color: #fff;\n        position: relative;\n        white-space: nowrap;\n        text-align: left;\n        text-transform: uppercase;\n        font-family: 'Roboto Mono', monospace;\n        width: 720px;\n        left:-100%;\n      }\n    \n      .second-date span{\n        color: ").concat(this.attrs.mainColor, ";\n      }\n    ");
+    return `
+      .bg,.bg-second {
+        width: 1920px;
+        height: 1080px;
+        background-image: url(${this.attrs.bgUrl || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg3.jpg"});
+        background-size: 1920px;
+        background-position: center;
+        transform: scale(1);
+        display: flex;
+        position: absolute;
+        align-items: center;
+        flex-wrap: wrap;
+        flex: 1 0 auto;
+        left: -100%
+      }
+
+      .parent{
+        position:relative;
+        width: 1920px;
+        height: 1080px;
+        left:0%;
+      }
+
+      .bg:after,.bg-second:after {
+        content: "";
+        display: block;
+        background: linear-gradient(${this.attrs.overlayColor || "#101820D7,#101820FF"});
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .bg-second{
+        left:100%;
+        background-image: url(${this.attrs.bgUrl2 || "https://donkeyclip.github.io/motorcortex-slides/demo/assets/bg2.jpg"});
+      }
+
+      .vid{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+
+      .short-description{
+        font-size: 20px;
+        color: #fff;
+        position: relative;
+        white-space: normal;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        width: 720px;
+        left: -50%;
+      }
+
+      .word-bg{
+        background-color:${this.attrs.mainColor || "#00ff40"};
+        width: 720px;
+        position: relative;
+        left: -50%
+      }
+
+      .word{
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 720px
+      }
+
+      .second-slide-titleTwo,.second-slide-titleOne{
+        font-size: ${this.dinamicFontSize(this.attrs.title[0].length, 360)}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+        position: relative;
+        left : -50%;
+      }
+
+      .second-slide-titleTwo{
+        font-size: ${this.dinamicFontSize(this.attrs.title[1].length, 720)}px;
+      }
+
+      .second-slide-titleOne{
+        color :${this.attrs.mainColor || "#00ff40"}
+      }
+
+      .second-slide{
+        position: absolute;
+        left: 10%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        flex-direction: column;
+        top: 20%;
+        transform: scale(1);
+      }
+
+      .letter{
+        font-size: ${this.dinamicFontSize(this.attrs.title[2].length, 720)}px;
+        font-weight: 700;
+        font-family: 'Roboto Mono', monospace;
+        text-transform: uppercase;
+        color: #fff;
+        position: relative;
+        position: relative;
+        text-align: center;
+        top : 300px;
+        width: 100%;
+      }
+
+      .second-date-container{
+        border-left: 100px solid ${this.attrs.mainColor || "#00ff40"};
+        overflow: hidden;
+        width: 200%;
+      }
+
+      .second-date{
+        font-size: 100px;
+        color: #fff;
+        position: relative;
+        white-space: nowrap;
+        text-align: left;
+        text-transform: uppercase;
+        font-family: 'Roboto Mono', monospace;
+        width: 720px;
+        left:-100%;
+      }
+    
+      .second-date span{
+        color: ${this.attrs.mainColor};
+      }
+    `;
   }
 
   buildTree() {
@@ -1584,13 +2915,13 @@ class SlideDateOneVid extends HTMLClip {
     };
 
     for (let i = 0; i < array.length; i++) {
-      const html = "<span class='letter letter".concat(i + 1, "'>").concat(array[i], "</span>");
+      const html = `<span class='letter letter${i + 1}'>${array[i]}</span>`;
       html3 = html3 + html;
     }
 
     const word = new HTMLClip({
       css: this.css,
-      html: " <div class=\"conttitle\" >".concat(html3.split("undefined")[1], " </div>"),
+      html: ` <div class="conttitle" >${html3.split("undefined")[1]} </div>`,
       selector: ".word",
       containerParams
     });
