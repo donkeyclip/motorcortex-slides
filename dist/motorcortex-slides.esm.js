@@ -4,18 +4,14 @@ class Intro extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
       <div class="bg"> 
@@ -48,7 +44,6 @@ class Intro extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -183,7 +178,6 @@ class Intro extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const titleanime = new CSSEffect({
       animatedAttrs: {
@@ -345,25 +339,20 @@ class Intro extends HTMLClip {
     this.addIncident(descriptiontext, 5000);
     this.addIncident(bgQut, this.calculatedDuration + 2000);
   }
-
 }
 
 class Transition extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
       <div class="transition-container">
@@ -371,7 +360,6 @@ class Transition extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .transition-container {
@@ -397,7 +385,6 @@ class Transition extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const transitionText = new CSSEffect({
       animatedAttrs: {
@@ -430,25 +417,20 @@ class Transition extends HTMLClip {
     this.addIncident(transitionText, 0);
     this.addIncident(transitionContainer, 0);
   }
-
 }
 
 class SlideDateOne extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
     <div>
@@ -474,7 +456,6 @@ class SlideDateOne extends HTMLClip {
     </div>
     `;
   }
-
   get css() {
     return `
       .bg,.bg-second {
@@ -601,7 +582,6 @@ class SlideDateOne extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const array = this.attrs.title[2].split("");
     let html3;
@@ -609,12 +589,10 @@ class SlideDateOne extends HTMLClip {
       width: "100%",
       height: "100%"
     };
-
     for (let i = 0; i < array.length; i++) {
       const html = `<span class='letter letter${i + 1}'>${array[i]}</span>`;
       html3 = html3 + html;
     }
-
     const word = new HTMLClip({
       css: this.css,
       html: ` <div class="conttitle" >${html3.split("undefined")[1]} </div>`,
@@ -622,7 +600,6 @@ class SlideDateOne extends HTMLClip {
       containerParams
     });
     this.addIncident(word, 0);
-
     for (let i = 0; i < array.length; i++) {
       const textAnimation = new CSSEffect({
         animatedAttrs: {
@@ -637,7 +614,6 @@ class SlideDateOne extends HTMLClip {
       });
       word.addIncident(textAnimation, (2000 + 100 * (i + 1)) * 2);
     }
-
     const bgMove = new CSSEffect({
       animatedAttrs: {
         left: "0%"
@@ -793,25 +769,20 @@ class SlideDateOne extends HTMLClip {
     this.addIncident(moveSecond, 12000);
     this.addIncident(moveSecondS, this.calculatedDuration + 1000);
   }
-
 }
 
 class Scrollslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
       <div class="third-holder ">
@@ -851,7 +822,6 @@ class Scrollslide extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -933,7 +903,6 @@ class Scrollslide extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const moveThird = new CSSEffect({
       animatedAttrs: {
@@ -1018,25 +987,20 @@ class Scrollslide extends HTMLClip {
     this.addIncident(movePresenter, 1400);
     this.addIncident(bgOut, this.calculatedDuration + 2000);
   }
-
 }
 
 class LtRslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
       <div class="bg">
@@ -1054,7 +1018,6 @@ class LtRslide extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -1139,7 +1102,6 @@ class LtRslide extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const personConMove = new CSSEffect({
       animatedAttrs: {
@@ -1194,25 +1156,20 @@ class LtRslide extends HTMLClip {
     this.addIncident(quarterLeft, 0);
     this.addIncident(bgOut, this.calculatedDuration + 2000);
   }
-
 }
 
 class SlideDateTwo extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
     <div>
@@ -1255,7 +1212,6 @@ class SlideDateTwo extends HTMLClip {
     </div>
     `;
   }
-
   get css() {
     return `
       .bg,.bg-second {
@@ -1429,7 +1385,6 @@ class SlideDateTwo extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const bgMove = new CSSEffect({
       animatedAttrs: {
@@ -1600,25 +1555,20 @@ class SlideDateTwo extends HTMLClip {
     this.addIncident(moveBig, this.calculatedDuration - 6400);
     this.addIncident(moveBigOut, this.calculatedDuration + 2000);
   }
-
 }
 
 class BtTslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
       <div class="bg">
@@ -1636,7 +1586,6 @@ class BtTslide extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -1718,7 +1667,6 @@ class BtTslide extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const personConMove = new CSSEffect({
       animatedAttrs: {
@@ -1783,25 +1731,20 @@ class BtTslide extends HTMLClip {
     this.addIncident(quarterLeft, 0);
     this.addIncident(bgOut, this.calculatedDuration + 2000);
   }
-
 }
 
 class BtTslideDate extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
     <div class="fragment">
@@ -1830,7 +1773,6 @@ class BtTslideDate extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .fragment{
@@ -1967,7 +1909,6 @@ class BtTslideDate extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const personConMove = new CSSEffect({
       animatedAttrs: {
@@ -2118,25 +2059,20 @@ class BtTslideDate extends HTMLClip {
     this.addIncident(bgsecondscaledownMoveOut, 8000);
     this.addIncident(bgMoveOut, this.calculatedDuration + 2000);
   }
-
 }
 
 class LtRslideTop extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return Math.round(fontsize);
   }
-
   get html() {
     return `
       <div class="bg">
@@ -2152,7 +2088,6 @@ class LtRslideTop extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -2227,7 +2162,6 @@ class LtRslideTop extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const personConMove = new CSSEffect({
       animatedAttrs: {
@@ -2286,25 +2220,20 @@ class LtRslideTop extends HTMLClip {
     this.addIncident(quarterLeft, 0);
     this.addIncident(bgOut, this.calculatedDuration + 2000);
   }
-
 }
 
 class RtLslide extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
       <div class="bg">
@@ -2320,7 +2249,6 @@ class RtLslide extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg {
@@ -2396,7 +2324,6 @@ class RtLslide extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const personConMove = new CSSEffect({
       animatedAttrs: {
@@ -2461,7 +2388,6 @@ class RtLslide extends HTMLClip {
     this.addIncident(quarterLeft, 0);
     this.addIncident(bgOut, this.calculatedDuration + 2000);
   }
-
 }
 
 class VideoClip extends BrowserClip {
@@ -2473,15 +2399,12 @@ class VideoClip extends BrowserClip {
     const videoSources = this.attrs.sources.map(item => "<source src=\"".concat(item, "#t=").concat(this.startFrom, "\"></source>")).join("\n");
     return "\n      <div>\n        <video id=\"video\" style=\"".concat(videoStyle, "\" preload=\"metadata\" ").concat(this.attrs.audio !== true ? "muted" : "", " playsinline>\n          ").concat(videoSources, "\n        </video>\n      </div>\n    ");
   }
-
   get css() {
     return "";
   }
-
   setVolume(volume) {
     this.video.volume = volume;
   }
-
   onAfterRender() {
     const video = this.context.getElements("video")[0];
     this.video = video;
@@ -2507,9 +2430,7 @@ class VideoClip extends BrowserClip {
       }, 0);
     }
   }
-
 }
-
 class VideoPlay extends MediaPlayback {
   play() {
     const video = this.element.entity.video; // If the video is ready to play we don't need to block again
@@ -2517,14 +2438,11 @@ class VideoPlay extends MediaPlayback {
     if (video.readyState < 3) {
       this.waitingHandler();
     }
-
     this.playPromise = video.play();
-
     if (this.hasSetWaitingListener !== true) {
       video.addEventListener("waiting", this.waitingHandler.bind(this));
       this.hasSetWaitingListener = true;
     }
-
     if (this.hasSetCanplayListener !== true) {
       video.addEventListener("canplay", this.canplayHandler.bind(this));
       video.addEventListener('canplaythrough', this.canplayHandler.bind(this));
@@ -2532,18 +2450,14 @@ class VideoPlay extends MediaPlayback {
       video.addEventListener('ready', this.canplayHandler.bind(this));
       this.hasSetCanplayListener = true;
     }
-
     return true;
   }
-
   waitingHandler() {
     this.setBlock("Video loading");
   }
-
   canplayHandler() {
     setTimeout(() => this.unblock());
   }
-
   stop() {
     if (this.playPromise) {
       this.playPromise.then(() => {
@@ -2551,15 +2465,12 @@ class VideoPlay extends MediaPlayback {
       });
     }
   }
-
   onProgress(millisecond) {
     this.unblock();
     const startFrom = millisecond + this.element.entity.startFrom;
     this.element.entity.video.currentTime = (startFrom + millisecond) / 1000;
   }
-
 }
-
 var name$1 = "@kissmybutton/motorcortex-video";
 var version$1 = "2.2.2";
 var main = "dist/motorcortex-video.cjs.js";
@@ -2705,18 +2616,14 @@ class SlideDateOneVid extends HTMLClip {
   dinamicFontSize(lc, width) {
     let fontsize;
     fontsize = width / 0.6 / lc;
-
     if (fontsize >= 200 && width === 720) {
       fontsize = 200;
     }
-
     if (fontsize >= 100 && width === 360) {
       fontsize = 100;
     }
-
     return fontsize;
   }
-
   get html() {
     return `
       <div class="parent">
@@ -2746,7 +2653,6 @@ class SlideDateOneVid extends HTMLClip {
       </div>
     `;
   }
-
   get css() {
     return `
       .bg,.bg-second {
@@ -2889,7 +2795,6 @@ class SlideDateOneVid extends HTMLClip {
       }
     `;
   }
-
   buildTree() {
     const VideoClip = new VideoPlugin.Clip({
       sources: this.attrs.vidLink,
@@ -2898,8 +2803,8 @@ class SlideDateOneVid extends HTMLClip {
       startFrom: 0
     }, {
       selector: ".vid" // or host: your-host
-
     });
+
     const Playback = new VideoPlugin.Playback({
       selector: "!#video",
       duration: this.attrs.vidDuration || 6000
@@ -2913,12 +2818,10 @@ class SlideDateOneVid extends HTMLClip {
       width: "100%",
       height: "100%"
     };
-
     for (let i = 0; i < array.length; i++) {
       const html = `<span class='letter letter${i + 1}'>${array[i]}</span>`;
       html3 = html3 + html;
     }
-
     const word = new HTMLClip({
       css: this.css,
       html: ` <div class="conttitle" >${html3.split("undefined")[1]} </div>`,
@@ -2926,7 +2829,6 @@ class SlideDateOneVid extends HTMLClip {
       containerParams
     });
     this.addIncident(word, 0);
-
     for (let i = 0; i < array.length; i++) {
       const textAnimation = new CSSEffect({
         animatedAttrs: {
@@ -2941,7 +2843,6 @@ class SlideDateOneVid extends HTMLClip {
       });
       word.addIncident(textAnimation, (2000 + 100 * (i + 1)) * 2);
     }
-
     const bgMove = new CSSEffect({
       animatedAttrs: {
         left: "0%"
@@ -3087,7 +2988,6 @@ class SlideDateOneVid extends HTMLClip {
     this.addIncident(secondBgDate, 7400 + delay);
     this.addIncident(moveSecondS, this.calculatedDuration + 2000);
   }
-
 }
 
 const _COLOR = "color";
