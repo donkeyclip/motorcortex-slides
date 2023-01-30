@@ -79,7 +79,7 @@
     "@rollup/plugin-node-resolve": "15.0.1",
     "babel-loader": "8.3.0",
     "browserify": "17.0.0",
-    "browserslist": "4.21.4",
+    "browserslist": "4.21.5",
     "caniuse-lite": "1.0.30001449",
     "core-js": "3.27.2",
     "concurrently": "7.6.0",
