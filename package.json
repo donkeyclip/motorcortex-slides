@@ -64,12 +64,12 @@
     "@kissmybutton/motorcortex-video": "^2"
   },
   "devDependencies": {
-    "@babel/cli": "7.21.0",
-    "@babel/core": "7.21.4",
-    "@babel/eslint-parser": "7.21.3",
+    "@babel/cli": "7.21.5",
+    "@babel/core": "7.21.8",
+    "@babel/eslint-parser": "7.21.8",
     "@babel/plugin-syntax-jsx": "7.21.4",
-    "@babel/plugin-transform-react-jsx": "7.21.0",
-    "@babel/preset-env": "7.21.4",
+    "@babel/plugin-transform-react-jsx": "7.21.5",
+    "@babel/preset-env": "7.21.5",
     "@donkeyclip/motorcortex": "9.5.7",
     "@donkeyclip/motorcortex-player": "2.10.8",
     "@kissmybutton/motorcortex-video": "2.2.2",
