@@ -81,7 +81,7 @@
     "browserify": "17.0.0",
     "browserslist": "4.22.1",
     "caniuse-lite": "1.0.30001546",
-    "core-js": "3.30.2",
+    "core-js": "3.33.0",
     "concurrently": "7.6.0",
     "css-loader": "6.7.3",
     "eslint": "8.40.0",
