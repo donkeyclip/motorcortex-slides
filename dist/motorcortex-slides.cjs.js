@@ -2806,7 +2806,6 @@ class SlideDateOneVid extends motorcortex.HTMLClip {
     }, {
       selector: ".vid" // or host: your-host
     });
-
     const Playback = new VideoPlugin.Playback({
       selector: "!#video",
       duration: this.attrs.vidDuration || 6000
