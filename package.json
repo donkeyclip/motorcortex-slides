@@ -82,7 +82,7 @@
     "browserslist": "4.22.3",
     "caniuse-lite": "1.0.30001582",
     "core-js": "3.35.1",
-    "concurrently": "7.6.0",
+    "concurrently": "8.2.2",
     "css-loader": "6.10.0",
     "eslint": "8.51.0",
     "eslint-config-prettier": "8.10.0",
