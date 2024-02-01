@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.0.0 (2024-02-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update readme and rename Scrollslide Incident ([#105](https://github.com/donkeyclip/motorcortex-slides/issues/105))
+
+### Features
+
+* declare mc 8 as compatible ([c285c1b](https://github.com/donkeyclip/motorcortex-slides/commit/c285c1b3908b7423fade4b34dd12e0ea01dcd6fe))
+* drop explorer 11 support ([4463530](https://github.com/donkeyclip/motorcortex-slides/commit/4463530a438f7c61d3976d58787989b9eb58016e))
+* update compatibility with motorcortex ([25acec0](https://github.com/donkeyclip/motorcortex-slides/commit/25acec07fc7175725f9c28817864881c2cf8b80c))
+
+
+### Bug Fixes
+
+* add missing dev dep ([c4a2176](https://github.com/donkeyclip/motorcortex-slides/commit/c4a21760534f99be1a2a48a981023f7ba530e280))
+* delete commitlint.config.js ([75ecb9d](https://github.com/donkeyclip/motorcortex-slides/commit/75ecb9de2e7a201f1ef536a156f3e4252f32cdc6))
+* fix deps ([f695f32](https://github.com/donkeyclip/motorcortex-slides/commit/f695f3291f8ef17366cd33523ebb6620bf68133a))
+* fix imports ([970b6cf](https://github.com/donkeyclip/motorcortex-slides/commit/970b6cf80d40253d9e18c8c2b3b8679f04f4f59a))
+* update deps ([018a224](https://github.com/donkeyclip/motorcortex-slides/commit/018a22423a0cfc515d5e3f14db81396b19092cf6))
+* Update readme and rename Scrollslide Incident ([#105](https://github.com/donkeyclip/motorcortex-slides/issues/105)) ([981579e](https://github.com/donkeyclip/motorcortex-slides/commit/981579e5332309ce8a02d73bdd371b474c43b6e1))
+
 ## [2.0.2](https://github.com/donkeyclip/motorcortex-slides/compare/v2.0.1...v2.0.2) (2022-06-24)
 
 
