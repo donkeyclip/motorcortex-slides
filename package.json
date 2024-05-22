@@ -74,7 +74,7 @@
     "@donkeyclip/motorcortex-player": "2.10.11",
     "@kissmybutton/motorcortex-video": "2.2.2",
     "@rollup/plugin-babel": "5.3.1",
-    "@rollup/plugin-commonjs": "23.0.7",
+    "@rollup/plugin-commonjs": "25.0.8",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "15.2.3",
     "babel-loader": "8.3.0",
